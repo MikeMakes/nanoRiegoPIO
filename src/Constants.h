@@ -1,0 +1,40 @@
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
+#define numPumps 1
+#define pinPump 17//A3
+
+const static int numValves = 3;
+const static int pinValve1 = 14;//A0
+const static int pinValve2 = 15;//A1
+const static int pinValve3 = 16;//A2
+
+const static int PIN_SELECTOR_A1 = 12;
+const static int PIN_SELECTOR_B1 = 11;
+const static int PIN_BUTTON_1 = 10;
+
+const static int PIN_SELECTOR_A2 = 9;
+const static int PIN_SELECTOR_B2 = 8;
+const static int PIN_BUTTON_2 = 7;
+
+const static int PIN_SELECTOR_A3 = 6;
+const static int PIN_SELECTOR_B3 = 5;
+const static int PIN_BUTTON_3 = 4;
+
+const static unsigned int PIN_I2C_SDA = 18;
+const static unsigned int PIN_I2C_SCK = 19;
+
+const static unsigned int PIN_BLUETOOTH_RX = 2;
+const static unsigned int PIN_BLUETOOTH_TX = 3;
+
+#define oneDay 86400000
+#define oneDaySeconds 86400
+#define oneMin 6000
+
+#define EEPROM_timeAddress 0
+const static unsigned int DEFAULT_TIME = (unsigned int)1701709190;
+const static unsigned int ALARM_HOUR = (unsigned int)10;
+const static unsigned int ALARM_MINUTE = (unsigned int)00;
+const static unsigned int ALARM_SECOND = (unsigned int)00;
+
+#endif
