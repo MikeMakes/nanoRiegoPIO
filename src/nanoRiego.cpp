@@ -1,6 +1,8 @@
 #include <Arduino.h>
-#include "avr8-stub.h" //debug only
-#include "app_api.h"  //debug only
+#ifdef DEBUG_BUILD
+  #include "avr8-stub.h" //debug only
+  #include "app_api.h"  //debug only
+#endif
 
 #include <EEPROM.h>
 #include <TimeLib.h>
@@ -15,14 +17,6 @@
 //#include "IfaceRiego.h"
 #include "Riego.h"
 #include "Gui.h"
-
-#ifdef DEBUG_BUILD
-  #define SERIAL_BEGIN(x) do {} while (0)
-  #define SERIAL_PRINTLN(x) do {} while (0)
-#else
-  #define SERIAL_BEGIN(x) Serial.begin(x)
-  #define SERIAL_PRINTLN(x) Serial.println(x)
-#endif
 
 void setEEPROM(){
   EEPROM.put(EEPROM_timeAddress, DEFAULT_TIME);
@@ -49,18 +43,18 @@ void handlePress3();
 void handleLongPress3();
 
 void alarmRiego(){
-  Serial.println("void alarmRiego()");
+  SERIAL_PRINTLN("void alarmRiego()");
   riego->checkAlarm();
 }
 
 void setup() {
+  #ifdef DEBUG_BUILD 
   debug_init(); //debug only
-  Serial.println("setup()");
-  //debug_init();
+  #endif
 
-  // put your setup code here, to run once:
+  SERIAL_BEGIN(115200);
+  SERIAL_PRINTLN("setup()");
   bluetooth.begin(9600);
-  Serial.begin(115200);
 
   setEEPROM();
   time_t startTime;
@@ -69,14 +63,16 @@ void setup() {
   setSyncProvider(RTC.get);   // the function to get the time from the RTC
   //RTC.set((time_t)DEFAULT_TIME);
   if(timeStatus()!= timeSet){ //tbd: || RTC.get()>startTime; 
-     Serial.println("Unable to sync with the RTC");
+     SERIAL_PRINTLN("Unable to sync with the RTC");
      RTC.set(startTime);
      setTime(startTime);
   }
   else{
-     Serial.println("RTC has set the system time");   
-     Serial.println(now()); 
+     SERIAL_PRINTLN("RTC has set the system time");   
+     SERIAL_PRINTLN(now()); 
   }
+
+  SERIAL_PRINTLN("brkp1");
 
   // Load to the encoder all nedded handle functions here (up to 9 functions)
   versatile_encoder[0].setHandleRotate(handleRotate1);
@@ -89,11 +85,18 @@ void setup() {
   versatile_encoder[2].setHandlePress(handlePress3);  
   versatile_encoder[2].setHandleLongPress(handleLongPress3);
 
-  Serial.flush();
+  SERIAL_PRINTLN("brkp2");
+
+  SERIAL_FLUSH();
+  SERIAL_PRINTLN("brkp3");
   gui = new Gui(riego, &bluetooth);
+
+  SERIAL_PRINTLN("brkp4");
 
   riego->setProgramTime(ALARM_HOUR-1, ALARM_MINUTE, ALARM_SECOND);
   Alarm.alarmRepeat(ALARM_HOUR-1, ALARM_MINUTE, ALARM_SECOND, alarmRiego);
+
+  SERIAL_PRINTLN("finish setup");
 }
 
 bool changeState = false;
@@ -108,13 +111,13 @@ bool toggleField, toggleValue;
 //bool directionValue = true;
 
 void loop(){
-  Serial.println("void loop()");
+  SERIAL_PRINTLN("void loop()");
   bluetooth.println("void loop()");
   //debug_message("loop");
 
   for(int i=0; i<3; i++){
     if (versatile_encoder[i].ReadEncoder()) {    // Do the encoder reading and processing
-        //Serial.println("ReadEncoder");
+        //SERIAL_PRINTLN("ReadEncoder");
         // Do something here whenever an encoder action is read
         if(press){
           press=false;
@@ -201,12 +204,12 @@ void handleRotate3(int8_t rotation) {
       */
 }
 void handlePress3() {
-  Serial.println("handlePress3()");
+  SERIAL_PRINTLN("handlePress3()");
   bluetooth.println("handlePress3");
   toggleValue = true;
 }
 void handleLongPress3() {
-  //Serial.println("handlePress()");
+  //SERIAL_PRINTLN("handlePress()");
   //bluetooth.println("handlePress");
   longPress[2]=true;
 }

@@ -4,11 +4,13 @@ Gui::Gui(IfaceRiego* riego, SoftwareSerial* serial):
 IfaceGui(riego),
 _bluetooth(serial)
 {
+    SERIAL_PRINTLN("Gui::Gui");
+    serial->println("Gui::Gui");
+
     _state = STATES::FRONTPANEL;
     _update = false;
     _panels[_state]->setup();
 
-    serial->println("Gui::Gui");
     /*
     for(int i=0; i<3; i++){
       _panels[i]->setSerial(serial);
@@ -16,7 +18,7 @@ _bluetooth(serial)
 }
 
 void Gui::run(){
-  Serial.println("Gui::run()");
+  SERIAL_PRINTLN("Gui::run()");
   if(_update){
     _update = false;
     _panels[_state]->setup();
@@ -35,26 +37,26 @@ void Gui::setState(STATES state){
 }
 
 void Gui::setup(){
-  Serial.println("Gui::setup()");
+  SERIAL_PRINTLN("Gui::setup()");
   _panels[_state]->setup();
 }
 
 void Gui::nextState(bool right){
-  //Serial.println("/* nextState");
+  //SERIAL_PRINTLN("/* nextState");
   int s = int(_state);
   if(right){
     if(s>=2) s=-1;
     _state = Gui::STATES(s+1);
-    //Serial.println(_state);
+    //SERIAL_PRINTLN(_state);
   }
   else{
     if(s<=0) s=3;
     _state = Gui::STATES(s-1);
-    //Serial.println(_state);
+    //SERIAL_PRINTLN(_state);
   }
   _update = true;
-  //Serial.println("nextState */");
-  //Serial.flush();
+  //SERIAL_PRINTLN("nextState */");
+  //SERIAL_FLUSH();
 }
 
 void Gui::shiftField(bool directionField){

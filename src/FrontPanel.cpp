@@ -11,7 +11,7 @@ void FrontPanel::body(){
 }
 
 void FrontPanel::loop(IfaceRiego* riego, IfaceGui* gui){
-    Serial.println("FrontPanel::loop()");
+    SERIAL_PRINTLN("FrontPanel::loop()");
     bluetooth->println("FrontPanel::loop()");
         
     /////////////   Receive and Process Data
@@ -32,9 +32,9 @@ void FrontPanel::loop(IfaceRiego* riego, IfaceGui* gui){
         //bluetooth->print("*S"+text+"*");
 
         for(int i=0; i<3; i++){
-            Serial.println(i);
-            Serial.println(valveLeds[i]);
-            Serial.println(riego->getValve(i));
+            SERIAL_PRINTLN(i);
+            SERIAL_PRINTLN(valveLeds[i]);
+            SERIAL_PRINTLN(riego->getValve(i));
             //if(static_cast<Riego*>(riego)->getValve(i)!=valveLeds[i]){
                 valveLeds[i] = riego->getValve(i);
                 switch(i){

@@ -23,7 +23,7 @@ void ProgramPanel::body(){
 }
 
 void ProgramPanel::loop(IfaceRiego* riego, IfaceGui* gui){
-    Serial.println("ProgramPanel::loop()");
+    SERIAL_PRINTLN("ProgramPanel::loop()");
     bluetooth->println("ProgramPanel::loop()");
         
     /////////////   Receive and Process Data
