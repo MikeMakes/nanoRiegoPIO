@@ -4,16 +4,10 @@ TimePanel::TimePanel(IfaceGui* gui, IfaceRiego* riego, SoftwareSerial* serial):P
 //TimePanel::TimePanel(char commandID, char panelID, SoftwareSerial* serial):Panel(commandID, panelID, serial){}
 
 void TimePanel::body(){
-    String color;
-    if(changingSystemTime){
-        color = yellowText;
-    }else{
-        color = whiteText;
-    }
-    bluetooth->println("add_text_box(1,4,6,C,24,"+color+",h)");
-    bluetooth->println("add_text_box(9,4,6,C,24,"+color+",D)");
+    bluetooth->println("add_text_box(1,4,6,C,24,245,240,245,h)");
+    bluetooth->println("add_text_box(9,4,6,C,24,245,240,245,D)");
     //bluetooth->println("add_text_box(1,4,6,C,24,245,240,245,h)");
-    //bluetooth->println("add_text_box(9,4,6,C,24,245,240,245,D)");s
+    //bluetooth->println("add_text_box(9,4,6,C,24,245,240,245,D)");
 }
 
 void TimePanel::loop(IfaceRiego* riego, IfaceGui* gui){
@@ -76,7 +70,7 @@ void TimePanel::loop(IfaceRiego* riego, IfaceGui* gui){
 
 void TimePanel::shiftField(bool next){
     changingSystemTime = true;
-    actualTime.hour++;
+    //actualTime.hour++;
 };
 unsigned int TimePanel::getField(){
     return actualTime.hour;

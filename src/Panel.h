@@ -14,7 +14,6 @@ class Panel{
     _gui(gui),
     _riego(riego),
     bluetooth(serial){
-
     }
 
     //char serialID[2];

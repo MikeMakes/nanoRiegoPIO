@@ -65,6 +65,16 @@ void setup() {
 
   setSyncProvider(RTC.get);   // the function to get the time from the RTC
   //RTC.set((time_t)DEFAULT_TIME);
+  /* Usa esto para setear la hora a mano
+  tmElements_t tm;
+  tm.Day = 15;
+  tm.Month = 6;
+  tm.Year = CalendarYrToTm(2024);
+  tm.Hour = 19;
+  tm.Minute = 21;
+  tm.Second = 0;
+  RTC.write(tm);
+  */
   if(timeStatus()!= timeSet){ //tbd: || RTC.get()>startTime; 
      Serial.println("Unable to sync with the RTC");
      RTC.set(startTime);
@@ -89,8 +99,8 @@ void setup() {
   Serial.flush();
   gui = new Gui(riego, &bluetooth);
 
-  riego->setProgramTime(ALARM_HOUR-1, ALARM_MINUTE, ALARM_SECOND);
-  Alarm.alarmRepeat(ALARM_HOUR-1, ALARM_MINUTE, ALARM_SECOND, alarmRiego);
+  riego->setProgramTime(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND);
+  Alarm.alarmRepeat(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND, alarmRiego);
 }
 
 bool changeState = false;
@@ -146,12 +156,14 @@ void loop(){
           gui->shiftValue(directionValue);
         }
         */
+        /*
         if(toggleValue){ // Guardar cambio de time mostrado
           toggleValue=false;
           systemTime t = riego->getSystemTime();
           t.hour = t.hour + gui->selection();
           riego->setSystemTime(t);
         }
+        */
     }
   }
   
