@@ -1,6 +1,8 @@
 #include <Arduino.h>
-#include "avr8-stub.h" //debug only
-#include "app_api.h"  //debug only
+#ifdef DEBUG_BUILD
+  #include "avr8-stub.h" //debug only
+  #include "app_api.h"  //debug only
+#endif
 
 #include <EEPROM.h>
 #include <TimeLib.h>
@@ -15,14 +17,6 @@
 //#include "IfaceRiego.h"
 #include "Riego.h"
 #include "Gui.h"
-
-#ifdef DEBUG_BUILD
-  #define SERIAL_BEGIN(x) do {} while (0)
-  #define SERIAL_PRINTLN(x) do {} while (0)
-#else
-  #define SERIAL_BEGIN(x) Serial.begin(x)
-  #define SERIAL_PRINTLN(x) Serial.println(x)
-#endif
 
 void setEEPROM(){
   EEPROM.put(EEPROM_timeAddress, DEFAULT_TIME);
@@ -54,7 +48,10 @@ void alarmRiego(){
 }
 
 void setup() {
+  #ifdef DEBUG_BUILD
   debug_init(); //debug only
+  #endif
+  
   Serial.println("setup()");
   //debug_init();
 

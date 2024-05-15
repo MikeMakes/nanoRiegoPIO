@@ -13,13 +13,7 @@ void TimePanel::body(){
     bluetooth->println("add_text_box(1,4,6,C,24,"+color+",h)");
     bluetooth->println("add_text_box(9,4,6,C,24,"+color+",D)");
     //bluetooth->println("add_text_box(1,4,6,C,24,245,240,245,h)");
-    //bluetooth->println("add_text_box(9,4,6,C,24,245,240,245,D)");
-
-    Serial.println("void TimePanel::body()");
-    Serial.println("add_text_box(1,4,6,C,24,-------,h)");
-    Serial.println(color);
-    Serial.println("add_text_box(1,4,6,C,24,"+color+",h)");
-    Serial.println("add_text_box(9,4,6,C,24,"+color+",D)");
+    //bluetooth->println("add_text_box(9,4,6,C,24,245,240,245,D)");s
 }
 
 void TimePanel::loop(IfaceRiego* riego, IfaceGui* gui){
