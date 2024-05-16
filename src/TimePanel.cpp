@@ -10,8 +10,8 @@ void TimePanel::body(){
     }else{
         color = whiteText;
     }
-    bluetooth->println(whiteAddTextBoxH);
-    bluetooth->println(greenAddTextBoxB);
+    //bluetooth->println(whiteAddTextBoxH);
+    //bluetooth->println(greenAddTextBoxB);
     //bluetooth->println("add_text_box(1,4,6,C,24,"+color+"h)");
     //bluetooth->println("add_text_box(9,4,6,C,24,"+color+"D)");
     //bluetooth->println("add_text_box(1,4,6,C,24,245,240,245,h)");
