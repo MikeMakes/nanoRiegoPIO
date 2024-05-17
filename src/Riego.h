@@ -54,6 +54,20 @@ class Riego:public IfaceRiego{
         setValve(i,false);
       }
     }
+
+    static void runProgramNextState(){}
+
+    void runProgramTimer(time_t programDelay){
+      _running = true;
+      _lastRunTime = now();
+      for(int i=0; i<numValves; i++){
+        setValve(i,true);
+
+        Alarm.timerOnce(_programDelay,runProgramNextState);
+      }
+      turnOff();
+      _running = false; //todo
+    }
         
     void runProgram(unsigned long programDelay){
       _running = true;
@@ -61,6 +75,7 @@ class Riego:public IfaceRiego{
       _lastRunTime = now();
       for(int i=0; i<numValves; i++){
         setValve(i,true);
+
         Alarm.delay(programDelay);
       }
       turnOff();
@@ -161,6 +176,44 @@ class Riego:public IfaceRiego{
       setTime(unixTime);
     }
 
+    void press(int button){
+      switch(button){
+        case 0:
+          break;
+
+        case 1:
+          if(selections[1]==7) this->toggleProgramEnabled();
+          else this->toggleProgramDays(selections[1]);
+          break;
+
+        case 2:
+          break;
+
+        default:
+          SERIAL_PRINTLN("****BUTTON_OUT_OF_INDEX****");
+      }
+    }
+
+    void longPress(int button){
+      this->toggleValve(button);
+    }
+
+    void rotation(int button, bool rotationDir){
+      switch(button){
+        case 0:
+          break;
+
+        case 1:
+          //gui->shiftField(rotationDir);
+          break;
+
+        case 2:
+          break;
+
+        default:
+          SERIAL_PRINTLN("****BUTTON_OUT_OF_INDEX****");
+      }
+    }
 
   private:
     Relay* _pump;
@@ -178,5 +231,8 @@ class Riego:public IfaceRiego{
     time_t _lastRunTime;
     bool _programedDays[7] = {true,true,true,true,true,true,true};
     unsigned int _programTime[3]={9,00,00};
+
+  public:
+    unsigned int selections[3]={0,0,0};
 };
 #endif

@@ -32,19 +32,21 @@ Gui* gui;
 Versatile_RotaryEncoder versatile_encoder[3]={Versatile_RotaryEncoder(PIN_SELECTOR_B1, PIN_SELECTOR_A1, PIN_BUTTON_1), Versatile_RotaryEncoder(PIN_SELECTOR_B2, PIN_SELECTOR_A2, PIN_BUTTON_2), Versatile_RotaryEncoder(PIN_SELECTOR_B3, PIN_SELECTOR_A3, PIN_BUTTON_3)};
 
 // Functions prototyping to be handled on each Encoder Event
-void handleRotate1(int8_t rotation);
+void handleRotate1(int8_t rotationDirection);
 void handlePress1();
 void handleLongPress1();
-void handleRotate2(int8_t rotation);
+void handleRotate2(int8_t rotationDirection);
 void handlePress2();
 void handleLongPress2();
-void handleRotate3(int8_t rotation);
+void handleRotate3(int8_t rotationDirection);
 void handlePress3();
 void handleLongPress3();
 
+
+
 void alarmRiego(){
   SERIAL_PRINTLN("void alarmRiego()");
-  riego->checkAlarm();
+  riego->check();
 }
 
 void setup() {
@@ -99,14 +101,20 @@ void setup() {
   SERIAL_PRINTLN("finish setup");
 }
 
-bool changeState = false;
-bool directionState = true;
-bool press = false;
+//bool changeState = false;
+//bool directionState = true;
+//bool press = false;
+
+bool rotation[3] = {false,false,false};
+bool rotationDir[3] = {false,false,false};
+bool press[3] = {false,false,false};
 bool longPress[3] = {false,false,false};
 
+/*
 bool changeField = false;
 bool directionField = true;
 bool toggleField, toggleValue;
+*/
 //bool changeValue = false;
 //bool directionValue = true;
 
@@ -115,101 +123,105 @@ void loop(){
   bluetooth.println("void loop()");
   //debug_message("loop");
 
+  static time_t buttonPressedAt = now();
+  bool triggerButtonAction = false;
+
   for(int i=0; i<3; i++){
-    if (versatile_encoder[i].ReadEncoder()) {    // Do the encoder reading and processing
-        //SERIAL_PRINTLN("ReadEncoder");
-        // Do something here whenever an encoder action is read
-        if(press){
-          press=false;
-          gui->setup();
+    if (versatile_encoder[i].ReadEncoder()){// Do the encoder reading and processing
+      // Do something here whenever an encoder action is read
+      //SERIAL_PRINTLN("ReadEncoder");
+      if(triggerButtonAction == false){
+        if(now()-buttonPressedAt>200){
+          triggerButtonAction = true;
+          buttonPressedAt = now();
+          //riego->buttonPressedAt(now());
         }
-
-        if(changeState){
-          changeState = false;
-          gui->nextState(directionState);
-        }
-
-        if(longPress[i]){
-          longPress[i] = false;
-          riego->toggleValve(i);
-        }
-
-        if(changeField){
-          changeField=false;
-          gui->shiftField(directionField);
-        }
-
-        if(toggleField){
-          toggleField=false;
-          unsigned int selection = gui->selection();
-          if(selection==7) riego->toggleProgramEnabled();
-          else riego->toggleProgramDays(selection);
-        }
-        
-        /*
-        if(changeValue){ // Mostrar cambio de time
-          changeValue=false;
-          gui->shiftValue(directionValue);
-        }
-        */
-        if(toggleValue){ // Guardar cambio de time mostrado
-          toggleValue=false;
-          systemTime t = riego->getSystemTime();
-          t.hour = t.hour + gui->selection();
-          riego->setSystemTime(t);
-        }
+      }
     }
+        
   }
-  
+
+  if(triggerButtonAction){
+    //Aquí antes que nada deberías checkear si quieres hacer algo
+    //con 2 o más botones a la vez
+    for(int i=0; i<3; i++){
+      if(press[0]) gui->setup();
+      if(rotation[0]) gui->nextState(rotationDir[0]);
+
+      if(press[1]) riego->selections[1] = gui->selection();
+
+      riego->longPress(i);
+      riego->press(i);
+      riego->rotation(i,rotationDir[i]);
+
+      longPress[i]=false;
+      press[i]=false;
+      rotation[i]=false;
+    }
+    triggerButtonAction=false;
+  }
+
   gui->run();
+  //riego->run();
   Alarm.delay(1);
 }
 
-// Implement your functions here accordingly to your needs
-void handleRotate1(int8_t rotation) {
-  changeState = true;
-  if (rotation > 0)
-    directionState=false;
+void handleRotate(int handleNumber, int8_t rotationDirection){
+  /*
+  SERIAL_PRINTLN("handleRotate(");
+  SERIAL_PRINTLN(handleNumber);
+  SERIAL_PRINTLN(",");
+  SERIAL_PRINTLN(rotationDirection);
+  SERIAL_PRINTLN(")");
+  */
+
+  rotation[handleNumber] = true;
+  if (rotation[handleNumber] > 0)
+    rotationDir[handleNumber]=false;
   else
-    directionState=true;
+    rotationDir[handleNumber]=false;
+}
+void handlePress(int handleNumber){
+  press[handleNumber]=true;
+}
+void handleLongPress(int handleNumber){
+  longPress[handleNumber]=true;
+}
+
+// Implement your functions here accordingly to your needs
+void handleRotate1(int8_t rotationDirection) {
+  SERIAL_PRINTLN("handleRotate3()");
+  handleRotate(0, rotationDirection);
 }
 void handlePress1() {
-  press=true;
+  SERIAL_PRINTLN("handlePress2()");
+  handlePress(0);
 }
 void handleLongPress1() {
-  longPress[0]=true;
+  SERIAL_PRINTLN("handleLongPress2()");
+  handleLongPress(0);
 }
-
-void handleRotate2(int8_t rotation) {
-  changeField = true;
-  if (rotation > 0)
-    directionField=true;
-  else
-    directionField=false;
+void handleRotate2(int8_t rotationDirection) {
+  SERIAL_PRINTLN("handleRotate3()");
+  handleRotate(1, rotationDirection);
 }
 void handlePress2() {
-  toggleField = true;
+  SERIAL_PRINTLN("handlePress2()");
+  handlePress(1);
 }
 void handleLongPress2() {
-  longPress[1]=true;
+  SERIAL_PRINTLN("handleLongPress2()");
+  handleLongPress(1);
 }
-
-void handleRotate3(int8_t rotation) {
-  /*
-    changeValue = true;
-    if (rotation > 0)
-      directionValue=true;
-    else
-      directionValue=false;
-      */
+void handleRotate3(int8_t rotationDirection) {
+  SERIAL_PRINTLN("handleRotate3()");
+  handleRotate(2, rotationDirection);
 }
 void handlePress3() {
   SERIAL_PRINTLN("handlePress3()");
-  bluetooth.println("handlePress3");
-  toggleValue = true;
+  handlePress(2);  
 }
 void handleLongPress3() {
-  //SERIAL_PRINTLN("handlePress()");
-  //bluetooth.println("handlePress");
-  longPress[2]=true;
+  SERIAL_PRINTLN("handleLongPress()");
+  handleLongPress(2);
 }

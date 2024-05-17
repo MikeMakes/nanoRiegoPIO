@@ -3,10 +3,12 @@
 
 #ifdef DEBUG_BUILD
     #define SERIAL_BEGIN(x) do {} while (0)
+    #define SERIAL_PRINT(x) do {} while (0)
     #define SERIAL_PRINTLN(x) do {} while (0)
     #define SERIAL_FLUSH(x) do {} while(0)
 #else
     #define SERIAL_BEGIN(x) Serial.begin(x)
+    #define SERIAL_PRINT(x) Serial.print(x)
     #define SERIAL_PRINTLN(x) Serial.println(x)
     #define SERIAL_FLUSH(x)  Serial.flush(x)
 #endif
