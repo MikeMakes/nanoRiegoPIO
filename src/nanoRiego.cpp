@@ -10,11 +10,10 @@
 #include <TimeAlarms.h>
 #include <DS1307RTC.h>  // a basic DS1307 library that returns time as a time_t
 #include <SoftwareSerial.h>
+#include <Versatile_RotaryEncoder.h>
 
 #include "Constants.h"
 
-//#include "Relay.h"
-//#include "IfaceRiego.h"
 #include "Riego.h"
 #include "Gui.h"
 
@@ -28,7 +27,11 @@ Relay valves[]={Relay(pinValve1, true), Relay(pinValve2, true), Relay(pinValve3,
 Riego* riego = new Riego(&pump, valves);
 Gui* gui;
 
-#include <Versatile_RotaryEncoder.h>
+void alarmRiego(){
+  SERIAL_PRINTLN("void alarmRiego()");
+  riego->check();
+}
+
 Versatile_RotaryEncoder versatile_encoder[3]={Versatile_RotaryEncoder(PIN_SELECTOR_B1, PIN_SELECTOR_A1, PIN_BUTTON_1), Versatile_RotaryEncoder(PIN_SELECTOR_B2, PIN_SELECTOR_A2, PIN_BUTTON_2), Versatile_RotaryEncoder(PIN_SELECTOR_B3, PIN_SELECTOR_A3, PIN_BUTTON_3)};
 
 // Functions prototyping to be handled on each Encoder Event
@@ -40,14 +43,8 @@ void handlePress2();
 void handleLongPress2();
 void handleRotate3(int8_t rotationDirection);
 void handlePress3();
+/// @brief 
 void handleLongPress3();
-
-
-
-void alarmRiego(){
-  SERIAL_PRINTLN("void alarmRiego()");
-  riego->check();
-}
 
 void setup() {
   #ifdef DEBUG_BUILD 
