@@ -43,7 +43,6 @@ void handlePress2();
 void handleLongPress2();
 void handleRotate3(int8_t rotationDirection);
 void handlePress3();
-/// @brief 
 void handleLongPress3();
 
 void setup() {
@@ -89,6 +88,7 @@ void setup() {
   SERIAL_FLUSH();
   SERIAL_PRINTLN("brkp3");
   gui = new Gui(riego, &bluetooth);
+  riego->gui(gui);
 
   SERIAL_PRINTLN("brkp4");
 
@@ -98,22 +98,10 @@ void setup() {
   SERIAL_PRINTLN("finish setup");
 }
 
-//bool changeState = false;
-//bool directionState = true;
-//bool press = false;
-
 bool rotation[3] = {false,false,false};
 bool rotationDir[3] = {false,false,false};
 bool press[3] = {false,false,false};
 bool longPress[3] = {false,false,false};
-
-/*
-bool changeField = false;
-bool directionField = true;
-bool toggleField, toggleValue;
-*/
-//bool changeValue = false;
-//bool directionValue = true;
 
 void loop(){
   SERIAL_PRINTLN("void loop()");

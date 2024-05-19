@@ -5,12 +5,13 @@
 
 class TimePanel : public Panel {
   public:
-    TimePanel(IfaceGui* gui, IfaceRiego* riego, SoftwareSerial* serial);
+    TimePanel(SoftwareSerial* serial);
     //TimePanel(char commandID, char panelID, SoftwareSerial* serial);
     ~TimePanel();
 
     void body();
-    void loop(IfaceRiego* riego, IfaceGui* gui);
+    void loop();
+    void update(IfaceRiego* const riego, IfaceGui* const gui);
 
     void shiftField(bool next);
     unsigned int getField();

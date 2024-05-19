@@ -28,7 +28,7 @@ class Gui:public IfaceGui{
 
     SoftwareSerial* _bluetooth;
 
-    Panel* _panels[3] = {new FrontPanel(this,_riego,_bluetooth), new TimePanel(this,_riego,_bluetooth), new ProgramPanel(this,_riego,_bluetooth)};
+    Panel* _panels[3] = {new FrontPanel(_bluetooth), new TimePanel(_bluetooth), new ProgramPanel(_bluetooth)};
     //Panel* _panels[3] = {new FrontPanel('*','F',_bluetooth), new TimePanel('*','T',_bluetooth), new ProgramPanel('*','P',_bluetooth)};
     //Panel* _panels[3] = {new FrontPanel('*','F',_bluetooth), new FrontPanel('*','F',_bluetooth), new FrontPanel('*','F',_bluetooth)};
 };

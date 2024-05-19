@@ -10,11 +10,8 @@
 
 class Panel{
   public:
-    Panel(IfaceGui* const gui = nullptr,IfaceRiego* const riego = nullptr, SoftwareSerial* const serial = nullptr):
-    _gui(gui),
-    _riego(riego),
+    Panel(SoftwareSerial* const serial = nullptr):
     bluetooth(serial){
-
     }
 
     //char serialID[2];
@@ -56,14 +53,11 @@ class Panel{
       foot();
     }
 
-    virtual void loop(IfaceRiego* const riego, IfaceGui* const gui);
+    virtual void loop();
+    virtual void update(IfaceRiego* const riego, IfaceGui* const gui);
 
     virtual void shiftField(bool next);
     virtual unsigned int getField();
-
-  private:
-    IfaceGui* _gui;
-    IfaceRiego* _riego;
 };
 
 #endif

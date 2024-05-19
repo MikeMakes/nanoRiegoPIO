@@ -4,6 +4,9 @@
 #include <Arduino.h>
 #include "Constants.h"
 #include "Relay.h"
+//#include "IfaceGui.h"
+
+class IfaceGui; //Evitar dependencias cirulares
 
 struct systemTime{
   unsigned int hour, minute, second, day, month, year;
@@ -19,6 +22,13 @@ struct programTime{
 class IfaceRiego{
   public:
     IfaceRiego(){}
+
+    
+    virtual void gui(IfaceGui *gui){
+      _gui=gui;
+    }
+    
+
     virtual void setValve(int valve, bool state);
     virtual void toggleValve(int valve);
     virtual bool getValve(int valve);
@@ -33,6 +43,8 @@ class IfaceRiego{
     virtual unsigned int getProgramTime(unsigned int field);
     virtual systemTime getSystemTime();
     virtual unsigned int getSystemTime(unsigned int field);
+
+    IfaceGui* _gui;
 };
 
 #endif

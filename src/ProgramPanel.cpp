@@ -1,6 +1,6 @@
 #include "ProgramPanel.h"
 
-ProgramPanel::ProgramPanel(IfaceGui* gui, IfaceRiego* riego, SoftwareSerial* serial):Panel(gui, riego, serial){}
+ProgramPanel::ProgramPanel(SoftwareSerial* serial):Panel(serial){}
 //ProgramPanel::ProgramPanel(char commandID, char panelID, SoftwareSerial* serial):Panel(commandID, panelID, serial){}
 
 void ProgramPanel::body(){
@@ -22,7 +22,7 @@ void ProgramPanel::body(){
     */
 }
 
-void ProgramPanel::loop(IfaceRiego* riego, IfaceGui* gui){
+void ProgramPanel::loop(){
     SERIAL_PRINTLN("ProgramPanel::loop()");
     bluetooth->println("ProgramPanel::loop()");
         
@@ -37,14 +37,14 @@ void ProgramPanel::loop(IfaceRiego* riego, IfaceGui* gui){
     if ((t-last_time)>update_interval){
         last_time=t;
 
-        programTime nextProgramTime = riego->getProgramTime();
-        if(nextProgramTime.programEnabled){
+        //programTime nextProgramTime = riego->getProgramTime();
+        if(_nextProgramTime.programEnabled){
             bluetooth->print("*h");
-            bluetooth->print(nextProgramTime.hour);
+            bluetooth->print(_nextProgramTime.hour);
             bluetooth->print(":");
-            bluetooth->print(nextProgramTime.minute);
+            bluetooth->print(_nextProgramTime.minute);
             bluetooth->print(":");
-            bluetooth->print(nextProgramTime.second);
+            bluetooth->print(_nextProgramTime.second);
             bluetooth->print("*");
         }else{
             bluetooth->print(F("*hPrograma desactivado*"));
@@ -55,14 +55,14 @@ void ProgramPanel::loop(IfaceRiego* riego, IfaceGui* gui){
 
         for(uint8_t i=0; i<8; i++){
             if(i!=7){ //weekday
-                if(nextProgramTime.programDays[i]){
+                if(_nextProgramTime.programDays[i]){
                     red=0; green=255;
                 }else {
                     red=255; green=0;
                 }
                 led = week[i];
             }else{
-                if(nextProgramTime.programEnabled){
+                if(_nextProgramTime.programEnabled){
                     red=0; green=255;
                 }else{
                     red=255; green=0;
@@ -84,6 +84,10 @@ void ProgramPanel::loop(IfaceRiego* riego, IfaceGui* gui){
             bluetooth->print("*");
         }
     }
+}
+
+void ProgramPanel::update(IfaceRiego* const riego, IfaceGui* const gui){
+    _nextProgramTime = riego->getProgramTime();
 }
 
 void ProgramPanel::selectDay(unsigned int day){

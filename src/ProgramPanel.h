@@ -5,12 +5,13 @@
 
 class ProgramPanel : public Panel {
   public:
-    ProgramPanel(IfaceGui* gui, IfaceRiego* riego, SoftwareSerial* serial);
+    ProgramPanel(SoftwareSerial* serial);
     //ProgramPanel(char commandID, char panelID, SoftwareSerial* serial);
     ~ProgramPanel();
 
     void body();
-    void loop(IfaceRiego* riego, IfaceGui* gui);
+    void loop();
+    void update(IfaceRiego* const riego, IfaceGui* const gui);
 
     String text; // String for text elements
     const String week[7] = {"*L","*M","*X","*J","*V","*S","*D"};
@@ -22,6 +23,8 @@ class ProgramPanel : public Panel {
     void shiftDay(bool next);
     void shiftField(bool next);
     unsigned int getField();
+
+    programTime _nextProgramTime;
 
 };
 

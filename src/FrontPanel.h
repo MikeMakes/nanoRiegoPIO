@@ -9,12 +9,13 @@ struct FrontPanelState{
 
 class FrontPanel : public Panel {
   public:
-    FrontPanel(IfaceGui* gui, IfaceRiego* riego, SoftwareSerial* serial);
+    FrontPanel(SoftwareSerial* serial);
     //FrontPanel(char commandID, char panelID, SoftwareSerial* serial);
     ~FrontPanel();
 
     void body();
-    void loop(IfaceRiego* riego, IfaceGui* gui);
+    void loop();
+    void update(IfaceRiego* const riego, IfaceGui* const gui);
 
     String text; // String for text elements
     int red,green,blue; // RGB color

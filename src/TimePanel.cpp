@@ -1,6 +1,6 @@
 #include "TimePanel.h"
 
-TimePanel::TimePanel(IfaceGui* gui, IfaceRiego* riego, SoftwareSerial* serial):Panel(gui, riego, serial){}
+TimePanel::TimePanel(SoftwareSerial* serial):Panel(serial){}
 //TimePanel::TimePanel(char commandID, char panelID, SoftwareSerial* serial):Panel(commandID, panelID, serial){}
 
 void TimePanel::body(){
@@ -24,7 +24,7 @@ void TimePanel::body(){
     SERIAL_PRINTLN("add_text_box(9,4,6,C,24,"+color+",D)");
 }
 
-void TimePanel::loop(IfaceRiego* riego, IfaceGui* gui){
+void TimePanel::loop(){
     SERIAL_PRINTLN("TimePanel::loop()");
     bluetooth->println("TimePanel::loop()");
         
@@ -43,7 +43,7 @@ void TimePanel::loop(IfaceRiego* riego, IfaceGui* gui){
         //text="abc"; // <--- Set text to send here 
         //bluetooth->print("*S"+text+"*");
 
-        actualTime = riego->getSystemTime();
+        //actualTime = riego->getSystemTime();
         bluetooth->print("*h");
         bluetooth->print(actualTime.hour);
         bluetooth->print(":");
@@ -81,6 +81,11 @@ void TimePanel::loop(IfaceRiego* riego, IfaceGui* gui){
         */
     }
 }
+
+void TimePanel::update(IfaceRiego* const riego, IfaceGui* const gui){
+    actualTime = riego->getSystemTime();
+}
+
 
 void TimePanel::shiftField(bool next){
     changingSystemTime = true;

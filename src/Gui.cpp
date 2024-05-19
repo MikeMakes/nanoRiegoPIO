@@ -23,7 +23,8 @@ void Gui::run(){
     _update = false;
     _panels[_state]->setup();
   }
-  _panels[_state]->loop(_riego, this);
+  _panels[_state]->update(_riego, this);
+  _panels[_state]->loop();
 }
 
 void Gui::setState(STATES state){
