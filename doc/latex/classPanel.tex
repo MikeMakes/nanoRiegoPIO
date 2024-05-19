@@ -1,0 +1,263 @@
+\hypertarget{classPanel}{}\doxysection{Panel Class Reference}
+\label{classPanel}\index{Panel@{Panel}}
+
+
+{\ttfamily \#include $<$Panel.\+h$>$}
+
+
+
+Inheritance diagram for Panel\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{classPanel__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPanel_ab706f5a8ebd34ef3d28d57b40bcffaa5}{Panel}} (\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const \mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}}=nullptr, \mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const \mbox{\hyperlink{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}{riego}}=nullptr, Software\+Serial $\ast$const serial=nullptr)
+\item 
+void \mbox{\hyperlink{classPanel_aa1d87d9e5f8e23bdfc7d65eab9efef9c}{set\+Serial}} (Software\+Serial $\ast$const serial)
+\item 
+void \mbox{\hyperlink{classPanel_a938f32d043ee63e4da2c5922ba63c8cd}{header}} ()
+\item 
+virtual void \mbox{\hyperlink{classPanel_ad00f0a0a4c18734a1b0591f29a23d944}{body}} ()
+\item 
+void \mbox{\hyperlink{classPanel_a59a0f9bab63d69b2f75252908e7da185}{foot}} ()
+\item 
+void \mbox{\hyperlink{classPanel_aa907633451931acaf5702b0e8e8f9b72}{setup}} ()
+\item 
+virtual void \mbox{\hyperlink{classPanel_abf53bcca45e15add05faf627dbf7bd98}{loop}} (\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const \mbox{\hyperlink{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}{riego}}, \mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const \mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}})
+\item 
+virtual void \mbox{\hyperlink{classPanel_ab1c94221f06e33c2ce350df6cec8eec3}{shift\+Field}} (bool next)
+\item 
+virtual unsigned int \mbox{\hyperlink{classPanel_a92cc10bfb58c0c48607a87c8d8cd6a19}{get\+Field}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{classPanel_adedd5541a3a117073f1bc38e73c980ae}{data\+\_\+in}}
+\item 
+int \mbox{\hyperlink{classPanel_a5fd8a437b198c0a7aea60c3b6917f652}{update\+\_\+interval}} =1000
+\item 
+unsigned long \mbox{\hyperlink{classPanel_a19e82e8ad0bf447830e7eae336b084d8}{last\+\_\+time}} =0
+\item 
+Software\+Serial $\ast$ \mbox{\hyperlink{classPanel_a26eca944755969690653752d67cc9b7b}{bluetooth}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file Panel.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPanel_ab706f5a8ebd34ef3d28d57b40bcffaa5}\label{classPanel_ab706f5a8ebd34ef3d28d57b40bcffaa5}} 
+\index{Panel@{Panel}!Panel@{Panel}}
+\index{Panel@{Panel}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{Panel()}{Panel()}}
+{\footnotesize\ttfamily Panel\+::\+Panel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const}]{gui = {\ttfamily nullptr},  }\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const}]{riego = {\ttfamily nullptr},  }\item[{Software\+Serial $\ast$const}]{serial = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 13 of file Panel.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPanel_ad00f0a0a4c18734a1b0591f29a23d944}\label{classPanel_ad00f0a0a4c18734a1b0591f29a23d944}} 
+\index{Panel@{Panel}!body@{body}}
+\index{body@{body}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{body()}{body()}}
+{\footnotesize\ttfamily virtual void Panel\+::body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classFrontPanel_add77b6b57d41ba2ab8dc69e7dff97a53}{Front\+Panel}}, \mbox{\hyperlink{classProgramPanel_a76857fff92c442d4017b6fa7aae8b280}{Program\+Panel}}, and \mbox{\hyperlink{classTimePanel_ad2064929efa82a84127ecd1e3b4c5bb1}{Time\+Panel}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPanel_ad00f0a0a4c18734a1b0591f29a23d944_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPanel_a59a0f9bab63d69b2f75252908e7da185}\label{classPanel_a59a0f9bab63d69b2f75252908e7da185}} 
+\index{Panel@{Panel}!foot@{foot}}
+\index{foot@{foot}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{foot()}{foot()}}
+{\footnotesize\ttfamily void Panel\+::foot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 47 of file Panel.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPanel_a59a0f9bab63d69b2f75252908e7da185_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPanel_a92cc10bfb58c0c48607a87c8d8cd6a19}\label{classPanel_a92cc10bfb58c0c48607a87c8d8cd6a19}} 
+\index{Panel@{Panel}!getField@{getField}}
+\index{getField@{getField}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{getField()}{getField()}}
+{\footnotesize\ttfamily virtual unsigned int Panel\+::get\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classFrontPanel_a7c4014553ca9d9a286cbb0ceea71d883}{Front\+Panel}}, \mbox{\hyperlink{classProgramPanel_a6fb505bacb81224307ae7c26d3f72fdb}{Program\+Panel}}, and \mbox{\hyperlink{classTimePanel_af2cbdfa1435e21506de238fb71f46bcb}{Time\+Panel}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPanel_a92cc10bfb58c0c48607a87c8d8cd6a19_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPanel_a938f32d043ee63e4da2c5922ba63c8cd}\label{classPanel_a938f32d043ee63e4da2c5922ba63c8cd}} 
+\index{Panel@{Panel}!header@{header}}
+\index{header@{header}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{header()}{header()}}
+{\footnotesize\ttfamily void Panel\+::header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 38 of file Panel.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPanel_a938f32d043ee63e4da2c5922ba63c8cd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPanel_abf53bcca45e15add05faf627dbf7bd98}\label{classPanel_abf53bcca45e15add05faf627dbf7bd98}} 
+\index{Panel@{Panel}!loop@{loop}}
+\index{loop@{loop}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily virtual void Panel\+::loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const}]{riego,  }\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classFrontPanel_a0945e4059335f31c67d552474d52ba81}{Front\+Panel}}, \mbox{\hyperlink{classProgramPanel_a02cdb7b6ff2ad0588fa14ba2991b9c34}{Program\+Panel}}, and \mbox{\hyperlink{classTimePanel_ac185ec8c5f846cd841c6aeb464e3cdd1}{Time\+Panel}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{classPanel_abf53bcca45e15add05faf627dbf7bd98_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPanel_aa1d87d9e5f8e23bdfc7d65eab9efef9c}\label{classPanel_aa1d87d9e5f8e23bdfc7d65eab9efef9c}} 
+\index{Panel@{Panel}!setSerial@{setSerial}}
+\index{setSerial@{setSerial}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{setSerial()}{setSerial()}}
+{\footnotesize\ttfamily void Panel\+::set\+Serial (\begin{DoxyParamCaption}\item[{Software\+Serial $\ast$const}]{serial }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 34 of file Panel.\+h.
+
+\mbox{\Hypertarget{classPanel_aa907633451931acaf5702b0e8e8f9b72}\label{classPanel_aa907633451931acaf5702b0e8e8f9b72}} 
+\index{Panel@{Panel}!setup@{setup}}
+\index{setup@{setup}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Panel\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 53 of file Panel.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{classPanel_aa907633451931acaf5702b0e8e8f9b72_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{classPanel_aa907633451931acaf5702b0e8e8f9b72_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classPanel_ab1c94221f06e33c2ce350df6cec8eec3}\label{classPanel_ab1c94221f06e33c2ce350df6cec8eec3}} 
+\index{Panel@{Panel}!shiftField@{shiftField}}
+\index{shiftField@{shiftField}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{shiftField()}{shiftField()}}
+{\footnotesize\ttfamily virtual void Panel\+::shift\+Field (\begin{DoxyParamCaption}\item[{bool}]{next }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classFrontPanel_acfc0469a06dbcf9cef2dc5145fc14f76}{Front\+Panel}}, \mbox{\hyperlink{classProgramPanel_a2e6c7340aa4721e25bd29f396f2d250d}{Program\+Panel}}, and \mbox{\hyperlink{classTimePanel_a149d54ce55323b6ffee989803684adef}{Time\+Panel}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{classPanel_ab1c94221f06e33c2ce350df6cec8eec3_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classPanel_a26eca944755969690653752d67cc9b7b}\label{classPanel_a26eca944755969690653752d67cc9b7b}} 
+\index{Panel@{Panel}!bluetooth@{bluetooth}}
+\index{bluetooth@{bluetooth}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{bluetooth}{bluetooth}}
+{\footnotesize\ttfamily Software\+Serial$\ast$ Panel\+::bluetooth}
+
+
+
+Definition at line 32 of file Panel.\+h.
+
+\mbox{\Hypertarget{classPanel_adedd5541a3a117073f1bc38e73c980ae}\label{classPanel_adedd5541a3a117073f1bc38e73c980ae}} 
+\index{Panel@{Panel}!data\_in@{data\_in}}
+\index{data\_in@{data\_in}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{data\_in}{data\_in}}
+{\footnotesize\ttfamily char Panel\+::data\+\_\+in}
+
+
+
+Definition at line 22 of file Panel.\+h.
+
+\mbox{\Hypertarget{classPanel_a19e82e8ad0bf447830e7eae336b084d8}\label{classPanel_a19e82e8ad0bf447830e7eae336b084d8}} 
+\index{Panel@{Panel}!last\_time@{last\_time}}
+\index{last\_time@{last\_time}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{last\_time}{last\_time}}
+{\footnotesize\ttfamily unsigned long Panel\+::last\+\_\+time =0}
+
+
+
+Definition at line 25 of file Panel.\+h.
+
+\mbox{\Hypertarget{classPanel_a5fd8a437b198c0a7aea60c3b6917f652}\label{classPanel_a5fd8a437b198c0a7aea60c3b6917f652}} 
+\index{Panel@{Panel}!update\_interval@{update\_interval}}
+\index{update\_interval@{update\_interval}!Panel@{Panel}}
+\doxysubsubsection{\texorpdfstring{update\_interval}{update\_interval}}
+{\footnotesize\ttfamily int Panel\+::update\+\_\+interval =1000}
+
+
+
+Definition at line 24 of file Panel.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/media/user/raid1/home/user/\+Documents/\+Platform\+I\+O/\+Projects/nano\+Riego\+P\+I\+O/src/\mbox{\hyperlink{Panel_8h}{Panel.\+h}}\end{DoxyCompactItemize}

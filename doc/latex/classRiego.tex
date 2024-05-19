@@ -1,0 +1,632 @@
+\hypertarget{classRiego}{}\doxysection{Riego Class Reference}
+\label{classRiego}\index{Riego@{Riego}}
+
+
+{\ttfamily \#include $<$Riego.\+h$>$}
+
+
+
+Inheritance diagram for Riego\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{classRiego__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Riego\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{classRiego__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRiego_ab6c81b4b5946c1be7b4faaf1bb7d0f60}{Riego}} (\mbox{\hyperlink{classRelay}{Relay}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_a3bd9bc37c206aab814401e906461cdf1}{pump}}, \mbox{\hyperlink{classRelay}{Relay}} \mbox{\hyperlink{nanoRiego_8cpp_a6f9c14cdbd42fdbe2d1742b29f205ad0}{valves}}\mbox{[}num\+Valves\mbox{]}, unsigned long program\+Delay\+Minutes=15)
+\item 
+void \mbox{\hyperlink{classRiego_a83410e274e6eac4a2dd6614962d0fc2b}{set\+Valve}} (int valve, bool state)
+\item 
+bool \mbox{\hyperlink{classRiego_a792bf34dd69bde1d49dce2f3f996d720}{get\+Valve}} (int valve)
+\item 
+void \mbox{\hyperlink{classRiego_a12c5b58f0ff399cb99e89460bae95fe6}{toggle\+Valve}} (int valve)
+\item 
+void \mbox{\hyperlink{classRiego_ae2993a71b165a6cbedf97c20f0c6d874}{set\+Program\+Enabled}} (bool program\+Enabled)
+\item 
+bool \mbox{\hyperlink{classRiego_aa4b84a4eff8fad0dce6296e947234ce1}{get\+Program\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{classRiego_afb8f53fa609ec831e3677193bf717eed}{toggle\+Program\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{classRiego_a5b7dcfe1560c6da25062340801fcc5e4}{turn\+Off}} ()
+\item 
+void \mbox{\hyperlink{classRiego_afbdc7dc9bf955590c1dced9df30813c1}{run\+Program\+Timer}} (time\+\_\+t program\+Delay)
+\item 
+void \mbox{\hyperlink{classRiego_adfce34662b16840eff354fa78b1345e7}{run\+Program}} (unsigned long program\+Delay)
+\item 
+void \mbox{\hyperlink{classRiego_a465a3dd7eb5803ba3c0e63d6c62dadbd}{test\+Valves}} ()
+\item 
+void \mbox{\hyperlink{classRiego_a6a7d435f7b4b75b5f02e90e8660f1c6d}{check}} ()
+\item 
+void \mbox{\hyperlink{classRiego_afb1fa2c7b18b15b3159c8181cd9ae13a}{check\+Millis}} ()
+\item 
+void \mbox{\hyperlink{classRiego_af6e15f04ffddcc2ee0c42c3abba1afe4}{check\+Alarm}} ()
+\item 
+void \mbox{\hyperlink{classRiego_a241afaf6f74803f29ba993ace26ed2c5}{set\+Program\+Days}} (unsigned int day, bool enabled)
+\item 
+void \mbox{\hyperlink{classRiego_a860214d1d0c24b623b3209d3caf21d7c}{toggle\+Program\+Days}} (unsigned int day)
+\item 
+void \mbox{\hyperlink{classRiego_a6552a895d3874ec8822d349bb68b49a9}{set\+Program\+Time}} (int hour, int min, int sec)
+\item 
+void \mbox{\hyperlink{classRiego_a59cfb941e686264cce81b4827fb62bcd}{add\+Program\+Time}} (unsigned int field)
+\item 
+void \mbox{\hyperlink{classRiego_a5fffb4278de31c1b44747162d96d29a7}{substract\+Program\+Time}} (unsigned int field)
+\item 
+\mbox{\hyperlink{structprogramTime}{program\+Time}} \mbox{\hyperlink{classRiego_aaba7276e472c666d55b668faae7fc4ca}{get\+Program\+Time}} ()
+\item 
+unsigned int \mbox{\hyperlink{classRiego_a856d96420789af5948b89cb6039218e6}{get\+Program\+Time}} (unsigned int field)
+\item 
+\mbox{\hyperlink{structsystemTime}{system\+Time}} \mbox{\hyperlink{classRiego_a65cc32d0717274d9c513764b1357a1bc}{get\+System\+Time}} ()
+\item 
+unsigned int \mbox{\hyperlink{classRiego_af57cd351416170236038b22d6d471241}{get\+System\+Time}} (unsigned int field)
+\item 
+void \mbox{\hyperlink{classRiego_ae6e7a8dbda39231a738b8212c0f07b51}{set\+System\+Time}} (\mbox{\hyperlink{structsystemTime}{system\+Time}} time)
+\item 
+void \mbox{\hyperlink{classRiego_a7212dff3eddca49880807c822535458a}{press}} (int button)
+\item 
+void \mbox{\hyperlink{classRiego_af164e1d6e5c38a76e64aec94018f14ae}{long\+Press}} (int button)
+\item 
+void \mbox{\hyperlink{classRiego_a171fbfa6be0ded593af79c4ccaf0023f}{rotation}} (int button, bool \mbox{\hyperlink{nanoRiego_8cpp_a330774a8d7a4d68da8a4d33c9b240f50}{rotation\+Dir}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classRiego_a7b5b77c7c3e9768e021d02c05220cacd}{run\+Program\+Next\+State}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classRiego_aa60ad906be27754432f8de176fc73dda}{selections}} \mbox{[}3\mbox{]} =\{0,0,0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 15 of file Riego.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRiego_ab6c81b4b5946c1be7b4faaf1bb7d0f60}\label{classRiego_ab6c81b4b5946c1be7b4faaf1bb7d0f60}} 
+\index{Riego@{Riego}!Riego@{Riego}}
+\index{Riego@{Riego}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{Riego()}{Riego()}}
+{\footnotesize\ttfamily Riego\+::\+Riego (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRelay}{Relay}} $\ast$}]{pump,  }\item[{\mbox{\hyperlink{classRelay}{Relay}}}]{valves\mbox{[}num\+Valves\mbox{]},  }\item[{unsigned long}]{program\+Delay\+Minutes = {\ttfamily 15} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 17 of file Riego.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRiego_a59cfb941e686264cce81b4827fb62bcd}\label{classRiego_a59cfb941e686264cce81b4827fb62bcd}} 
+\index{Riego@{Riego}!addProgramTime@{addProgramTime}}
+\index{addProgramTime@{addProgramTime}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{addProgramTime()}{addProgramTime()}}
+{\footnotesize\ttfamily void Riego\+::add\+Program\+Time (\begin{DoxyParamCaption}\item[{unsigned int}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_ad7807f6641e48c373c7baf33547e2102}{Iface\+Riego}}.
+
+
+
+Definition at line 121 of file Riego.\+h.
+
+\mbox{\Hypertarget{classRiego_a6a7d435f7b4b75b5f02e90e8660f1c6d}\label{classRiego_a6a7d435f7b4b75b5f02e90e8660f1c6d}} 
+\index{Riego@{Riego}!check@{check}}
+\index{check@{check}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily void Riego\+::check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_a345cbcf809123144b906634fb26d8984}{Iface\+Riego}}.
+
+
+
+Definition at line 88 of file Riego.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRiego_a6a7d435f7b4b75b5f02e90e8660f1c6d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{classRiego_a6a7d435f7b4b75b5f02e90e8660f1c6d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_af6e15f04ffddcc2ee0c42c3abba1afe4}\label{classRiego_af6e15f04ffddcc2ee0c42c3abba1afe4}} 
+\index{Riego@{Riego}!checkAlarm@{checkAlarm}}
+\index{checkAlarm@{checkAlarm}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{checkAlarm()}{checkAlarm()}}
+{\footnotesize\ttfamily void Riego\+::check\+Alarm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 100 of file Riego.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{classRiego_af6e15f04ffddcc2ee0c42c3abba1afe4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRiego_af6e15f04ffddcc2ee0c42c3abba1afe4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_afb1fa2c7b18b15b3159c8181cd9ae13a}\label{classRiego_afb1fa2c7b18b15b3159c8181cd9ae13a}} 
+\index{Riego@{Riego}!checkMillis@{checkMillis}}
+\index{checkMillis@{checkMillis}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{checkMillis()}{checkMillis()}}
+{\footnotesize\ttfamily void Riego\+::check\+Millis (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 92 of file Riego.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{classRiego_afb1fa2c7b18b15b3159c8181cd9ae13a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_aa4b84a4eff8fad0dce6296e947234ce1}\label{classRiego_aa4b84a4eff8fad0dce6296e947234ce1}} 
+\index{Riego@{Riego}!getProgramEnabled@{getProgramEnabled}}
+\index{getProgramEnabled@{getProgramEnabled}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{getProgramEnabled()}{getProgramEnabled()}}
+{\footnotesize\ttfamily bool Riego\+::get\+Program\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 45 of file Riego.\+h.
+
+\mbox{\Hypertarget{classRiego_aaba7276e472c666d55b668faae7fc4ca}\label{classRiego_aaba7276e472c666d55b668faae7fc4ca}} 
+\index{Riego@{Riego}!getProgramTime@{getProgramTime}}
+\index{getProgramTime@{getProgramTime}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{getProgramTime()}{getProgramTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structprogramTime}{program\+Time}} Riego\+::get\+Program\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_a1bf3c459c8ba9a56b144ba20f62618c8}{Iface\+Riego}}.
+
+
+
+Definition at line 144 of file Riego.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRiego_aaba7276e472c666d55b668faae7fc4ca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_a856d96420789af5948b89cb6039218e6}\label{classRiego_a856d96420789af5948b89cb6039218e6}} 
+\index{Riego@{Riego}!getProgramTime@{getProgramTime}}
+\index{getProgramTime@{getProgramTime}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{getProgramTime()}{getProgramTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily unsigned int Riego\+::get\+Program\+Time (\begin{DoxyParamCaption}\item[{unsigned int}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_a915eb50cfff5b1b90962e7212565b036}{Iface\+Riego}}.
+
+
+
+Definition at line 153 of file Riego.\+h.
+
+\mbox{\Hypertarget{classRiego_a65cc32d0717274d9c513764b1357a1bc}\label{classRiego_a65cc32d0717274d9c513764b1357a1bc}} 
+\index{Riego@{Riego}!getSystemTime@{getSystemTime}}
+\index{getSystemTime@{getSystemTime}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{getSystemTime()}{getSystemTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsystemTime}{system\+Time}} Riego\+::get\+System\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_a01a239dcfe68454d0d27e6a08a04204f}{Iface\+Riego}}.
+
+
+
+Definition at line 157 of file Riego.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{classRiego_a65cc32d0717274d9c513764b1357a1bc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_af57cd351416170236038b22d6d471241}\label{classRiego_af57cd351416170236038b22d6d471241}} 
+\index{Riego@{Riego}!getSystemTime@{getSystemTime}}
+\index{getSystemTime@{getSystemTime}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{getSystemTime()}{getSystemTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily unsigned int Riego\+::get\+System\+Time (\begin{DoxyParamCaption}\item[{unsigned int}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_ab58cd570d8986681975baab4e17b5f4c}{Iface\+Riego}}.
+
+
+
+Definition at line 161 of file Riego.\+h.
+
+\mbox{\Hypertarget{classRiego_a792bf34dd69bde1d49dce2f3f996d720}\label{classRiego_a792bf34dd69bde1d49dce2f3f996d720}} 
+\index{Riego@{Riego}!getValve@{getValve}}
+\index{getValve@{getValve}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{getValve()}{getValve()}}
+{\footnotesize\ttfamily bool Riego\+::get\+Valve (\begin{DoxyParamCaption}\item[{int}]{valve }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_a9a1707b77778f260944ffa329d9437fd}{Iface\+Riego}}.
+
+
+
+Definition at line 35 of file Riego.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{classRiego_a792bf34dd69bde1d49dce2f3f996d720_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classRiego_a792bf34dd69bde1d49dce2f3f996d720_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_af164e1d6e5c38a76e64aec94018f14ae}\label{classRiego_af164e1d6e5c38a76e64aec94018f14ae}} 
+\index{Riego@{Riego}!longPress@{longPress}}
+\index{longPress@{longPress}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{longPress()}{longPress()}}
+{\footnotesize\ttfamily void Riego\+::long\+Press (\begin{DoxyParamCaption}\item[{int}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 197 of file Riego.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRiego_af164e1d6e5c38a76e64aec94018f14ae_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classRiego_af164e1d6e5c38a76e64aec94018f14ae_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_a7212dff3eddca49880807c822535458a}\label{classRiego_a7212dff3eddca49880807c822535458a}} 
+\index{Riego@{Riego}!press@{press}}
+\index{press@{press}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{press()}{press()}}
+{\footnotesize\ttfamily void Riego\+::press (\begin{DoxyParamCaption}\item[{int}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 179 of file Riego.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRiego_a7212dff3eddca49880807c822535458a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classRiego_a7212dff3eddca49880807c822535458a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_a171fbfa6be0ded593af79c4ccaf0023f}\label{classRiego_a171fbfa6be0ded593af79c4ccaf0023f}} 
+\index{Riego@{Riego}!rotation@{rotation}}
+\index{rotation@{rotation}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{rotation()}{rotation()}}
+{\footnotesize\ttfamily void Riego\+::rotation (\begin{DoxyParamCaption}\item[{int}]{button,  }\item[{bool}]{rotation\+Dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 201 of file Riego.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{classRiego_a171fbfa6be0ded593af79c4ccaf0023f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_adfce34662b16840eff354fa78b1345e7}\label{classRiego_adfce34662b16840eff354fa78b1345e7}} 
+\index{Riego@{Riego}!runProgram@{runProgram}}
+\index{runProgram@{runProgram}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{runProgram()}{runProgram()}}
+{\footnotesize\ttfamily void Riego\+::run\+Program (\begin{DoxyParamCaption}\item[{unsigned long}]{program\+Delay }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_a0113e31de695b99d4add7a9c92ec03b7}{Iface\+Riego}}.
+
+
+
+Definition at line 72 of file Riego.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRiego_adfce34662b16840eff354fa78b1345e7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_a7b5b77c7c3e9768e021d02c05220cacd}\label{classRiego_a7b5b77c7c3e9768e021d02c05220cacd}} 
+\index{Riego@{Riego}!runProgramNextState@{runProgramNextState}}
+\index{runProgramNextState@{runProgramNextState}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{runProgramNextState()}{runProgramNextState()}}
+{\footnotesize\ttfamily static void Riego\+::run\+Program\+Next\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 58 of file Riego.\+h.
+
+\mbox{\Hypertarget{classRiego_afbdc7dc9bf955590c1dced9df30813c1}\label{classRiego_afbdc7dc9bf955590c1dced9df30813c1}} 
+\index{Riego@{Riego}!runProgramTimer@{runProgramTimer}}
+\index{runProgramTimer@{runProgramTimer}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{runProgramTimer()}{runProgramTimer()}}
+{\footnotesize\ttfamily void Riego\+::run\+Program\+Timer (\begin{DoxyParamCaption}\item[{time\+\_\+t}]{program\+Delay }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 60 of file Riego.\+h.
+
+\mbox{\Hypertarget{classRiego_a241afaf6f74803f29ba993ace26ed2c5}\label{classRiego_a241afaf6f74803f29ba993ace26ed2c5}} 
+\index{Riego@{Riego}!setProgramDays@{setProgramDays}}
+\index{setProgramDays@{setProgramDays}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{setProgramDays()}{setProgramDays()}}
+{\footnotesize\ttfamily void Riego\+::set\+Program\+Days (\begin{DoxyParamCaption}\item[{unsigned int}]{day,  }\item[{bool}]{enabled }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 108 of file Riego.\+h.
+
+\mbox{\Hypertarget{classRiego_ae2993a71b165a6cbedf97c20f0c6d874}\label{classRiego_ae2993a71b165a6cbedf97c20f0c6d874}} 
+\index{Riego@{Riego}!setProgramEnabled@{setProgramEnabled}}
+\index{setProgramEnabled@{setProgramEnabled}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{setProgramEnabled()}{setProgramEnabled()}}
+{\footnotesize\ttfamily void Riego\+::set\+Program\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{program\+Enabled }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_ac3257c0f52f8accf855bbf0ca425dac4}{Iface\+Riego}}.
+
+
+
+Definition at line 42 of file Riego.\+h.
+
+\mbox{\Hypertarget{classRiego_a6552a895d3874ec8822d349bb68b49a9}\label{classRiego_a6552a895d3874ec8822d349bb68b49a9}} 
+\index{Riego@{Riego}!setProgramTime@{setProgramTime}}
+\index{setProgramTime@{setProgramTime}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{setProgramTime()}{setProgramTime()}}
+{\footnotesize\ttfamily void Riego\+::set\+Program\+Time (\begin{DoxyParamCaption}\item[{int}]{hour,  }\item[{int}]{min,  }\item[{int}]{sec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 116 of file Riego.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{classRiego_a6552a895d3874ec8822d349bb68b49a9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_ae6e7a8dbda39231a738b8212c0f07b51}\label{classRiego_ae6e7a8dbda39231a738b8212c0f07b51}} 
+\index{Riego@{Riego}!setSystemTime@{setSystemTime}}
+\index{setSystemTime@{setSystemTime}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{setSystemTime()}{setSystemTime()}}
+{\footnotesize\ttfamily void Riego\+::set\+System\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsystemTime}{system\+Time}}}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 166 of file Riego.\+h.
+
+\mbox{\Hypertarget{classRiego_a83410e274e6eac4a2dd6614962d0fc2b}\label{classRiego_a83410e274e6eac4a2dd6614962d0fc2b}} 
+\index{Riego@{Riego}!setValve@{setValve}}
+\index{setValve@{setValve}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{setValve()}{setValve()}}
+{\footnotesize\ttfamily void Riego\+::set\+Valve (\begin{DoxyParamCaption}\item[{int}]{valve,  }\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_a97df6c145f898fad3120d15bea1e6fde}{Iface\+Riego}}.
+
+
+
+Definition at line 26 of file Riego.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRiego_a83410e274e6eac4a2dd6614962d0fc2b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_a5fffb4278de31c1b44747162d96d29a7}\label{classRiego_a5fffb4278de31c1b44747162d96d29a7}} 
+\index{Riego@{Riego}!substractProgramTime@{substractProgramTime}}
+\index{substractProgramTime@{substractProgramTime}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{substractProgramTime()}{substractProgramTime()}}
+{\footnotesize\ttfamily void Riego\+::substract\+Program\+Time (\begin{DoxyParamCaption}\item[{unsigned int}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_a6549b383749d836efc6931520b3638a3}{Iface\+Riego}}.
+
+
+
+Definition at line 132 of file Riego.\+h.
+
+\mbox{\Hypertarget{classRiego_a465a3dd7eb5803ba3c0e63d6c62dadbd}\label{classRiego_a465a3dd7eb5803ba3c0e63d6c62dadbd}} 
+\index{Riego@{Riego}!testValves@{testValves}}
+\index{testValves@{testValves}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{testValves()}{testValves()}}
+{\footnotesize\ttfamily void Riego\+::test\+Valves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 84 of file Riego.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classRiego_a465a3dd7eb5803ba3c0e63d6c62dadbd_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_a860214d1d0c24b623b3209d3caf21d7c}\label{classRiego_a860214d1d0c24b623b3209d3caf21d7c}} 
+\index{Riego@{Riego}!toggleProgramDays@{toggleProgramDays}}
+\index{toggleProgramDays@{toggleProgramDays}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{toggleProgramDays()}{toggleProgramDays()}}
+{\footnotesize\ttfamily void Riego\+::toggle\+Program\+Days (\begin{DoxyParamCaption}\item[{unsigned int}]{day }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 112 of file Riego.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRiego_a860214d1d0c24b623b3209d3caf21d7c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_afb8f53fa609ec831e3677193bf717eed}\label{classRiego_afb8f53fa609ec831e3677193bf717eed}} 
+\index{Riego@{Riego}!toggleProgramEnabled@{toggleProgramEnabled}}
+\index{toggleProgramEnabled@{toggleProgramEnabled}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{toggleProgramEnabled()}{toggleProgramEnabled()}}
+{\footnotesize\ttfamily void Riego\+::toggle\+Program\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 48 of file Riego.\+h.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRiego_afb8f53fa609ec831e3677193bf717eed_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_a12c5b58f0ff399cb99e89460bae95fe6}\label{classRiego_a12c5b58f0ff399cb99e89460bae95fe6}} 
+\index{Riego@{Riego}!toggleValve@{toggleValve}}
+\index{toggleValve@{toggleValve}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{toggleValve()}{toggleValve()}}
+{\footnotesize\ttfamily void Riego\+::toggle\+Valve (\begin{DoxyParamCaption}\item[{int}]{valve }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_a3b780a24dcedddf6fcf3024f8e06c6ac}{Iface\+Riego}}.
+
+
+
+Definition at line 38 of file Riego.\+h.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{classRiego_a12c5b58f0ff399cb99e89460bae95fe6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRiego_a12c5b58f0ff399cb99e89460bae95fe6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classRiego_a5b7dcfe1560c6da25062340801fcc5e4}\label{classRiego_a5b7dcfe1560c6da25062340801fcc5e4}} 
+\index{Riego@{Riego}!turnOff@{turnOff}}
+\index{turnOff@{turnOff}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{turnOff()}{turnOff()}}
+{\footnotesize\ttfamily void Riego\+::turn\+Off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceRiego_aefe340a6ee3820ba96794489a926881a}{Iface\+Riego}}.
+
+
+
+Definition at line 52 of file Riego.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRiego_aa60ad906be27754432f8de176fc73dda}\label{classRiego_aa60ad906be27754432f8de176fc73dda}} 
+\index{Riego@{Riego}!selections@{selections}}
+\index{selections@{selections}!Riego@{Riego}}
+\doxysubsubsection{\texorpdfstring{selections}{selections}}
+{\footnotesize\ttfamily unsigned int Riego\+::selections\mbox{[}3\mbox{]} =\{0,0,0\}}
+
+
+
+Definition at line 236 of file Riego.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/media/user/raid1/home/user/\+Documents/\+Platform\+I\+O/\+Projects/nano\+Riego\+P\+I\+O/src/\mbox{\hyperlink{Riego_8h}{Riego.\+h}}\end{DoxyCompactItemize}
