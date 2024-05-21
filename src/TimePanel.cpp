@@ -14,19 +14,19 @@ void TimePanel::body(){
     //bluetooth->println(greenAddTextBoxB);
     //bluetooth->println("add_text_box(1,4,6,C,24,"+color+"h)");
     //bluetooth->println("add_text_box(9,4,6,C,24,"+color+"D)");
-    //bluetooth->println("add_text_box(1,4,6,C,24,245,240,245,h)");
-    //bluetooth->println("add_text_box(9,4,6,C,24,245,240,245,D)");
+    bluetooth->println("add_text_box(1,4,6,C,24,245,240,245,h)");
+    bluetooth->println("add_text_box(9,4,6,C,24,245,240,245,D)");
 
-    SERIAL_PRINTLN("void TimePanel::body()");
-    SERIAL_PRINTLN("add_text_box(1,4,6,C,24,-------,h)");
-    SERIAL_PRINTLN(color);
-    SERIAL_PRINTLN("add_text_box(1,4,6,C,24,"+color+",h)");
-    SERIAL_PRINTLN("add_text_box(9,4,6,C,24,"+color+",D)");
+    //SERIAL_PRINTLN("void TimePanel::body()");
+    //SERIAL_PRINTLN("add_text_box(1,4,6,C,24,-------,h)");
+    //SERIAL_PRINTLN(color);
+    //SERIAL_PRINTLN("add_text_box(1,4,6,C,24,"+color+",h)");
+    //SERIAL_PRINTLN("add_text_box(9,4,6,C,24,"+color+",D)");
 }
-
+//void TimePanel::loop(){}
 void TimePanel::loop(){
-    SERIAL_PRINTLN("TimePanel::loop()");
-    bluetooth->println("TimePanel::loop()");
+    //SERIAL_PRINTLN("TimePanel::loop()");
+    //bluetooth->println("TimePanel::loop()");
         
     /////////////   Receive and Process Data
     if (bluetooth->available()){
@@ -83,14 +83,26 @@ void TimePanel::loop(){
 }
 
 void TimePanel::update(IfaceRiego* const riego, IfaceGui* const gui){
+    if(changingSystemTime){
+        riego->setSystemTime(actualTime);
+        changingSystemTime=false;
+    }
     actualTime = riego->getSystemTime();
+}
+
+void TimePanel::shiftHour(bool next){
+    changingSystemTime = true;
+    actualTime.hour++;
+}
+
+unsigned int TimePanel::getHour(){
+    return actualTime.hour;
 }
 
 
 void TimePanel::shiftField(bool next){
-    changingSystemTime = true;
-    actualTime.hour++;
-};
+    shiftHour(next);
+}
 unsigned int TimePanel::getField(){
-    return actualTime.hour;
-};
+    return getHour();
+}

@@ -16,6 +16,9 @@ class TimePanel : public Panel {
     void shiftField(bool next);
     unsigned int getField();
 
+    void shiftHour(bool next);
+    unsigned int getHour();
+
     String text; // String for text elements
 
     systemTime actualTime;

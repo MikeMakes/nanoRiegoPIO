@@ -34,6 +34,7 @@ class Riego:public IfaceRiego{
       _valves[valve].setState(state);
     }
     bool getValve(int valve){
+      //SERIAL_PRINTLN("bool Riego::getValve(int valve)");
       return _valves[valve].getState();
     }
     void toggleValve(int valve){
@@ -176,6 +177,16 @@ class Riego:public IfaceRiego{
       RTC.set(unixTime);
       setTime(unixTime);
     }
+    void setProgramTime(programTime time){
+      programTime actualProgramTime = getProgramTime();
+      if((time.hour != actualProgramTime.hour) || (time.minute != actualProgramTime.minute) || (time.second != actualProgramTime.second)){
+        _programTime[0]=time.hour;
+        _programTime[1]=time.minute;
+        _programTime[2]=time.second;
+      }
+      //for(int i=0; i<8; i++) _programedDays[i] = time.programDays[i];
+      //_programEnabled = time.programEnabled;
+    }
 
     void press(int button){
       switch(button){
@@ -183,19 +194,21 @@ class Riego:public IfaceRiego{
           break;
 
         case 1:
-          if(selections[1]==7) this->toggleProgramEnabled();
-          else this->toggleProgramDays(selections[1]);
+          //if(selections[1]==7) this->toggleProgramEnabled();
+          //else this->toggleProgramDays(selections[1]);
           break;
 
         case 2:
           break;
 
         default:
-          SERIAL_PRINTLN("****BUTTON_OUT_OF_INDEX****");
+          //SERIAL_PRINTLN("****BUTTON_OUT_OF_INDEX****");
+          break;
       }
     }
 
     void longPress(int button){
+      //SERIAL_PRINTLN("void longPress(int button)");
       this->toggleValve(button);
     }
 
@@ -209,10 +222,12 @@ class Riego:public IfaceRiego{
           break;
 
         case 2:
+          //shiftProgramHour
           break;
 
         default:
-          SERIAL_PRINTLN("****BUTTON_OUT_OF_INDEX****");
+          //SERIAL_PRINTLN("****BUTTON_OUT_OF_INDEX****");
+          break;
       }
     }
 

@@ -14,8 +14,7 @@ struct systemTime{
 
 struct programTime{
   unsigned int hour, minute, second;
-  //bool monday,thursday,wednesday,tuesday,friday,saturday,sunday;
-  bool programDays[7];
+  bool programDays[7]; //bool monday,thursday,wednesday,tuesday,friday,saturday,sunday;
   bool programEnabled;
 };
 
@@ -24,7 +23,7 @@ class IfaceRiego{
     IfaceRiego(){}
 
     
-    virtual void gui(IfaceGui *gui){
+    virtual void gui(IfaceGui* const gui){
       _gui=gui;
     }
     
@@ -37,12 +36,19 @@ class IfaceRiego{
     virtual void runProgram(unsigned long programDelay);
     virtual void check();
 
+    virtual void toggleProgramEnabled();
+    virtual void toggleProgramDays(unsigned int day);
+
     virtual void addProgramTime(unsigned int field);
     virtual void substractProgramTime(unsigned int field);
     virtual programTime getProgramTime();
     virtual unsigned int getProgramTime(unsigned int field);
     virtual systemTime getSystemTime();
     virtual unsigned int getSystemTime(unsigned int field);
+    //void setProgramTime(programTime programTime_);
+
+    virtual void setSystemTime(systemTime time);
+    virtual void setProgramTime(programTime time);
 
     IfaceGui* _gui;
 };

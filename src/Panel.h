@@ -58,6 +58,8 @@ class Panel{
 
     virtual void shiftField(bool next);
     virtual unsigned int getField();
+
+    unsigned int indexes[2];
 };
 
 #endif

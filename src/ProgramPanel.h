@@ -24,6 +24,9 @@ class ProgramPanel : public Panel {
     void shiftField(bool next);
     unsigned int getField();
 
+    void shiftHour(bool add1);
+    bool changingProgramTime=false;
+
     programTime _nextProgramTime;
 
 };

@@ -8,7 +8,7 @@ class IfaceGui{
   public:
     enum STATES { FRONTPANEL, TIMEPANEL, PROGRAMPANEL};
     
-    IfaceGui(IfaceRiego* riego):
+    IfaceGui(IfaceRiego* const riego):
     _riego(riego)
     {}
 

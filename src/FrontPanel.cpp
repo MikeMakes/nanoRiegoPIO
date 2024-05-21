@@ -9,10 +9,10 @@ void FrontPanel::body(){
     bluetooth->println(F("add_led(7,3,2,G,0,0,0)"));
     bluetooth->println(F("add_led(11,3,2,B,0,0,0)"));
 }
-
+//void FrontPanel::loop(){}
 void FrontPanel::loop(){
-    SERIAL_PRINTLN("FrontPanel::loop()");
-    bluetooth->println("FrontPanel::loop()");
+    //("FrontPanel::loop()");
+    //bluetooth->println("FrontPanel::loop()");
         
     /////////////   Receive and Process Data
 
@@ -31,7 +31,7 @@ void FrontPanel::loop(){
         //text="Zonas de riego"; // <--- Set text to send here 
         //bluetooth->print("*S"+text+"*");
 
-        for(int i=0; i<3; i++){
+        for(int i=0; i<numValves; i++){
             SERIAL_PRINTLN(valveLeds[i]);
             //valveLeds[i] = riego->getValve(i);
 
@@ -66,11 +66,13 @@ void FrontPanel::loop(){
 }
 
 void FrontPanel::update(IfaceRiego* riego, IfaceGui* gui){
-        for(int i=0; i<3; i++){ //if(static_cast<Riego*>(riego)->getValve(i)!=valveLeds[i]){
+        for(int i=0; i<numValves; i++){ //if(static_cast<Riego*>(riego)->getValve(i)!=valveLeds[i]){
             //SERIAL_PRINTLN(riego->getValve(i));
             valveLeds[i] = riego->getValve(i);
         }
 }
 
 void FrontPanel::shiftField(bool next){};
-unsigned int FrontPanel::getField(){};
+unsigned int FrontPanel::getField(){
+    return 0;
+}

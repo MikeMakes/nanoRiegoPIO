@@ -12,7 +12,7 @@
 
 class Gui:public IfaceGui{
   public:    
-    Gui(IfaceRiego* riego, SoftwareSerial* serial);
+    Gui(IfaceRiego* const riego, SoftwareSerial* const serial);
 
     void run();
     void setState(STATES state);
@@ -26,7 +26,7 @@ class Gui:public IfaceGui{
     Gui::STATES _state = STATES::FRONTPANEL;
     bool _update = false;
 
-    SoftwareSerial* _bluetooth;
+    SoftwareSerial* _bluetooth = nullptr;
 
     Panel* _panels[3] = {new FrontPanel(_bluetooth), new TimePanel(_bluetooth), new ProgramPanel(_bluetooth)};
     //Panel* _panels[3] = {new FrontPanel('*','F',_bluetooth), new TimePanel('*','T',_bluetooth), new ProgramPanel('*','P',_bluetooth)};

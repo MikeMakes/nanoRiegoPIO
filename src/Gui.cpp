@@ -1,11 +1,13 @@
 #include "Gui.h"
 
-Gui::Gui(IfaceRiego* riego, SoftwareSerial* serial):
+Gui::Gui(IfaceRiego* const riego, SoftwareSerial* const serial):
 IfaceGui(riego),
 _bluetooth(serial)
 {
-    SERIAL_PRINTLN("Gui::Gui");
-    serial->println("Gui::Gui");
+    //SERIAL_PRINTLN("Gui::Gui");
+    //_bluetooth->println("Gui::Gui");
+    //serial->print("Gui::Gui");
+    //serial->flush();
 
     _state = STATES::FRONTPANEL;
     _update = false;
@@ -14,7 +16,8 @@ _bluetooth(serial)
     /*
     for(int i=0; i<3; i++){
       _panels[i]->setSerial(serial);
-    }*/
+    }
+    */
 }
 
 void Gui::run(){
@@ -73,6 +76,7 @@ unsigned int Gui::selection(){
   if (_state==STATES::TIMEPANEL){
     return _panels[_state]->getField();
   }
+  return 99;
 }
 /*
 void Gui::shiftValue(bool directionValue){

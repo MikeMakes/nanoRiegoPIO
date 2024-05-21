@@ -22,9 +22,10 @@ void ProgramPanel::body(){
     */
 }
 
+//void ProgramPanel::loop(){};
 void ProgramPanel::loop(){
-    SERIAL_PRINTLN("ProgramPanel::loop()");
-    bluetooth->println("ProgramPanel::loop()");
+    //SERIAL_PRINTLN("ProgramPanel::loop()");
+    //bluetooth->println("ProgramPanel::loop()");
         
     /////////////   Receive and Process Data
     if (bluetooth->available()){
@@ -47,7 +48,7 @@ void ProgramPanel::loop(){
             bluetooth->print(_nextProgramTime.second);
             bluetooth->print("*");
         }else{
-            bluetooth->print(F("*hPrograma desactivado*"));
+            //bluetooth->print(F("*hPrograma desactivado*"));
         }
 
         int red=0, green=0, blue=0;
@@ -87,6 +88,12 @@ void ProgramPanel::loop(){
 }
 
 void ProgramPanel::update(IfaceRiego* const riego, IfaceGui* const gui){
+    if(selectedDay==8) riego->toggleProgramEnabled();
+    else riego->toggleProgramDays(selectedDay);
+    if(changingProgramTime){
+        riego->setProgramTime(_nextProgramTime);
+        changingProgramTime=false;
+    }
     _nextProgramTime = riego->getProgramTime();
 }
 
@@ -118,3 +125,7 @@ unsigned int ProgramPanel::getField(){
     return selectedDay;
 }
 
+void ProgramPanel::shiftHour(bool add1){
+    if(add1) _nextProgramTime.hour++;
+    else _nextProgramTime.hour--;
+}
