@@ -59,11 +59,9 @@ void \mbox{\hyperlink{nanoRiego_8cpp_a2cef78f53ab83cb7c3031d11d441cd6a}{handle\+
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classRelay}{Relay}} \mbox{\hyperlink{nanoRiego_8cpp_a3bd9bc37c206aab814401e906461cdf1}{pump}} (\mbox{\hyperlink{Constants_8h_ae9fca16e250ad20cc777deea139fc861}{pin\+Pump}}, true)
+\mbox{\hyperlink{classRelay}{Relay}} \mbox{\hyperlink{nanoRiego_8cpp_a9382bbdaf76485874e9beba18e71bc4c}{pump}} (\mbox{\hyperlink{Constants_8h_ae9fca16e250ad20cc777deea139fc861}{pin\+Pump}}, true)
 \item 
 \mbox{\hyperlink{classRelay}{Relay}} \mbox{\hyperlink{nanoRiego_8cpp_a6f9c14cdbd42fdbe2d1742b29f205ad0}{valves}} \mbox{[}$\,$\mbox{]} =\{\mbox{\hyperlink{classRelay}{Relay}}(pin\+Valve1, true), \mbox{\hyperlink{classRelay}{Relay}}(pin\+Valve2, true), \mbox{\hyperlink{classRelay}{Relay}}(pin\+Valve3, true)\}
-\item 
-\mbox{\hyperlink{classRiego}{Riego}} $\ast$ \mbox{\hyperlink{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}{riego}} = new \mbox{\hyperlink{classRiego}{Riego}}(\&\mbox{\hyperlink{nanoRiego_8cpp_a3bd9bc37c206aab814401e906461cdf1}{pump}}, \mbox{\hyperlink{nanoRiego_8cpp_a6f9c14cdbd42fdbe2d1742b29f205ad0}{valves}})
 \item 
 \mbox{\hyperlink{classGui}{Gui}} $\ast$ \mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}}
 \item 
@@ -76,6 +74,8 @@ bool \mbox{\hyperlink{nanoRiego_8cpp_a330774a8d7a4d68da8a4d33c9b240f50}{rotation
 bool \mbox{\hyperlink{nanoRiego_8cpp_a476cfa10e332766d100794afce6f3e6a}{press}} \mbox{[}3\mbox{]} = \{false,false,false\}
 \item 
 bool \mbox{\hyperlink{nanoRiego_8cpp_aa3d8759f11d64a3e06a9d9c80237d8ac}{long\+Press}} \mbox{[}3\mbox{]} = \{false,false,false\}
+\item 
+bool \mbox{\hyperlink{nanoRiego_8cpp_a8233a41940ef6a4957ed3ae073196bf5}{trigger\+Button\+Action}} = false
 \end{DoxyCompactItemize}
 
 
@@ -88,24 +88,15 @@ bool \mbox{\hyperlink{nanoRiego_8cpp_aa3d8759f11d64a3e06a9d9c80237d8ac}{long\+Pr
 
 
 
-Definition at line 30 of file nano\+Riego.\+cpp.
+Definition at line 32 of file nano\+Riego.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{nanoRiego_8cpp_a8eb7a602027dd846dc6196d42f8106fb_cgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{nanoRiego_8cpp_ae13bfa63ab19f70de8e6c7a66e3f8872}\label{nanoRiego_8cpp_ae13bfa63ab19f70de8e6c7a66e3f8872}} 
 \index{nanoRiego.cpp@{nanoRiego.cpp}!bluetooth@{bluetooth}}
 \index{bluetooth@{bluetooth}!nanoRiego.cpp@{nanoRiego.cpp}}
 \doxysubsubsection{\texorpdfstring{bluetooth()}{bluetooth()}}
 {\footnotesize\ttfamily Software\+Serial bluetooth (\begin{DoxyParamCaption}\item[{P\+I\+N\+\_\+\+B\+L\+U\+E\+T\+O\+O\+T\+H\+\_\+\+RX}]{,  }\item[{P\+I\+N\+\_\+\+B\+L\+U\+E\+T\+O\+O\+T\+H\+\_\+\+TX}]{ }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -120,10 +111,9 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 183 of file nano\+Riego.\+cpp.
+Definition at line 166 of file nano\+Riego.\+cpp.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -138,18 +128,16 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 196 of file nano\+Riego.\+cpp.
+Definition at line 180 of file nano\+Riego.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=320pt]{nanoRiego_8cpp_a519fb7542649702edaff419c7b9ef829_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -164,18 +152,16 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 208 of file nano\+Riego.\+cpp.
+Definition at line 192 of file nano\+Riego.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=320pt]{nanoRiego_8cpp_ae4bffbcb6c9529c2e79304f87b71221c_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -190,18 +176,16 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 220 of file nano\+Riego.\+cpp.
+Definition at line 204 of file nano\+Riego.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=320pt]{nanoRiego_8cpp_aca2bda77f71ddb1856695c3e34cdc0b4_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -216,10 +200,9 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 180 of file nano\+Riego.\+cpp.
+Definition at line 162 of file nano\+Riego.\+cpp.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -234,18 +217,16 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 192 of file nano\+Riego.\+cpp.
+Definition at line 176 of file nano\+Riego.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=274pt]{nanoRiego_8cpp_a1952fcfd1846fe63113018fdf64f391e_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -260,18 +241,16 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 204 of file nano\+Riego.\+cpp.
+Definition at line 188 of file nano\+Riego.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=274pt]{nanoRiego_8cpp_aa38be6574f68b17d4c94b3df0362ade3_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -286,18 +265,16 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 216 of file nano\+Riego.\+cpp.
+Definition at line 200 of file nano\+Riego.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=274pt]{nanoRiego_8cpp_ad08e64876e1ab0b25d6aeca7392801b3_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -312,10 +289,9 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 165 of file nano\+Riego.\+cpp.
+Definition at line 154 of file nano\+Riego.\+cpp.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -330,18 +306,16 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 188 of file nano\+Riego.\+cpp.
+Definition at line 172 of file nano\+Riego.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=286pt]{nanoRiego_8cpp_a441a994c72588fd76e106339fa0e93b8_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -356,18 +330,16 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 200 of file nano\+Riego.\+cpp.
+Definition at line 184 of file nano\+Riego.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=286pt]{nanoRiego_8cpp_a027f559a989410ab38c6d9449dd66381_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -382,18 +354,16 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 212 of file nano\+Riego.\+cpp.
+Definition at line 196 of file nano\+Riego.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=286pt]{nanoRiego_8cpp_a30a7990260a8621422e436ccc24593d0_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -408,7 +378,7 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 117 of file nano\+Riego.\+cpp.
+Definition at line 106 of file nano\+Riego.\+cpp.
 
 Here is the call graph for this function\+:
 \nopagebreak
@@ -428,8 +398,7 @@ Here is the call graph for this function\+:
 
 Definition at line 20 of file nano\+Riego.\+cpp.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -444,7 +413,7 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 48 of file nano\+Riego.\+cpp.
+Definition at line 50 of file nano\+Riego.\+cpp.
 
 Here is the call graph for this function\+:
 \nopagebreak
@@ -465,7 +434,7 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line 28 of file nano\+Riego.\+cpp.
+Definition at line 29 of file nano\+Riego.\+cpp.
 
 \mbox{\Hypertarget{nanoRiego_8cpp_aa3d8759f11d64a3e06a9d9c80237d8ac}\label{nanoRiego_8cpp_aa3d8759f11d64a3e06a9d9c80237d8ac}} 
 \index{nanoRiego.cpp@{nanoRiego.cpp}!longPress@{longPress}}
@@ -475,7 +444,7 @@ Definition at line 28 of file nano\+Riego.\+cpp.
 
 
 
-Definition at line 107 of file nano\+Riego.\+cpp.
+Definition at line 103 of file nano\+Riego.\+cpp.
 
 \mbox{\Hypertarget{nanoRiego_8cpp_a476cfa10e332766d100794afce6f3e6a}\label{nanoRiego_8cpp_a476cfa10e332766d100794afce6f3e6a}} 
 \index{nanoRiego.cpp@{nanoRiego.cpp}!press@{press}}
@@ -485,23 +454,17 @@ Definition at line 107 of file nano\+Riego.\+cpp.
 
 
 
-Definition at line 106 of file nano\+Riego.\+cpp.
+Definition at line 102 of file nano\+Riego.\+cpp.
 
-\mbox{\Hypertarget{nanoRiego_8cpp_a3bd9bc37c206aab814401e906461cdf1}\label{nanoRiego_8cpp_a3bd9bc37c206aab814401e906461cdf1}} 
+\mbox{\Hypertarget{nanoRiego_8cpp_a9382bbdaf76485874e9beba18e71bc4c}\label{nanoRiego_8cpp_a9382bbdaf76485874e9beba18e71bc4c}} 
 \index{nanoRiego.cpp@{nanoRiego.cpp}!pump@{pump}}
 \index{pump@{pump}!nanoRiego.cpp@{nanoRiego.cpp}}
 \doxysubsubsection{\texorpdfstring{pump}{pump}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classRelay}{Relay}} pump(\mbox{\hyperlink{Constants_8h_ae9fca16e250ad20cc777deea139fc861}{pin\+Pump}}, true)}
-
-\mbox{\Hypertarget{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}\label{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}} 
-\index{nanoRiego.cpp@{nanoRiego.cpp}!riego@{riego}}
-\index{riego@{riego}!nanoRiego.cpp@{nanoRiego.cpp}}
-\doxysubsubsection{\texorpdfstring{riego}{riego}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classRiego}{Riego}}$\ast$ riego = new \mbox{\hyperlink{classRiego}{Riego}}(\&\mbox{\hyperlink{nanoRiego_8cpp_a3bd9bc37c206aab814401e906461cdf1}{pump}}, \mbox{\hyperlink{nanoRiego_8cpp_a6f9c14cdbd42fdbe2d1742b29f205ad0}{valves}})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRiego}{Riego}} riego \& pump}
 
 
 
-Definition at line 27 of file nano\+Riego.\+cpp.
+Definition at line 28 of file nano\+Riego.\+cpp.
 
 \mbox{\Hypertarget{nanoRiego_8cpp_a011b81ab51abeaf8e16677c5165db4f0}\label{nanoRiego_8cpp_a011b81ab51abeaf8e16677c5165db4f0}} 
 \index{nanoRiego.cpp@{nanoRiego.cpp}!rotation@{rotation}}
@@ -511,7 +474,7 @@ Definition at line 27 of file nano\+Riego.\+cpp.
 
 
 
-Definition at line 104 of file nano\+Riego.\+cpp.
+Definition at line 100 of file nano\+Riego.\+cpp.
 
 \mbox{\Hypertarget{nanoRiego_8cpp_a330774a8d7a4d68da8a4d33c9b240f50}\label{nanoRiego_8cpp_a330774a8d7a4d68da8a4d33c9b240f50}} 
 \index{nanoRiego.cpp@{nanoRiego.cpp}!rotationDir@{rotationDir}}
@@ -521,7 +484,17 @@ Definition at line 104 of file nano\+Riego.\+cpp.
 
 
 
-Definition at line 105 of file nano\+Riego.\+cpp.
+Definition at line 101 of file nano\+Riego.\+cpp.
+
+\mbox{\Hypertarget{nanoRiego_8cpp_a8233a41940ef6a4957ed3ae073196bf5}\label{nanoRiego_8cpp_a8233a41940ef6a4957ed3ae073196bf5}} 
+\index{nanoRiego.cpp@{nanoRiego.cpp}!triggerButtonAction@{triggerButtonAction}}
+\index{triggerButtonAction@{triggerButtonAction}!nanoRiego.cpp@{nanoRiego.cpp}}
+\doxysubsubsection{\texorpdfstring{triggerButtonAction}{triggerButtonAction}}
+{\footnotesize\ttfamily bool trigger\+Button\+Action = false}
+
+
+
+Definition at line 104 of file nano\+Riego.\+cpp.
 
 \mbox{\Hypertarget{nanoRiego_8cpp_a6f9c14cdbd42fdbe2d1742b29f205ad0}\label{nanoRiego_8cpp_a6f9c14cdbd42fdbe2d1742b29f205ad0}} 
 \index{nanoRiego.cpp@{nanoRiego.cpp}!valves@{valves}}
@@ -541,5 +514,5 @@ Definition at line 26 of file nano\+Riego.\+cpp.
 
 
 
-Definition at line 35 of file nano\+Riego.\+cpp.
+Definition at line 37 of file nano\+Riego.\+cpp.
 

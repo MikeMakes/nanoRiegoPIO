@@ -1,14 +1,15 @@
 var searchData=
 [
-  ['getfield_20',['getField',['../classFrontPanel.html#a7c4014553ca9d9a286cbb0ceea71d883',1,'FrontPanel::getField()'],['../classPanel.html#a92cc10bfb58c0c48607a87c8d8cd6a19',1,'Panel::getField()'],['../classProgramPanel.html#a6fb505bacb81224307ae7c26d3f72fdb',1,'ProgramPanel::getField()'],['../classTimePanel.html#af2cbdfa1435e21506de238fb71f46bcb',1,'TimePanel::getField()']]],
-  ['getprogramenabled_21',['getProgramEnabled',['../classRiego.html#aa4b84a4eff8fad0dce6296e947234ce1',1,'Riego']]],
-  ['getprogramtime_22',['getProgramTime',['../classIfaceRiego.html#a1bf3c459c8ba9a56b144ba20f62618c8',1,'IfaceRiego::getProgramTime()'],['../classIfaceRiego.html#a915eb50cfff5b1b90962e7212565b036',1,'IfaceRiego::getProgramTime(unsigned int field)'],['../classRiego.html#aaba7276e472c666d55b668faae7fc4ca',1,'Riego::getProgramTime()'],['../classRiego.html#a856d96420789af5948b89cb6039218e6',1,'Riego::getProgramTime(unsigned int field)']]],
-  ['getstate_23',['getState',['../classRelay.html#a8b0d52a0ac2632baa0510d60f7a9266d',1,'Relay']]],
-  ['getsystemtime_24',['getSystemTime',['../classIfaceRiego.html#a01a239dcfe68454d0d27e6a08a04204f',1,'IfaceRiego::getSystemTime()'],['../classIfaceRiego.html#ab58cd570d8986681975baab4e17b5f4c',1,'IfaceRiego::getSystemTime(unsigned int field)'],['../classRiego.html#a65cc32d0717274d9c513764b1357a1bc',1,'Riego::getSystemTime()'],['../classRiego.html#af57cd351416170236038b22d6d471241',1,'Riego::getSystemTime(unsigned int field)']]],
-  ['getvalve_25',['getValve',['../classIfaceRiego.html#a9a1707b77778f260944ffa329d9437fd',1,'IfaceRiego::getValve()'],['../classRiego.html#a792bf34dd69bde1d49dce2f3f996d720',1,'Riego::getValve()']]],
-  ['green_26',['green',['../classFrontPanel.html#ab09edd83f460557c3fcb8ffa99f055fd',1,'FrontPanel']]],
-  ['greentext_27',['greenText',['../classTimePanel.html#a8d0d9a1e238a7c286c8298896cd69104',1,'TimePanel']]],
-  ['gui_28',['Gui',['../classGui.html',1,'Gui'],['../classGui.html#a09461498a2f0077addd18890b941d27c',1,'Gui::Gui()'],['../nanoRiego_8cpp.html#a2bf0180d038df9f91d42f0e0da496e9c',1,'gui():&#160;nanoRiego.cpp']]],
-  ['gui_2ecpp_29',['Gui.cpp',['../Gui_8cpp.html',1,'']]],
-  ['gui_2eh_30',['Gui.h',['../Gui_8h.html',1,'']]]
+  ['getfield_23',['getField',['../classFrontPanel.html#a7c4014553ca9d9a286cbb0ceea71d883',1,'FrontPanel::getField()'],['../classPanel.html#a92cc10bfb58c0c48607a87c8d8cd6a19',1,'Panel::getField()'],['../classProgramPanel.html#a6fb505bacb81224307ae7c26d3f72fdb',1,'ProgramPanel::getField()'],['../classTimePanel.html#af2cbdfa1435e21506de238fb71f46bcb',1,'TimePanel::getField()']]],
+  ['gethour_24',['getHour',['../classTimePanel.html#a63944e62e4688b697385cf72a2c68d37',1,'TimePanel']]],
+  ['getprogramenabled_25',['getProgramEnabled',['../classRiego.html#aa4b84a4eff8fad0dce6296e947234ce1',1,'Riego']]],
+  ['getprogramtime_26',['getProgramTime',['../classIfaceRiego.html#a1bf3c459c8ba9a56b144ba20f62618c8',1,'IfaceRiego::getProgramTime()'],['../classIfaceRiego.html#a915eb50cfff5b1b90962e7212565b036',1,'IfaceRiego::getProgramTime(unsigned int field)'],['../classRiego.html#aaba7276e472c666d55b668faae7fc4ca',1,'Riego::getProgramTime()'],['../classRiego.html#a856d96420789af5948b89cb6039218e6',1,'Riego::getProgramTime(unsigned int field)']]],
+  ['getstate_27',['getState',['../classRelay.html#a8b0d52a0ac2632baa0510d60f7a9266d',1,'Relay']]],
+  ['getsystemtime_28',['getSystemTime',['../classIfaceRiego.html#a01a239dcfe68454d0d27e6a08a04204f',1,'IfaceRiego::getSystemTime()'],['../classIfaceRiego.html#ab58cd570d8986681975baab4e17b5f4c',1,'IfaceRiego::getSystemTime(unsigned int field)'],['../classRiego.html#a65cc32d0717274d9c513764b1357a1bc',1,'Riego::getSystemTime()'],['../classRiego.html#af57cd351416170236038b22d6d471241',1,'Riego::getSystemTime(unsigned int field)']]],
+  ['getvalve_29',['getValve',['../classIfaceRiego.html#a9a1707b77778f260944ffa329d9437fd',1,'IfaceRiego::getValve()'],['../classRiego.html#a792bf34dd69bde1d49dce2f3f996d720',1,'Riego::getValve()']]],
+  ['green_30',['green',['../classFrontPanel.html#ab09edd83f460557c3fcb8ffa99f055fd',1,'FrontPanel']]],
+  ['greentext_31',['greenText',['../classTimePanel.html#a8d0d9a1e238a7c286c8298896cd69104',1,'TimePanel']]],
+  ['gui_32',['Gui',['../classGui.html',1,'Gui'],['../classIfaceRiego.html#acb41370ef08cc53add9940776d133d5b',1,'IfaceRiego::gui()'],['../classGui.html#aa3b8faedf7150eda981c37beb41d4247',1,'Gui::Gui()'],['../nanoRiego_8cpp.html#a2bf0180d038df9f91d42f0e0da496e9c',1,'gui():&#160;nanoRiego.cpp']]],
+  ['gui_2ecpp_33',['Gui.cpp',['../Gui_8cpp.html',1,'']]],
+  ['gui_2eh_34',['Gui.h',['../Gui_8h.html',1,'']]]
 ];

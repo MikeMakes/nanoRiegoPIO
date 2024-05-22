@@ -23,7 +23,6 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">nanoRiego
    </div>
-   <div id="projectbrief">Three buttons to control them all (3 valves and a pump)</div>
   </td>
  </tr>
  </tbody>
@@ -86,8 +85,8 @@ Inheritance diagram for Panel:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab706f5a8ebd34ef3d28d57b40bcffaa5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#ab706f5a8ebd34ef3d28d57b40bcffaa5">Panel</a> (<a class="el" href="classIfaceGui.html">IfaceGui</a> *const <a class="el" href="nanoRiego_8cpp.html#a2bf0180d038df9f91d42f0e0da496e9c">gui</a>=nullptr, <a class="el" href="classIfaceRiego.html">IfaceRiego</a> *const <a class="el" href="nanoRiego_8cpp.html#aaea5e332561f54b3b68e60c9772ec864">riego</a>=nullptr, SoftwareSerial *const serial=nullptr)</td></tr>
-<tr class="separator:ab706f5a8ebd34ef3d28d57b40bcffaa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae294a1c48def6805a36a8ea1799c4129"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#ae294a1c48def6805a36a8ea1799c4129">Panel</a> (SoftwareSerial *const serial=nullptr)</td></tr>
+<tr class="separator:ae294a1c48def6805a36a8ea1799c4129"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1d87d9e5f8e23bdfc7d65eab9efef9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#aa1d87d9e5f8e23bdfc7d65eab9efef9c">setSerial</a> (SoftwareSerial *const serial)</td></tr>
 <tr class="separator:aa1d87d9e5f8e23bdfc7d65eab9efef9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a938f32d043ee63e4da2c5922ba63c8cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#a938f32d043ee63e4da2c5922ba63c8cd">header</a> ()</td></tr>
@@ -98,8 +97,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a59a0f9bab63d69b2f75252908e7da185"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa907633451931acaf5702b0e8e8f9b72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#aa907633451931acaf5702b0e8e8f9b72">setup</a> ()</td></tr>
 <tr class="separator:aa907633451931acaf5702b0e8e8f9b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf53bcca45e15add05faf627dbf7bd98"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#abf53bcca45e15add05faf627dbf7bd98">loop</a> (<a class="el" href="classIfaceRiego.html">IfaceRiego</a> *const <a class="el" href="nanoRiego_8cpp.html#aaea5e332561f54b3b68e60c9772ec864">riego</a>, <a class="el" href="classIfaceGui.html">IfaceGui</a> *const <a class="el" href="nanoRiego_8cpp.html#a2bf0180d038df9f91d42f0e0da496e9c">gui</a>)</td></tr>
-<tr class="separator:abf53bcca45e15add05faf627dbf7bd98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5722ace8a340efbcf897727dd877cc7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#ac5722ace8a340efbcf897727dd877cc7">loop</a> ()</td></tr>
+<tr class="separator:ac5722ace8a340efbcf897727dd877cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad87ba0eab51701434676bad652c78382"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#ad87ba0eab51701434676bad652c78382">update</a> (<a class="el" href="classIfaceRiego.html">IfaceRiego</a> *const riego, <a class="el" href="classIfaceGui.html">IfaceGui</a> *const <a class="el" href="nanoRiego_8cpp.html#a2bf0180d038df9f91d42f0e0da496e9c">gui</a>)</td></tr>
+<tr class="separator:ad87ba0eab51701434676bad652c78382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1c94221f06e33c2ce350df6cec8eec3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#ab1c94221f06e33c2ce350df6cec8eec3">shiftField</a> (bool next)</td></tr>
 <tr class="separator:ab1c94221f06e33c2ce350df6cec8eec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92cc10bfb58c0c48607a87c8d8cd6a19"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#a92cc10bfb58c0c48607a87c8d8cd6a19">getField</a> ()</td></tr>
@@ -115,13 +116,15 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a19e82e8ad0bf447830e7eae336b084d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26eca944755969690653752d67cc9b7b"><td class="memItemLeft" align="right" valign="top">SoftwareSerial *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#a26eca944755969690653752d67cc9b7b">bluetooth</a></td></tr>
 <tr class="separator:a26eca944755969690653752d67cc9b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab10da5f4e23b18c2074d302c81563127"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanel.html#ab10da5f4e23b18c2074d302c81563127">indexes</a> [2]</td></tr>
+<tr class="separator:ab10da5f4e23b18c2074d302c81563127"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00011">11</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab706f5a8ebd34ef3d28d57b40bcffaa5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab706f5a8ebd34ef3d28d57b40bcffaa5">&#9670;&nbsp;</a></span>Panel()</h2>
+<a id="ae294a1c48def6805a36a8ea1799c4129"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae294a1c48def6805a36a8ea1799c4129">&#9670;&nbsp;</a></span>Panel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,25 +135,9 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">Panel::Panel </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classIfaceGui.html">IfaceGui</a> *const&#160;</td>
-          <td class="paramname"><em>gui</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classIfaceRiego.html">IfaceRiego</a> *const&#160;</td>
-          <td class="paramname"><em>riego</em> = <code>nullptr</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">SoftwareSerial *const&#160;</td>
-          <td class="paramname"><em>serial</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>serial</em> = <code>nullptr</code></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -196,7 +183,7 @@ Here is the caller graph for this function:</div>
 <map name="classPanel_ad00f0a0a4c18734a1b0591f29a23d944_icgraph" id="classPanel_ad00f0a0a4c18734a1b0591f29a23d944_icgraph">
 <area shape="rect" title=" " alt="" coords="389,56,487,83"/>
 <area shape="rect" href="classPanel.html#aa907633451931acaf5702b0e8e8f9b72" title=" " alt="" coords="240,56,341,83"/>
-<area shape="rect" href="classGui.html#a09461498a2f0077addd18890b941d27c" title=" " alt="" coords="111,5,185,32"/>
+<area shape="rect" href="classGui.html#aa3b8faedf7150eda981c37beb41d4247" title=" " alt="" coords="111,5,185,32"/>
 <area shape="rect" href="classGui.html#a225eb7edaace31eb6cc4ec3173b2a703" title=" " alt="" coords="111,56,185,83"/>
 <area shape="rect" href="classGui.html#af08f8def5ff06799c05c0276d01bc336" title=" " alt="" coords="104,107,192,133"/>
 <area shape="rect" href="nanoRiego_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,81,56,108"/>
@@ -228,7 +215,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00047">47</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00044">44</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -236,7 +223,7 @@ Here is the caller graph for this function:</div>
 <map name="classPanel_a59a0f9bab63d69b2f75252908e7da185_icgraph" id="classPanel_a59a0f9bab63d69b2f75252908e7da185_icgraph">
 <area shape="rect" title=" " alt="" coords="389,56,480,83"/>
 <area shape="rect" href="classPanel.html#aa907633451931acaf5702b0e8e8f9b72" title=" " alt="" coords="240,56,341,83"/>
-<area shape="rect" href="classGui.html#a09461498a2f0077addd18890b941d27c" title=" " alt="" coords="111,5,185,32"/>
+<area shape="rect" href="classGui.html#aa3b8faedf7150eda981c37beb41d4247" title=" " alt="" coords="111,5,185,32"/>
 <area shape="rect" href="classGui.html#a225eb7edaace31eb6cc4ec3173b2a703" title=" " alt="" coords="111,56,185,83"/>
 <area shape="rect" href="classGui.html#af08f8def5ff06799c05c0276d01bc336" title=" " alt="" coords="104,107,192,133"/>
 <area shape="rect" href="nanoRiego_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,81,56,108"/>
@@ -305,7 +292,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00038">38</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00035">35</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -313,7 +300,7 @@ Here is the caller graph for this function:</div>
 <map name="classPanel_a938f32d043ee63e4da2c5922ba63c8cd_icgraph" id="classPanel_a938f32d043ee63e4da2c5922ba63c8cd_icgraph">
 <area shape="rect" title=" " alt="" coords="389,56,500,83"/>
 <area shape="rect" href="classPanel.html#aa907633451931acaf5702b0e8e8f9b72" title=" " alt="" coords="240,56,341,83"/>
-<area shape="rect" href="classGui.html#a09461498a2f0077addd18890b941d27c" title=" " alt="" coords="111,5,185,32"/>
+<area shape="rect" href="classGui.html#aa3b8faedf7150eda981c37beb41d4247" title=" " alt="" coords="111,5,185,32"/>
 <area shape="rect" href="classGui.html#a225eb7edaace31eb6cc4ec3173b2a703" title=" " alt="" coords="111,56,185,83"/>
 <area shape="rect" href="classGui.html#af08f8def5ff06799c05c0276d01bc336" title=" " alt="" coords="104,107,192,133"/>
 <area shape="rect" href="nanoRiego_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,81,56,108"/>
@@ -322,8 +309,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="abf53bcca45e15add05faf627dbf7bd98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf53bcca45e15add05faf627dbf7bd98">&#9670;&nbsp;</a></span>loop()</h2>
+<a id="ac5722ace8a340efbcf897727dd877cc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5722ace8a340efbcf897727dd877cc7">&#9670;&nbsp;</a></span>loop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -334,19 +321,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">virtual void Panel::loop </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classIfaceRiego.html">IfaceRiego</a> *const&#160;</td>
-          <td class="paramname"><em>riego</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classIfaceGui.html">IfaceGui</a> *const&#160;</td>
-          <td class="paramname"><em>gui</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -356,12 +332,12 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classFrontPanel.html#a0945e4059335f31c67d552474d52ba81">FrontPanel</a>, <a class="el" href="classProgramPanel.html#a02cdb7b6ff2ad0588fa14ba2991b9c34">ProgramPanel</a>, and <a class="el" href="classTimePanel.html#ac185ec8c5f846cd841c6aeb464e3cdd1">TimePanel</a>.</p>
+<p>Reimplemented in <a class="el" href="classFrontPanel.html#ad22db3497cae69b47c605a1056ab38ed">FrontPanel</a>, <a class="el" href="classProgramPanel.html#aace4c164c74ff366463756637a4cf7ab">ProgramPanel</a>, and <a class="el" href="classTimePanel.html#aea20977d8bb3db430a17aa815fc4f7ea">TimePanel</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classPanel_abf53bcca45e15add05faf627dbf7bd98_icgraph.png" border="0" usemap="#classPanel_abf53bcca45e15add05faf627dbf7bd98_icgraph" alt=""/></div>
-<map name="classPanel_abf53bcca45e15add05faf627dbf7bd98_icgraph" id="classPanel_abf53bcca45e15add05faf627dbf7bd98_icgraph">
+<div class="center"><img src="classPanel_ac5722ace8a340efbcf897727dd877cc7_icgraph.png" border="0" usemap="#classPanel_ac5722ace8a340efbcf897727dd877cc7_icgraph" alt=""/></div>
+<map name="classPanel_ac5722ace8a340efbcf897727dd877cc7_icgraph" id="classPanel_ac5722ace8a340efbcf897727dd877cc7_icgraph">
 <area shape="rect" title=" " alt="" coords="225,5,319,32"/>
 <area shape="rect" href="classGui.html#a225eb7edaace31eb6cc4ec3173b2a703" title=" " alt="" coords="104,5,177,32"/>
 <area shape="rect" href="nanoRiego_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
@@ -394,7 +370,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00034">34</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00031">31</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
 
 </div>
 </div>
@@ -421,7 +397,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00053">53</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00050">50</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -439,7 +415,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="classPanel_aa907633451931acaf5702b0e8e8f9b72_icgraph.png" border="0" usemap="#classPanel_aa907633451931acaf5702b0e8e8f9b72_icgraph" alt=""/></div>
 <map name="classPanel_aa907633451931acaf5702b0e8e8f9b72_icgraph" id="classPanel_aa907633451931acaf5702b0e8e8f9b72_icgraph">
 <area shape="rect" title=" " alt="" coords="240,56,341,83"/>
-<area shape="rect" href="classGui.html#a09461498a2f0077addd18890b941d27c" title=" " alt="" coords="111,5,185,32"/>
+<area shape="rect" href="classGui.html#aa3b8faedf7150eda981c37beb41d4247" title=" " alt="" coords="111,5,185,32"/>
 <area shape="rect" href="classGui.html#a225eb7edaace31eb6cc4ec3173b2a703" title=" " alt="" coords="111,56,185,83"/>
 <area shape="rect" href="classGui.html#af08f8def5ff06799c05c0276d01bc336" title=" " alt="" coords="104,107,192,133"/>
 <area shape="rect" href="nanoRiego_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,81,56,108"/>
@@ -478,8 +454,57 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPanel_ab1c94221f06e33c2ce350df6cec8eec3_icgraph.png" border="0" usemap="#classPanel_ab1c94221f06e33c2ce350df6cec8eec3_icgraph" alt=""/></div>
 <map name="classPanel_ab1c94221f06e33c2ce350df6cec8eec3_icgraph" id="classPanel_ab1c94221f06e33c2ce350df6cec8eec3_icgraph">
-<area shape="rect" title=" " alt="" coords="164,5,288,32"/>
-<area shape="rect" href="classGui.html#afb0548c90ead1a4e501f1c6a2b48f285" title=" " alt="" coords="5,5,116,32"/>
+<area shape="rect" title=" " alt="" coords="263,5,387,32"/>
+<area shape="rect" href="classGui.html#afb0548c90ead1a4e501f1c6a2b48f285" title=" " alt="" coords="104,5,215,32"/>
+<area shape="rect" href="nanoRiego_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad87ba0eab51701434676bad652c78382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad87ba0eab51701434676bad652c78382">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Panel::update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIfaceRiego.html">IfaceRiego</a> *const&#160;</td>
+          <td class="paramname"><em>riego</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classIfaceGui.html">IfaceGui</a> *const&#160;</td>
+          <td class="paramname"><em>gui</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classFrontPanel.html#a35df33c7cf405602bff9c7ac71836003">FrontPanel</a>, <a class="el" href="classProgramPanel.html#aa7fe7bbcbd5c9f0703db0c3d281e5307">ProgramPanel</a>, and <a class="el" href="classTimePanel.html#af7fb90dfeacee2e910665efcd2215f4e">TimePanel</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classPanel_ad87ba0eab51701434676bad652c78382_icgraph.png" border="0" usemap="#classPanel_ad87ba0eab51701434676bad652c78382_icgraph" alt=""/></div>
+<map name="classPanel_ad87ba0eab51701434676bad652c78382_icgraph" id="classPanel_ad87ba0eab51701434676bad652c78382_icgraph">
+<area shape="rect" title=" " alt="" coords="225,5,336,32"/>
+<area shape="rect" href="classGui.html#a225eb7edaace31eb6cc4ec3173b2a703" title=" " alt="" coords="104,5,177,32"/>
+<area shape="rect" href="nanoRiego_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
 
@@ -498,7 +523,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00032">32</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00029">29</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
 
 </div>
 </div>
@@ -514,7 +539,23 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00022">22</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00019">19</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
+
+</div>
+</div>
+<a id="ab10da5f4e23b18c2074d302c81563127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab10da5f4e23b18c2074d302c81563127">&#9670;&nbsp;</a></span>indexes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Panel::indexes[2]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00062">62</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
 
 </div>
 </div>
@@ -530,7 +571,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00025">25</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00022">22</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
 
 </div>
 </div>
@@ -546,7 +587,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00024">24</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Panel_8h_source.html#l00021">21</a> of file <a class="el" href="Panel_8h_source.html">Panel.h</a>.</p>
 
 </div>
 </div>

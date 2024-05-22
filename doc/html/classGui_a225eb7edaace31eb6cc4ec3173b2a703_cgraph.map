@@ -1,8 +1,9 @@
 <map id="Gui::run" name="Gui::run">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,79,57"/>
-<area shape="rect" id="node2" href="$classPanel.html#abf53bcca45e15add05faf627dbf7bd98" title=" " alt="" coords="131,5,224,32"/>
-<area shape="rect" id="node3" href="$classPanel.html#aa907633451931acaf5702b0e8e8f9b72" title=" " alt="" coords="127,56,228,83"/>
-<area shape="rect" id="node4" href="$classPanel.html#ad00f0a0a4c18734a1b0591f29a23d944" title=" " alt="" coords="283,5,380,32"/>
-<area shape="rect" id="node5" href="$classPanel.html#a59a0f9bab63d69b2f75252908e7da185" title=" " alt="" coords="286,56,377,83"/>
-<area shape="rect" id="node6" href="$classPanel.html#a938f32d043ee63e4da2c5922ba63c8cd" title=" " alt="" coords="276,107,387,133"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,56,79,83"/>
+<area shape="rect" id="node2" href="$classPanel.html#ac5722ace8a340efbcf897727dd877cc7" title=" " alt="" coords="135,5,229,32"/>
+<area shape="rect" id="node3" href="$classPanel.html#aa907633451931acaf5702b0e8e8f9b72" title=" " alt="" coords="131,56,233,83"/>
+<area shape="rect" id="node7" href="$classPanel.html#ad87ba0eab51701434676bad652c78382" title=" " alt="" coords="127,107,237,133"/>
+<area shape="rect" id="node4" href="$classPanel.html#ad00f0a0a4c18734a1b0591f29a23d944" title=" " alt="" coords="292,5,389,32"/>
+<area shape="rect" id="node5" href="$classPanel.html#a59a0f9bab63d69b2f75252908e7da185" title=" " alt="" coords="295,56,386,83"/>
+<area shape="rect" id="node6" href="$classPanel.html#a938f32d043ee63e4da2c5922ba63c8cd" title=" " alt="" coords="285,107,396,133"/>
 </map>

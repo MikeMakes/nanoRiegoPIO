@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Front\+Panel\+:
-\nopagebreak
+Inheritance diagram for Front\+Panel\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,8 +15,7 @@ Inheritance diagram for Front\+Panel\+:
 \end{figure}
 
 
-Collaboration diagram for Front\+Panel\+:
-\nopagebreak
+Collaboration diagram for Front\+Panel\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,13 +25,15 @@ Collaboration diagram for Front\+Panel\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classFrontPanel_ac86a09c8d9606f67a7acbde5055349e4}{Front\+Panel}} (\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}}, \mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}{riego}}, Software\+Serial $\ast$serial)
+\mbox{\hyperlink{classFrontPanel_a4027e537232b43f226dfe086e906e44f}{Front\+Panel}} (Software\+Serial $\ast$serial)
 \item 
 \mbox{\hyperlink{classFrontPanel_addc65900aacf9784de241e4e88727634}{$\sim$\+Front\+Panel}} ()
 \item 
 void \mbox{\hyperlink{classFrontPanel_add77b6b57d41ba2ab8dc69e7dff97a53}{body}} ()
 \item 
-void \mbox{\hyperlink{classFrontPanel_a0945e4059335f31c67d552474d52ba81}{loop}} (\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}{riego}}, \mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}})
+void \mbox{\hyperlink{classFrontPanel_ad22db3497cae69b47c605a1056ab38ed}{loop}} ()
+\item 
+void \mbox{\hyperlink{classFrontPanel_a35df33c7cf405602bff9c7ac71836003}{update}} (\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const riego, \mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const \mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}})
 \item 
 void \mbox{\hyperlink{classFrontPanel_acfc0469a06dbcf9cef2dc5145fc14f76}{shift\+Field}} (bool next)
 \item 
@@ -62,11 +62,11 @@ Definition at line 10 of file Front\+Panel.\+h.
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classFrontPanel_ac86a09c8d9606f67a7acbde5055349e4}\label{classFrontPanel_ac86a09c8d9606f67a7acbde5055349e4}} 
+\mbox{\Hypertarget{classFrontPanel_a4027e537232b43f226dfe086e906e44f}\label{classFrontPanel_a4027e537232b43f226dfe086e906e44f}} 
 \index{FrontPanel@{FrontPanel}!FrontPanel@{FrontPanel}}
 \index{FrontPanel@{FrontPanel}!FrontPanel@{FrontPanel}}
 \doxysubsubsection{\texorpdfstring{FrontPanel()}{FrontPanel()}}
-{\footnotesize\ttfamily Front\+Panel\+::\+Front\+Panel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$}]{gui,  }\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$}]{riego,  }\item[{Software\+Serial $\ast$}]{serial }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Front\+Panel\+::\+Front\+Panel (\begin{DoxyParamCaption}\item[{Software\+Serial $\ast$}]{serial }\end{DoxyParamCaption})}
 
 
 
@@ -107,30 +107,22 @@ Reimplemented from \mbox{\hyperlink{classPanel_a92cc10bfb58c0c48607a87c8d8cd6a19
 
 
 
-Definition at line 100 of file Front\+Panel.\+cpp.
+Definition at line 76 of file Front\+Panel.\+cpp.
 
-\mbox{\Hypertarget{classFrontPanel_a0945e4059335f31c67d552474d52ba81}\label{classFrontPanel_a0945e4059335f31c67d552474d52ba81}} 
+\mbox{\Hypertarget{classFrontPanel_ad22db3497cae69b47c605a1056ab38ed}\label{classFrontPanel_ad22db3497cae69b47c605a1056ab38ed}} 
 \index{FrontPanel@{FrontPanel}!loop@{loop}}
 \index{loop@{loop}!FrontPanel@{FrontPanel}}
 \doxysubsubsection{\texorpdfstring{loop()}{loop()}}
-{\footnotesize\ttfamily void Front\+Panel\+::loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$}]{riego,  }\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Front\+Panel\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Reimplemented from \mbox{\hyperlink{classPanel_abf53bcca45e15add05faf627dbf7bd98}{Panel}}.
+Reimplemented from \mbox{\hyperlink{classPanel_ac5722ace8a340efbcf897727dd877cc7}{Panel}}.
 
 
 
 Definition at line 13 of file Front\+Panel.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classFrontPanel_a0945e4059335f31c67d552474d52ba81_cgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{classFrontPanel_acfc0469a06dbcf9cef2dc5145fc14f76}\label{classFrontPanel_acfc0469a06dbcf9cef2dc5145fc14f76}} 
 \index{FrontPanel@{FrontPanel}!shiftField@{shiftField}}
 \index{shiftField@{shiftField}!FrontPanel@{FrontPanel}}
@@ -143,7 +135,21 @@ Reimplemented from \mbox{\hyperlink{classPanel_ab1c94221f06e33c2ce350df6cec8eec3
 
 
 
-Definition at line 99 of file Front\+Panel.\+cpp.
+Definition at line 75 of file Front\+Panel.\+cpp.
+
+\mbox{\Hypertarget{classFrontPanel_a35df33c7cf405602bff9c7ac71836003}\label{classFrontPanel_a35df33c7cf405602bff9c7ac71836003}} 
+\index{FrontPanel@{FrontPanel}!update@{update}}
+\index{update@{update}!FrontPanel@{FrontPanel}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Front\+Panel\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const}]{riego,  }\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classPanel_ad87ba0eab51701434676bad652c78382}{Panel}}.
+
+
+
+Definition at line 68 of file Front\+Panel.\+cpp.
 
 
 
@@ -156,7 +162,7 @@ Definition at line 99 of file Front\+Panel.\+cpp.
 
 
 
-Definition at line 20 of file Front\+Panel.\+h.
+Definition at line 21 of file Front\+Panel.\+h.
 
 \mbox{\Hypertarget{classFrontPanel_ab09edd83f460557c3fcb8ffa99f055fd}\label{classFrontPanel_ab09edd83f460557c3fcb8ffa99f055fd}} 
 \index{FrontPanel@{FrontPanel}!green@{green}}
@@ -166,7 +172,7 @@ Definition at line 20 of file Front\+Panel.\+h.
 
 
 
-Definition at line 20 of file Front\+Panel.\+h.
+Definition at line 21 of file Front\+Panel.\+h.
 
 \mbox{\Hypertarget{classFrontPanel_a68530723cca2d1a81d7d4bb72bc30569}\label{classFrontPanel_a68530723cca2d1a81d7d4bb72bc30569}} 
 \index{FrontPanel@{FrontPanel}!red@{red}}
@@ -176,7 +182,7 @@ Definition at line 20 of file Front\+Panel.\+h.
 
 
 
-Definition at line 20 of file Front\+Panel.\+h.
+Definition at line 21 of file Front\+Panel.\+h.
 
 \mbox{\Hypertarget{classFrontPanel_a2e0af9c21552393a7c27a8bb286da54c}\label{classFrontPanel_a2e0af9c21552393a7c27a8bb286da54c}} 
 \index{FrontPanel@{FrontPanel}!text@{text}}
@@ -186,7 +192,7 @@ Definition at line 20 of file Front\+Panel.\+h.
 
 
 
-Definition at line 19 of file Front\+Panel.\+h.
+Definition at line 20 of file Front\+Panel.\+h.
 
 \mbox{\Hypertarget{classFrontPanel_a0264e18ace65bb92723d6e2b7c9cb178}\label{classFrontPanel_a0264e18ace65bb92723d6e2b7c9cb178}} 
 \index{FrontPanel@{FrontPanel}!valveLeds@{valveLeds}}
@@ -196,7 +202,7 @@ Definition at line 19 of file Front\+Panel.\+h.
 
 
 
-Definition at line 22 of file Front\+Panel.\+h.
+Definition at line 23 of file Front\+Panel.\+h.
 
 
 

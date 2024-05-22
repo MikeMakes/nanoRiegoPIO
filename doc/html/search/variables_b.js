@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['second_246',['second',['../structsystemTime.html#a6a6248dafc6cb1fbf4c167e592e8be32',1,'systemTime::second()'],['../structprogramTime.html#a1c6bb024f44c05a0aefb814882509d85',1,'programTime::second()']]],
-  ['selectedday_247',['selectedDay',['../classProgramPanel.html#ac6f216349eb8cb1850e031abed66739f',1,'ProgramPanel']]],
-  ['selections_248',['selections',['../classRiego.html#aa60ad906be27754432f8de176fc73dda',1,'Riego']]]
+  ['red_257',['red',['../classFrontPanel.html#a68530723cca2d1a81d7d4bb72bc30569',1,'FrontPanel']]],
+  ['rotation_258',['rotation',['../nanoRiego_8cpp.html#a011b81ab51abeaf8e16677c5165db4f0',1,'nanoRiego.cpp']]],
+  ['rotationdir_259',['rotationDir',['../nanoRiego_8cpp.html#a330774a8d7a4d68da8a4d33c9b240f50',1,'nanoRiego.cpp']]]
 ];

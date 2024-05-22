@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Time\+Panel\+:
-\nopagebreak
+Inheritance diagram for Time\+Panel\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,8 +15,7 @@ Inheritance diagram for Time\+Panel\+:
 \end{figure}
 
 
-Collaboration diagram for Time\+Panel\+:
-\nopagebreak
+Collaboration diagram for Time\+Panel\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,17 +25,23 @@ Collaboration diagram for Time\+Panel\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classTimePanel_a14f96440321b7cfb00d649740aab7a48}{Time\+Panel}} (\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}}, \mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}{riego}}, Software\+Serial $\ast$serial)
+\mbox{\hyperlink{classTimePanel_aef2edc704b65ad85f7880d4884860cdb}{Time\+Panel}} (Software\+Serial $\ast$serial)
 \item 
 \mbox{\hyperlink{classTimePanel_a10fbcfa2fe870c52e21142fe8c75beaf}{$\sim$\+Time\+Panel}} ()
 \item 
 void \mbox{\hyperlink{classTimePanel_ad2064929efa82a84127ecd1e3b4c5bb1}{body}} ()
 \item 
-void \mbox{\hyperlink{classTimePanel_ac185ec8c5f846cd841c6aeb464e3cdd1}{loop}} (\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}{riego}}, \mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}})
+void \mbox{\hyperlink{classTimePanel_aea20977d8bb3db430a17aa815fc4f7ea}{loop}} ()
+\item 
+void \mbox{\hyperlink{classTimePanel_af7fb90dfeacee2e910665efcd2215f4e}{update}} (\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const riego, \mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const \mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}})
 \item 
 void \mbox{\hyperlink{classTimePanel_a149d54ce55323b6ffee989803684adef}{shift\+Field}} (bool next)
 \item 
 unsigned int \mbox{\hyperlink{classTimePanel_af2cbdfa1435e21506de238fb71f46bcb}{get\+Field}} ()
+\item 
+void \mbox{\hyperlink{classTimePanel_a4a335d79dc9509e34e4314297d415522}{shift\+Hour}} (bool next)
+\item 
+unsigned int \mbox{\hyperlink{classTimePanel_a63944e62e4688b697385cf72a2c68d37}{get\+Hour}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -64,11 +68,11 @@ Definition at line 6 of file Time\+Panel.\+h.
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classTimePanel_a14f96440321b7cfb00d649740aab7a48}\label{classTimePanel_a14f96440321b7cfb00d649740aab7a48}} 
+\mbox{\Hypertarget{classTimePanel_aef2edc704b65ad85f7880d4884860cdb}\label{classTimePanel_aef2edc704b65ad85f7880d4884860cdb}} 
 \index{TimePanel@{TimePanel}!TimePanel@{TimePanel}}
 \index{TimePanel@{TimePanel}!TimePanel@{TimePanel}}
 \doxysubsubsection{\texorpdfstring{TimePanel()}{TimePanel()}}
-{\footnotesize\ttfamily Time\+Panel\+::\+Time\+Panel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$}]{gui,  }\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$}]{riego,  }\item[{Software\+Serial $\ast$}]{serial }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Time\+Panel\+::\+Time\+Panel (\begin{DoxyParamCaption}\item[{Software\+Serial $\ast$}]{serial }\end{DoxyParamCaption})}
 
 
 
@@ -109,30 +113,48 @@ Reimplemented from \mbox{\hyperlink{classPanel_a92cc10bfb58c0c48607a87c8d8cd6a19
 
 
 
-Definition at line 89 of file Time\+Panel.\+cpp.
-
-\mbox{\Hypertarget{classTimePanel_ac185ec8c5f846cd841c6aeb464e3cdd1}\label{classTimePanel_ac185ec8c5f846cd841c6aeb464e3cdd1}} 
-\index{TimePanel@{TimePanel}!loop@{loop}}
-\index{loop@{loop}!TimePanel@{TimePanel}}
-\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
-{\footnotesize\ttfamily void Time\+Panel\+::loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$}]{riego,  }\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-
-
-Reimplemented from \mbox{\hyperlink{classPanel_abf53bcca45e15add05faf627dbf7bd98}{Panel}}.
-
-
-
-Definition at line 27 of file Time\+Panel.\+cpp.
+Definition at line 106 of file Time\+Panel.\+cpp.
 
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=339pt]{classTimePanel_ac185ec8c5f846cd841c6aeb464e3cdd1_cgraph}
+\includegraphics[width=342pt]{classTimePanel_af2cbdfa1435e21506de238fb71f46bcb_cgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{classTimePanel_a63944e62e4688b697385cf72a2c68d37}\label{classTimePanel_a63944e62e4688b697385cf72a2c68d37}} 
+\index{TimePanel@{TimePanel}!getHour@{getHour}}
+\index{getHour@{getHour}!TimePanel@{TimePanel}}
+\doxysubsubsection{\texorpdfstring{getHour()}{getHour()}}
+{\footnotesize\ttfamily unsigned int Time\+Panel\+::get\+Hour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 98 of file Time\+Panel.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classTimePanel_a63944e62e4688b697385cf72a2c68d37_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classTimePanel_aea20977d8bb3db430a17aa815fc4f7ea}\label{classTimePanel_aea20977d8bb3db430a17aa815fc4f7ea}} 
+\index{TimePanel@{TimePanel}!loop@{loop}}
+\index{loop@{loop}!TimePanel@{TimePanel}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void Time\+Panel\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classPanel_ac5722ace8a340efbcf897727dd877cc7}{Panel}}.
+
+
+
+Definition at line 27 of file Time\+Panel.\+cpp.
+
 \mbox{\Hypertarget{classTimePanel_a149d54ce55323b6ffee989803684adef}\label{classTimePanel_a149d54ce55323b6ffee989803684adef}} 
 \index{TimePanel@{TimePanel}!shiftField@{shiftField}}
 \index{shiftField@{shiftField}!TimePanel@{TimePanel}}
@@ -145,8 +167,56 @@ Reimplemented from \mbox{\hyperlink{classPanel_ab1c94221f06e33c2ce350df6cec8eec3
 
 
 
+Definition at line 103 of file Time\+Panel.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTimePanel_a149d54ce55323b6ffee989803684adef_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classTimePanel_a4a335d79dc9509e34e4314297d415522}\label{classTimePanel_a4a335d79dc9509e34e4314297d415522}} 
+\index{TimePanel@{TimePanel}!shiftHour@{shiftHour}}
+\index{shiftHour@{shiftHour}!TimePanel@{TimePanel}}
+\doxysubsubsection{\texorpdfstring{shiftHour()}{shiftHour()}}
+{\footnotesize\ttfamily void Time\+Panel\+::shift\+Hour (\begin{DoxyParamCaption}\item[{bool}]{next }\end{DoxyParamCaption})}
+
+
+
+Definition at line 93 of file Time\+Panel.\+cpp.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTimePanel_a4a335d79dc9509e34e4314297d415522_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classTimePanel_af7fb90dfeacee2e910665efcd2215f4e}\label{classTimePanel_af7fb90dfeacee2e910665efcd2215f4e}} 
+\index{TimePanel@{TimePanel}!update@{update}}
+\index{update@{update}!TimePanel@{TimePanel}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Time\+Panel\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const}]{riego,  }\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classPanel_ad87ba0eab51701434676bad652c78382}{Panel}}.
+
+
+
 Definition at line 85 of file Time\+Panel.\+cpp.
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classTimePanel_af7fb90dfeacee2e910665efcd2215f4e_cgraph}
+\end{center}
+\end{figure}
 
 
 \doxysubsection{Member Data Documentation}
@@ -158,7 +228,7 @@ Definition at line 85 of file Time\+Panel.\+cpp.
 
 
 
-Definition at line 20 of file Time\+Panel.\+h.
+Definition at line 24 of file Time\+Panel.\+h.
 
 \mbox{\Hypertarget{classTimePanel_a8d9d4011633ce421cfa6bf1b551c2ca9}\label{classTimePanel_a8d9d4011633ce421cfa6bf1b551c2ca9}} 
 \index{TimePanel@{TimePanel}!changingSystemTime@{changingSystemTime}}
@@ -168,7 +238,7 @@ Definition at line 20 of file Time\+Panel.\+h.
 
 
 
-Definition at line 21 of file Time\+Panel.\+h.
+Definition at line 25 of file Time\+Panel.\+h.
 
 \mbox{\Hypertarget{classTimePanel_a8d0d9a1e238a7c286c8298896cd69104}\label{classTimePanel_a8d0d9a1e238a7c286c8298896cd69104}} 
 \index{TimePanel@{TimePanel}!greenText@{greenText}}
@@ -178,7 +248,7 @@ Definition at line 21 of file Time\+Panel.\+h.
 
 
 
-Definition at line 25 of file Time\+Panel.\+h.
+Definition at line 29 of file Time\+Panel.\+h.
 
 \mbox{\Hypertarget{classTimePanel_a502479173ed93592bb0b032f50d9d134}\label{classTimePanel_a502479173ed93592bb0b032f50d9d134}} 
 \index{TimePanel@{TimePanel}!text@{text}}
@@ -188,7 +258,7 @@ Definition at line 25 of file Time\+Panel.\+h.
 
 
 
-Definition at line 18 of file Time\+Panel.\+h.
+Definition at line 22 of file Time\+Panel.\+h.
 
 \mbox{\Hypertarget{classTimePanel_aee54218448577444a04dd70ae996c3c7}\label{classTimePanel_aee54218448577444a04dd70ae996c3c7}} 
 \index{TimePanel@{TimePanel}!whiteText@{whiteText}}
@@ -198,7 +268,7 @@ Definition at line 18 of file Time\+Panel.\+h.
 
 
 
-Definition at line 23 of file Time\+Panel.\+h.
+Definition at line 27 of file Time\+Panel.\+h.
 
 \mbox{\Hypertarget{classTimePanel_aa08986112a1c1a7eb55dcbb75aedf907}\label{classTimePanel_aa08986112a1c1a7eb55dcbb75aedf907}} 
 \index{TimePanel@{TimePanel}!yellowText@{yellowText}}
@@ -208,7 +278,7 @@ Definition at line 23 of file Time\+Panel.\+h.
 
 
 
-Definition at line 24 of file Time\+Panel.\+h.
+Definition at line 28 of file Time\+Panel.\+h.
 
 
 

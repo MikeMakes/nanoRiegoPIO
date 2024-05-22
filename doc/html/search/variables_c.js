@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['text_249',['text',['../classFrontPanel.html#a2e0af9c21552393a7c27a8bb286da54c',1,'FrontPanel::text()'],['../classProgramPanel.html#ae20dc8698b534ead4dc0513681aa1515',1,'ProgramPanel::text()'],['../classTimePanel.html#a502479173ed93592bb0b032f50d9d134',1,'TimePanel::text()']]]
+  ['second_260',['second',['../structsystemTime.html#a6a6248dafc6cb1fbf4c167e592e8be32',1,'systemTime::second()'],['../structprogramTime.html#a1c6bb024f44c05a0aefb814882509d85',1,'programTime::second()']]],
+  ['selectedday_261',['selectedDay',['../classProgramPanel.html#ac6f216349eb8cb1850e031abed66739f',1,'ProgramPanel']]],
+  ['selections_262',['selections',['../classRiego.html#aa60ad906be27754432f8de176fc73dda',1,'Riego']]]
 ];

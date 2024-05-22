@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Program\+Panel\+:
-\nopagebreak
+Inheritance diagram for Program\+Panel\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,24 +15,25 @@ Inheritance diagram for Program\+Panel\+:
 \end{figure}
 
 
-Collaboration diagram for Program\+Panel\+:
-\nopagebreak
+Collaboration diagram for Program\+Panel\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=164pt]{classProgramPanel__coll__graph}
+\includegraphics[width=261pt]{classProgramPanel__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classProgramPanel_a5f368e6c0fa7555b4b90ab5a55e7d461}{Program\+Panel}} (\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}}, \mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}{riego}}, Software\+Serial $\ast$serial)
+\mbox{\hyperlink{classProgramPanel_a517a169aaff3ae1a3b475743e9962184}{Program\+Panel}} (Software\+Serial $\ast$serial)
 \item 
 \mbox{\hyperlink{classProgramPanel_a1917883b48d1d530d948439ef03e3b43}{$\sim$\+Program\+Panel}} ()
 \item 
 void \mbox{\hyperlink{classProgramPanel_a76857fff92c442d4017b6fa7aae8b280}{body}} ()
 \item 
-void \mbox{\hyperlink{classProgramPanel_a02cdb7b6ff2ad0588fa14ba2991b9c34}{loop}} (\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_aaea5e332561f54b3b68e60c9772ec864}{riego}}, \mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$\mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}})
+void \mbox{\hyperlink{classProgramPanel_aace4c164c74ff366463756637a4cf7ab}{loop}} ()
+\item 
+void \mbox{\hyperlink{classProgramPanel_aa7fe7bbcbd5c9f0703db0c3d281e5307}{update}} (\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const riego, \mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const \mbox{\hyperlink{nanoRiego_8cpp_a2bf0180d038df9f91d42f0e0da496e9c}{gui}})
 \item 
 void \mbox{\hyperlink{classProgramPanel_ae600c3eea863971a99fa888545e0222f}{select\+Day}} (unsigned int day=0)
 \item 
@@ -46,6 +46,8 @@ void \mbox{\hyperlink{classProgramPanel_ad3166b22acd8b8ca771242ed9f9c0939}{shift
 void \mbox{\hyperlink{classProgramPanel_a2e6c7340aa4721e25bd29f396f2d250d}{shift\+Field}} (bool next)
 \item 
 unsigned int \mbox{\hyperlink{classProgramPanel_a6fb505bacb81224307ae7c26d3f72fdb}{get\+Field}} ()
+\item 
+void \mbox{\hyperlink{classProgramPanel_a6e130590573aec2e218d22d79a212205}{shift\+Hour}} (bool add1)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -55,6 +57,10 @@ String \mbox{\hyperlink{classProgramPanel_ae20dc8698b534ead4dc0513681aa1515}{tex
 const String \mbox{\hyperlink{classProgramPanel_ae4c0bd021d8b67e8f723ed660bd3843b}{week}} \mbox{[}7\mbox{]} = \{\char`\"{}$\ast$L\char`\"{},\char`\"{}$\ast$M\char`\"{},\char`\"{}$\ast$X\char`\"{},\char`\"{}$\ast$J\char`\"{},\char`\"{}$\ast$V\char`\"{},\char`\"{}$\ast$S\char`\"{},\char`\"{}$\ast$D\char`\"{}\}
 \item 
 unsigned int \mbox{\hyperlink{classProgramPanel_ac6f216349eb8cb1850e031abed66739f}{selected\+Day}} = 0
+\item 
+bool \mbox{\hyperlink{classProgramPanel_aa36b630a43e135f4b022da7b4180e2ff}{changing\+Program\+Time}} =false
+\item 
+\mbox{\hyperlink{structprogramTime}{program\+Time}} \mbox{\hyperlink{classProgramPanel_af0e00e430e4a2498b286f22c85ea9ab0}{\+\_\+next\+Program\+Time}}
 \end{DoxyCompactItemize}
 
 
@@ -66,11 +72,11 @@ Definition at line 6 of file Program\+Panel.\+h.
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classProgramPanel_a5f368e6c0fa7555b4b90ab5a55e7d461}\label{classProgramPanel_a5f368e6c0fa7555b4b90ab5a55e7d461}} 
+\mbox{\Hypertarget{classProgramPanel_a517a169aaff3ae1a3b475743e9962184}\label{classProgramPanel_a517a169aaff3ae1a3b475743e9962184}} 
 \index{ProgramPanel@{ProgramPanel}!ProgramPanel@{ProgramPanel}}
 \index{ProgramPanel@{ProgramPanel}!ProgramPanel@{ProgramPanel}}
 \doxysubsubsection{\texorpdfstring{ProgramPanel()}{ProgramPanel()}}
-{\footnotesize\ttfamily Program\+Panel\+::\+Program\+Panel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$}]{gui,  }\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$}]{riego,  }\item[{Software\+Serial $\ast$}]{serial }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Program\+Panel\+::\+Program\+Panel (\begin{DoxyParamCaption}\item[{Software\+Serial $\ast$}]{serial }\end{DoxyParamCaption})}
 
 
 
@@ -111,30 +117,22 @@ Reimplemented from \mbox{\hyperlink{classPanel_a92cc10bfb58c0c48607a87c8d8cd6a19
 
 
 
-Definition at line 113 of file Program\+Panel.\+cpp.
+Definition at line 124 of file Program\+Panel.\+cpp.
 
-\mbox{\Hypertarget{classProgramPanel_a02cdb7b6ff2ad0588fa14ba2991b9c34}\label{classProgramPanel_a02cdb7b6ff2ad0588fa14ba2991b9c34}} 
+\mbox{\Hypertarget{classProgramPanel_aace4c164c74ff366463756637a4cf7ab}\label{classProgramPanel_aace4c164c74ff366463756637a4cf7ab}} 
 \index{ProgramPanel@{ProgramPanel}!loop@{loop}}
 \index{loop@{loop}!ProgramPanel@{ProgramPanel}}
 \doxysubsubsection{\texorpdfstring{loop()}{loop()}}
-{\footnotesize\ttfamily void Program\+Panel\+::loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$}]{riego,  }\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Program\+Panel\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Reimplemented from \mbox{\hyperlink{classPanel_abf53bcca45e15add05faf627dbf7bd98}{Panel}}.
+Reimplemented from \mbox{\hyperlink{classPanel_ac5722ace8a340efbcf897727dd877cc7}{Panel}}.
 
 
 
-Definition at line 25 of file Program\+Panel.\+cpp.
+Definition at line 26 of file Program\+Panel.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{classProgramPanel_a02cdb7b6ff2ad0588fa14ba2991b9c34_cgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{classProgramPanel_a1cc224d4373eee7ce004554fce844c2f}\label{classProgramPanel_a1cc224d4373eee7ce004554fce844c2f}} 
 \index{ProgramPanel@{ProgramPanel}!nextDay@{nextDay}}
 \index{nextDay@{nextDay}!ProgramPanel@{ProgramPanel}}
@@ -143,10 +141,9 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line 99 of file Program\+Panel.\+cpp.
+Definition at line 110 of file Program\+Panel.\+cpp.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -161,10 +158,9 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 94 of file Program\+Panel.\+cpp.
+Definition at line 105 of file Program\+Panel.\+cpp.
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -179,7 +175,7 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 89 of file Program\+Panel.\+cpp.
+Definition at line 100 of file Program\+Panel.\+cpp.
 
 \mbox{\Hypertarget{classProgramPanel_ad3166b22acd8b8ca771242ed9f9c0939}\label{classProgramPanel_ad3166b22acd8b8ca771242ed9f9c0939}} 
 \index{ProgramPanel@{ProgramPanel}!shiftDay@{shiftDay}}
@@ -189,18 +185,16 @@ Definition at line 89 of file Program\+Panel.\+cpp.
 
 
 
-Definition at line 104 of file Program\+Panel.\+cpp.
+Definition at line 115 of file Program\+Panel.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classProgramPanel_ad3166b22acd8b8ca771242ed9f9c0939_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -219,19 +213,70 @@ Reimplemented from \mbox{\hyperlink{classPanel_ab1c94221f06e33c2ce350df6cec8eec3
 
 
 
-Definition at line 109 of file Program\+Panel.\+cpp.
+Definition at line 120 of file Program\+Panel.\+cpp.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{classProgramPanel_a2e6c7340aa4721e25bd29f396f2d250d_cgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{classProgramPanel_a6e130590573aec2e218d22d79a212205}\label{classProgramPanel_a6e130590573aec2e218d22d79a212205}} 
+\index{ProgramPanel@{ProgramPanel}!shiftHour@{shiftHour}}
+\index{shiftHour@{shiftHour}!ProgramPanel@{ProgramPanel}}
+\doxysubsubsection{\texorpdfstring{shiftHour()}{shiftHour()}}
+{\footnotesize\ttfamily void Program\+Panel\+::shift\+Hour (\begin{DoxyParamCaption}\item[{bool}]{add1 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 128 of file Program\+Panel.\+cpp.
+
+\mbox{\Hypertarget{classProgramPanel_aa7fe7bbcbd5c9f0703db0c3d281e5307}\label{classProgramPanel_aa7fe7bbcbd5c9f0703db0c3d281e5307}} 
+\index{ProgramPanel@{ProgramPanel}!update@{update}}
+\index{update@{update}!ProgramPanel@{ProgramPanel}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Program\+Panel\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const}]{riego,  }\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classPanel_ad87ba0eab51701434676bad652c78382}{Panel}}.
+
+
+
+Definition at line 90 of file Program\+Panel.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classProgramPanel_aa7fe7bbcbd5c9f0703db0c3d281e5307_cgraph}
+\end{center}
+\end{figure}
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classProgramPanel_af0e00e430e4a2498b286f22c85ea9ab0}\label{classProgramPanel_af0e00e430e4a2498b286f22c85ea9ab0}} 
+\index{ProgramPanel@{ProgramPanel}!\_nextProgramTime@{\_nextProgramTime}}
+\index{\_nextProgramTime@{\_nextProgramTime}!ProgramPanel@{ProgramPanel}}
+\doxysubsubsection{\texorpdfstring{\_nextProgramTime}{\_nextProgramTime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structprogramTime}{program\+Time}} Program\+Panel\+::\+\_\+next\+Program\+Time}
+
+
+
+Definition at line 30 of file Program\+Panel.\+h.
+
+\mbox{\Hypertarget{classProgramPanel_aa36b630a43e135f4b022da7b4180e2ff}\label{classProgramPanel_aa36b630a43e135f4b022da7b4180e2ff}} 
+\index{ProgramPanel@{ProgramPanel}!changingProgramTime@{changingProgramTime}}
+\index{changingProgramTime@{changingProgramTime}!ProgramPanel@{ProgramPanel}}
+\doxysubsubsection{\texorpdfstring{changingProgramTime}{changingProgramTime}}
+{\footnotesize\ttfamily bool Program\+Panel\+::changing\+Program\+Time =false}
+
+
+
+Definition at line 28 of file Program\+Panel.\+h.
+
 \mbox{\Hypertarget{classProgramPanel_ac6f216349eb8cb1850e031abed66739f}\label{classProgramPanel_ac6f216349eb8cb1850e031abed66739f}} 
 \index{ProgramPanel@{ProgramPanel}!selectedDay@{selectedDay}}
 \index{selectedDay@{selectedDay}!ProgramPanel@{ProgramPanel}}
@@ -240,7 +285,7 @@ Here is the call graph for this function\+:
 
 
 
-Definition at line 18 of file Program\+Panel.\+h.
+Definition at line 19 of file Program\+Panel.\+h.
 
 \mbox{\Hypertarget{classProgramPanel_ae20dc8698b534ead4dc0513681aa1515}\label{classProgramPanel_ae20dc8698b534ead4dc0513681aa1515}} 
 \index{ProgramPanel@{ProgramPanel}!text@{text}}
@@ -250,7 +295,7 @@ Definition at line 18 of file Program\+Panel.\+h.
 
 
 
-Definition at line 15 of file Program\+Panel.\+h.
+Definition at line 16 of file Program\+Panel.\+h.
 
 \mbox{\Hypertarget{classProgramPanel_ae4c0bd021d8b67e8f723ed660bd3843b}\label{classProgramPanel_ae4c0bd021d8b67e8f723ed660bd3843b}} 
 \index{ProgramPanel@{ProgramPanel}!week@{week}}
@@ -260,7 +305,7 @@ Definition at line 15 of file Program\+Panel.\+h.
 
 
 
-Definition at line 16 of file Program\+Panel.\+h.
+Definition at line 17 of file Program\+Panel.\+h.
 
 
 

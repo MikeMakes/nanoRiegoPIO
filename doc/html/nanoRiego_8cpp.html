@@ -23,7 +23,6 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">nanoRiego
    </div>
-   <div id="projectbrief">Three buttons to control them all (3 valves and a pump)</div>
   </td>
  </tr>
  </tbody>
@@ -152,12 +151,10 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a3bd9bc37c206aab814401e906461cdf1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRelay.html">Relay</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nanoRiego_8cpp.html#a3bd9bc37c206aab814401e906461cdf1">pump</a> (<a class="el" href="Constants_8h.html#ae9fca16e250ad20cc777deea139fc861">pinPump</a>, true)</td></tr>
-<tr class="separator:a3bd9bc37c206aab814401e906461cdf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9382bbdaf76485874e9beba18e71bc4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRelay.html">Relay</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nanoRiego_8cpp.html#a9382bbdaf76485874e9beba18e71bc4c">pump</a> (<a class="el" href="Constants_8h.html#ae9fca16e250ad20cc777deea139fc861">pinPump</a>, true)</td></tr>
+<tr class="separator:a9382bbdaf76485874e9beba18e71bc4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f9c14cdbd42fdbe2d1742b29f205ad0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRelay.html">Relay</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nanoRiego_8cpp.html#a6f9c14cdbd42fdbe2d1742b29f205ad0">valves</a> [] ={<a class="el" href="classRelay.html">Relay</a>(pinValve1, true), <a class="el" href="classRelay.html">Relay</a>(pinValve2, true), <a class="el" href="classRelay.html">Relay</a>(pinValve3, true)}</td></tr>
 <tr class="separator:a6f9c14cdbd42fdbe2d1742b29f205ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaea5e332561f54b3b68e60c9772ec864"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRiego.html">Riego</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nanoRiego_8cpp.html#aaea5e332561f54b3b68e60c9772ec864">riego</a> = new <a class="el" href="classRiego.html">Riego</a>(&amp;<a class="el" href="nanoRiego_8cpp.html#a3bd9bc37c206aab814401e906461cdf1">pump</a>, <a class="el" href="nanoRiego_8cpp.html#a6f9c14cdbd42fdbe2d1742b29f205ad0">valves</a>)</td></tr>
-<tr class="separator:aaea5e332561f54b3b68e60c9772ec864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bf0180d038df9f91d42f0e0da496e9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGui.html">Gui</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nanoRiego_8cpp.html#a2bf0180d038df9f91d42f0e0da496e9c">gui</a></td></tr>
 <tr class="separator:a2bf0180d038df9f91d42f0e0da496e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a740bbef45315cfd19c00fa1d032fffd6"><td class="memItemLeft" align="right" valign="top">Versatile_RotaryEncoder&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nanoRiego_8cpp.html#a740bbef45315cfd19c00fa1d032fffd6">versatile_encoder</a> [3] ={Versatile_RotaryEncoder(PIN_SELECTOR_B1, PIN_SELECTOR_A1, PIN_BUTTON_1), Versatile_RotaryEncoder(PIN_SELECTOR_B2, PIN_SELECTOR_A2, PIN_BUTTON_2), Versatile_RotaryEncoder(PIN_SELECTOR_B3, PIN_SELECTOR_A3, PIN_BUTTON_3)}</td></tr>
@@ -170,6 +167,8 @@ Variables</h2></td></tr>
 <tr class="separator:a476cfa10e332766d100794afce6f3e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3d8759f11d64a3e06a9d9c80237d8ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nanoRiego_8cpp.html#aa3d8759f11d64a3e06a9d9c80237d8ac">longPress</a> [3] = {false,false,false}</td></tr>
 <tr class="separator:aa3d8759f11d64a3e06a9d9c80237d8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8233a41940ef6a4957ed3ae073196bf5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nanoRiego_8cpp.html#a8233a41940ef6a4957ed3ae073196bf5">triggerButtonAction</a> = false</td></tr>
+<tr class="separator:a8233a41940ef6a4957ed3ae073196bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a8eb7a602027dd846dc6196d42f8106fb"></a>
@@ -187,18 +186,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00030">30</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="nanoRiego_8cpp_a8eb7a602027dd846dc6196d42f8106fb_cgraph.png" border="0" usemap="#nanoRiego_8cpp_a8eb7a602027dd846dc6196d42f8106fb_cgraph" alt=""/></div>
-<map name="nanoRiego_8cpp_a8eb7a602027dd846dc6196d42f8106fb_cgraph" id="nanoRiego_8cpp_a8eb7a602027dd846dc6196d42f8106fb_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,103,32"/>
-<area shape="rect" href="classRiego.html#a6a7d435f7b4b75b5f02e90e8660f1c6d" title=" " alt="" coords="151,5,256,32"/>
-<area shape="rect" href="classRiego.html#af6e15f04ffddcc2ee0c42c3abba1afe4" title=" " alt="" coords="304,5,448,32"/>
-<area shape="rect" href="classRiego.html#adfce34662b16840eff354fa78b1345e7" title=" " alt="" coords="496,5,639,32"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00032">32</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 
 </div>
 </div>
@@ -256,7 +244,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00183">183</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00166">166</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -287,7 +275,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00196">196</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00180">180</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -324,7 +312,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00208">208</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00192">192</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -361,7 +349,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00220">220</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00204">204</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -399,7 +387,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00180">180</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00162">162</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -430,7 +418,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00192">192</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00176">176</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -467,7 +455,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00204">204</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00188">188</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -504,7 +492,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00216">216</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00200">200</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -552,7 +540,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00165">165</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00154">154</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -584,7 +572,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00188">188</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00172">172</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -622,7 +610,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00200">200</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00184">184</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -660,7 +648,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00212">212</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00196">196</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -697,31 +685,27 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00117">117</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00106">106</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="nanoRiego_8cpp_afe461d27b9c48d5921c00d521181f12f_cgraph.png" border="0" usemap="#nanoRiego_8cpp_afe461d27b9c48d5921c00d521181f12f_cgraph" alt=""/></div>
 <map name="nanoRiego_8cpp_afe461d27b9c48d5921c00d521181f12f_cgraph" id="nanoRiego_8cpp_afe461d27b9c48d5921c00d521181f12f_cgraph">
-<area shape="rect" title=" " alt="" coords="5,183,56,209"/>
-<area shape="rect" href="nanoRiego_8cpp.html#ae13bfa63ab19f70de8e6c7a66e3f8872" title=" " alt="" coords="127,5,211,32"/>
-<area shape="rect" href="classRiego.html#af164e1d6e5c38a76e64aec94018f14ae" title=" " alt="" coords="104,56,235,83"/>
-<area shape="rect" href="classGui.html#a3fdeba53a9b821e73855921f1eeb684c" title=" " alt="" coords="112,107,227,133"/>
-<area shape="rect" href="classRiego.html#a7212dff3eddca49880807c822535458a" title=" " alt="" coords="118,157,221,184"/>
-<area shape="rect" href="classRiego.html#a171fbfa6be0ded593af79c4ccaf0023f" title=" " alt="" coords="110,208,229,235"/>
-<area shape="rect" href="classGui.html#a225eb7edaace31eb6cc4ec3173b2a703" title=" " alt="" coords="133,259,206,285"/>
-<area shape="rect" href="classGui.html#a2e227772f401812f692df79f855cfdbf" title=" " alt="" coords="114,360,225,387"/>
-<area shape="rect" href="classGui.html#af08f8def5ff06799c05c0276d01bc336" title=" " alt="" coords="125,309,213,336"/>
-<area shape="rect" href="classRiego.html#a12c5b58f0ff399cb99e89460bae95fe6" title=" " alt="" coords="318,56,462,83"/>
-<area shape="rect" href="classRiego.html#a83410e274e6eac4a2dd6614962d0fc2b" title=" " alt="" coords="545,56,668,83"/>
-<area shape="rect" href="classRiego.html#a860214d1d0c24b623b3209d3caf21d7c" title=" " alt="" coords="292,132,488,159"/>
-<area shape="rect" href="classRiego.html#afb8f53fa609ec831e3677193bf717eed" title=" " alt="" coords="283,183,497,209"/>
-<area shape="rect" href="classPanel.html#abf53bcca45e15add05faf627dbf7bd98" title=" " alt="" coords="343,259,437,285"/>
-<area shape="rect" href="classPanel.html#aa907633451931acaf5702b0e8e8f9b72" title=" " alt="" coords="339,309,441,336"/>
-<area shape="rect" href="classPanel.html#ad00f0a0a4c18734a1b0591f29a23d944" title=" " alt="" coords="558,259,655,285"/>
-<area shape="rect" href="classPanel.html#a59a0f9bab63d69b2f75252908e7da185" title=" " alt="" coords="561,309,652,336"/>
-<area shape="rect" href="classPanel.html#a938f32d043ee63e4da2c5922ba63c8cd" title=" " alt="" coords="551,360,662,387"/>
-<area shape="rect" href="classPanel.html#a92cc10bfb58c0c48607a87c8d8cd6a19" title=" " alt="" coords="331,360,449,387"/>
+<area shape="rect" title=" " alt="" coords="5,132,56,159"/>
+<area shape="rect" href="nanoRiego_8cpp.html#ae13bfa63ab19f70de8e6c7a66e3f8872" title=" " alt="" coords="119,5,203,32"/>
+<area shape="rect" href="classGui.html#a3fdeba53a9b821e73855921f1eeb684c" title=" " alt="" coords="104,56,219,83"/>
+<area shape="rect" href="classGui.html#a225eb7edaace31eb6cc4ec3173b2a703" title=" " alt="" coords="125,107,198,133"/>
+<area shape="rect" href="classGui.html#a2e227772f401812f692df79f855cfdbf" title=" " alt="" coords="106,208,217,235"/>
+<area shape="rect" href="classGui.html#af08f8def5ff06799c05c0276d01bc336" title=" " alt="" coords="117,157,205,184"/>
+<area shape="rect" href="classGui.html#afb0548c90ead1a4e501f1c6a2b48f285" title=" " alt="" coords="106,259,217,285"/>
+<area shape="rect" href="classPanel.html#ac5722ace8a340efbcf897727dd877cc7" title=" " alt="" coords="282,56,375,83"/>
+<area shape="rect" href="classPanel.html#aa907633451931acaf5702b0e8e8f9b72" title=" " alt="" coords="278,157,379,184"/>
+<area shape="rect" href="classPanel.html#ad87ba0eab51701434676bad652c78382" title=" " alt="" coords="273,107,384,133"/>
+<area shape="rect" href="classPanel.html#ad00f0a0a4c18734a1b0591f29a23d944" title=" " alt="" coords="445,107,543,133"/>
+<area shape="rect" href="classPanel.html#a59a0f9bab63d69b2f75252908e7da185" title=" " alt="" coords="449,157,539,184"/>
+<area shape="rect" href="classPanel.html#a938f32d043ee63e4da2c5922ba63c8cd" title=" " alt="" coords="439,208,549,235"/>
+<area shape="rect" href="classPanel.html#a92cc10bfb58c0c48607a87c8d8cd6a19" title=" " alt="" coords="270,208,387,235"/>
+<area shape="rect" href="classPanel.html#ab1c94221f06e33c2ce350df6cec8eec3" title=" " alt="" coords="267,259,391,285"/>
 </map>
 </div>
 
@@ -770,28 +754,27 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00048">48</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00050">50</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="nanoRiego_8cpp_a4fc01d736fe50cf5b977f755b675f11d_cgraph.png" border="0" usemap="#nanoRiego_8cpp_a4fc01d736fe50cf5b977f755b675f11d_cgraph" alt=""/></div>
 <map name="nanoRiego_8cpp_a4fc01d736fe50cf5b977f755b675f11d_cgraph" id="nanoRiego_8cpp_a4fc01d736fe50cf5b977f755b675f11d_cgraph">
-<area shape="rect" title=" " alt="" coords="5,284,64,311"/>
-<area shape="rect" href="nanoRiego_8cpp.html#ae13bfa63ab19f70de8e6c7a66e3f8872" title=" " alt="" coords="157,5,241,32"/>
-<area shape="rect" href="nanoRiego_8cpp.html#a519fb7542649702edaff419c7b9ef829" title=" " alt="" coords="129,56,269,83"/>
-<area shape="rect" href="nanoRiego_8cpp.html#ae4bffbcb6c9529c2e79304f87b71221c" title=" " alt="" coords="129,107,269,133"/>
-<area shape="rect" href="nanoRiego_8cpp.html#aca2bda77f71ddb1856695c3e34cdc0b4" title=" " alt="" coords="129,157,269,184"/>
-<area shape="rect" href="nanoRiego_8cpp.html#a1952fcfd1846fe63113018fdf64f391e" title=" " alt="" coords="145,208,254,235"/>
-<area shape="rect" href="nanoRiego_8cpp.html#aa38be6574f68b17d4c94b3df0362ade3" title=" " alt="" coords="145,259,254,285"/>
-<area shape="rect" href="nanoRiego_8cpp.html#ad08e64876e1ab0b25d6aeca7392801b3" title=" " alt="" coords="145,309,254,336"/>
-<area shape="rect" href="nanoRiego_8cpp.html#a441a994c72588fd76e106339fa0e93b8" title=" " alt="" coords="141,360,258,387"/>
-<area shape="rect" href="nanoRiego_8cpp.html#a027f559a989410ab38c6d9449dd66381" title=" " alt="" coords="141,411,258,437"/>
-<area shape="rect" href="nanoRiego_8cpp.html#a30a7990260a8621422e436ccc24593d0" title=" " alt="" coords="141,461,258,488"/>
-<area shape="rect" href="nanoRiego_8cpp.html#ae98f1a9b42e982f7751de75f3da4176b" title=" " alt="" coords="151,512,248,539"/>
-<area shape="rect" href="classRiego.html#a6552a895d3874ec8822d349bb68b49a9" title=" " alt="" coords="112,563,287,589"/>
-<area shape="rect" href="nanoRiego_8cpp.html#a2cef78f53ab83cb7c3031d11d441cd6a" title=" " alt="" coords="335,107,467,133"/>
-<area shape="rect" href="nanoRiego_8cpp.html#aca5e40078ef47b958a5813fc8b86d0c2" title=" " alt="" coords="350,259,451,285"/>
-<area shape="rect" href="nanoRiego_8cpp.html#a7136aca1d62a37f730b4aa1b462a3445" title=" " alt="" coords="346,411,455,437"/>
+<area shape="rect" title=" " alt="" coords="5,259,64,285"/>
+<area shape="rect" href="nanoRiego_8cpp.html#ae13bfa63ab19f70de8e6c7a66e3f8872" title=" " alt="" coords="140,5,224,32"/>
+<area shape="rect" href="nanoRiego_8cpp.html#a519fb7542649702edaff419c7b9ef829" title=" " alt="" coords="112,56,252,83"/>
+<area shape="rect" href="nanoRiego_8cpp.html#ae4bffbcb6c9529c2e79304f87b71221c" title=" " alt="" coords="112,107,252,133"/>
+<area shape="rect" href="nanoRiego_8cpp.html#aca2bda77f71ddb1856695c3e34cdc0b4" title=" " alt="" coords="112,157,252,184"/>
+<area shape="rect" href="nanoRiego_8cpp.html#a1952fcfd1846fe63113018fdf64f391e" title=" " alt="" coords="127,208,237,235"/>
+<area shape="rect" href="nanoRiego_8cpp.html#aa38be6574f68b17d4c94b3df0362ade3" title=" " alt="" coords="127,259,237,285"/>
+<area shape="rect" href="nanoRiego_8cpp.html#ad08e64876e1ab0b25d6aeca7392801b3" title=" " alt="" coords="127,309,237,336"/>
+<area shape="rect" href="nanoRiego_8cpp.html#a441a994c72588fd76e106339fa0e93b8" title=" " alt="" coords="123,360,241,387"/>
+<area shape="rect" href="nanoRiego_8cpp.html#a027f559a989410ab38c6d9449dd66381" title=" " alt="" coords="123,411,241,437"/>
+<area shape="rect" href="nanoRiego_8cpp.html#a30a7990260a8621422e436ccc24593d0" title=" " alt="" coords="123,461,241,488"/>
+<area shape="rect" href="nanoRiego_8cpp.html#ae98f1a9b42e982f7751de75f3da4176b" title=" " alt="" coords="133,512,231,539"/>
+<area shape="rect" href="nanoRiego_8cpp.html#a2cef78f53ab83cb7c3031d11d441cd6a" title=" " alt="" coords="300,107,432,133"/>
+<area shape="rect" href="nanoRiego_8cpp.html#aca5e40078ef47b958a5813fc8b86d0c2" title=" " alt="" coords="315,259,417,285"/>
+<area shape="rect" href="nanoRiego_8cpp.html#a7136aca1d62a37f730b4aa1b462a3445" title=" " alt="" coords="311,411,421,437"/>
 </map>
 </div>
 
@@ -810,7 +793,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00028">28</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00029">29</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 
 </div>
 </div>
@@ -826,7 +809,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00107">107</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00103">103</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 
 </div>
 </div>
@@ -842,37 +825,23 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00106">106</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00102">102</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a3bd9bc37c206aab814401e906461cdf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bd9bc37c206aab814401e906461cdf1">&#9670;&nbsp;</a></span>pump</h2>
+<a id="a9382bbdaf76485874e9beba18e71bc4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9382bbdaf76485874e9beba18e71bc4c">&#9670;&nbsp;</a></span>pump</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classRelay.html">Relay</a> pump(<a class="el" href="Constants_8h.html#ae9fca16e250ad20cc777deea139fc861">pinPump</a>, true)</td>
+          <td class="memname"><a class="el" href="classRiego.html">Riego</a> riego &amp; pump</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="aaea5e332561f54b3b68e60c9772ec864"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaea5e332561f54b3b68e60c9772ec864">&#9670;&nbsp;</a></span>riego</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classRiego.html">Riego</a>* riego = new <a class="el" href="classRiego.html">Riego</a>(&amp;<a class="el" href="nanoRiego_8cpp.html#a3bd9bc37c206aab814401e906461cdf1">pump</a>, <a class="el" href="nanoRiego_8cpp.html#a6f9c14cdbd42fdbe2d1742b29f205ad0">valves</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00027">27</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00028">28</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 
 </div>
 </div>
@@ -888,7 +857,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00104">104</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00100">100</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 
 </div>
 </div>
@@ -904,7 +873,23 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00105">105</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00101">101</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8233a41940ef6a4957ed3ae073196bf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8233a41940ef6a4957ed3ae073196bf5">&#9670;&nbsp;</a></span>triggerButtonAction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool triggerButtonAction = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00104">104</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 
 </div>
 </div>
@@ -936,7 +921,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00035">35</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="nanoRiego_8cpp_source.html#l00037">37</a> of file <a class="el" href="nanoRiego_8cpp_source.html">nanoRiego.cpp</a>.</p>
 
 </div>
 </div>

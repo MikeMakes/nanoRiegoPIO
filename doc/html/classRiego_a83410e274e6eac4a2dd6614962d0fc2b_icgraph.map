@@ -1,6 +1,5 @@
 <map id="Riego::setValve" name="Riego::setValve">
-<area shape="rect" id="node1" title=" " alt="" coords="475,5,597,32"/>
-<area shape="rect" id="node2" href="$classRiego.html#a12c5b58f0ff399cb99e89460bae95fe6" title=" " alt="" coords="283,5,427,32"/>
-<area shape="rect" id="node3" href="$classRiego.html#af164e1d6e5c38a76e64aec94018f14ae" title=" " alt="" coords="104,5,235,32"/>
-<area shape="rect" id="node4" href="$nanoRiego_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="376,5,499,32"/>
+<area shape="rect" id="node2" href="$classRiego.html#a12c5b58f0ff399cb99e89460bae95fe6" title=" " alt="" coords="184,5,328,32"/>
+<area shape="rect" id="node3" href="$classRiego.html#af164e1d6e5c38a76e64aec94018f14ae" title=" " alt="" coords="5,5,136,32"/>
 </map>
