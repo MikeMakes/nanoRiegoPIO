@@ -53,7 +53,7 @@ void setup() {
   #endif
 
   SERIAL_BEGIN(115200);
-  SERIAL_PRINTLN("setup()");
+  //SERIAL_PRINTLN("setup()");
   bluetooth.begin(9600);
   //bluetooth.println(1);
   //bluetooth.print("adiosadiosadios");
@@ -72,7 +72,8 @@ void setup() {
      setTime(startTime);
   }
   else{
-     SERIAL_PRINTLN("RTC has set the system time");   
+     //SERIAL_PRINTLN("RTC has set the system time");   
+    SERIAL_PRINTLN("RTC");   
      //SERIAL_PRINTLN(now()); 
   }
 
@@ -104,8 +105,8 @@ bool longPress[3] = {false,false,false};
 bool triggerButtonAction = false;
 
 void loop(){
-  SERIAL_PRINTLN("void loop()");
-  bluetooth.println("void loop()");
+  //SERIAL_PRINTLN("void loop()");
+  //bluetooth.println("void loop()");
   //debug_message("loop");
 
   static time_t buttonPressedAt = now();
@@ -113,42 +114,46 @@ void loop(){
   for(int i=0; i<3; i++){
     if (versatile_encoder[i].ReadEncoder()){// Do the encoder reading and processing
       // Do something here whenever an encoder action is read
-      SERIAL_PRINT("R");
-      if(triggerButtonAction == false){
-        //if(now()-buttonPressedAt>200){
+      //SERIAL_PRINTLN("R");
+      /*
+      if(!triggerButtonAction){
+        if(now()-buttonPressedAt>10){
           triggerButtonAction = true;
           buttonPressedAt = now();
           //riego->buttonPressedAt(now());
-        //}
+        }
+      }
+      */
+      for(int i=0; i<3; i++){
+        if(press[0]) gui->setup();
+        if(rotation[0]) gui->nextState(rotationDir[0]);
+
+        if(press[1]) riego.selections[1] = gui->selection();
+        if(rotation[1]) gui->shiftField(rotationDir[1]);
+
+        if(longPress[i]) riego.longPress(i);
+        if(press[i]) riego.press(i);
+        if(rotation[i]) riego.rotation(i,rotationDir[i]);
+
+        longPress[i]=false;
+        press[i]=false;
+        rotation[i]=false;
       }
     }
         
   }
 
+  /*
   if(triggerButtonAction){
     //SERIAL_PRINTLN("triggerButtonAction");
     //Aquí antes que nada deberías checkear si quieres hacer algo
     //con 2 o más botones a la vez
-    for(int i=0; i<3; i++){
-      if(press[0]) gui->setup();
-      if(rotation[0]) gui->nextState(rotationDir[0]);
 
-      if(press[1]) riego.selections[1] = gui->selection();
-      if(rotation[1]) gui->shiftField(rotationDir[1]);
-
-      if(longPress[i]) riego.longPress(i);
-      if(press[i]) riego.press(i);
-      if(rotation[i]) riego.rotation(i,rotationDir[i]);
-
-      longPress[i]=false;
-      press[i]=false;
-      rotation[i]=false;
-    }
     triggerButtonAction=false;
-  }
+  }*/
 
   gui->run();
-  Alarm.delay(10);
+  Alarm.delay(1);
 }
 
 void handleRotate(int handleNumber, int8_t rotationDirection){

@@ -32,7 +32,7 @@ void FrontPanel::loop(){
         //bluetooth->print("*S"+text+"*");
 
         for(int i=0; i<numValves; i++){
-            SERIAL_PRINTLN(valveLeds[i]);
+            //SERIAL_PRINTLN(valveLeds[i]);
             //valveLeds[i] = riego->getValve(i);
 
             // Update LED Color 
@@ -54,7 +54,7 @@ void FrontPanel::loop(){
                     break;
             }
                 
-            bluetooth->print("*RR");
+            //bluetooth->print("*RR");
             bluetooth->print(red);
             bluetooth->print("G");
             bluetooth->print(green);

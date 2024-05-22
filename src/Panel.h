@@ -42,7 +42,7 @@ class Panel{
     virtual void body();
 
     void foot(){
-      bluetooth->println(F("set_panel_notes(,,,)"));
+      //bluetooth->println(F("set_panel_notes(,,,)"));
       bluetooth->println(F("run()"));
       bluetooth->println(F("*"));
     }

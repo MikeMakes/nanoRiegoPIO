@@ -21,7 +21,7 @@ _bluetooth(serial)
 }
 
 void Gui::run(){
-  SERIAL_PRINTLN("Gui::run()");
+  //SERIAL_PRINTLN("Gui::run()");
   if(_update){
     _update = false;
     _panels[_state]->setup();
