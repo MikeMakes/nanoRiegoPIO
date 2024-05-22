@@ -102,7 +102,7 @@ class Riego:public IfaceRiego{
     void checkAlarm(){    //Alarm.alarmRepeat(dowMonday, 9,15,0, check);
       if(!_programEnabled) return;
       _actualTime = now();
-      if(_programedDays[weekday()-1]){
+      if((_programedDays[weekday()-1])||(_programTimePtr.programDays[weekday()-1])){
         runProgram(_programDelay);
       }
     }
@@ -119,6 +119,9 @@ class Riego:public IfaceRiego{
       _programTime[0] = hour;
       _programTime[1] = min;
       _programTime[2] = sec;
+      _programTimePtr.hour = hour;
+      _programTimePtr.minute = min;
+      _programTimePtr.second = sec;
     }
     void addProgramTime(unsigned int field){
       if(field<0 || field>2) return;
@@ -150,6 +153,7 @@ class Riego:public IfaceRiego{
       actualTime.second=_programTime[2];
       for(int i=0; i<7; i++) actualTime.programDays[i]=_programedDays[i];
       actualTime.programEnabled=_programEnabled;
+      //_programTimePtr = actualTime;
       return actualTime;
     }
     unsigned int getProgramTime(unsigned int field){
@@ -162,7 +166,7 @@ class Riego:public IfaceRiego{
     }
     unsigned int getSystemTime(unsigned int field){
       if(field>5) field = 5;
-      unsigned int systemTime[6]={hour(),minute(),second(),day(),month(),year()};
+      int systemTime[6]={hour(),minute(),second(),day(),month(),year()};
       return systemTime[field];
     }
     void setSystemTime(systemTime time){
@@ -231,6 +235,16 @@ class Riego:public IfaceRiego{
       }
     }
 
+    programTime _programTimePtr;
+    virtual programTime* const getProgramTimePtr(){
+      _programTimePtr.hour=_programTime[0];
+      _programTimePtr.minute=_programTime[1];
+      _programTimePtr.second=_programTime[2];
+      for(int i=0; i<7; i++) _programTimePtr.programDays[i]=_programedDays[i];
+      _programTimePtr.programEnabled=_programEnabled;
+      return &_programTimePtr;
+    }
+
   private:
     Relay* _pump;
     Relay _valves[numValves];
@@ -245,8 +259,9 @@ class Riego:public IfaceRiego{
     time_t _actualTime = DEFAULT_TIME;
     //time_t _programTime = DEFAULT_TIME;
     time_t _lastRunTime;
-    bool _programedDays[7] = {true,true,true,true,true,true,true};
+    bool _programedDays[7] = {true,false,true,false,true,false,true};
     unsigned int _programTime[3]={9,00,00};
+    //programTime _programTimePtr;
 
   public:
     unsigned int selections[3]={0,0,0};

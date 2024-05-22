@@ -9,7 +9,7 @@ _bluetooth(serial)
     //serial->print("Gui::Gui");
     //serial->flush();
 
-    _state = STATES::FRONTPANEL;
+    _state = STATES::PROGRAMPANEL;
     _update = false;
     _panels[_state]->setup();
 
@@ -41,7 +41,7 @@ void Gui::setState(STATES state){
 }
 
 void Gui::setup(){
-  SERIAL_PRINTLN("Gui::setup()");
+  //SERIAL_PRINTLN("Gui::setup()");
   _panels[_state]->setup();
 }
 
@@ -64,16 +64,16 @@ void Gui::nextState(bool right){
 }
 
 void Gui::shiftField(bool directionField){
-  if(_state==STATES::PROGRAMPANEL || _state==STATES::TIMEPANEL){
+  if(_state==STATES::TIMEPANEL){
     _panels[_state]->shiftField(directionField);
   }
 }
 
 unsigned int Gui::selection(){
-  if(_state==STATES::PROGRAMPANEL){
-    return _panels[_state]->getField();
-  }
-  if (_state==STATES::TIMEPANEL){
+  //if(_state==STATES::PROGRAMPANEL){
+  //  return _panels[_state]->getField();
+  //}
+  if(_state==STATES::TIMEPANEL){
     return _panels[_state]->getField();
   }
   return 99;

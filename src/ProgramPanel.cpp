@@ -4,6 +4,8 @@ ProgramPanel::ProgramPanel(SoftwareSerial* serial):Panel(serial){}
 //ProgramPanel::ProgramPanel(char commandID, char panelID, SoftwareSerial* serial):Panel(commandID, panelID, serial){}
 
 void ProgramPanel::body(){
+    /* 
+    // Leds
     bluetooth->println("add_text_box(1,4,6,C,24,245,240,245,h)");
     bluetooth->println("add_led(8,4,1,L,0,0,0)");
     bluetooth->println("add_led(9,4,1,M,0,0,0)");
@@ -13,13 +15,59 @@ void ProgramPanel::body(){
     bluetooth->println("add_led(13,4,1,S,0,0,0)");
     bluetooth->println("add_led(14,4,1,D,0,0,0)");
     bluetooth->println("add_led(10,2,2,p,0,0,0)");
-    /*
-    bluetooth->println("add_text_box(2,4,1,C,24,245,240,245,h)");
-    bluetooth->println("add_text(3,4,xlarge,C,:,245,240,245,)");
-    bluetooth->println("add_text_box(4,4,1,C,59,245,240,245,m)");
-    bluetooth->println("add_text(5,4,xlarge,C,:,245,240,245,)");
-    bluetooth->println("add_text_box(6,4,1,C,59,245,240,245,s)");
     */
+
+    /*
+    // Texto días
+    bluetooth->println("add_text(8,3,xlarge,C,L,245,240,245,)");
+    bluetooth->println("add_text(9,3,xlarge,C,M,245,240,245,)");
+    bluetooth->println("add_text(10,3,xlarge,C,X,245,240,245,)");
+    bluetooth->println("add_text(11,3,xlarge,C,J,245,240,245,)");
+    bluetooth->println("add_text(12,3,xlarge,C,V,245,240,245,)");
+    bluetooth->println("add_text(13,3,xlarge,C,S,245,240,245,)");
+    bluetooth->println("add_text(14,3,xlarge,C,D,245,240,245,)");
+    */
+   /*
+    bluetooth->println("add_text_box(2,6,4,C,6,245,240,245,h)");
+    bluetooth->println("add_switch(14,4,3,L,l,0,0)");
+    bluetooth->println("add_switch(13,4,3,M,m,0,0)");
+    bluetooth->println("add_switch(12,4,3,X,x,0,0)");
+    bluetooth->println("add_switch(11,4,3,J,j,0,0)");
+    bluetooth->println("add_switch(10,4,3,V,v,0,0)");
+    bluetooth->println("add_switch(9,4,3,S,s,0,0)");
+    bluetooth->println("add_switch(8,4,3,D,d,0,0)");
+    bluetooth->println("add_switch(3,3,4,A,a,0,0)");
+    */
+    
+    //this->setup();
+    bluetooth->println("add_text_box(2,6,4,C,6,245,240,245,h)");
+    /*
+    for(uint8_t i=0; i<8; i++){
+        if(i!=7) bluetooth->print((int)_nextProgramTime.programDays[i]);
+        else bluetooth->print((int)_nextProgramTime.programEnabled);
+        bluetooth->println(")");
+    }
+    */
+    for(uint8_t i=0; i<8; i++){
+        int maxIndex = 23;
+        if(i>1 && i!=7) maxIndex = 24;
+        for(int j=0; j<maxIndex; j++){
+            //SERIAL_PRINT(switches[i][j]);
+            //if(switches[i][j]=='\0') break;
+            bluetooth->print(switches[i][j]);
+        }
+        if(i!=7) {
+            bluetooth->print((int)_nextProgramTimePtr->programDays[i]);
+            //SERIAL_PRINT((int)_nextProgramTime.programDays[i]);
+        }
+        else {
+            bluetooth->print((int)_nextProgramTimePtr->programEnabled);
+            //SERIAL_PRINT((int)_nextProgramTime.programEnabled);
+        }
+        bluetooth->println(")");
+        //SERIAL_PRINTLN(")");
+    }
+
 }
 
 //void ProgramPanel::loop(){};
@@ -30,71 +78,55 @@ void ProgramPanel::loop(){
     /////////////   Receive and Process Data
     if (bluetooth->available()){
         data_in=bluetooth->read();  //Get next character 
+        for(int i=0; i<7; i++){
+            //if(i==7) continue;
+            if(data_in==turnOn[i]){
+                _nextProgramTimePtr->programDays[i] = true;
+            }
+            if(data_in==turnOff[i]){
+                _nextProgramTimePtr->programDays[i] = false;
+            }
+        }
+        if(data_in==turnOn[7]){
+            _nextProgramTimePtr->programEnabled = true;
+        }
+        if(data_in==turnOff[7]){
+            _nextProgramTimePtr->programEnabled = false;
+        }
+        changingProgramTime = true;
 
     }
 
     /////////////  Send Data to Android device
     unsigned long t=millis();
-    if ((t-last_time)>update_interval){
+    if((t-last_time)>update_interval){
         last_time=t;
 
         //programTime nextProgramTime = riego->getProgramTime();
-        if(_nextProgramTime.programEnabled){
+        if(_nextProgramTimePtr->programEnabled){
             bluetooth->print("*h");
-            bluetooth->print(_nextProgramTime.hour);
+            bluetooth->print(_nextProgramTimePtr->hour);
             bluetooth->print(":");
-            bluetooth->print(_nextProgramTime.minute);
+            bluetooth->print(_nextProgramTimePtr->minute);
             bluetooth->print(":");
-            bluetooth->print(_nextProgramTime.second);
+            bluetooth->print(_nextProgramTimePtr->second);
             bluetooth->print("*");
         }else{
             //bluetooth->print(F("*hPrograma desactivado*"));
-        }
-
-        int red=0, green=0, blue=0;
-        String led;
-
-        for(uint8_t i=0; i<8; i++){
-            if(i!=7){ //weekday
-                if(_nextProgramTime.programDays[i]){
-                    red=0; green=255;
-                }else {
-                    red=255; green=0;
-                }
-                led = week[i];
-            }else{
-                if(_nextProgramTime.programEnabled){
-                    red=0; green=255;
-                }else{
-                    red=255; green=0;
-                }
-                led ="*p";
-            }
-
-            if(i==selectedDay){
-                red=255; green=200; blue=0;
-            }
-
-            bluetooth->print(led);
-            bluetooth->print("R");
-            bluetooth->print(red);
-            bluetooth->print("G");
-            bluetooth->print(green);
-            bluetooth->print("B");
-            bluetooth->print(blue);
-            bluetooth->print("*");
         }
     }
 }
 
 void ProgramPanel::update(IfaceRiego* const riego, IfaceGui* const gui){
-    if(selectedDay==8) riego->toggleProgramEnabled();
-    else riego->toggleProgramDays(selectedDay);
+    //if(selectedDay==8) riego->toggleProgramEnabled();
+    //else riego->toggleProgramDays(selectedDay);
     if(changingProgramTime){
-        riego->setProgramTime(_nextProgramTime);
+        programTime t = *_nextProgramTimePtr;
+        riego->setProgramTime(t);
         changingProgramTime=false;
     }
     _nextProgramTime = riego->getProgramTime();
+    _nextProgramTimePtr = riego->getProgramTimePtr();
 }
 
 void ProgramPanel::selectDay(unsigned int day){

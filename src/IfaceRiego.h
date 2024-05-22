@@ -9,7 +9,7 @@
 class IfaceGui; //Evitar dependencias cirulares
 
 struct systemTime{
-  unsigned int hour, minute, second, day, month, year;
+  int hour, minute, second, day, month, year;
 };
 
 struct programTime{
@@ -43,6 +43,7 @@ class IfaceRiego{
     virtual void substractProgramTime(unsigned int field);
     virtual programTime getProgramTime();
     virtual unsigned int getProgramTime(unsigned int field);
+    virtual programTime* const getProgramTimePtr();
     virtual systemTime getSystemTime();
     virtual unsigned int getSystemTime(unsigned int field);
     //void setProgramTime(programTime programTime_);

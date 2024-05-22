@@ -18,7 +18,7 @@ class Panel{
     //char commandIn;
     char data_in;
 
-    int update_interval=1000; // time interval in ms for updating panel indicators 
+    unsigned long update_interval=200; // time interval in ms for updating panel indicators 
     unsigned long last_time=0; // time of last update
 
     /*Panel(char commandID, char panelID, SoftwareSerial* serial):bluetooth(serial){
@@ -36,7 +36,7 @@ class Panel{
       bluetooth->println(F("*.kwl"));
       bluetooth->println(F("clear_panel()"));
       bluetooth->println(F("set_grid_size(16,8)"));
-      bluetooth->println(F("add_text_box(4,1,8,C,Riego,245,240,245,S)"));
+      bluetooth->println(F("add_text_box(4,1,8,C,Riego,245,240,245,)"));
     }
 
     virtual void body();

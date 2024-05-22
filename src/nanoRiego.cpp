@@ -92,8 +92,8 @@ void setup() {
   gui = new Gui(&riego, &bluetooth);
   riego.gui(gui);
 
-  riego.setProgramTime(ALARM_HOUR-1, ALARM_MINUTE, ALARM_SECOND);
-  Alarm.alarmRepeat(ALARM_HOUR-1, ALARM_MINUTE, ALARM_SECOND, alarmRiego);
+  riego.setProgramTime(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND);
+  Alarm.alarmRepeat(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND, alarmRiego);
   Alarm.delay(10);
   //SERIAL_PRINTLN("finish setup");
 }
@@ -109,49 +109,23 @@ void loop(){
   //bluetooth.println("void loop()");
   //debug_message("loop");
 
-  static time_t buttonPressedAt = now();
-
   for(int i=0; i<3; i++){
     if (versatile_encoder[i].ReadEncoder()){// Do the encoder reading and processing
-      // Do something here whenever an encoder action is read
-      //SERIAL_PRINTLN("R");
-      /*
-      if(!triggerButtonAction){
-        if(now()-buttonPressedAt>10){
-          triggerButtonAction = true;
-          buttonPressedAt = now();
-          //riego->buttonPressedAt(now());
-        }
-      }
-      */
-      for(int i=0; i<3; i++){
-        if(press[0]) gui->setup();
-        if(rotation[0]) gui->nextState(rotationDir[0]);
+      if(press[0]) gui->setup();
+      if(rotation[0]) gui->nextState(rotationDir[0]);
 
-        if(press[1]) riego.selections[1] = gui->selection();
-        if(rotation[1]) gui->shiftField(rotationDir[1]);
+      //if(press[1]) riego.selections[1] = gui->selection();
+      //if(rotation[1]) gui->shiftField(rotationDir[1]);
 
-        if(longPress[i]) riego.longPress(i);
-        if(press[i]) riego.press(i);
-        if(rotation[i]) riego.rotation(i,rotationDir[i]);
+      if(longPress[i]) riego.longPress(i);
+      if(press[i]) riego.press(i);
+      if(rotation[i]) riego.rotation(i,rotationDir[i]);
 
-        longPress[i]=false;
-        press[i]=false;
-        rotation[i]=false;
-      }
+      longPress[i]=false;
+      press[i]=false;
+      rotation[i]=false;
     }
-        
   }
-
-  /*
-  if(triggerButtonAction){
-    //SERIAL_PRINTLN("triggerButtonAction");
-    //Aquí antes que nada deberías checkear si quieres hacer algo
-    //con 2 o más botones a la vez
-
-    triggerButtonAction=false;
-  }*/
-
   gui->run();
   Alarm.delay(1);
 }

@@ -45,7 +45,7 @@ const static unsigned int PIN_BLUETOOTH_TX = 3;
 
 #define EEPROM_timeAddress 0
 const static unsigned int DEFAULT_TIME = (unsigned int)1701709190;
-const static unsigned int ALARM_HOUR = (unsigned int)10;
+const static unsigned int ALARM_HOUR = (unsigned int)7;
 const static unsigned int ALARM_MINUTE = (unsigned int)00;
 const static unsigned int ALARM_SECOND = (unsigned int)00;
 
