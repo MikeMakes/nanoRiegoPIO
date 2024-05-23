@@ -16,16 +16,6 @@ class ProgramPanel : public Panel {
     String text; // String for text elements
     char turnOn[8] = {'L','M','X','J','V','S','D','A'};
     char turnOff[8] = {'l','m','x','j','v','s','d','a'};
-    /*
-    const char switchL[24] = "add_switch(8,4,3,L,l,0,";
-    const char switchM[24] = "add_switch(9,4,3,M,m,0,";
-    const char switchX[25] = "add_switch(10,4,3,X,x,0,";
-    const char switchJ[25] = "add_switch(11,4,3,J,j,0,";
-    const char switchV[25] = "add_switch(12,4,3,V,v,0,";
-    const char switchS[25] = "add_switch(13,4,3,S,s,0,";
-    const char switchD[25] = "add_switch(14,4,3,D,d,0,";
-    const char switchA[24] = "add_switch(3,3,4,A,a,0,";
-    */
     const char switchL[23] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '8', ',', '4', ',', '3', ',', 'L', ',', 'l', ',', '0', ','};
     const char switchM[23] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '9', ',', '4', ',', '3', ',', 'M', ',', 'm', ',', '0', ','};
     const char switchX[24] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '1', '0', ',', '4', ',', '3', ',', 'X', ',', 'x', ',', '0', ','};

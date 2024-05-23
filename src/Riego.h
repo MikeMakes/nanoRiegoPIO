@@ -110,10 +110,12 @@ class Riego:public IfaceRiego{
     void setProgramDays(unsigned int day, bool enabled){
         if(day<0 || day>6) return;
         _programedDays[day] = enabled;
+        _programTimePtr.programDays[day] = enabled;
     }
     void toggleProgramDays(unsigned int day){
         if(day<0 || day>6) return;
         _programedDays[day] = !_programedDays[day];
+        _programTimePtr.programDays[day] = !_programTimePtr.programDays[day];
     }
     void setProgramTime(int hour, int min, int sec){
       _programTime[0] = hour;
@@ -147,6 +149,7 @@ class Riego:public IfaceRiego{
     }
 
     programTime getProgramTime(){
+      /*
       programTime actualTime;
       actualTime.hour=_programTime[0];
       actualTime.minute=_programTime[1];
@@ -154,11 +157,24 @@ class Riego:public IfaceRiego{
       for(int i=0; i<7; i++) actualTime.programDays[i]=_programedDays[i];
       actualTime.programEnabled=_programEnabled;
       //_programTimePtr = actualTime;
-      return actualTime;
+      */
+
+      return _programTimePtr;
     }
     unsigned int getProgramTime(unsigned int field){
-      if(field>2) field = 2;
-      return _programTime[field];
+      //if(field>2) field = 2;
+      //return _programTime[field];
+      switch(field){
+        case 0:
+          return _programTimePtr.hour;
+          break;
+        case 1:
+          return _programTimePtr.minute;
+         break;
+        default:
+          return _programTimePtr.second;
+          break;
+      }
     }
     systemTime getSystemTime(){
       systemTime actualTime = {hour(),minute(),second(),day(),month(),year()};
@@ -181,6 +197,7 @@ class Riego:public IfaceRiego{
       RTC.set(unixTime);
       setTime(unixTime);
     }
+    /*
     void setProgramTime(programTime time){
       programTime actualProgramTime = getProgramTime();
       if((time.hour != actualProgramTime.hour) || (time.minute != actualProgramTime.minute) || (time.second != actualProgramTime.second)){
@@ -191,6 +208,7 @@ class Riego:public IfaceRiego{
       //for(int i=0; i<8; i++) _programedDays[i] = time.programDays[i];
       //_programEnabled = time.programEnabled;
     }
+    */
 
     void press(int button){
       switch(button){
@@ -235,7 +253,7 @@ class Riego:public IfaceRiego{
       }
     }
 
-    programTime _programTimePtr;
+    programTime _programTimePtr{ .hour = *&_programTime[0], .minute = 0, .second = 0, .programDays = {false,false,false,false,false,false,false}, .programEnabled = false };
     virtual programTime* const getProgramTimePtr(){
       _programTimePtr.hour=_programTime[0];
       _programTimePtr.minute=_programTime[1];

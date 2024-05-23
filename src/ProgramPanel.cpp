@@ -79,22 +79,30 @@ void ProgramPanel::loop(){
     if (bluetooth->available()){
         data_in=bluetooth->read();  //Get next character 
         for(int i=0; i<7; i++){
-            //if(i==7) continue;
+            SERIAL_PRINT("R");
+            SERIAL_PRINT(i);
+            SERIAL_PRINT(",V1:");
+            SERIAL_PRINT(_nextProgramTimePtr->programDays[i]);
             if(data_in==turnOn[i]){
                 _nextProgramTimePtr->programDays[i] = true;
+                changingProgramTime = true;
             }
             if(data_in==turnOff[i]){
                 _nextProgramTimePtr->programDays[i] = false;
+
+                changingProgramTime = true;
             }
+            SERIAL_PRINT(",V2:");
+            SERIAL_PRINTLN(_nextProgramTimePtr->programDays[i]);
         }
         if(data_in==turnOn[7]){
             _nextProgramTimePtr->programEnabled = true;
+            changingProgramTime = true;
         }
         if(data_in==turnOff[7]){
             _nextProgramTimePtr->programEnabled = false;
+            changingProgramTime = true;
         }
-        changingProgramTime = true;
-
     }
 
     /////////////  Send Data to Android device
@@ -121,11 +129,23 @@ void ProgramPanel::update(IfaceRiego* const riego, IfaceGui* const gui){
     //if(selectedDay==8) riego->toggleProgramEnabled();
     //else riego->toggleProgramDays(selectedDay);
     if(changingProgramTime){
-        programTime t = *_nextProgramTimePtr;
-        riego->setProgramTime(t);
+        for(int i=0; i<7; i++){
+            SERIAL_PRINT("U");
+            SERIAL_PRINT(i);
+            SERIAL_PRINT(",V1:");
+            SERIAL_PRINT(_nextProgramTimePtr->programDays[i]);
+            SERIAL_PRINT(",V2:");
+            SERIAL_PRINTLN(riego->getProgramTimePtr()->programDays[i]);
+            SERIAL_PRINT("X");
+            SERIAL_PRINT(i);
+            SERIAL_PRINT(",V1:");
+            SERIAL_PRINT(riego->getProgramTimePtr()->programDays[i]);
+            riego->getProgramTimePtr()->programDays[i] = false;
+            SERIAL_PRINT(",V2:");
+            SERIAL_PRINTLN(riego->getProgramTimePtr()->programDays[i]);
+        }
         changingProgramTime=false;
     }
-    _nextProgramTime = riego->getProgramTime();
     _nextProgramTimePtr = riego->getProgramTimePtr();
 }
 

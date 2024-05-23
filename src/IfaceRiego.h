@@ -49,7 +49,7 @@ class IfaceRiego{
     //void setProgramTime(programTime programTime_);
 
     virtual void setSystemTime(systemTime time);
-    virtual void setProgramTime(programTime time);
+    //virtual void setProgramTime(programTime time);
 
     IfaceGui* _gui;
 };
