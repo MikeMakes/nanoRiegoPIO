@@ -10,8 +10,10 @@ _bluetooth(serial)
     //serial->flush();
 
     _state = STATES::PROGRAMPANEL;
-    _update = false;
+
+    _panels[_state]->update(_riego, this);
     _panels[_state]->setup();
+    _update = false;
 
     /*
     for(int i=0; i<3; i++){
@@ -23,8 +25,8 @@ _bluetooth(serial)
 void Gui::run(){
   //SERIAL_PRINTLN("Gui::run()");
   if(_update){
-    _update = false;
     _panels[_state]->setup();
+    _update = false;
   }
   _panels[_state]->update(_riego, this);
   _panels[_state]->loop();

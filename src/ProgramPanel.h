@@ -9,9 +9,12 @@ class ProgramPanel : public Panel {
     //ProgramPanel(char commandID, char panelID, SoftwareSerial* serial);
     ~ProgramPanel();
 
+    void printProgramTimeSwitches();
+    void reloadDynamicBody();
     void body();
     void loop();
     void update(IfaceRiego* const riego, IfaceGui* const gui);
+    void printProgramTimeBox();
 
     String text; // String for text elements
     char turnOn[8] = {'L','M','X','J','V','S','D','A'};
@@ -23,7 +26,7 @@ class ProgramPanel : public Panel {
     const char switchV[24] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '1', '2', ',', '4', ',', '3', ',', 'V', ',', 'v', ',', '0', ','};
     const char switchS[24] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '1', '3', ',', '4', ',', '3', ',', 'S', ',', 's', ',', '0', ','};
     const char switchD[24] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '1', '4', ',', '4', ',', '3', ',', 'D', ',', 'd', ',', '0', ','};
-    const char switchA[23] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '3', ',', '3', ',', '4', ',', 'A', ',', 'a', ',', '0', ','};
+    const char switchA[23] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '3', ',', '4', ',', '4', ',', 'A', ',', 'a', ',', '0', ','};
     const char *switches[8] = {switchL,switchM,switchX,switchJ,switchV,switchS,switchD,switchA};
 
     unsigned int selectedDay = 0;
@@ -38,10 +41,10 @@ class ProgramPanel : public Panel {
     bool changingProgramTime=false;
 
     //programTime _nextProgramTime;
-    programTime _nextProgramTime = { .hour = 9, .minute = 0, .second = 0, .programDays = {false,false,false,false,false,false,false}, .programEnabled = false };
+    programTime _nextProgramTime = { .hour = 20, .minute = 0, .second = 0, .programDays = {false,false,false,false,false,false,false}, .programEnabled = false };
     //programTime *_nextProgramTimePtr = 
     //programTime _nextProgramTime;
-    programTime *_nextProgramTimePtr = new programTime{ .hour = 9, .minute = 0, .second = 0, .programDays = {false,false,false,false,false,false,false}, .programEnabled = false };
+    programTime *_nextProgramTimePtr = new programTime{ .hour = 13, .minute = 0, .second = 0, .programDays = {false,false,false,false,false,false,false}, .programEnabled = false };
 };
 
 #endif

@@ -42,13 +42,14 @@ class Riego:public IfaceRiego{
     }
 
     void setProgramEnabled(bool programEnabled){
-      _programEnabled=programEnabled;
+      //_programEnabled=programEnabled;
+      _programTimePtr.programEnabled=programEnabled;
     }
     bool getProgramEnabled(){
-      return _programEnabled;
+      return _programTimePtr.programEnabled;
     }
     void toggleProgramEnabled(){
-      _programEnabled=!_programEnabled;
+      _programTimePtr.programEnabled=!_programTimePtr.programEnabled;
     }
     
     void turnOff(){
@@ -92,7 +93,8 @@ class Riego:public IfaceRiego{
       checkAlarm();
     }
     void checkMillis(){
-      if(!_programEnabled) return;
+      //if(!_programEnabled) return;
+      if(!_programTimePtr.programEnabled) return;
       _actualTimeMillis = millis();
       //if( (_actualTime - _lastRunTimeMillis) > oneDay) ){
       if((_actualTimeMillis - _lastRunTimeMillis) > oneMin){
@@ -100,32 +102,33 @@ class Riego:public IfaceRiego{
       }
     }
     void checkAlarm(){    //Alarm.alarmRepeat(dowMonday, 9,15,0, check);
-      if(!_programEnabled) return;
+      if(!_programTimePtr.programEnabled) return;
       _actualTime = now();
-      if((_programedDays[weekday()-1])||(_programTimePtr.programDays[weekday()-1])){
+      if(_programTimePtr.programDays[weekday()-1]){
         runProgram(_programDelay);
       }
     }
 
     void setProgramDays(unsigned int day, bool enabled){
         if(day<0 || day>6) return;
-        _programedDays[day] = enabled;
+        //_programedDays[day] = enabled;
         _programTimePtr.programDays[day] = enabled;
     }
     void toggleProgramDays(unsigned int day){
         if(day<0 || day>6) return;
-        _programedDays[day] = !_programedDays[day];
+        //_programedDays[day] = !_programedDays[day];
         _programTimePtr.programDays[day] = !_programTimePtr.programDays[day];
     }
     void setProgramTime(int hour, int min, int sec){
-      _programTime[0] = hour;
-      _programTime[1] = min;
-      _programTime[2] = sec;
+      //_programTime[0] = hour;
+      //_programTime[1] = min;
+      //_programTime[2] = sec;
       _programTimePtr.hour = hour;
       _programTimePtr.minute = min;
       _programTimePtr.second = sec;
     }
     void addProgramTime(unsigned int field){
+      /*
       if(field<0 || field>2) return;
       if (field != 0) {
         _programTime[field] = _programTime[field] - 10;
@@ -135,8 +138,10 @@ class Riego:public IfaceRiego{
         _programTime[field]--;
         if (_programTime[field] > 23 ) _programTime[field] = 23;
       }
+      */
     }
     void substractProgramTime(unsigned int field){
+      /*
       if(field<0 || field>2) return;
       if (field != 0) {
         _programTime[field] = _programTime[field] - 10;
@@ -146,6 +151,7 @@ class Riego:public IfaceRiego{
         _programTime[field]--;
         if (_programTime[field] > 23 ) _programTime[field] = 23;
       }
+      */
     }
 
     programTime getProgramTime(){
@@ -253,13 +259,13 @@ class Riego:public IfaceRiego{
       }
     }
 
-    programTime _programTimePtr{ .hour = *&_programTime[0], .minute = 0, .second = 0, .programDays = {false,false,false,false,false,false,false}, .programEnabled = false };
-    virtual programTime* const getProgramTimePtr(){
-      _programTimePtr.hour=_programTime[0];
-      _programTimePtr.minute=_programTime[1];
-      _programTimePtr.second=_programTime[2];
-      for(int i=0; i<7; i++) _programTimePtr.programDays[i]=_programedDays[i];
-      _programTimePtr.programEnabled=_programEnabled;
+    programTime _programTimePtr{ .hour = 7, .minute = 0, .second = 0, .programDays = {true,false,true,false,true,false,false}, .programEnabled = true };
+    programTime* const getProgramTimePtr(){
+      //_programTimePtr.hour=_programTime[0];
+      //_programTimePtr.minute=_programTime[1];
+      //_programTimePtr.second=_programTime[2];
+      //for(int i=0; i<7; i++) _programTimePtr.programDays[i]=_programedDays[i];
+      //_programTimePtr.programEnabled=_programEnabled;
       return &_programTimePtr;
     }
 
@@ -269,7 +275,7 @@ class Riego:public IfaceRiego{
     int _numValves = numValves;
 
     bool _running = false;
-    bool _programEnabled = true;
+    //bool _programEnabled = true;
     unsigned long _programDelay = 5;
     unsigned long _actualTimeMillis;
     unsigned long _lastRunTimeMillis;
@@ -277,8 +283,8 @@ class Riego:public IfaceRiego{
     time_t _actualTime = DEFAULT_TIME;
     //time_t _programTime = DEFAULT_TIME;
     time_t _lastRunTime;
-    bool _programedDays[7] = {true,false,true,false,true,false,true};
-    unsigned int _programTime[3]={9,00,00};
+    //bool _programedDays[7] = {true,false,true,false,true,false,false};
+    //unsigned int _programTime[3]={9,00,00};
     //programTime _programTimePtr;
 
   public:
