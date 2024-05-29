@@ -127,31 +127,23 @@ class Riego:public IfaceRiego{
       _programTimePtr.minute = min;
       _programTimePtr.second = sec;
     }
-    void addProgramTime(unsigned int field){
-      /*
-      if(field<0 || field>2) return;
-      if (field != 0) {
-        _programTime[field] = _programTime[field] - 10;
-        if (_programTime[field] > 59 ) _programTime[field] = 59;
+    void addProgramTime(unsigned int minutes){
+      changedProgramTime = true;
+      _programTimePtr.minute = _programTimePtr.minute + minutes;
+      if(_programTimePtr.minute>59){
+        _programTimePtr.minute = _programTimePtr.minute - 59;
+        _programTimePtr.hour++;// = _programTimePtr.hour++;
       }
-      else {
-        _programTime[field]--;
-        if (_programTime[field] > 23 ) _programTime[field] = 23;
-      }
-      */
     }
-    void substractProgramTime(unsigned int field){
-      /*
-      if(field<0 || field>2) return;
-      if (field != 0) {
-        _programTime[field] = _programTime[field] - 10;
-        if (_programTime[field] > 59 ) _programTime[field] = 59;
+    void substractProgramTime(unsigned int minutes){
+      changedProgramTime = true;
+      if(_programTimePtr.minute<minutes){
+        minutes -= _programTimePtr.minute;
+        _programTimePtr.minute = 59 - minutes;
+        _programTimePtr.hour--;// = _programTimePtr.hour--;
+      } else{
+        _programTimePtr.minute = _programTimePtr.minute - minutes;
       }
-      else {
-        _programTime[field]--;
-        if (_programTime[field] > 23 ) _programTime[field] = 23;
-      }
-      */
     }
 
     programTime getProgramTime(){
@@ -269,23 +261,31 @@ class Riego:public IfaceRiego{
       return &_programTimePtr;
     }
 
+
+    void changeProgramTime(){
+      changedProgramTime = true;
+    }
+    bool programTimeChanged(){
+      bool cpt = changedProgramTime;
+      changedProgramTime=false;
+      return cpt;
+    }
+
   private:
     Relay* _pump;
     Relay _valves[numValves];
     int _numValves = numValves;
 
     bool _running = false;
-    //bool _programEnabled = true;
     unsigned long _programDelay = 5;
     unsigned long _actualTimeMillis;
     unsigned long _lastRunTimeMillis;
     const static time_t _defaultTime = DEFAULT_TIME;
     time_t _actualTime = DEFAULT_TIME;
-    //time_t _programTime = DEFAULT_TIME;
     time_t _lastRunTime;
-    //bool _programedDays[7] = {true,false,true,false,true,false,false};
-    //unsigned int _programTime[3]={9,00,00};
-    //programTime _programTimePtr;
+
+    bool changedProgramTime = false;
+
 
   public:
     unsigned int selections[3]={0,0,0};

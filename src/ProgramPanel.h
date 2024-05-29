@@ -17,6 +17,8 @@ class ProgramPanel : public Panel {
     void printProgramTimeBox();
 
     String text; // String for text elements
+    const char add15min = 'n';
+    const char substract15min = 'p';
     char turnOn[8] = {'L','M','X','J','V','S','D','A'};
     char turnOff[8] = {'l','m','x','j','v','s','d','a'};
     const char switchL[23] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '8', ',', '4', ',', '3', ',', 'L', ',', 'l', ',', '0', ','};
@@ -26,7 +28,7 @@ class ProgramPanel : public Panel {
     const char switchV[24] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '1', '2', ',', '4', ',', '3', ',', 'V', ',', 'v', ',', '0', ','};
     const char switchS[24] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '1', '3', ',', '4', ',', '3', ',', 'S', ',', 's', ',', '0', ','};
     const char switchD[24] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '1', '4', ',', '4', ',', '3', ',', 'D', ',', 'd', ',', '0', ','};
-    const char switchA[23] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '3', ',', '4', ',', '4', ',', 'A', ',', 'a', ',', '0', ','};
+    const char switchA[23] = {'a', 'd', 'd', '_', 's', 'w', 'i', 't', 'c', 'h', '(', '3', ',', '3', ',', '4', ',', 'A', ',', 'a', ',', '0', ','};
     const char *switches[8] = {switchL,switchM,switchX,switchJ,switchV,switchS,switchD,switchA};
 
     unsigned int selectedDay = 0;

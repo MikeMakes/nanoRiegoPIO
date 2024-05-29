@@ -39,8 +39,9 @@ class IfaceRiego{
     virtual void toggleProgramEnabled();
     virtual void toggleProgramDays(unsigned int day);
 
-    virtual void addProgramTime(unsigned int field);
-    virtual void substractProgramTime(unsigned int field);
+    virtual void changeProgramTime();
+    virtual void addProgramTime(unsigned int minutes);
+    virtual void substractProgramTime(unsigned int minutes);
     virtual programTime getProgramTime();
     virtual unsigned int getProgramTime(unsigned int field);
     virtual programTime* const getProgramTimePtr();

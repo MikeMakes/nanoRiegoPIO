@@ -9,7 +9,7 @@ _bluetooth(serial)
     //serial->print("Gui::Gui");
     //serial->flush();
 
-    _state = STATES::PROGRAMPANEL;
+    _state = STATES::TIMEPANEL;
 
     _panels[_state]->update(_riego, this);
     _panels[_state]->setup();

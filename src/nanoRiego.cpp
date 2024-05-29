@@ -18,7 +18,7 @@
 #include "Gui.h"
 
 void setEEPROM(){
-  EEPROM.put(EEPROM_timeAddress, DEFAULT_TIME);
+  EEPROM.put(EEPROM_timeAddress, (time_t) DEFAULT_TIME);
 }
 
 SoftwareSerial bluetooth(PIN_BLUETOOTH_RX, PIN_BLUETOOTH_TX); //RX,TX
@@ -29,6 +29,8 @@ Riego riego(&pump, valves);
 Gui* gui;
 //Gui gui(&riego, &bluetooth);
 
+
+AlarmID_t alarmID;
 void alarmRiego(){
   //SERIAL_PRINTLN("void alarmRiego()");
   riego.check();
@@ -63,17 +65,20 @@ void setup() {
   time_t startTime;
   EEPROM.get(EEPROM_timeAddress,startTime);
 
+  //RTC.set(startTime);
+  //setTime(startTime);
+
   setSyncProvider(RTC.get);   // the function to get the time from the RTC
-  //RTC.set((time_t)DEFAULT_TIME);
+
   if(timeStatus()!= timeSet){ //tbd: || RTC.get()>startTime; 
      //SERIAL_PRINTLN("Unable to sync with the RTC");
-     SERIAL_PRINTLN("RTC'nt");
+     //SERIAL_PRINTLN("RTC'nt");
      RTC.set(startTime);
      setTime(startTime);
   }
   else{
      //SERIAL_PRINTLN("RTC has set the system time");   
-    SERIAL_PRINTLN("RTC");   
+    //SERIAL_PRINTLN("RTC");   
      //SERIAL_PRINTLN(now()); 
   }
 
@@ -93,7 +98,7 @@ void setup() {
   riego.gui(gui);
 
   riego.setProgramTime(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND);
-  Alarm.alarmRepeat(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND, alarmRiego);
+  alarmID = Alarm.alarmRepeat(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND, alarmRiego);
   Alarm.delay(10);
   //SERIAL_PRINTLN("finish setup");
 }
@@ -127,7 +132,13 @@ void loop(){
     }
   }
   gui->run();
-  Alarm.delay(1);
+
+  if(riego.programTimeChanged()){
+      Alarm.free(alarmID);
+      alarmID = Alarm.alarmRepeat(riego._programTimePtr.hour, riego._programTimePtr.minute, riego._programTimePtr.second, alarmRiego);
+  }
+
+  Alarm.delay(5);
 }
 
 void handleRotate(int handleNumber, int8_t rotationDirection){

@@ -36,7 +36,9 @@ void ProgramPanel::reloadDynamicBody(){
 }
 
 void ProgramPanel::body(){
-    bluetooth->print("add_text_box(2,3,4,C,");
+    bluetooth->println("add_button(5,5,5,n,)");
+    bluetooth->println("add_button(2,5,4,p,)");
+    bluetooth->print("add_text_box(3,5,2,C,");
     printProgramTimeBox();
     bluetooth->println(",245,240,245,h)"); //Este podriamos ahorranoslo repetir
     printProgramTimeSwitches();
@@ -46,8 +48,8 @@ void ProgramPanel::printProgramTimeBox(){
     bluetooth->print(_nextProgramTimePtr->hour);
     bluetooth->print(":");
     bluetooth->print(_nextProgramTimePtr->minute);
-    bluetooth->print(":");
-    bluetooth->print(_nextProgramTimePtr->second);
+    //bluetooth->print(":");
+    //bluetooth->print(_nextProgramTimePtr->second);
 }
 
 //void ProgramPanel::loop(){};
@@ -79,6 +81,25 @@ void ProgramPanel::loop(){
             this->reloadDynamicBody();
             changingProgramTime = true;
         }
+        if(data_in==add15min){
+            _nextProgramTimePtr->minute = _nextProgramTimePtr->minute + 15;
+            if(_nextProgramTimePtr->minute>59){
+                _nextProgramTimePtr->minute = 0;//_nextProgramTimePtr->minute - 59;
+                _nextProgramTimePtr->hour++;
+            }
+            changingProgramTime = true;
+        }
+        if(data_in==substract15min){
+            unsigned int minutes = 15;
+            if(_nextProgramTimePtr->minute<minutes){
+                minutes -= _nextProgramTimePtr->minute;
+                _nextProgramTimePtr->minute = 45;//59 - minutes;
+                _nextProgramTimePtr->hour--;
+            } else{
+                _nextProgramTimePtr->minute = _nextProgramTimePtr->minute - minutes;
+            }
+            changingProgramTime = true;
+        }
     }
 
     /////////////  Send Data to Android device
@@ -101,25 +122,11 @@ void ProgramPanel::update(IfaceRiego* const riego, IfaceGui* const gui){
     //if(selectedDay==8) riego->toggleProgramEnabled();
     //else riego->toggleProgramDays(selectedDay);
     if(changingProgramTime){
-        for(int i=0; i<7; i++){
-            SERIAL_PRINT("U");
-            SERIAL_PRINT(i);
-            SERIAL_PRINT(",V1:");
-            SERIAL_PRINT(_nextProgramTimePtr->programDays[i]);
-            SERIAL_PRINT(",V2:");
-            SERIAL_PRINTLN(riego->getProgramTimePtr()->programDays[i]);
-            //SERIAL_PRINT("X");
-            //SERIAL_PRINT(i);
-            //SERIAL_PRINT(",V1:");
-            //SERIAL_PRINT(riego->getProgramTimePtr()->programDays[i]);
-            //riego->getProgramTimePtr()->programDays[i] = false;//? testing tbf
-            //SERIAL_PRINT(",V2:");
-            //SERIAL_PRINTLN(riego->getProgramTimePtr()->programDays[i]);
-            //dynamicBody();
-        }
+        riego->changeProgramTime();
         changingProgramTime=false;
     }
     _nextProgramTimePtr = riego->getProgramTimePtr();
+    //changingProgramTime=false;
 }
 
 void ProgramPanel::selectDay(unsigned int day){

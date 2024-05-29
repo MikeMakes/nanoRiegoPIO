@@ -92,7 +92,8 @@ void TimePanel::update(IfaceRiego* const riego, IfaceGui* const gui){
 
 void TimePanel::shiftHour(bool next){
     changingSystemTime = true;
-    actualTime.hour++;
+    if(next) actualTime.hour++;
+    else actualTime.hour--;
 }
 
 unsigned int TimePanel::getHour(){
