@@ -37,7 +37,7 @@ void alarmRiego(){
 }
 
 void alarmProgram(){
-  riego.runProgramTimer();
+  riego.runProgram();
 }
 
 Versatile_RotaryEncoder versatile_encoder[3]={Versatile_RotaryEncoder(PIN_SELECTOR_B1, PIN_SELECTOR_A1, PIN_BUTTON_1), Versatile_RotaryEncoder(PIN_SELECTOR_B2, PIN_SELECTOR_A2, PIN_BUTTON_2), Versatile_RotaryEncoder(PIN_SELECTOR_B3, PIN_SELECTOR_A3, PIN_BUTTON_3)};
@@ -151,7 +151,7 @@ void loop(){
     //alarmProgramID = Alarm.alarmRepeat(riego._programDelay* 60000, alarmProgram);
     //alarmProgramID = Alarm.alarmRepeat(2000, alarmProgram);
     //alarmProgramID = Alarm.timerRepeat(riego._programDelay* 60000,alarmProgram);
-    alarmProgramID = Alarm.timerRepeat(10,alarmProgram);
+    alarmProgramID = Alarm.timerRepeat(riego._programDelay,alarmProgram);
   }
 
   if(!riego._running && wasRunning){

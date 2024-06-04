@@ -61,7 +61,7 @@ class Riego:public IfaceRiego{
     }
 
 
-    void runProgramTimer(time_t programDelay=0){
+    void runProgram(time_t programDelay=0){
       if(!_running && programDelay==0) programDelay=_programDelay;
 
       _running = true;
@@ -85,7 +85,7 @@ class Riego:public IfaceRiego{
       //turnOff();
       //_running = false; //todo
     }
-        
+    /*
     void runProgram(unsigned long programDelay){
       _running = true;
       _lastRunTimeMillis = millis();
@@ -98,15 +98,16 @@ class Riego:public IfaceRiego{
       turnOff();
       _running = false; //todo
     }
+    */
     void testValves(){
-      runProgram(1500);
+      runProgram(3);
     }
 
     void check(){
       //checkMillis();
       checkAlarm();
     }
-    void checkMillis(){
+    /*void checkMillis(){
       //if(!_programEnabled) return;
       if(!_programTimePtr.programEnabled) return;
       _actualTimeMillis = millis();
@@ -115,12 +116,13 @@ class Riego:public IfaceRiego{
         runProgram(_programDelay);
       }
     }
+    */
     void checkAlarm(){    //Alarm.alarmRepeat(dowMonday, 9,15,0, check);
       if(!_programTimePtr.programEnabled) return;
       _actualTime = now();
       if(_programTimePtr.programDays[weekday()-1]){
         //runProgram(_programDelay);
-        runProgramTimer(_programDelay);
+        runProgram(_programDelay);
       }
     }
 
