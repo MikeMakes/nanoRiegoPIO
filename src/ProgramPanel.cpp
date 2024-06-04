@@ -82,7 +82,7 @@ void ProgramPanel::loop(){
             changingProgramTime = true;
         }
         if(data_in==add15min){
-            _nextProgramTimePtr->minute = _nextProgramTimePtr->minute + 15;
+            _nextProgramTimePtr->minute = _nextProgramTimePtr->minute + 5;
             if(_nextProgramTimePtr->minute>59){
                 _nextProgramTimePtr->minute = 0;//_nextProgramTimePtr->minute - 59;
                 _nextProgramTimePtr->hour++;
@@ -90,10 +90,10 @@ void ProgramPanel::loop(){
             changingProgramTime = true;
         }
         if(data_in==substract15min){
-            unsigned int minutes = 15;
+            unsigned int minutes = 5;
             if(_nextProgramTimePtr->minute<minutes){
                 minutes -= _nextProgramTimePtr->minute;
-                _nextProgramTimePtr->minute = 45;//59 - minutes;
+                _nextProgramTimePtr->minute = 60-minutes;//59 - minutes;
                 _nextProgramTimePtr->hour--;
             } else{
                 _nextProgramTimePtr->minute = _nextProgramTimePtr->minute - minutes;

@@ -36,6 +36,10 @@ void alarmRiego(){
   riego.check();
 }
 
+void alarmProgram(){
+  riego.runProgramTimer();
+}
+
 Versatile_RotaryEncoder versatile_encoder[3]={Versatile_RotaryEncoder(PIN_SELECTOR_B1, PIN_SELECTOR_A1, PIN_BUTTON_1), Versatile_RotaryEncoder(PIN_SELECTOR_B2, PIN_SELECTOR_A2, PIN_BUTTON_2), Versatile_RotaryEncoder(PIN_SELECTOR_B3, PIN_SELECTOR_A3, PIN_BUTTON_3)};
 
 // Functions prototyping to be handled on each Encoder Event
@@ -109,6 +113,9 @@ bool press[3] = {false,false,false};
 bool longPress[3] = {false,false,false};
 bool triggerButtonAction = false;
 
+
+bool wasRunning=false;
+AlarmID_t alarmProgramID;
 void loop(){
   //SERIAL_PRINTLN("void loop()");
   //bluetooth.println("void loop()");
@@ -133,9 +140,23 @@ void loop(){
   }
   gui->run();
 
+  //
   if(riego.programTimeChanged()){
       Alarm.free(alarmID);
       alarmID = Alarm.alarmRepeat(riego._programTimePtr.hour, riego._programTimePtr.minute, riego._programTimePtr.second, alarmRiego);
+  }
+
+  if(riego._running && !wasRunning){
+    wasRunning=true;
+    //alarmProgramID = Alarm.alarmRepeat(riego._programDelay* 60000, alarmProgram);
+    //alarmProgramID = Alarm.alarmRepeat(2000, alarmProgram);
+    //alarmProgramID = Alarm.timerRepeat(riego._programDelay* 60000,alarmProgram);
+    alarmProgramID = Alarm.timerRepeat(10,alarmProgram);
+  }
+
+  if(!riego._running && wasRunning){
+    wasRunning=false;
+    Alarm.free(alarmProgramID);
   }
 
   Alarm.delay(5);

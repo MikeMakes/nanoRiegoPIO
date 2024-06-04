@@ -14,11 +14,13 @@
 
 class Riego:public IfaceRiego{
   public:
-    Riego(Relay* pump, Relay valves[numValves], unsigned long programDelayMinutes = 15):
+    int valveRunning;
+    Riego(Relay* pump, Relay valves[numValves], unsigned long programDelayMinutes = 1):
     _pump(pump)
     {
       _actualTimeMillis = millis();
       _programDelay = programDelayMinutes * 60000; //ms
+      valveRunning = -1;
       for(int i=0; i<numValves; i++){
         _valves[i]=valves[i];
       }
@@ -58,18 +60,30 @@ class Riego:public IfaceRiego{
       }
     }
 
-    static void runProgramNextState(){}
 
-    void runProgramTimer(time_t programDelay){
+    void runProgramTimer(time_t programDelay=0){
+      if(!_running && programDelay==0) programDelay=_programDelay;
+
       _running = true;
       _lastRunTime = now();
-      for(int i=0; i<numValves; i++){
-        setValve(i,true);
-
-        Alarm.timerOnce(_programDelay,runProgramNextState);
+      valveRunning++;
+      if(!(valveRunning<numValves)){
+        turnOff();
+        valveRunning=-1;
+        _running=false;
+        return;
       }
-      turnOff();
-      _running = false; //todo
+      setValve(valveRunning,true);
+      
+      //if(programDelay==0) programDelay=_programDelay;
+      //for(int i=0; i<numValves; i++){
+        //setValve(i,true);
+
+      //Alarm.timerOnce(programDelay * 60000,runProgramNextState);
+      //}
+
+      //turnOff();
+      //_running = false; //todo
     }
         
     void runProgram(unsigned long programDelay){
@@ -105,7 +119,8 @@ class Riego:public IfaceRiego{
       if(!_programTimePtr.programEnabled) return;
       _actualTime = now();
       if(_programTimePtr.programDays[weekday()-1]){
-        runProgram(_programDelay);
+        //runProgram(_programDelay);
+        runProgramTimer(_programDelay);
       }
     }
 
@@ -271,13 +286,14 @@ class Riego:public IfaceRiego{
       return cpt;
     }
 
+    unsigned long _programDelay = 5 * 60000;
+    bool _running = false;
+
   private:
     Relay* _pump;
     Relay _valves[numValves];
     int _numValves = numValves;
 
-    bool _running = false;
-    unsigned long _programDelay = 5;
     unsigned long _actualTimeMillis;
     unsigned long _lastRunTimeMillis;
     const static time_t _defaultTime = DEFAULT_TIME;
