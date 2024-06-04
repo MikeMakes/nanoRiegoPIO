@@ -15,11 +15,11 @@
 class Riego:public IfaceRiego{
   public:
     int valveRunning;
-    Riego(Relay* pump, Relay valves[numValves], unsigned long programDelayMinutes = 1):
+    Riego(Relay* pump, Relay valves[numValves], unsigned long programDelayMinutes = 15):
     _pump(pump)
     {
       //_actualTimeMillis = millis();
-      _programDelay = programDelayMinutes * 60000; //ms
+      _programDelay = programDelayMinutes * 60; //s
       valveRunning = -1;
       for(int i=0; i<numValves; i++){
         _valves[i]=valves[i];
@@ -288,7 +288,7 @@ class Riego:public IfaceRiego{
       return cpt;
     }
 
-    unsigned long _programDelay = 5 * 60000;
+    unsigned long _programDelay = 15 * 60;
     bool _running = false;
 
   private:
