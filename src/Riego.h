@@ -15,11 +15,10 @@
 class Riego:public IfaceRiego{
   public:
     int valveRunning;
-    Riego(Relay* pump, Relay valves[numValves], unsigned long programDelayMinutes = 15):
+    Riego(Relay* pump, Relay valves[numValves], unsigned long programDelaySeconds = PROGRAM_DELAY):
     _pump(pump)
     {
-      //_actualTimeMillis = millis();
-      _programDelay = programDelayMinutes * 60; //s
+      _programDelay = programDelaySeconds; //s
       valveRunning = -1;
       for(int i=0; i<numValves; i++){
         _valves[i]=valves[i];
@@ -44,7 +43,6 @@ class Riego:public IfaceRiego{
     }
 
     void setProgramEnabled(bool programEnabled){
-      //_programEnabled=programEnabled;
       _programTimePtr.programEnabled=programEnabled;
     }
     bool getProgramEnabled(){
@@ -53,14 +51,11 @@ class Riego:public IfaceRiego{
     void toggleProgramEnabled(){
       _programTimePtr.programEnabled=!_programTimePtr.programEnabled;
     }
-    
     void turnOff(){
       for(int i=0; i<numValves; i++){
         setValve(i,false);
       }
     }
-
-
     void runProgram(time_t programDelay=0){
       if(!_running && programDelay==0) programDelay=_programDelay;
 
@@ -74,72 +69,31 @@ class Riego:public IfaceRiego{
         return;
       }
       setValve(valveRunning,true);
-      
-      //if(programDelay==0) programDelay=_programDelay;
-      //for(int i=0; i<numValves; i++){
-        //setValve(i,true);
-
-      //Alarm.timerOnce(programDelay * 60000,runProgramNextState);
-      //}
-
-      //turnOff();
-      //_running = false; //todo
     }
-    /*
-    void runProgram(unsigned long programDelay){
-      _running = true;
-      _lastRunTimeMillis = millis();
-      _lastRunTime = now();
-      for(int i=0; i<numValves; i++){
-        setValve(i,true);
-
-        Alarm.delay(programDelay);
-      }
-      turnOff();
-      _running = false; //todo
-    }
-    */
     void testValves(){
       runProgram(3);
     }
 
     void check(){
-      //checkMillis();
       checkAlarm();
     }
-    /*void checkMillis(){
-      //if(!_programEnabled) return;
-      if(!_programTimePtr.programEnabled) return;
-      _actualTimeMillis = millis();
-      //if( (_actualTime - _lastRunTimeMillis) > oneDay) ){
-      if((_actualTimeMillis - _lastRunTimeMillis) > oneMin){
-        runProgram(_programDelay);
-      }
-    }
-    */
-    void checkAlarm(){    //Alarm.alarmRepeat(dowMonday, 9,15,0, check);
+    void checkAlarm(){ 
       if(!_programTimePtr.programEnabled) return;
       _actualTime = now();
       if(_programTimePtr.programDays[weekday()-1]){
-        //runProgram(_programDelay);
         runProgram(_programDelay);
       }
     }
 
     void setProgramDays(unsigned int day, bool enabled){
         if(day<0 || day>6) return;
-        //_programedDays[day] = enabled;
         _programTimePtr.programDays[day] = enabled;
     }
     void toggleProgramDays(unsigned int day){
         if(day<0 || day>6) return;
-        //_programedDays[day] = !_programedDays[day];
         _programTimePtr.programDays[day] = !_programTimePtr.programDays[day];
     }
     void setProgramTime(int hour, int min, int sec){
-      //_programTime[0] = hour;
-      //_programTime[1] = min;
-      //_programTime[2] = sec;
       _programTimePtr.hour = hour;
       _programTimePtr.minute = min;
       _programTimePtr.second = sec;
@@ -149,7 +103,7 @@ class Riego:public IfaceRiego{
       _programTimePtr.minute = _programTimePtr.minute + minutes;
       if(_programTimePtr.minute>59){
         _programTimePtr.minute = _programTimePtr.minute - 59;
-        _programTimePtr.hour++;// = _programTimePtr.hour++;
+        _programTimePtr.hour++;
       }
     }
     void substractProgramTime(unsigned int minutes){
@@ -164,16 +118,6 @@ class Riego:public IfaceRiego{
     }
 
     programTime getProgramTime(){
-      /*
-      programTime actualTime;
-      actualTime.hour=_programTime[0];
-      actualTime.minute=_programTime[1];
-      actualTime.second=_programTime[2];
-      for(int i=0; i<7; i++) actualTime.programDays[i]=_programedDays[i];
-      actualTime.programEnabled=_programEnabled;
-      //_programTimePtr = actualTime;
-      */
-
       return _programTimePtr;
     }
     unsigned int getProgramTime(unsigned int field){
@@ -212,18 +156,6 @@ class Riego:public IfaceRiego{
       RTC.set(unixTime);
       setTime(unixTime);
     }
-    /*
-    void setProgramTime(programTime time){
-      programTime actualProgramTime = getProgramTime();
-      if((time.hour != actualProgramTime.hour) || (time.minute != actualProgramTime.minute) || (time.second != actualProgramTime.second)){
-        _programTime[0]=time.hour;
-        _programTime[1]=time.minute;
-        _programTime[2]=time.second;
-      }
-      //for(int i=0; i<8; i++) _programedDays[i] = time.programDays[i];
-      //_programEnabled = time.programEnabled;
-    }
-    */
 
     void press(int button){
       switch(button){
@@ -270,11 +202,6 @@ class Riego:public IfaceRiego{
 
     programTime _programTimePtr{ .hour = 7, .minute = 0, .second = 0, .programDays = {true,false,true,false,true,false,false}, .programEnabled = true };
     programTime* const getProgramTimePtr(){
-      //_programTimePtr.hour=_programTime[0];
-      //_programTimePtr.minute=_programTime[1];
-      //_programTimePtr.second=_programTime[2];
-      //for(int i=0; i<7; i++) _programTimePtr.programDays[i]=_programedDays[i];
-      //_programTimePtr.programEnabled=_programEnabled;
       return &_programTimePtr;
     }
 

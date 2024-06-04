@@ -24,11 +24,8 @@ void setEEPROM(){
 SoftwareSerial bluetooth(PIN_BLUETOOTH_RX, PIN_BLUETOOTH_TX); //RX,TX
 Relay pump(pinPump, true);
 Relay valves[]={Relay(pinValve1, true), Relay(pinValve2, true), Relay(pinValve3, true)};
-//Riego* riego = new Riego(&pump, valves);
-Riego riego(&pump, valves);
+Riego riego(&pump, valves, PROGRAM_DELAY);
 Gui* gui;
-//Gui gui(&riego, &bluetooth);
-
 
 AlarmID_t alarmID;
 void alarmRiego(){
@@ -56,14 +53,12 @@ void handleLongPress3();
 void setup() {
   #ifdef DEBUG_BUILD 
   debug_init(); //debug only
+  debug_message("void setup()");
   #endif
 
   SERIAL_BEGIN(115200);
   //SERIAL_PRINTLN("setup()");
   bluetooth.begin(9600);
-  //bluetooth.println(1);
-  //bluetooth.print("adiosadiosadios");
-
 
   setEEPROM();
   time_t startTime;
@@ -74,16 +69,10 @@ void setup() {
 
   setSyncProvider(RTC.get);   // the function to get the time from the RTC
 
-  if(timeStatus()!= timeSet){ //tbd: || RTC.get()>startTime; 
-     //SERIAL_PRINTLN("Unable to sync with the RTC");
-     //SERIAL_PRINTLN("RTC'nt");
+  if(timeStatus()!= timeSet){ //tbd: || RTC.get()>startTime;  ??
+     //SERIAL_PRINTLN("RTC'nt");      //Unable to sync with the RTC
      RTC.set(startTime);
      setTime(startTime);
-  }
-  else{
-     //SERIAL_PRINTLN("RTC has set the system time");   
-    //SERIAL_PRINTLN("RTC");   
-     //SERIAL_PRINTLN(now()); 
   }
 
   // Load to the encoder all nedded handle functions here (up to 9 functions)
@@ -104,7 +93,6 @@ void setup() {
   riego.setProgramTime(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND);
   alarmID = Alarm.alarmRepeat(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND, alarmRiego);
   Alarm.delay(10);
-  //SERIAL_PRINTLN("finish setup");
 }
 
 bool rotation[3] = {false,false,false};
@@ -118,8 +106,6 @@ bool wasRunning=false;
 AlarmID_t alarmProgramID;
 void loop(){
   //SERIAL_PRINTLN("void loop()");
-  //bluetooth.println("void loop()");
-  //debug_message("loop");
 
   for(int i=0; i<3; i++){
     if (versatile_encoder[i].ReadEncoder()){// Do the encoder reading and processing
@@ -140,7 +126,6 @@ void loop(){
   }
   gui->run();
 
-  //
   if(riego.programTimeChanged()){
       Alarm.free(alarmID);
       alarmID = Alarm.alarmRepeat(riego._programTimePtr.hour, riego._programTimePtr.minute, riego._programTimePtr.second, alarmRiego);
@@ -148,9 +133,6 @@ void loop(){
 
   if(riego._running && !wasRunning){
     wasRunning=true;
-    //alarmProgramID = Alarm.alarmRepeat(riego._programDelay* 60000, alarmProgram);
-    //alarmProgramID = Alarm.alarmRepeat(2000, alarmProgram);
-    //alarmProgramID = Alarm.timerRepeat(riego._programDelay* 60000,alarmProgram);
     alarmProgramID = Alarm.timerRepeat(riego._programDelay,alarmProgram);
   }
 
