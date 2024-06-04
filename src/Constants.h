@@ -39,18 +39,11 @@ const static unsigned int PIN_I2C_SCK = 19;
 const static unsigned int PIN_BLUETOOTH_RX = 2;
 const static unsigned int PIN_BLUETOOTH_TX = 3;
 
-/*
-#define oneDay 86400000
-#define oneDaySeconds 86400
-#define oneMin 6000
-#define fifteenMin 90000
-*/
-
 #define EEPROM_timeAddress 0
 const static unsigned long DEFAULT_TIME = (unsigned long)1716991560+(2*3600);//GMT+2
-const static unsigned int ALARM_HOUR = (unsigned int)7;
+const static unsigned int ALARM_HOUR = (unsigned int)07;
 const static unsigned int ALARM_MINUTE = (unsigned int)00;
 const static unsigned int ALARM_SECOND = (unsigned int)00;
-const static unsigned int PROGRAM_DELAY = (unsigned int)15*60;
+const static unsigned int PROGRAM_DELAY = (unsigned int)15*60; //seconds
 
 #endif

@@ -42,11 +42,8 @@ class ProgramPanel : public Panel {
     void shiftHour(bool add1);
     bool changingProgramTime=false;
 
-    //programTime _nextProgramTime;
-    programTime _nextProgramTime = { .hour = 20, .minute = 0, .second = 0, .programDays = {false,false,false,false,false,false,false}, .programEnabled = false };
-    //programTime *_nextProgramTimePtr = 
-    //programTime _nextProgramTime;
-    programTime *_nextProgramTimePtr = new programTime{ .hour = 13, .minute = 0, .second = 0, .programDays = {false,false,false,false,false,false,false}, .programEnabled = false };
+    programTime *_nextProgramTimePtr = new programTime{ .hour = ALARM_HOUR, .minute = ALARM_MINUTE, .second = ALARM_SECOND, .programDays = {true,true,true,true,true,true,true}, .programEnabled = true };
+    //programTime *_nextProgramTimePtr;// = new programTime{ .hour = 13, .minute = 0, .second = 0, .programDays = {false,false,false,false,false,false,false}, .programEnabled = false };
 };
 
 #endif

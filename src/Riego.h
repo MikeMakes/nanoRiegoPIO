@@ -200,7 +200,7 @@ class Riego:public IfaceRiego{
       }
     }
 
-    programTime _programTimePtr{ .hour = 7, .minute = 0, .second = 0, .programDays = {true,false,true,false,true,false,false}, .programEnabled = true };
+    programTime _programTimePtr{ .hour = ALARM_HOUR, .minute = ALARM_MINUTE, .second = ALARM_SECOND, .programDays = {true,false,true,false,true,false,true}, .programEnabled = true };
     programTime* const getProgramTimePtr(){
       return &_programTimePtr;
     }

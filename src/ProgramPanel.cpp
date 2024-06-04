@@ -94,7 +94,8 @@ void ProgramPanel::loop(){
             if(_nextProgramTimePtr->minute<minutes){
                 minutes -= _nextProgramTimePtr->minute;
                 _nextProgramTimePtr->minute = 60-minutes;//59 - minutes;
-                _nextProgramTimePtr->hour--;
+                if(_nextProgramTimePtr->hour==0) _nextProgramTimePtr->hour = 23;
+                else _nextProgramTimePtr->hour--;
             } else{
                 _nextProgramTimePtr->minute = _nextProgramTimePtr->minute - minutes;
             }
@@ -158,6 +159,6 @@ unsigned int ProgramPanel::getField(){
 }
 
 void ProgramPanel::shiftHour(bool add1){
-    if(add1) _nextProgramTime.hour++;
-    else _nextProgramTime.hour--;
+    if(add1) _nextProgramTimePtr->hour++;
+    else _nextProgramTimePtr->hour--;
 }
