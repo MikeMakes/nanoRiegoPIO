@@ -18,7 +18,7 @@ class Riego:public IfaceRiego{
     Riego(Relay* pump, Relay valves[numValves], unsigned long programDelayMinutes = 1):
     _pump(pump)
     {
-      _actualTimeMillis = millis();
+      //_actualTimeMillis = millis();
       _programDelay = programDelayMinutes * 60000; //ms
       valveRunning = -1;
       for(int i=0; i<numValves; i++){
@@ -296,7 +296,7 @@ class Riego:public IfaceRiego{
     Relay _valves[numValves];
     int _numValves = numValves;
 
-    unsigned long _actualTimeMillis;
+    //unsigned long _actualTimeMillis;
     unsigned long _lastRunTimeMillis;
     const static time_t _defaultTime = DEFAULT_TIME;
     time_t _actualTime = DEFAULT_TIME;
