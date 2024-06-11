@@ -17,6 +17,11 @@ class TimePanel : public Panel {
     unsigned int getField();
 
     void shiftHour(bool next);
+    void shiftMinute(bool next);
+    void shiftDay(bool next);
+    void shiftMonth(bool next);
+    void shiftYear(bool next);
+
     unsigned int getHour();
 
     String text; // String for text elements

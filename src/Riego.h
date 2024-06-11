@@ -145,16 +145,8 @@ class Riego:public IfaceRiego{
       return systemTime[field];
     }
     void setSystemTime(systemTime time){
-      //struct systemTime unsigned int hour, minute, second, day, month, year;
-      time_t unixTime=0;
-      unixTime += time.hour * 3600;
-      unixTime += time.minute * 60;
-      unixTime += time.second; //* 1;
-      unixTime += time.day * 86400;
-      unixTime += time.month * 2629743;
-      unixTime += (time.year-1970) * 2629743;
-      RTC.set(unixTime);
-      setTime(unixTime);
+      setTime(time.hour,time.minute,time.second,time.day,time.month,time.year);
+      RTC.set(now());
     }
 
     void press(int button){
