@@ -14,6 +14,7 @@ void TimePanel::body(){
     //bluetooth->println(greenAddTextBoxB);
     //bluetooth->println("add_text_box(1,4,6,C,24,"+color+"h)");
     //bluetooth->println("add_text_box(9,4,6,C,24,"+color+"D)");
+    bluetooth->println(F("add_text_box(4,1,8,C,Fecha,245,240,245,)"));
     bluetooth->println("add_text_box(4,3,4,R,24,245,240,245,h)");
     bluetooth->println("add_text_box(8,3,4,L,24,245,240,245,D)");
     bluetooth->println(F("add_4way_pad(1,4,H,M,h,m,,50,,)"));
@@ -61,6 +62,15 @@ void TimePanel::loop(){
             default:
                 break;
         }
+
+        if(data_in==previousStateChar){
+            changeState = true;
+            nextState = false;
+        }
+        if(data_in==nextStateChar){
+            changeState = true;
+            nextState = true;
+        }
     }
 
     /////////////  Send Data to Android device
@@ -92,6 +102,11 @@ void TimePanel::update(IfaceRiego* const riego, IfaceGui* const gui){
         changingSystemTime=false;
     }
     actualTime = riego->getSystemTime();
+
+    if(changeState){
+        gui->nextState(nextState);
+        changeState=false;
+    }
 }
 
 void TimePanel::shiftHour(bool next){

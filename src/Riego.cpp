@@ -42,7 +42,7 @@ void Riego::turnOff(){
     }
 }
 void Riego::runProgram(time_t programDelay){
-    if(!_running && programDelay==0) programDelay=_programDelay;
+    if(!_running && programDelay==0) programDelay=_programTimePtr.delay;//programDelay=_programDelay;
 
     _running = true;
     _lastRunTime = now();
@@ -66,7 +66,7 @@ void Riego::checkAlarm(){
     if(!_programTimePtr.programEnabled) return;
     _actualTime = now();
     if(_programTimePtr.programDays[weekday()-1]){
-    runProgram(_programDelay);
+        runProgram(_programDelay);
     }
 }
 

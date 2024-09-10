@@ -16,7 +16,9 @@ class Panel{
 
     //char serialID[2];
     //char commandIn;
-    char data_in;
+    char data_in='0';
+    const char previousStateChar='q';
+    const char nextStateChar='w';
 
     unsigned long update_interval=200; // time interval in ms for updating panel indicators 
     unsigned long last_time=0; // time of last update
@@ -36,7 +38,9 @@ class Panel{
       bluetooth->println(F("*.kwl"));
       bluetooth->println(F("clear_panel()"));
       bluetooth->println(F("set_grid_size(16,8)"));
-      bluetooth->println(F("add_text_box(4,1,8,C,Riego,245,240,245,)"));
+      bluetooth->println(F("add_button(0,0,4,q,)"));
+      bluetooth->println(F("add_button(15,0,5,w,)"));
+      //bluetooth->println(F("add_text_box(4,1,8,C,Riego,245,240,245,)"));
     }
 
     virtual void body();

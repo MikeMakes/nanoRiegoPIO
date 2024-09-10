@@ -6,7 +6,7 @@ ProgramPanel::ProgramPanel(SoftwareSerial* serial):Panel(serial){}
 void ProgramPanel::printProgramTimeSwitches(){
     for(uint8_t i=0; i<8; i++){
         int maxIndex = 23;
-        if(i>1 && i!=7) maxIndex = 24;
+        if(i>1) maxIndex = 24;
         //print "add_switch(whatevah,3,4,6,":
         for(int j=0; j<maxIndex; j++){
             //SERIAL_PRINT(switches[i][j]);
@@ -36,11 +36,20 @@ void ProgramPanel::reloadDynamicBody(){
 }
 
 void ProgramPanel::body(){
-    bluetooth->println("add_button(5,5,5,n,)");
-    bluetooth->println("add_button(2,5,4,p,)");
-    bluetooth->print("add_text_box(3,5,2,C,");
+    bluetooth->println(F("add_text_box(4,1,8,C,Ajustes,245,240,245,)"));
+
+    bluetooth->println("add_button(5,4,5,n,)");
+    bluetooth->println("add_button(2,4,4,p,)");
+    bluetooth->print("add_text_box(3,4,2,C,");
     printProgramTimeBox();
     bluetooth->println(",245,240,245,h)"); //Este podriamos ahorranoslo repetir
+
+    bluetooth->println(F("add_button(5,5,5,x,)"));
+    bluetooth->println(F("add_button(2,5,4,c,)"));
+    bluetooth->print(F("add_text_box(3,5,2,C,"));
+    printProgramDelayBox();
+    bluetooth->println(F(",245,240,245,d)")); //Este podriamos ahorranoslo repetir
+
     printProgramTimeSwitches();
 }
 
@@ -50,6 +59,10 @@ void ProgramPanel::printProgramTimeBox(){
     bluetooth->print(_nextProgramTimePtr->minute);
     //bluetooth->print(":");
     //bluetooth->print(_nextProgramTimePtr->second);
+}
+
+void ProgramPanel::printProgramDelayBox(){
+    bluetooth->print(_nextProgramTimePtr->delay/60);
 }
 
 //void ProgramPanel::loop(){};
@@ -82,15 +95,19 @@ void ProgramPanel::loop(){
             changingProgramTime = true;
         }
         if(data_in==add15min){
-            _nextProgramTimePtr->minute = _nextProgramTimePtr->minute + 5;
+            _nextProgramTimePtr->minute = _nextProgramTimePtr->minute + 15;
             if(_nextProgramTimePtr->minute>59){
                 _nextProgramTimePtr->minute = 0;//_nextProgramTimePtr->minute - 59;
                 _nextProgramTimePtr->hour++;
             }
+            if(_nextProgramTimePtr->hour>23){
+                _nextProgramTimePtr->minute = 0;//_nextProgramTimePtr->minute - 59;
+                _nextProgramTimePtr->hour = 0;
+            }
             changingProgramTime = true;
         }
         if(data_in==substract15min){
-            unsigned int minutes = 5;
+            unsigned int minutes = 15;
             if(_nextProgramTimePtr->minute<minutes){
                 minutes -= _nextProgramTimePtr->minute;
                 _nextProgramTimePtr->minute = 60-minutes;//59 - minutes;
@@ -101,6 +118,28 @@ void ProgramPanel::loop(){
             }
             changingProgramTime = true;
         }
+        if(data_in==add5minDelay){
+            _nextProgramTimePtr->delay = _nextProgramTimePtr->delay + (5*60);
+            if(_nextProgramTimePtr->delay>(60*60)){
+                _nextProgramTimePtr->delay = 5*60;
+            }
+            changingProgramTime = true;
+        }
+       if(data_in==substract5minDelay){
+            _nextProgramTimePtr->delay = _nextProgramTimePtr->delay - (5*60);
+            if(_nextProgramTimePtr->delay<1*60){
+                _nextProgramTimePtr->delay = 60*60;//_nextProgramTimePtr->minute - 59;
+            }
+            changingProgramTime = true;
+        }
+        if(data_in== previousStateChar){
+            changeState = true;
+            nextState = false;
+        }
+        if(data_in== nextStateChar){
+            changeState = true;
+            nextState = true;
+        }
     }
 
     /////////////  Send Data to Android device
@@ -109,13 +148,16 @@ void ProgramPanel::loop(){
         last_time=t;
 
         //programTime nextProgramTime = riego->getProgramTime();
-        if(_nextProgramTimePtr->programEnabled){
+        //if(_nextProgramTimePtr->programEnabled){
             bluetooth->print("*h");
             printProgramTimeBox();
             bluetooth->print("*");
-        }else{
+        //}else{
             //bluetooth->print(F("*hPrograma desactivado*"));
-        }
+        //}
+            bluetooth->print("*d");
+            printProgramDelayBox();
+            bluetooth->print("*");
     }
 }
 
@@ -128,6 +170,11 @@ void ProgramPanel::update(IfaceRiego* const riego, IfaceGui* const gui){
     }
     _nextProgramTimePtr = riego->getProgramTimePtr();
     //changingProgramTime=false;
+
+    if(changeState){
+        gui->nextState(nextState);
+        changeState=false;
+    }
 }
 
 void ProgramPanel::selectDay(unsigned int day){

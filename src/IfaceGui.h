@@ -12,6 +12,7 @@ class IfaceGui{
     _riego(riego)
     {}
 
+    virtual void nextState(bool next);
     virtual void run();
     virtual void setState(STATES state);
 

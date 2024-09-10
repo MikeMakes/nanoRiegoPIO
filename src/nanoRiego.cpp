@@ -27,6 +27,23 @@ Relay valves[]={Relay(pinValve1, true), Relay(pinValve2, true), Relay(pinValve3,
 Riego riego(&pump, valves, PROGRAM_DELAY);
 Gui* gui;
 
+void saveEEPROM(){
+  //EEPROM.put(EEPROM_timeAddress, (time_t) DEFAULT_TIME);
+  //EEPROM.put(sizeof(EEPROM_timeAddress), (unsigned int) riego.getProgramTimePtr()->hour);
+  //EEPROM.put(sizeof(EEPROM_timeAddress)+sizeof(unsigned int), (unsigned int) riego.getProgramTimePtr()->delay);
+  EEPROM.put(30, (unsigned int) riego.getProgramTimePtr()->hour);
+  EEPROM.put(60, (unsigned int) riego.getProgramTimePtr()->delay);
+}
+
+void loadEEPROM(){
+  //EEPROM.put(EEPROM_timeAddress, (time_t) DEFAULT_TIME);
+  unsigned int h,d;
+  EEPROM.get(30, h);
+  EEPROM.get(60, d);
+  riego.getProgramTimePtr()->hour = h;
+  riego.getProgramTimePtr()->delay = d;
+}
+
 AlarmID_t alarmID;
 void alarmRiego(){
   //SERIAL_PRINTLN("void alarmRiego()");
@@ -91,7 +108,8 @@ void setup() {
   riego.gui(gui);
 
   riego.setProgramTime(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND);
-  alarmID = Alarm.alarmRepeat(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND, alarmRiego);
+  loadEEPROM();
+  alarmID = Alarm.alarmRepeat(riego.getProgramTimePtr()->hour, riego.getProgramTimePtr()->minute, riego.getProgramTimePtr()->second, alarmRiego);
   Alarm.delay(10);
 }
 
@@ -104,8 +122,21 @@ bool triggerButtonAction = false;
 
 bool wasRunning=false;
 AlarmID_t alarmProgramID;
-void loop(){
-  //SERIAL_PRINTLN("void loop()");
+//bool connected = false;
+//auto tick = millis();
+void loop(){  //SERIAL_PRINTLN("void loop()");
+
+  /*
+  if (bluetooth.available() && !connected){
+    connected = true;
+    gui->run();
+  } else if(!bluetooth.available() && 
+  */
+ /*
+  if((millis()-tick)>500){
+    tick = millis();
+    gui->run();
+  }*/
 
   for(int i=0; i<3; i++){
     if (versatile_encoder[i].ReadEncoder()){// Do the encoder reading and processing
@@ -126,14 +157,15 @@ void loop(){
   }
   gui->run();
 
-  if(riego.programTimeChanged()){
+  if(riego.programTimeChanged()){ //buggy af
       Alarm.free(alarmID);
       alarmID = Alarm.alarmRepeat(riego._programTimePtr.hour, riego._programTimePtr.minute, riego._programTimePtr.second, alarmRiego);
   }
 
   if(riego._running && !wasRunning){
     wasRunning=true;
-    alarmProgramID = Alarm.timerRepeat(riego._programDelay,alarmProgram);
+    //alarmProgramID = Alarm.timerRepeat(riego._programDelay,alarmProgram);
+    alarmProgramID = Alarm.timerRepeat(riego.getProgramTimePtr()->delay,alarmProgram);
   }
 
   if(!riego._running && wasRunning){
@@ -142,6 +174,7 @@ void loop(){
   }
 
   Alarm.delay(5);
+  saveEEPROM();
 }
 
 void handleRotate(int handleNumber, int8_t rotationDirection){

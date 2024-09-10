@@ -28,7 +28,9 @@ class TimePanel : public Panel {
 
     systemTime actualTime;
     bool changingSystemTime = false;
-    
+    bool changeState = false;
+    bool nextState = false;
+
     const String whiteText = "245,240,245,";
     const String yellowText = "245,240,100,";
     const String greenText = "50,240,50,";

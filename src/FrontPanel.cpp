@@ -1,10 +1,12 @@
 #include "FrontPanel.h"
 #include "Riego.h"
+#include "Gui.h"
 
 FrontPanel::FrontPanel(SoftwareSerial* serial):Panel(serial){}
 //FrontPanel::FrontPanel(char commandID, char panelID, SoftwareSerial* serial):Panel(commandID, panelID, serial){}
 
 void FrontPanel::body(){
+    bluetooth->println(F("add_text_box(4,1,8,C,Zonas de riego,245,240,245,)"));
     bluetooth->println(F("add_led(3,3,2,R,0,0,0)"));
     bluetooth->println(F("add_led(7,3,2,G,0,0,0)"));
     bluetooth->println(F("add_led(11,3,2,B,0,0,0)"));
@@ -66,10 +68,18 @@ void FrontPanel::loop(){
 }
 
 void FrontPanel::update(IfaceRiego* riego, IfaceGui* gui){
-        for(int i=0; i<numValves; i++){ //if(static_cast<Riego*>(riego)->getValve(i)!=valveLeds[i]){
-            //SERIAL_PRINTLN(riego->getValve(i));
-            valveLeds[i] = riego->getValve(i);
-        }
+    for(int i=0; i<numValves; i++){ //if(static_cast<Riego*>(riego)->getValve(i)!=valveLeds[i]){
+        //SERIAL_PRINTLN(riego->getValve(i));
+        valveLeds[i] = riego->getValve(i);
+    }
+    if(data_in==previousStateChar){
+        gui->nextState(false);
+        data_in='0';
+    }
+    if(data_in==nextStateChar){
+        gui->nextState(true);
+        data_in='0';
+    }
 }
 
 void FrontPanel::shiftField(bool next){};

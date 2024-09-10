@@ -49,13 +49,13 @@ class Riego:public IfaceRiego{
 
     void rotation(int button, bool rotationDir);
 
-    programTime _programTimePtr{ .hour = ALARM_HOUR, .minute = ALARM_MINUTE, .second = ALARM_SECOND, .programDays = {true,false,true,false,true,false,true}, .programEnabled = true };
+    programTime _programTimePtr{ .hour = ALARM_HOUR, .minute = ALARM_MINUTE, .second = ALARM_SECOND, .programDays = {true,false,true,false,true,false,true}, .programEnabled = true, .delay = PROGRAM_DELAY };
     programTime* const getProgramTimePtr();
 
     void changeProgramTime();
     bool programTimeChanged();
 
-    unsigned long _programDelay = 15 * 60;
+    unsigned long _programDelay = PROGRAM_DELAY;
     bool _running = false;
 
   private:

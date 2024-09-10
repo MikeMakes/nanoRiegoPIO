@@ -4,7 +4,7 @@ Gui::Gui(IfaceRiego* const riego, SoftwareSerial* const serial):
 IfaceGui(riego),
 _bluetooth(serial)
 {
-    _state = STATES::TIMEPANEL;
+    _state = STATES::FRONTPANEL;
 
     _panels[_state]->update(_riego, this);
     _panels[_state]->setup();

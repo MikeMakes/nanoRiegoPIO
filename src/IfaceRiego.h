@@ -16,6 +16,7 @@ struct programTime{
   unsigned int hour, minute, second;
   bool programDays[7]; //bool monday,thursday,wednesday,tuesday,friday,saturday,sunday;
   bool programEnabled;
+  unsigned int delay;
 };
 
 class IfaceRiego{
