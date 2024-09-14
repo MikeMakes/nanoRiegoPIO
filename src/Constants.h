@@ -46,4 +46,6 @@ const static unsigned int ALARM_MINUTE = (unsigned int)00;
 const static unsigned int ALARM_SECOND = (unsigned int)00;
 const static unsigned int PROGRAM_DELAY = (unsigned int)15*60; //seconds
 
+const static unsigned int GUI_UPDATE_INTERVAL = (unsigned int) 500; //ms
+
 #endif

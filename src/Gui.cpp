@@ -4,39 +4,39 @@ Gui::Gui(IfaceRiego* const riego, SoftwareSerial* const serial):
 IfaceGui(riego),
 _bluetooth(serial)
 {
-    _state = STATES::FRONTPANEL;
+    //_state = STATES::FRONTPANEL;
 
-    _panels[_state]->update(_riego, this);
-    _panels[_state]->setup();
+    //update(_riego, this);
+    setup();
     _update = false;
 }
 
 void Gui::run(){
   //SERIAL_PRINTLN("Gui::run()");
   if(_update){
-    _panels[_state]->setup();
+    setup();
     _update = false;
   }
-  _panels[_state]->update(_riego, this);
-  _panels[_state]->loop();
+  //update(_riego, this);
+  update();
+  loop();
 }
 
 void Gui::setState(STATES state){
     //Serial1->println("void Gui::setState(STATES state)");
     //Serial1->println(state);
-    if(state!=_state){
-      _state=state;
+    //if(state!=_state){
+      //_state=state;
       _update = true;
       //_panels[_state]->setup();
-    }
+    //}
 }
 
 void Gui::setup(){
-  //SERIAL_PRINTLN("Gui::setup()");
-  _panels[_state]->setup();
 }
 
 void Gui::nextState(bool right){
+  /*
   //SERIAL_PRINTLN("/* nextState");
   int s = int(_state);
   if(right){
@@ -49,20 +49,107 @@ void Gui::nextState(bool right){
     _state = Gui::STATES(s-1);
     //SERIAL_PRINTLN(_state);
   }
+  */
   _update = true;
   //SERIAL_PRINTLN("nextState */");
   //SERIAL_FLUSH();
 }
+/*
+void Gui::loopValvesButtons(){
+    if (bluetooth->available()){
+        data_in=bluetooth->read();  //Get next character 
 
-void Gui::shiftField(bool directionField){
-  if(_state==STATES::TIMEPANEL){
-    _panels[_state]->shiftField(directionField);
+    }
+
+    /////////////  Send Data to Android device
+
+    unsigned long t=millis();
+    if ((t-last_time)>update_interval){
+        last_time=t;
+
+        // Update Text Element 
+        //text="Zonas de riego"; // <--- Set text to send here 
+        //bluetooth->print("*S"+text+"*");
+
+        for(int i=0; i<numValves; i++){
+            //SERIAL_PRINTLN(valveLeds[i]);
+            //valveLeds[i] = riego->getValve(i);
+
+            // Update LED Color 
+            if(valveLeds[i]){
+                red=0; green=255; blue=0; // <--- Set RGB color here 
+            } else{
+                red=255; green=0; blue=0; // <--- Set RGB color here 
+            }
+            //bluetooth->print("*RR"+String(red)+"G"+String(green)+"B"+String(blue)+"*");
+            switch(i){
+                case 0:
+                    bluetooth->print("*RR");
+                    break;
+                case 1:
+                    bluetooth->print("*GR");
+                    break;
+                case 2:
+                    bluetooth->print("*BR");
+                    break;
+            }
+                
+            //bluetooth->print("*RR");
+            bluetooth->print(red);
+            bluetooth->print("G");
+            bluetooth->print(green);
+            bluetooth->print("B");
+            bluetooth->print(blue);
+            bluetooth->print("*");
+        }//for
+    }
+}
+void Gui::loopManualControl(){}
+void Gui::loopProgramTime(){}
+void Gui::loopSystemTime(){}
+*/
+
+void Gui::update(){
+  unsigned long t=millis();
+  if ((t-last_time)>update_interval){
+    last_time=t;
+
+    for(int i=0; i<numValves; i++){ //if(static_cast<Riego*>(riego)->getValve(i)!=valveLeds[i]){
+          //SERIAL_PRINTLN(riego->getValve(i));
+          if(_riego->getValve(i)){
+            //_bluetooth->print("CMv");
+            //_bluetooth->print(i);
+            //_bluetooth->println("_ON");
+            _bluetooth->println("a");
+          } else{
+            _bluetooth->print("CMv");
+            _bluetooth->print(i);
+            _bluetooth->println("_OFF");
+          }
+    }
   }
 }
 
-unsigned int Gui::selection(){
-  if(_state==STATES::TIMEPANEL){
-    return _panels[_state]->getField();
+void Gui::loop(){
+  char data_in = '0';
+  if(_bluetooth->available()){
+    data_in=_bluetooth->read();
   }
-  return 99;
+
+  if(data_in=='*'){
+    const char uno = '0';
+    char valve = _bluetooth->read(); 
+    if(valve==uno){
+      _riego->toggleValve(1);
+    }
+    else{
+      //_bluetooth->println("texto");
+    }
+    /*
+    if(valve<3 && valve >0){
+      _riego->toggleValve(valve);
+    }
+    */
+  }
+
 }

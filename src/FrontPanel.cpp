@@ -20,7 +20,6 @@ void FrontPanel::loop(){
 
     if (bluetooth->available()){
         data_in=bluetooth->read();  //Get next character 
-
     }
 
     /////////////  Send Data to Android device

@@ -16,6 +16,8 @@ class IfaceGui{
     virtual void run();
     virtual void setState(STATES state);
 
+    virtual void loop();
+
   public:
     IfaceRiego* _riego;
 };
