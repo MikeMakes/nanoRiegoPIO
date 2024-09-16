@@ -37,7 +37,7 @@ void Gui::setup(){
 
 void Gui::nextState(bool right){
   /*
-  //SERIAL_PRINTLN("/* nextState");
+  //SERIAL_PRINTLN("/.* nextState");
   int s = int(_state);
   if(right){
     if(s>=2) s=-1;
@@ -116,14 +116,11 @@ void Gui::update(){
 
     for(int i=0; i<numValves; i++){ //if(static_cast<Riego*>(riego)->getValve(i)!=valveLeds[i]){
           //SERIAL_PRINTLN(riego->getValve(i));
+          _bluetooth->print("CMv");
+          _bluetooth->print(i);
           if(_riego->getValve(i)){
-            //_bluetooth->print("CMv");
-            //_bluetooth->print(i);
-            //_bluetooth->println("_ON");
-            _bluetooth->println("a");
+            _bluetooth->println("_ON");
           } else{
-            _bluetooth->print("CMv");
-            _bluetooth->print(i);
             _bluetooth->println("_OFF");
           }
     }
@@ -131,25 +128,26 @@ void Gui::update(){
 }
 
 void Gui::loop(){
-  char data_in = '0';
+  //char data_in = '0';
+  String data_in;
   if(_bluetooth->available()){
-    data_in=_bluetooth->read();
+    data_in = _bluetooth->readString();
+    //data_in=_bluetooth->read();
   }
 
-  if(data_in=='*'){
-    const char uno = '0';
-    char valve = _bluetooth->read(); 
-    if(valve==uno){
-      _riego->toggleValve(1);
-    }
-    else{
-      //_bluetooth->println("texto");
-    }
-    /*
-    if(valve<3 && valve >0){
-      _riego->toggleValve(valve);
-    }
-    */
-  }
+  ///String data_in = _bluetooth->readString();
 
+  if(data_in.indexOf("CMv0") > 0){
+    _riego->toggleValve(0);
+  }
+  if(data_in.indexOf("CMv1") > 0){
+    _riego->toggleValve(1);
+  }
+  if(data_in.indexOf("CMv2") > 0){
+    _riego->toggleValve(2);
+  }
+  int h = data_in.indexOf("CAh");
+  if(h > 0){
+    _riego->getProgramTimePtr()->hour=data_in.substring(h,h+1).toInt();
+  }
 }
