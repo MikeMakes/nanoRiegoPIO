@@ -129,25 +129,63 @@ void Gui::update(){
 
 void Gui::loop(){
   //char data_in = '0';
-  String data_in;
+  //String data_in;
+
+  char cmdStart = '*';
+  msgManualControl msgMC;
+
   if(_bluetooth->available()){
-    data_in = _bluetooth->readString();
+    SERIAL_PRINTLN("_bluetooth->available()");
+    //data_in = _bluetooth->readString();
+    //_bluetooth->readBytes(&cmdStart, sizeof(cmdStart));
+    
+    if(_bluetooth->read()!=cmdStart) return;
+    //_riego->toggleValve(1);
+
+    switch(_bluetooth->read()){
+      case msgMC.id:
+        _bluetooth->readBytes(msgMC.payload, sizeof(msgMC.payload));
+        //SERIAL_PRINT(msgMC.payload[0]);
+        //SERIAL_PRINT(msgMC.payload[1]);
+        //SERIAL_PRINTLN(msgMC.payload);
+        break;
+      
+      default:
+        //SERIAL_PRINTLN("Unknown cmd");
+        break;
+    }
+
     //data_in=_bluetooth->read();
+
+    SERIAL_PRINT(msgMC.payload[0]);
+    if(msgMC.payload[0]=='v'){
+    SERIAL_PRINT(msgMC.payload[1]);
+      _riego->toggleValve(msgMC.payload[1]-'0');
+      SERIAL_PRINTLN("VALVED");
+    }
+
+/*
+    if(data_in.indexOf("CMv0") > 0){
+      SERIAL_PRINTLN("0");
+      _riego->toggleValve(0);
+    }
+    if(data_in.indexOf("CMv1") > 0){
+      SERIAL_PRINTLN("1");
+      _riego->toggleValve(1);
+    }
+    if(data_in.indexOf("CMv2") > 0){
+      SERIAL_PRINTLN("2");
+      _riego->toggleValve(2);
+    }
+    int h = data_in.indexOf("CAh");
+    if(h > 0){
+      _riego->getProgramTimePtr()->hour=data_in.substring(h,h+1).toInt();
+    }
+      */
+
   }
 
   ///String data_in = _bluetooth->readString();
 
-  if(data_in.indexOf("CMv0") > 0){
-    _riego->toggleValve(0);
-  }
-  if(data_in.indexOf("CMv1") > 0){
-    _riego->toggleValve(1);
-  }
-  if(data_in.indexOf("CMv2") > 0){
-    _riego->toggleValve(2);
-  }
-  int h = data_in.indexOf("CAh");
-  if(h > 0){
-    _riego->getProgramTimePtr()->hour=data_in.substring(h,h+1).toInt();
-  }
+
 }
