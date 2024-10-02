@@ -4,8 +4,8 @@
 #include "Constants.h"
 #include "IfaceRiego.h"
 
-struct msgManualControl{
-  const static char id='M';
+struct msgGui{
+  const static char id='*';
   char payload[2];
 };
 

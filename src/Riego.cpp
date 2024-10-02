@@ -48,10 +48,10 @@ void Riego::runProgram(time_t programDelay){
     _lastRunTime = now();
     valveRunning++;
     if(!(valveRunning<numValves)){
-    turnOff();
-    valveRunning=-1;
-    _running=false;
-    return;
+        turnOff();
+        valveRunning=-1;
+        _running=false;
+        return;
     }
     setValve(valveRunning,true);
 }
