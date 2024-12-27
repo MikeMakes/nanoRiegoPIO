@@ -48,4 +48,6 @@ const static unsigned int PROGRAM_DELAY = (unsigned int)15*60; //seconds
 
 const static unsigned int GUI_UPDATE_INTERVAL = (unsigned int) 500; //ms
 
+const static unsigned char COMMS_PRELIMITER = '*';
+
 #endif

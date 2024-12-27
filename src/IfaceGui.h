@@ -29,8 +29,17 @@ class IfaceGui{
       char *payload;
     };
 
-    comms cmdManualControl{.id='M',.payloadSize=sizeof("v0")};
+    comms cmdSystemTime{.id='T',.payloadSize=sizeof(int)*2};
+    comms cmdSystemDate{.id='D',.payloadSize=sizeof(int)*3};
 
+    comms cmdAutoEnable{.id='e',.payloadSize=sizeof(int)};
+    comms cmdAutoRun{.id='r',.payloadSize=0};
+    comms cmdAutoTime{.id='h',.payloadSize=sizeof(int)*2};
+    //comms cmdAutoRepetition{.id='r',.payloadSize=0};
+    comms cmdAutoDuration{.id='D',.payloadSize=sizeof(int)};
+
+    comms cmdManualValve{.id='v',.payloadSize=sizeof(int)};
+    //comms cmdManualDuration{.id='m',.payloadSize=sizeof(int)};
 
   public:
     IfaceRiego* _riego;
