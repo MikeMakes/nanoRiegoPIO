@@ -50,11 +50,11 @@ void Gui::update(){
     _bluetooth->print("Ah");
     _bluetooth->print(_riego->getProgramTimePtr()->hour);
     _bluetooth->print(":");
-    _bluetooth->print(_riego->getProgramTimePtr()->minute);
+    _bluetooth->println(_riego->getProgramTimePtr()->minute);
 
     //SERIAL_PRINTLN(_riego->getProgramTimePtr()->programEnabled);
     _bluetooth->print("Ae");
-    _bluetooth->print(_riego->getProgramTimePtr()->programEnabled);
+    _bluetooth->println(_riego->getProgramTimePtr()->programEnabled);
 
     for(int i=0; i<numValves; i++){ //if(static_cast<Riego*>(riego)->getValve(i)!=valveLeds[i]){
       //SERIAL_PRINTLN(riego->getValve(i));
@@ -83,12 +83,12 @@ void Gui::loop(){
     SERIAL_PRINTLN(msg.payload[1]);
 
     switch(msg.payload[0]){
-      case 'v':
+      case 'v': // manual valve turn on/off
         //SERIAL_PRINTLN("v");
         _riego->toggleValve(msg.payload[1]-'0');
         break;
 
-      case 'e':
+      case 'e': // enable/disable program
         SERIAL_PRINTLN("e");
         SERIAL_PRINTLN(msg.payload[1]);
         if(msg.payload[1]=='1')
@@ -97,7 +97,7 @@ void Gui::loop(){
           _riego->getProgramTimePtr()->programEnabled=false;
         break;
 
-      case 'r':
+      case 'r': // run program now
         SERIAL_PRINTLN("r");
         _riego->runProgram(0);
         break;
