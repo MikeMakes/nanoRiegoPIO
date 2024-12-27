@@ -44,6 +44,22 @@ void Gui::update(){
   if ((t-last_time)>update_interval){
     last_time=t;
 
+    systemTime st = _riego->getSystemTime();
+    _bluetooth->print("Sh");
+    if(st.hour<10) _bluetooth->print("0");
+    _bluetooth->print(st.hour);
+    _bluetooth->print(":");
+    if(st.minute<10) _bluetooth->print("0");
+    _bluetooth->println(st.minute);
+
+    _bluetooth->print("Sd");
+    if(st.day<10) _bluetooth->print("0");
+    _bluetooth->print(st.day);
+    _bluetooth->print("/");
+    if(st.month<10) _bluetooth->print("0");
+    _bluetooth->print(st.month);
+    _bluetooth->print("/");
+    _bluetooth->println(st.year);
 
     //SERIAL_PRINTLN(_riego->getProgramTimePtr()->hour);
     //SERIAL_PRINTLN(_riego->getProgramTimePtr()->minute);
@@ -71,26 +87,33 @@ void Gui::update(){
 
 void Gui::loop(){
   msgGui msg;
+  //comms msg;
+  //char cmdID;
   
   if(_bluetooth->available()){
     SERIAL_PRINTLN("_bluetooth->available()");
     
     if(_bluetooth->read()!=msg.id) return;
-    
-    _bluetooth->readBytes(msg.payload, sizeof(msg.payload));
+    //if(_bluetooth->read()!=COMMS_PRELIMITER) return;
 
-    SERIAL_PRINT(msg.payload[0]);
-    SERIAL_PRINTLN(msg.payload[1]);
+    _bluetooth->readBytes(msg.payload, sizeof(msg.payload));
+    //_bluetooth->readBytes(msg.payload, sizeof(msg.payload));
+
+    //SERIAL_PRINT(msg.payload[0]);
+    //SERIAL_PRINTLN(msg.payload[1]);
 
     switch(msg.payload[0]){
-      case 'v': // manual valve turn on/off
-        //SERIAL_PRINTLN("v");
-        _riego->toggleValve(msg.payload[1]-'0');
+      case 'T':
+        
+        break;
+
+      case 'D':
+        
         break;
 
       case 'e': // enable/disable program
-        SERIAL_PRINTLN("e");
-        SERIAL_PRINTLN(msg.payload[1]);
+        //SERIAL_PRINTLN("e");
+        //SERIAL_PRINTLN(msg.payload[1]);
         if(msg.payload[1]=='1')
           _riego->getProgramTimePtr()->programEnabled=true;
         else if(msg.payload[1]=='0')
@@ -98,13 +121,19 @@ void Gui::loop(){
         break;
 
       case 'r': // run program now
-        SERIAL_PRINTLN("r");
+        //SERIAL_PRINTLN("r");
         _riego->runProgram(0);
+        break;
+
+      case 'v': // manual valve turn on/off
+        //SERIAL_PRINTLN("v");
+        _riego->toggleValve(msg.payload[1]-'0');
         break;
 
       default:
         //SERIAL_PRINTLN("Unknown cmd");
         break;
+
     }
   }
 }
