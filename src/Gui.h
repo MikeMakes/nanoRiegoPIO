@@ -16,13 +16,33 @@ class Gui:public IfaceGui{
   public:    
     Gui(IfaceRiego* const riego, SoftwareSerial* const serial);
 
-    void run();
-    void setState(STATES state);
-    void nextState(bool right = true);
-    void setup();
-
+    //void setup();
     void update();
-    void loop();
+    
+    void run() override;
+    void setState(STATES state) override;
+    void nextState(bool right = true) override;
+    void loop() override;
+
+    // Function prototypes for action handlers
+    void handleCmdSystemTime(const IfaceGui::Message *msg) override;
+    void handleCmdSystemDate(const IfaceGui::Message *msg) override;
+
+    void handleCmdAutoEnable(const IfaceGui::Message *msg) override;
+    void handleCmdAutoRun(const IfaceGui::Message *msg) override;
+    void handleCmdAutoTime(const IfaceGui::Message *msg) override;
+    void handleCmdAutoRepetition(const IfaceGui::Message *msg) override;
+    void handleCmdAutoDuration(const IfaceGui::Message *msg) override;
+
+    void handleCmdManualValve(const IfaceGui::Message *msg) override;
+    void handleCmdManualDuration(const IfaceGui::Message *msg) override;
+
+    void handleCmdUnknown(const IfaceGui::Message *msg) override;
+    void handleCmds() override;
+
+    Message findHandler(char cmdID);
+    Message msg;
+    MessageCmdHandler findHandler2(char cmdID);
 
   private:
     unsigned long last_time=0; // time of last update

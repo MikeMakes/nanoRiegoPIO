@@ -7,16 +7,18 @@ _bluetooth(serial)
     //_state = STATES::FRONTPANEL;
 
     //update(_riego, this);
-    setup();
-    _update = false;
+    //setup();
+    _update = true;
 }
 
 void Gui::run(){
   //SERIAL_PRINTLN("Gui::run()");
+  /*
   if(_update){
     setup();
     _update = false;
   }
+  */
   //update(_riego, this);
   update();
   loop();
@@ -32,8 +34,7 @@ void Gui::setState(STATES state){
     //}
 }
 
-void Gui::setup(){
-}
+//void Gui::setup(){}
 
 void Gui::nextState(bool right){
   _update = true;
@@ -41,7 +42,7 @@ void Gui::nextState(bool right){
 
 void Gui::update(){
   unsigned long t=millis();
-  if ((t-last_time)>update_interval){
+  if (((t-last_time)>update_interval && _update)||(t-last_time)>GUI_UPDATE_INTERVAL_FORCED){
     last_time=t;
 
     systemTime st = _riego->getSystemTime();
@@ -82,27 +83,21 @@ void Gui::update(){
         _bluetooth->println("_OFF");
       }
     }
+    _update = false;
   }
 }
 
 void Gui::loop(){
-  msgGui msg;
-  //comms msg;
-  //char cmdID;
-  
   if(_bluetooth->available()){
-    SERIAL_PRINTLN("_bluetooth->available()");
-    
-    if(_bluetooth->read()!=msg.id) return;
-    //if(_bluetooth->read()!=COMMS_PRELIMITER) return;
+    //SERIAL_PRINTLN("_bluetooth->available()");
+    handleCmds();
 
-    _bluetooth->readBytes(msg.payload, sizeof(msg.payload));
-    //_bluetooth->readBytes(msg.payload, sizeof(msg.payload));
 
     //SERIAL_PRINT(msg.payload[0]);
     //SERIAL_PRINTLN(msg.payload[1]);
 
-    switch(msg.payload[0]){
+    /*
+    switch((char)cmdID){
       case 'T':
         
         break;
@@ -133,7 +128,103 @@ void Gui::loop(){
       default:
         //SERIAL_PRINTLN("Unknown cmd");
         break;
-
     }
+    */
   }
+}
+
+// Function prototypes for action handlers
+void Gui::handleCmdSystemTime(const IfaceGui::IfaceGui::Message *msg){
+
+}
+void Gui::handleCmdSystemDate(const IfaceGui::Message *msg){
+
+}
+
+void Gui::handleCmdAutoEnable(const IfaceGui::Message *msg){
+
+}
+void Gui::handleCmdAutoRun(const IfaceGui::Message *msg){
+
+}
+void Gui::handleCmdAutoTime(const IfaceGui::Message *msg){
+
+}
+void Gui::handleCmdAutoRepetition(const IfaceGui::Message *msg){
+
+}
+void Gui::handleCmdAutoDuration(const IfaceGui::Message *msg){
+
+}
+
+void Gui::handleCmdManualValve(const IfaceGui::Message *msg){
+
+  /*
+  uint8_t *valve;
+  _bluetooth->readBytes(valve, 1);
+  //SERIAL_PRINTLN(*valve);
+  _riego->toggleValve(*valve-'0'); // if msg->payload is used before this It doesnt work
+  */
+
+  /*
+  char *valve;
+  _bluetooth->readBytes(valve, msg->payloadSize);
+  _riego->toggleValve(*valve-'0'); // if msg->payload is used before this It doesnt work
+  */
+
+  _bluetooth->readBytes(msg->payload, msg->payloadSize);
+  //SERIAL_PRINTLN(msg->payload[0]);
+  //SERIAL_PRINTLN(msg->payload[0]-'0');
+  int valve = msg->payload[0]-'0';
+  _riego->toggleValve(valve); // if (int)msg->payload[0]-'0' is provided it doesnt work (memory pointer thing?)
+}
+void Gui::handleCmdManualDuration(const IfaceGui::Message *msg){
+
+}
+
+void Gui::handleCmdUnknown(const IfaceGui::Message *msg){
+
+}
+void Gui::handleCmds(){
+  //Message msg;
+  //char *cmdID;
+
+  SERIAL_PRINTLN("handleCmds");
+  if(_bluetooth->read()!=MESSAGE_PRELIMITER) return;
+  
+  _update = true;
+
+  //_bluetooth->readBytes(cmdID, sizeof(char));
+  char cmdID = _bluetooth->read();
+
+  SERIAL_PRINTLN(cmdID);
+  //Message msg = findHandler(*cmdID);
+  //Message 
+  msg = findHandler(cmdID);
+  SERIAL_PRINTLN(msg.id);
+
+  (this->*(msg.handler))(&msg); //Call function handler
+  
+  //MessageCmdHandler handler = findHandler2(*cmdID);
+  //(this->*handler)(&msg); //Call function handler
+}
+
+// Find the handler for a given action character
+Gui::Message Gui::findHandler(char cmdID) {
+    for (int i = 0; cmdMessages[i].id != '\0'; ++i) {
+        if (cmdMessages[i].id == cmdID) {
+            return cmdMessages[i];
+        }
+    }
+    return cmdUnknown; // Default for unrecognized actions
+}
+
+// Find the handler for a given action character
+Gui::MessageCmdHandler Gui::findHandler2(char cmdID) {
+    for (int i = 0; cmdMessages[i].id != '\0'; ++i) {
+        if (cmdMessages[i].id == cmdID) {
+            return cmdMessages[i].handler;
+        }
+    }
+    return cmdUnknown.handler; // Default for unrecognized actions
 }

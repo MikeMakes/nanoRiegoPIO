@@ -140,7 +140,7 @@ void loop(){  //SERIAL_PRINTLN("void loop()");
 
   for(int i=0; i<3; i++){
     if (versatile_encoder[i].ReadEncoder()){// Do the encoder reading and processing
-      if(press[0]) gui->setup();
+      //if(press[0]) gui->setup();
       if(rotation[0]) gui->nextState(rotationDir[0]);
 
       //if(press[1]) riego.selections[1] = gui->selection();

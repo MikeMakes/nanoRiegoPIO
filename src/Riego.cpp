@@ -24,6 +24,7 @@ bool Riego::getValve(int valve){
     return _valves[valve].getState();
 }
 void Riego::toggleValve(int valve){
+    SERIAL_PRINTLN(valve);
     setValve(valve, !_valves[valve].getState());
 }
 
