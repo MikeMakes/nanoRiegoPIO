@@ -47,14 +47,14 @@ class IfaceGui{
     virtual void handleCmds() = 0;
 
     // All commands
-    Message cmdSystemTime{.id='T', .handler=&IfaceGui::handleCmdSystemTime, .payloadSize=sizeof(int)*2};
-    Message cmdSystemDate{.id='D', .handler=&IfaceGui::handleCmdSystemDate, .payloadSize=sizeof(int)*3};
+    Message cmdSystemTime{.id='T', .handler=&IfaceGui::handleCmdSystemTime, .payloadSize=sizeof(char)*4, .payload=(char*)malloc(sizeof(char)*4)};
+    Message cmdSystemDate{.id='D', .handler=&IfaceGui::handleCmdSystemDate, .payloadSize=sizeof(char)*6, .payload=(char*)malloc(sizeof(char)*6)};
 
-    Message cmdAutoEnable{.id='e', .handler=&IfaceGui::handleCmdAutoEnable, .payloadSize=sizeof(int)};
+    Message cmdAutoEnable{.id='e', .handler=&IfaceGui::handleCmdAutoEnable, .payloadSize=sizeof(char), .payload=(char*)malloc(sizeof(char))};
     Message cmdAutoRun{.id='r', .handler=&IfaceGui::handleCmdAutoRun, .payloadSize=0};
-    Message cmdAutoTime{.id='h', .handler=&IfaceGui::handleCmdAutoTime, .payloadSize=sizeof(int)*2};
+    Message cmdAutoTime{.id='h', .handler=&IfaceGui::handleCmdAutoTime, .payloadSize=sizeof(char)*2};
     //Message cmdAutoRepetition{.id='r', .handler=&IfaceGui::handleCmdAutoRepetition, .payloadSize=0};
-    Message cmdAutoDuration{.id='D', .handler=&IfaceGui::handleCmdAutoDuration, .payloadSize=sizeof(int)};
+    Message cmdAutoDuration{.id='d', .handler=&IfaceGui::handleCmdAutoDuration, .payloadSize=sizeof(char)};
 
     Message cmdManualValve{.id='v', .handler=&IfaceGui::handleCmdManualValve, .payloadSize=sizeof(char)};
     //Message cmdManualDuration{.id='m', .handler=&IfaceGui::handleCmdManualDuration, .payloadSize=sizeof(int)};

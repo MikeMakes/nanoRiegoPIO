@@ -89,66 +89,42 @@ void Gui::update(){
 
 void Gui::loop(){
   if(_bluetooth->available()){
-    //SERIAL_PRINTLN("_bluetooth->available()");
     handleCmds();
-
-
-    //SERIAL_PRINT(msg.payload[0]);
-    //SERIAL_PRINTLN(msg.payload[1]);
-
-    /*
-    switch((char)cmdID){
-      case 'T':
-        
-        break;
-
-      case 'D':
-        
-        break;
-
-      case 'e': // enable/disable program
-        //SERIAL_PRINTLN("e");
-        //SERIAL_PRINTLN(msg.payload[1]);
-        if(msg.payload[1]=='1')
-          _riego->getProgramTimePtr()->programEnabled=true;
-        else if(msg.payload[1]=='0')
-          _riego->getProgramTimePtr()->programEnabled=false;
-        break;
-
-      case 'r': // run program now
-        //SERIAL_PRINTLN("r");
-        _riego->runProgram(0);
-        break;
-
-      case 'v': // manual valve turn on/off
-        //SERIAL_PRINTLN("v");
-        _riego->toggleValve(msg.payload[1]-'0');
-        break;
-
-      default:
-        //SERIAL_PRINTLN("Unknown cmd");
-        break;
-    }
-    */
   }
 }
 
 // Function prototypes for action handlers
 void Gui::handleCmdSystemTime(const IfaceGui::IfaceGui::Message *msg){
+  _bluetooth->readBytes(msg->payload, msg->payloadSize);
 
+  systemTime st = _riego->getSystemTime();
+  st.hour = (int)(msg->payload[0]-'0')*10+(int)(msg->payload[1]-'0');
+  st.minute = (int)(msg->payload[2]-'0')*10+(int)(msg->payload[3]-'0');
+  _riego->setSystemTime(st);
 }
 void Gui::handleCmdSystemDate(const IfaceGui::Message *msg){
 
 }
 
 void Gui::handleCmdAutoEnable(const IfaceGui::Message *msg){
+  _bluetooth->readBytes(msg->payload, msg->payloadSize);
 
+  if(*msg->payload=='1')
+    _riego->getProgramTimePtr()->programEnabled=true;
+  else if(*msg->payload=='0')
+    _riego->getProgramTimePtr()->programEnabled=false;
 }
+
 void Gui::handleCmdAutoRun(const IfaceGui::Message *msg){
-
+  _riego->runProgram(0);
 }
-void Gui::handleCmdAutoTime(const IfaceGui::Message *msg){
 
+void Gui::handleCmdAutoTime(const IfaceGui::Message *msg){
+  _riego->getProgramTimePtr()->hour=(int)(msg->payload[0]-'0')*10+(int)(msg->payload[1]-'0');
+  _riego->getProgramTimePtr()->minute=(int)(msg->payload[2]-'0')*10+(int)(msg->payload[3]-'0');
+
+  SERIAL_PRINTLN(_riego->getProgramTimePtr()->hour);
+  SERIAL_PRINTLN(_riego->getProgramTimePtr()->minute);
 }
 void Gui::handleCmdAutoRepetition(const IfaceGui::Message *msg){
 
@@ -158,23 +134,7 @@ void Gui::handleCmdAutoDuration(const IfaceGui::Message *msg){
 }
 
 void Gui::handleCmdManualValve(const IfaceGui::Message *msg){
-
-  /*
-  uint8_t *valve;
-  _bluetooth->readBytes(valve, 1);
-  //SERIAL_PRINTLN(*valve);
-  _riego->toggleValve(*valve-'0'); // if msg->payload is used before this It doesnt work
-  */
-
-  /*
-  char *valve;
-  _bluetooth->readBytes(valve, msg->payloadSize);
-  _riego->toggleValve(*valve-'0'); // if msg->payload is used before this It doesnt work
-  */
-
   _bluetooth->readBytes(msg->payload, msg->payloadSize);
-  //SERIAL_PRINTLN(msg->payload[0]);
-  //SERIAL_PRINTLN(msg->payload[0]-'0');
   int valve = msg->payload[0]-'0';
   _riego->toggleValve(valve); // if (int)msg->payload[0]-'0' is provided it doesnt work (memory pointer thing?)
 }
@@ -186,27 +146,13 @@ void Gui::handleCmdUnknown(const IfaceGui::Message *msg){
 
 }
 void Gui::handleCmds(){
-  //Message msg;
-  //char *cmdID;
-
-  SERIAL_PRINTLN("handleCmds");
   if(_bluetooth->read()!=MESSAGE_PRELIMITER) return;
   
   _update = true;
 
-  //_bluetooth->readBytes(cmdID, sizeof(char));
   char cmdID = _bluetooth->read();
-
-  SERIAL_PRINTLN(cmdID);
-  //Message msg = findHandler(*cmdID);
-  //Message 
   msg = findHandler(cmdID);
-  SERIAL_PRINTLN(msg.id);
-
   (this->*(msg.handler))(&msg); //Call function handler
-  
-  //MessageCmdHandler handler = findHandler2(*cmdID);
-  //(this->*handler)(&msg); //Call function handler
 }
 
 // Find the handler for a given action character
@@ -217,14 +163,4 @@ Gui::Message Gui::findHandler(char cmdID) {
         }
     }
     return cmdUnknown; // Default for unrecognized actions
-}
-
-// Find the handler for a given action character
-Gui::MessageCmdHandler Gui::findHandler2(char cmdID) {
-    for (int i = 0; cmdMessages[i].id != '\0'; ++i) {
-        if (cmdMessages[i].id == cmdID) {
-            return cmdMessages[i].handler;
-        }
-    }
-    return cmdUnknown.handler; // Default for unrecognized actions
 }

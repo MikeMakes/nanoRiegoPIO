@@ -42,7 +42,6 @@ class Gui:public IfaceGui{
 
     Message findHandler(char cmdID);
     Message msg;
-    MessageCmdHandler findHandler2(char cmdID);
 
   private:
     unsigned long last_time=0; // time of last update
