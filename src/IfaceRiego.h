@@ -23,12 +23,10 @@ class IfaceRiego{
   public:
     IfaceRiego(){}
 
-    
     virtual void gui(IfaceGui* const gui){
       _gui=gui;
     }
     
-
     virtual void setValve(int valve, bool state);
     virtual void toggleValve(int valve);
     virtual bool getValve(int valve);
@@ -54,6 +52,8 @@ class IfaceRiego{
     //virtual void setProgramTime(programTime time);
 
     IfaceGui* _gui;
+
+    bool _running = false;
 };
 
 #endif

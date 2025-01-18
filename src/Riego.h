@@ -56,7 +56,7 @@ class Riego:public IfaceRiego{
     bool programTimeChanged();
 
     unsigned long _programDelay = PROGRAM_DELAY;
-    bool _running = false;
+    //bool _running = false;
 
   private:
     Relay* _pump;

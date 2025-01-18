@@ -31,7 +31,8 @@ class Gui:public IfaceGui{
     void handleCmdAutoEnable(const IfaceGui::Message *msg) override;
     void handleCmdAutoRun(const IfaceGui::Message *msg) override;
     void handleCmdAutoTime(const IfaceGui::Message *msg) override;
-    void handleCmdAutoRepetition(const IfaceGui::Message *msg) override;
+    //void handleCmdAutoRepetition(const IfaceGui::Message *msg) override;
+    void handleCmdAutoDays(const IfaceGui::Message *msg) override;
     void handleCmdAutoDuration(const IfaceGui::Message *msg) override;
 
     void handleCmdManualValve(const IfaceGui::Message *msg) override;

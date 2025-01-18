@@ -37,7 +37,8 @@ class IfaceGui{
     virtual void handleCmdAutoEnable(const IfaceGui::Message *msg) = 0;
     virtual void handleCmdAutoRun(const IfaceGui::Message *msg) = 0;
     virtual void handleCmdAutoTime(const IfaceGui::Message *msg) = 0;
-    virtual void handleCmdAutoRepetition(const IfaceGui::Message *msg) = 0;
+    //virtual void handleCmdAutoRepetition(const IfaceGui::Message *msg) = 0;
+    virtual void handleCmdAutoDays(const IfaceGui::Message *msg) = 0;
     virtual void handleCmdAutoDuration(const IfaceGui::Message *msg) = 0;
 
     virtual void handleCmdManualValve(const IfaceGui::Message *msg) = 0;
@@ -52,21 +53,23 @@ class IfaceGui{
 
     Message cmdAutoEnable{.id='e', .handler=&IfaceGui::handleCmdAutoEnable, .payloadSize=sizeof(char), .payload=(char*)malloc(sizeof(char))};
     Message cmdAutoRun{.id='r', .handler=&IfaceGui::handleCmdAutoRun, .payloadSize=0};
-    Message cmdAutoTime{.id='h', .handler=&IfaceGui::handleCmdAutoTime, .payloadSize=sizeof(char)*2};
+    Message cmdAutoTime{.id='h', .handler=&IfaceGui::handleCmdAutoTime, .payloadSize=sizeof(char)*4, .payload=(char*)malloc(sizeof(char)*4)};
     //Message cmdAutoRepetition{.id='r', .handler=&IfaceGui::handleCmdAutoRepetition, .payloadSize=0};
-    Message cmdAutoDuration{.id='d', .handler=&IfaceGui::handleCmdAutoDuration, .payloadSize=sizeof(char)};
+    Message cmdAutoDays{.id='w', .handler=&IfaceGui::handleCmdAutoDays, .payloadSize=sizeof(char)*2, .payload=(char*)malloc(sizeof(char)*2)};
+    Message cmdAutoDuration{.id='d', .handler=&IfaceGui::handleCmdAutoDuration, .payloadSize=sizeof(char)*2, .payload=(char*)malloc(sizeof(char)*2)};
 
     Message cmdManualValve{.id='v', .handler=&IfaceGui::handleCmdManualValve, .payloadSize=sizeof(char)};
     //Message cmdManualDuration{.id='m', .handler=&IfaceGui::handleCmdManualDuration, .payloadSize=sizeof(int)};
 
     Message cmdUnknown{.id='\0', .handler=&IfaceGui::handleCmdUnknown, .payloadSize=0};
 
-    Message cmdMessages[8]={
+    Message cmdMessages[9]={
       cmdSystemTime,
       cmdSystemDate,
       cmdAutoEnable,
       cmdAutoRun,
       cmdAutoTime,
+      cmdAutoDays,
       cmdAutoDuration,
       cmdManualValve,
       cmdUnknown
