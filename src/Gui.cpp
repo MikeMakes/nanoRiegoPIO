@@ -103,7 +103,13 @@ void Gui::handleCmdSystemTime(const IfaceGui::IfaceGui::Message *msg){
   _riego->setSystemTime(st);
 }
 void Gui::handleCmdSystemDate(const IfaceGui::Message *msg){
+  _bluetooth->readBytes(msg->payload, msg->payloadSize);
 
+  systemTime st = _riego->getSystemTime();
+  st.day = (int)(msg->payload[0]-'0')*10+(int)(msg->payload[1]-'0');
+  st.month = (int)(msg->payload[2]-'0')*10+(int)(msg->payload[3]-'0');
+  st.year = (int)(msg->payload[4]-'0')*1000+(int)(msg->payload[5]-'0')*100+(int)(msg->payload[6]-'0')*10+(int)(msg->payload[7]-'0');
+  _riego->setSystemTime(st);
 }
 
 void Gui::handleCmdAutoEnable(const IfaceGui::Message *msg){

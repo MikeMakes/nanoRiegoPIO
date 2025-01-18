@@ -48,7 +48,7 @@ class IfaceGui{
 
     // All commands
     Message cmdSystemTime{.id='T', .handler=&IfaceGui::handleCmdSystemTime, .payloadSize=sizeof(char)*4, .payload=(char*)malloc(sizeof(char)*4)};
-    Message cmdSystemDate{.id='D', .handler=&IfaceGui::handleCmdSystemDate, .payloadSize=sizeof(char)*6, .payload=(char*)malloc(sizeof(char)*6)};
+    Message cmdSystemDate{.id='D', .handler=&IfaceGui::handleCmdSystemDate, .payloadSize=sizeof(char)*8, .payload=(char*)malloc(sizeof(char)*8)};
 
     Message cmdAutoEnable{.id='e', .handler=&IfaceGui::handleCmdAutoEnable, .payloadSize=sizeof(char), .payload=(char*)malloc(sizeof(char))};
     Message cmdAutoRun{.id='r', .handler=&IfaceGui::handleCmdAutoRun, .payloadSize=0};
