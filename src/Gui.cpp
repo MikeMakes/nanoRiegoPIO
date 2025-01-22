@@ -64,7 +64,8 @@ void Gui::update(){ //tbd update only changes
 
     //SERIAL_PRINTLN(_riego->getProgramTimePtr()->programEnabled);
     _bluetooth->print("Ae");
-    _bluetooth->println(_riego->getProgramTimePtr()->programEnabled);
+    //_bluetooth->println(_riego->getProgramTimePtr()->programEnabled);
+    _bluetooth->println(_riego->getProgramTime().programEnabled);
 
     _bluetooth->print("Ar");
     if(_riego->_running) _bluetooth->println("1");

@@ -65,15 +65,22 @@ void Riego::checkAlarm(){
     }
 }
 
-void Riego::setProgramTime(int hour, int min, int sec){
-    _programTimePtr.hour = hour;
-    _programTimePtr.minute = min;
-    _programTimePtr.second = sec;
+programTime& Riego::getProgramTime(){
+    return _programTimePtr;
+}
+void Riego::setProgramTime(const programTime& newProgramTime) {
+    if(_programTimePtr!=newProgramTime){
+        _programTimePtr = newProgramTime;
+        _changedProgramTime = true; // Indicate the object has changed
+    }
 }
 
+/*
 programTime Riego::getProgramTime(){
     return _programTimePtr;
 }
+*/
+/*
 unsigned int Riego::getProgramTime(unsigned int field){
     //if(field>2) field = 2;
     //return _programTime[field];
@@ -89,14 +96,10 @@ unsigned int Riego::getProgramTime(unsigned int field){
         break;
     }
 }
+*/
 systemTime Riego::getSystemTime(){
     systemTime actualTime = {hour(),minute(),second(),day(),month(),year()};
     return actualTime;
-}
-unsigned int Riego::getSystemTime(unsigned int field){
-    if(field>5) field = 5;
-    int systemTime[6]={hour(),minute(),second(),day(),month(),year()};
-    return systemTime[field];
 }
 void Riego::setSystemTime(systemTime time){
     setTime(time.hour,time.minute,time.second,time.day,time.month,time.year);

@@ -20,23 +20,24 @@ class Riego:public IfaceRiego{
     void setValve(int valve, bool state);
     bool getValve(int valve);
     void toggleValve(int valve);
-
     void turnOff();
-    void runProgram();
-    void testValves();
 
+    void runProgram();
     void check();
+
     void checkAlarm();
 
-    void setProgramTime(int hour, int min, int sec);
+    void testValves();
 
-    programTime getProgramTime();
-    unsigned int getProgramTime(unsigned int field);
+    //programTime getProgramTime();
+    //unsigned int getProgramTime(unsigned int field);
     systemTime getSystemTime();
-    unsigned int getSystemTime(unsigned int field);
     void setSystemTime(systemTime time);
 
     programTime _programTimePtr{ .hour = ALARM_HOUR, .minute = ALARM_MINUTE, .second = ALARM_SECOND, .programDays = {true,false,true,false,true,false,true}, .programEnabled = true, .delay = PROGRAM_DELAY };
+    programTime& getProgramTime();
+    void setProgramTime(const programTime& newProgramTime);
+    
     programTime* const getProgramTimePtr();
 
     void changeProgramTime();

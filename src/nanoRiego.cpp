@@ -106,7 +106,6 @@ void setup() {
   gui = new Gui(&riego, &bluetooth);
   riego.gui(gui);
 
-  riego.setProgramTime(ALARM_HOUR, ALARM_MINUTE, ALARM_SECOND);
   loadEEPROM();
   alarmID = Alarm.alarmRepeat(riego.getProgramTimePtr()->hour, riego.getProgramTimePtr()->minute, riego.getProgramTimePtr()->second, alarmRiego);
   Alarm.delay(10);
