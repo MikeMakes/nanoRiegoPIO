@@ -53,17 +53,11 @@ class IfaceRiego{
     virtual void runProgram();
     virtual void check();
 
-    virtual programTime& getProgramTime();
+    virtual const programTime& getProgramTime();
     virtual void setProgramTime(const programTime& newProgramTime);
 
-    virtual void changeProgramTime();
-    //virtual programTime getProgramTime();
-    //virtual unsigned int getProgramTime(unsigned int field);
     virtual systemTime getSystemTime();
-    //void setProgramTime(programTime programTime_);
-
     virtual void setSystemTime(systemTime time);
-    //virtual void setProgramTime(programTime time);
 
     IfaceGui* _gui;
 

@@ -34,8 +34,6 @@ void Riego::turnOff(){
     }
 }
 void Riego::runProgram(){
-    //if(!_running && programDelay==0) programDelay=_programTimePtr.delay;
-
     _running = true;
     _lastRunTime = now();
     valveRunning++;
@@ -55,48 +53,29 @@ void Riego::check(){
     checkAlarm();
 }
 void Riego::checkAlarm(){ 
-    if(!_programTimePtr.programEnabled) return;
+    if(!_programTime.programEnabled) return;
     _actualTime = now();
     int day = weekday(); //this function returns 1 for sunday, 2 monday, ..., 7 saturday
     if(day==1) day = 6; //remapping index to common sense
     else day = day-2;
-    if(_programTimePtr.programDays[day]){
+    if(_programTime.programDays[day]){
         runProgram();
     }
 }
 
-programTime& Riego::getProgramTime(){
-    return _programTimePtr;
+const programTime& Riego::getProgramTime(){
+    return _programTime;
 }
 void Riego::setProgramTime(const programTime& newProgramTime) {
-    if(_programTimePtr!=newProgramTime){
-        _programTimePtr = newProgramTime;
+    if(_programTime!=newProgramTime){
+        _programTime = newProgramTime;
         _changedProgramTime = true; // Indicate the object has changed
     }
 }
+bool Riego::changedProgramTime(){
+    return _changedProgramTime;
+}
 
-/*
-programTime Riego::getProgramTime(){
-    return _programTimePtr;
-}
-*/
-/*
-unsigned int Riego::getProgramTime(unsigned int field){
-    //if(field>2) field = 2;
-    //return _programTime[field];
-    switch(field){
-    case 0:
-        return _programTimePtr.hour;
-        break;
-    case 1:
-        return _programTimePtr.minute;
-        break;
-    default:
-        return _programTimePtr.second;
-        break;
-    }
-}
-*/
 systemTime Riego::getSystemTime(){
     systemTime actualTime = {hour(),minute(),second(),day(),month(),year()};
     return actualTime;
@@ -145,13 +124,4 @@ void Riego::rotation(int button, bool rotationDir){
         //SERIAL_PRINTLN("****BUTTON_OUT_OF_INDEX****");
         break;
     }
-}
-
-void Riego::changeProgramTime(){
-    _changedProgramTime = true;
-}
-bool Riego::programTimeChanged(){
-    bool cpt = _changedProgramTime;
-    _changedProgramTime=false;
-    return cpt;
 }

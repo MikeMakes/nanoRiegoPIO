@@ -32,16 +32,20 @@ void saveEEPROM(){
   //EEPROM.put(sizeof(EEPROM_timeAddress), (unsigned int) riego.getProgramTime().hour);
   //EEPROM.put(sizeof(EEPROM_timeAddress)+sizeof(unsigned int), (unsigned int) riego.getProgramTime().delay);
   EEPROM.put(30, (unsigned int) riego.getProgramTime().hour);
+  EEPROM.put(40, (unsigned int) riego.getProgramTime().minute);
   EEPROM.put(60, (unsigned int) riego.getProgramTime().delay);
 }
 
 void loadEEPROM(){
   //EEPROM.put(EEPROM_timeAddress, (time_t) DEFAULT_TIME);
-  unsigned int h,d;
-  EEPROM.get(30, h);
-  EEPROM.get(60, d);
-  riego.getProgramTime().hour = h;
-  riego.getProgramTime().delay = d;
+  unsigned int hour,minute,delay;
+  EEPROM.get(30, hour);
+  EEPROM.get(40, minute);
+  EEPROM.get(60, delay);
+  programTime pt = riego.getProgramTime();
+  pt.hour = hour;
+  pt.delay = delay;
+  riego.setProgramTime(pt);
 }
 
 AlarmID_t alarmID;
@@ -157,9 +161,9 @@ void loop(){  //SERIAL_PRINTLN("void loop()");
   */
   gui->run();
 
-  if(riego.programTimeChanged()){
+  if(riego.changedProgramTime()){
     Alarm.free(alarmID);
-    alarmID = Alarm.alarmRepeat(riego._programTimePtr.hour, riego._programTimePtr.minute, riego._programTimePtr.second, alarmRiego);
+    alarmID = Alarm.alarmRepeat(riego.getProgramTime().hour, riego.getProgramTime().minute, riego.getProgramTime().second, alarmRiego);
   }
 
   if(riego._running && !wasRunning){

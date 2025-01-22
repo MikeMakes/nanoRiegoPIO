@@ -34,12 +34,9 @@ class Riego:public IfaceRiego{
     systemTime getSystemTime();
     void setSystemTime(systemTime time);
 
-    programTime _programTimePtr{ .hour = ALARM_HOUR, .minute = ALARM_MINUTE, .second = ALARM_SECOND, .programDays = {true,false,true,false,true,false,true}, .programEnabled = true, .delay = PROGRAM_DELAY };
-    programTime& getProgramTime();
+    const programTime& getProgramTime(); //const (non modifiable) ref (make impossible to change without passing by serProgramTime)
     void setProgramTime(const programTime& newProgramTime);
-    
-    void changeProgramTime();
-    bool programTimeChanged();
+    bool changedProgramTime();
 
     void press(int button);
     void longPress(int button);
@@ -56,8 +53,8 @@ class Riego:public IfaceRiego{
     time_t _actualTime = DEFAULT_TIME;
     time_t _lastRunTime;
 
+    programTime _programTime{ .hour = ALARM_HOUR, .minute = ALARM_MINUTE, .second = ALARM_SECOND, .programDays = {true,false,true,false,true,false,true}, .programEnabled = true, .delay = PROGRAM_DELAY };
     bool _changedProgramTime = false;
-
 
   public:
     unsigned int selections[3]={0,0,0};
