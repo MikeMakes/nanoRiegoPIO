@@ -8,7 +8,18 @@ _bluetooth(serial)
 
     //update(_riego, this);
     //setup();
+
+    //updateGuiData();
     _update = true;
+}
+
+void Gui::updateGuiData(){
+  previousGuiData.st = _riego->getSystemTime();
+  previousGuiData.pt = _riego->getProgramTime();
+  previousGuiData.running = _riego->_running;
+  for(int i=0; i<3; ++i){
+    previousGuiData.valves[i] = _riego->getValve(i);
+  }
 }
 
 void Gui::run(){
@@ -40,7 +51,84 @@ void Gui::nextState(bool right){
   _update = true;
 }
 
-void Gui::update(){ //tbd update only changes
+void Gui::update(){ //UNTESTED
+  unsigned long t = millis();
+
+  GuiMessage currentGuiData = {};
+  currentGuiData.st = _riego->getSystemTime();
+  currentGuiData.pt = _riego->getProgramTime();
+  currentGuiData.running = _riego->_running;
+  for(int i=0; i<3; ++i){
+    currentGuiData.valves[i] = _riego->getValve(i);
+  }
+
+  if ( currentGuiData!=previousGuiData || (t-last_time)>GUI_UPDATE_INTERVAL_FORCED ){    
+    if(currentGuiData.st != previousGuiData.st || (t-last_time)>GUI_UPDATE_INTERVAL_FORCED){
+      _bluetooth->print("Sh");
+      if(currentGuiData.st.hour<10) _bluetooth->print("0");
+      _bluetooth->print(currentGuiData.st.hour);
+      _bluetooth->print(":");
+      if(currentGuiData.st.minute<10) _bluetooth->print("0");
+      _bluetooth->println(currentGuiData.st.minute);
+
+      _bluetooth->print("Sd");
+      if(currentGuiData.st.day<10) _bluetooth->print("0");
+      _bluetooth->print(currentGuiData.st.day);
+      _bluetooth->print("/");
+      if(currentGuiData.st.month<10) _bluetooth->print("0");
+      _bluetooth->print(currentGuiData.st.month);
+      _bluetooth->print("/");
+      _bluetooth->println(currentGuiData.st.year);
+    }
+
+    if(currentGuiData.pt != previousGuiData.pt || (t-last_time)>GUI_UPDATE_INTERVAL_FORCED){ //tbd change for currentGuiData
+      _bluetooth->print("Ae");  //Program enabled
+      _bluetooth->println(_riego->getProgramTime().programEnabled);
+
+      _bluetooth->print("Ah");  //Program hour
+      if(_riego->getProgramTime().hour<10) _bluetooth->print("0");
+      _bluetooth->print(_riego->getProgramTime().hour);
+      _bluetooth->print(":");
+      if(_riego->getProgramTime().minute<10) _bluetooth->print("0");
+      _bluetooth->println(_riego->getProgramTime().minute);
+
+      _bluetooth->print("Aw"); //Program weekdays
+      for(int i=0; i<7; i++){
+        _bluetooth->print(_riego->getProgramTime().programDays[i]);
+        _bluetooth->print(",");
+      }
+      _bluetooth->println();
+
+      _bluetooth->print("Ad"); //Program Delay
+      _bluetooth->println(_riego->getProgramTime().delay/60);
+      
+    }
+
+    if(currentGuiData.running != previousGuiData.running || (t-last_time)>GUI_UPDATE_INTERVAL_FORCED){
+      _bluetooth->print("Ar");
+      if(_riego->_running) _bluetooth->println("1");
+      else _bluetooth->println("0");
+    }
+
+    for(int i=0; i<3; ++i){
+      if(currentGuiData.valves[i] != previousGuiData.valves[i] || (t-last_time)>GUI_UPDATE_INTERVAL_FORCED){
+        _bluetooth->print("CMv");
+        _bluetooth->print(i);
+        if(_riego->getValve(i)){
+          _bluetooth->println("_ON");
+        } else{
+          _bluetooth->println("_OFF");
+        }
+      }
+    }
+
+    last_time=t;
+    previousGuiData = currentGuiData;
+    _update = false;
+  }
+}
+/*
+void Gui::update(){ //TESTED AND WORKING
   unsigned long t=millis();
   if (((t-last_time)>update_interval && _update)||(t-last_time)>GUI_UPDATE_INTERVAL_FORCED){
     last_time=t;
@@ -102,6 +190,7 @@ void Gui::update(){ //tbd update only changes
     _update = false;
   }
 }
+*/
 
 void Gui::loop(){
   if(_bluetooth->available()){
@@ -155,10 +244,6 @@ void Gui::handleCmdAutoTime(const IfaceGui::Message *msg){  //TESTED
   pt.hour = (int)(msg->payload[0]-'0')*10+(int)(msg->payload[1]-'0');
   pt.minute = (int)(msg->payload[2]-'0')*10+(int)(msg->payload[3]-'0');
   _riego->setProgramTime(pt);
-
-  //_riego->getProgramTime().hour=(int)(msg->payload[0]-'0')*10+(int)(msg->payload[1]-'0');
-  //_riego->getProgramTime().minute=(int)(msg->payload[2]-'0')*10+(int)(msg->payload[3]-'0');
-  //_riego->changeProgramTime();
 }
 //void Gui::handleCmdAutoRepetition(const IfaceGui::Message *msg){}
 void Gui::handleCmdAutoDays(const IfaceGui::Message *msg){ //TESTED-kinda

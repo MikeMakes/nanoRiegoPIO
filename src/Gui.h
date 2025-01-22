@@ -24,6 +24,8 @@ class Gui:public IfaceGui{
     void nextState(bool right = true) override;
     void loop() override;
 
+    void updateGuiData() override;
+
     // Function prototypes for action handlers
     void handleCmdSystemTime(const IfaceGui::Message *msg) override;
     void handleCmdSystemDate(const IfaceGui::Message *msg) override;

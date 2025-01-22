@@ -48,7 +48,7 @@ const static unsigned int ALARM_SECOND = (unsigned int)0;
 const static unsigned int PROGRAM_DELAY = (unsigned int)15*60; //seconds
 
 const static unsigned int GUI_UPDATE_INTERVAL = (unsigned int) 400; //ms
-const static unsigned int GUI_UPDATE_INTERVAL_FORCED = (unsigned int) 3000; //ms
+const static unsigned int GUI_UPDATE_INTERVAL_FORCED = (unsigned int) 7000; //ms
 
 const static unsigned char MESSAGE_PRELIMITER = '*';
 const static unsigned int MAX_MESSAGE_CMD = 10;

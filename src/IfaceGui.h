@@ -19,6 +19,34 @@ class IfaceGui{
 
     virtual void loop() = 0;
 
+    typedef struct GuiMessage{
+      systemTime st;
+      programTime pt;
+      bool running;
+      bool valves[numValves];
+
+      // Define equality operator
+      bool operator==(const GuiMessage& other) const {
+        if (st != other.st || pt != other.pt || running != other.running) {
+          return false;
+        }
+        for (int i = 0; i < numValves; ++i) { // Compare each element in the programDays array
+          if (valves[i] != other.valves[i]) {
+              return false;
+          }
+        }
+        return true;
+      }
+
+      // Define inequality operator
+      bool operator!=(const GuiMessage& other) const {
+          return !(*this == other); // Leverage the == operator
+      }
+    } GuiMessage;
+
+    GuiMessage previousGuiData = {};
+    virtual void updateGuiData() = 0;
+
     typedef struct Message{
       char id;
       void (IfaceGui::*handler)(const Message *msg);

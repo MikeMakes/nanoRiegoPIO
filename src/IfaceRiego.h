@@ -10,6 +10,19 @@ class IfaceGui; //Evitar dependencias cirulares
 
 struct systemTime{
   int hour, minute, second, day, month, year;
+
+  // Define equality operator
+  bool operator==(const systemTime& other) const {
+    if (hour != other.hour || minute != other.minute  || day != other.day || month != other.month || year != other.year){ //Seconds omitted on purpose
+      return false;
+    }
+    return true;
+  }
+
+  // Define inequality operator
+  bool operator!=(const systemTime& other) const {
+      return !(*this == other); // Leverage the == operator
+  }
 };
 
 struct programTime{
