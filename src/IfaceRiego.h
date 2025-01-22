@@ -30,17 +30,11 @@ class IfaceRiego{
     virtual void setValve(int valve, bool state);
     virtual void toggleValve(int valve);
     virtual bool getValve(int valve);
-    virtual void setProgramEnabled(bool programEnabled);
     virtual void turnOff();
     virtual void runProgram();
     virtual void check();
 
-    virtual void toggleProgramEnabled();
-    virtual void toggleProgramDays(unsigned int day);
-
     virtual void changeProgramTime();
-    virtual void addProgramTime(unsigned int minutes);
-    virtual void substractProgramTime(unsigned int minutes);
     virtual programTime getProgramTime();
     virtual unsigned int getProgramTime(unsigned int field);
     virtual programTime* const getProgramTimePtr();

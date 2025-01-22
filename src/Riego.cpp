@@ -28,15 +28,6 @@ void Riego::toggleValve(int valve){
     setValve(valve, !_valves[valve].getState());
 }
 
-void Riego::setProgramEnabled(bool programEnabled){
-    _programTimePtr.programEnabled=programEnabled;
-}
-bool Riego::getProgramEnabled(){
-    return _programTimePtr.programEnabled;
-}
-void Riego::toggleProgramEnabled(){
-    _programTimePtr.programEnabled=!_programTimePtr.programEnabled;
-}
 void Riego::turnOff(){
     for(int i=0; i<numValves; i++){
     setValve(i,false);
@@ -74,36 +65,10 @@ void Riego::checkAlarm(){
     }
 }
 
-void Riego::setProgramDays(unsigned int day, bool enabled){
-    if(day<0 || day>6) return;
-    _programTimePtr.programDays[day] = enabled;
-}
-void Riego::toggleProgramDays(unsigned int day){
-    if(day<0 || day>6) return;
-    _programTimePtr.programDays[day] = !_programTimePtr.programDays[day];
-}
 void Riego::setProgramTime(int hour, int min, int sec){
     _programTimePtr.hour = hour;
     _programTimePtr.minute = min;
     _programTimePtr.second = sec;
-}
-void Riego::addProgramTime(unsigned int minutes){
-    changedProgramTime = true;
-    _programTimePtr.minute = _programTimePtr.minute + minutes;
-    if(_programTimePtr.minute>59){
-    _programTimePtr.minute = _programTimePtr.minute - 59;
-    _programTimePtr.hour++;
-    }
-}
-void Riego::substractProgramTime(unsigned int minutes){
-    changedProgramTime = true;
-    if(_programTimePtr.minute<minutes){
-    minutes -= _programTimePtr.minute;
-    _programTimePtr.minute = 59 - minutes;
-    _programTimePtr.hour--;// = _programTimePtr.hour--;
-    } else{
-    _programTimePtr.minute = _programTimePtr.minute - minutes;
-    }
 }
 
 programTime Riego::getProgramTime(){
@@ -187,10 +152,10 @@ programTime* const Riego::getProgramTimePtr(){
 
 
 void Riego::changeProgramTime(){
-    changedProgramTime = true;
+    _changedProgramTime = true;
 }
 bool Riego::programTimeChanged(){
-    bool cpt = changedProgramTime;
-    changedProgramTime=false;
+    bool cpt = _changedProgramTime;
+    _changedProgramTime=false;
     return cpt;
 }

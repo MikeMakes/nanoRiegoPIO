@@ -21,9 +21,6 @@ class Riego:public IfaceRiego{
     bool getValve(int valve);
     void toggleValve(int valve);
 
-    void setProgramEnabled(bool programEnabled);
-    bool getProgramEnabled();
-    void toggleProgramEnabled();
     void turnOff();
     void runProgram();
     void testValves();
@@ -31,11 +28,7 @@ class Riego:public IfaceRiego{
     void check();
     void checkAlarm();
 
-    void setProgramDays(unsigned int day, bool enabled);
-    void toggleProgramDays(unsigned int day);
     void setProgramTime(int hour, int min, int sec);
-    void addProgramTime(unsigned int minutes);
-    void substractProgramTime(unsigned int minutes);
 
     programTime getProgramTime();
     unsigned int getProgramTime(unsigned int field);
@@ -43,20 +36,15 @@ class Riego:public IfaceRiego{
     unsigned int getSystemTime(unsigned int field);
     void setSystemTime(systemTime time);
 
-    void press(int button);
-
-    void longPress(int button);
-
-    void rotation(int button, bool rotationDir);
-
     programTime _programTimePtr{ .hour = ALARM_HOUR, .minute = ALARM_MINUTE, .second = ALARM_SECOND, .programDays = {true,false,true,false,true,false,true}, .programEnabled = true, .delay = PROGRAM_DELAY };
     programTime* const getProgramTimePtr();
 
     void changeProgramTime();
     bool programTimeChanged();
 
-    //unsigned long _programDelay = PROGRAM_DELAY;
-    //bool _running = false;
+    void press(int button);
+    void longPress(int button);
+    void rotation(int button, bool rotationDir);
 
   private:
     Relay* _pump;
@@ -69,7 +57,7 @@ class Riego:public IfaceRiego{
     time_t _actualTime = DEFAULT_TIME;
     time_t _lastRunTime;
 
-    bool changedProgramTime = false;
+    bool _changedProgramTime = false;
 
 
   public:
