@@ -14,7 +14,7 @@
 
 class Riego:public IfaceRiego{
   public:
-    int valveRunning;
+    int valveRunning = -1;
     Riego(Relay* pump, Relay valves[numValves], unsigned long programDelaySeconds);
 
     void setValve(int valve, bool state);
@@ -25,7 +25,7 @@ class Riego:public IfaceRiego{
     bool getProgramEnabled();
     void toggleProgramEnabled();
     void turnOff();
-    void runProgram(time_t programDelay=0);
+    void runProgram();
     void testValves();
 
     void check();
@@ -55,7 +55,7 @@ class Riego:public IfaceRiego{
     void changeProgramTime();
     bool programTimeChanged();
 
-    unsigned long _programDelay = PROGRAM_DELAY;
+    //unsigned long _programDelay = PROGRAM_DELAY;
     //bool _running = false;
 
   private:

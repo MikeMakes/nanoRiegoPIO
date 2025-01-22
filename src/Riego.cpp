@@ -3,10 +3,10 @@
 Riego::Riego(Relay* pump, Relay valves[numValves], unsigned long programDelaySeconds = PROGRAM_DELAY):
 _pump(pump)
 {
-    _programDelay = programDelaySeconds; //s
+    //_programDelay = programDelaySeconds; //s
     valveRunning = -1;
     for(int i=0; i<numValves; i++){
-    _valves[i]=valves[i];
+        _valves[i]=valves[i];
     }
 }
 
@@ -42,8 +42,8 @@ void Riego::turnOff(){
     setValve(i,false);
     }
 }
-void Riego::runProgram(time_t programDelay){
-    if(!_running && programDelay==0) programDelay=_programTimePtr.delay;//programDelay=_programDelay;
+void Riego::runProgram(){
+    //if(!_running && programDelay==0) programDelay=_programTimePtr.delay;
 
     _running = true;
     _lastRunTime = now();
@@ -57,7 +57,7 @@ void Riego::runProgram(time_t programDelay){
     setValve(valveRunning,true);
 }
 void Riego::testValves(){
-    runProgram(3);
+    runProgram();
 }
 
 void Riego::check(){
@@ -66,8 +66,11 @@ void Riego::check(){
 void Riego::checkAlarm(){ 
     if(!_programTimePtr.programEnabled) return;
     _actualTime = now();
-    if(_programTimePtr.programDays[weekday()-1]){
-        runProgram(_programDelay);
+    int day = weekday(); //this function returns 1 for sunday, 2 monday, ..., 7 saturday
+    if(day==1) day = 6; //remapping index to common sense
+    else day = day-2;
+    if(_programTimePtr.programDays[day]){
+        runProgram();
     }
 }
 

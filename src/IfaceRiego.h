@@ -32,7 +32,7 @@ class IfaceRiego{
     virtual bool getValve(int valve);
     virtual void setProgramEnabled(bool programEnabled);
     virtual void turnOff();
-    virtual void runProgram(unsigned long programDelay);
+    virtual void runProgram();
     virtual void check();
 
     virtual void toggleProgramEnabled();

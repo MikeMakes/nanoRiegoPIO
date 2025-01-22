@@ -46,7 +46,6 @@ void loadEEPROM(){
 
 AlarmID_t alarmID;
 void alarmRiego(){
-  //SERIAL_PRINTLN("void alarmRiego()");
   riego.check();
 }
 
@@ -138,6 +137,7 @@ void loop(){  //SERIAL_PRINTLN("void loop()");
     gui->run();
   }*/
 
+  /*
   for(int i=0; i<3; i++){
     if (versatile_encoder[i].ReadEncoder()){// Do the encoder reading and processing
       //if(press[0]) gui->setup();
@@ -155,16 +155,16 @@ void loop(){  //SERIAL_PRINTLN("void loop()");
       rotation[i]=false;
     }
   }
+  */
   gui->run();
 
-  if(riego.programTimeChanged()){ //buggy af
-      Alarm.free(alarmID);
-      alarmID = Alarm.alarmRepeat(riego._programTimePtr.hour, riego._programTimePtr.minute, riego._programTimePtr.second, alarmRiego);
+  if(riego.programTimeChanged()){
+    Alarm.free(alarmID);
+    alarmID = Alarm.alarmRepeat(riego._programTimePtr.hour, riego._programTimePtr.minute, riego._programTimePtr.second, alarmRiego);
   }
 
   if(riego._running && !wasRunning){
     wasRunning=true;
-    //alarmProgramID = Alarm.timerRepeat(riego._programDelay,alarmProgram);
     alarmProgramID = Alarm.timerRepeat(riego.getProgramTimePtr()->delay,alarmProgram);
   }
 

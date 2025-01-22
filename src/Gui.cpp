@@ -146,7 +146,7 @@ void Gui::handleCmdAutoEnable(const IfaceGui::Message *msg){ //TESTED
 }
 void Gui::handleCmdAutoRun(const IfaceGui::Message *msg){ //TESTED
   //SERIAL_PRINTLN("RUN");
-  _riego->runProgram(0);
+  _riego->runProgram();
 }
 void Gui::handleCmdAutoTime(const IfaceGui::Message *msg){  //TESTED
   _bluetooth->readBytes(msg->payload, msg->payloadSize);
