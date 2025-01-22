@@ -40,7 +40,7 @@ void Gui::nextState(bool right){
   _update = true;
 }
 
-void Gui::update(){
+void Gui::update(){ //tbd update only changes
   unsigned long t=millis();
   if (((t-last_time)>update_interval && _update)||(t-last_time)>GUI_UPDATE_INTERVAL_FORCED){
     last_time=t;
