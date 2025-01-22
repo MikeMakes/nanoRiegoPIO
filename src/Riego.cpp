@@ -124,12 +124,10 @@ void Riego::press(int button){
         break;
     }
 }
-
 void Riego::longPress(int button){
     //SERIAL_PRINTLN("void longPress(int button)");
     this->toggleValve(button);
 }
-
 void Riego::rotation(int button, bool rotationDir){
     switch(button){
     case 0:
@@ -148,11 +146,6 @@ void Riego::rotation(int button, bool rotationDir){
         break;
     }
 }
-
-programTime* const Riego::getProgramTimePtr(){
-    return &_programTimePtr;
-}
-
 
 void Riego::changeProgramTime(){
     _changedProgramTime = true;

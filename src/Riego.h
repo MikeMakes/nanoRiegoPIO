@@ -38,8 +38,6 @@ class Riego:public IfaceRiego{
     programTime& getProgramTime();
     void setProgramTime(const programTime& newProgramTime);
     
-    programTime* const getProgramTimePtr();
-
     void changeProgramTime();
     bool programTimeChanged();
 

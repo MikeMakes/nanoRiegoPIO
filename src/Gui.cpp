@@ -62,33 +62,32 @@ void Gui::update(){ //tbd update only changes
     _bluetooth->print("/");
     _bluetooth->println(st.year);
 
-    //SERIAL_PRINTLN(_riego->getProgramTimePtr()->programEnabled);
+    //SERIAL_PRINTLN(_riego->getProgramTime().programEnabled);
     _bluetooth->print("Ae");
-    //_bluetooth->println(_riego->getProgramTimePtr()->programEnabled);
     _bluetooth->println(_riego->getProgramTime().programEnabled);
 
     _bluetooth->print("Ar");
     if(_riego->_running) _bluetooth->println("1");
     else _bluetooth->println("0");
 
-    //SERIAL_PRINTLN(_riego->getProgramTimePtr()->hour);
-    //SERIAL_PRINTLN(_riego->getProgramTimePtr()->minute);
+    //SERIAL_PRINTLN(_riego->getProgramTime().hour);
+    //SERIAL_PRINTLN(_riego->getProgramTime().minute);
     _bluetooth->print("Ah");
-    if(_riego->getProgramTimePtr()->hour<10) _bluetooth->print("0");
-    _bluetooth->print(_riego->getProgramTimePtr()->hour);
+    if(_riego->getProgramTime().hour<10) _bluetooth->print("0");
+    _bluetooth->print(_riego->getProgramTime().hour);
     _bluetooth->print(":");
-    if(_riego->getProgramTimePtr()->minute<10) _bluetooth->print("0");
-    _bluetooth->println(_riego->getProgramTimePtr()->minute);
+    if(_riego->getProgramTime().minute<10) _bluetooth->print("0");
+    _bluetooth->println(_riego->getProgramTime().minute);
 
     _bluetooth->print("Aw"); //weekdays
     for(int i=0; i<7; i++){
-      _bluetooth->print(_riego->getProgramTimePtr()->programDays[i]);
+      _bluetooth->print(_riego->getProgramTime().programDays[i]);
       _bluetooth->print(",");
     }
     _bluetooth->println();
 
     _bluetooth->print("Ad"); //ProgramDelay
-    _bluetooth->println(_riego->getProgramTimePtr()->delay/60);
+    _bluetooth->println(_riego->getProgramTime().delay/60);
 
     for(int i=0; i<numValves; i++){ //if(static_cast<Riego*>(riego)->getValve(i)!=valveLeds[i]){
       //SERIAL_PRINTLN(riego->getValve(i));
@@ -141,9 +140,9 @@ void Gui::handleCmdAutoEnable(const IfaceGui::Message *msg){ //TESTED
   _bluetooth->readBytes(msg->payload, msg->payloadSize);
 
   if(*msg->payload=='1')
-    _riego->getProgramTimePtr()->programEnabled=true;
+    _riego->getProgramTime().programEnabled=true;
   else if(*msg->payload=='0')
-    _riego->getProgramTimePtr()->programEnabled=false;
+    _riego->getProgramTime().programEnabled=false;
 }
 void Gui::handleCmdAutoRun(const IfaceGui::Message *msg){ //TESTED
   //SERIAL_PRINTLN("RUN");
@@ -152,8 +151,8 @@ void Gui::handleCmdAutoRun(const IfaceGui::Message *msg){ //TESTED
 void Gui::handleCmdAutoTime(const IfaceGui::Message *msg){  //TESTED
   _bluetooth->readBytes(msg->payload, msg->payloadSize);
 
-  _riego->getProgramTimePtr()->hour=(int)(msg->payload[0]-'0')*10+(int)(msg->payload[1]-'0');
-  _riego->getProgramTimePtr()->minute=(int)(msg->payload[2]-'0')*10+(int)(msg->payload[3]-'0');
+  _riego->getProgramTime().hour=(int)(msg->payload[0]-'0')*10+(int)(msg->payload[1]-'0');
+  _riego->getProgramTime().minute=(int)(msg->payload[2]-'0')*10+(int)(msg->payload[3]-'0');
   _riego->changeProgramTime();
 }
 //void Gui::handleCmdAutoRepetition(const IfaceGui::Message *msg){}
@@ -167,16 +166,16 @@ void Gui::handleCmdAutoDays(const IfaceGui::Message *msg){ //TESTED-kinda
   //SERIAL_PRINTLN("----");
 
   if(msg->payload[1]=='1')
-    _riego->getProgramTimePtr()->programDays[weekday] = true;
+    _riego->getProgramTime().programDays[weekday] = true;
   else if(msg->payload[1]=='0')
-    _riego->getProgramTimePtr()->programDays[weekday] = false;
+    _riego->getProgramTime().programDays[weekday] = false;
 }
 void Gui::handleCmdAutoDuration(const IfaceGui::Message *msg){ //TESTED
   _bluetooth->readBytes(msg->payload, msg->payloadSize);
 
   int minutes = (int)(msg->payload[0]-'0')*10+(int)(msg->payload[1]-'0');
   if(minutes<1 || minutes>60) return;
-  _riego->getProgramTimePtr()->delay = minutes * 60;
+  _riego->getProgramTime().delay = minutes * 60;
 }
 
 void Gui::handleCmdManualValve(const IfaceGui::Message *msg){ //TESTED

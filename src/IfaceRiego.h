@@ -54,11 +54,11 @@ class IfaceRiego{
     virtual void check();
 
     virtual programTime& getProgramTime();
+    virtual void setProgramTime(const programTime& newProgramTime);
 
     virtual void changeProgramTime();
     //virtual programTime getProgramTime();
     //virtual unsigned int getProgramTime(unsigned int field);
-    virtual programTime* const getProgramTimePtr();
     virtual systemTime getSystemTime();
     //void setProgramTime(programTime programTime_);
 
