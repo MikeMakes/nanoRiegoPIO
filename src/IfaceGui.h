@@ -45,7 +45,7 @@ class IfaceGui{
     } GuiMessage;
 
     GuiMessage previousGuiData = {};
-    virtual void updateGuiData() = 0;
+    virtual GuiMessage& updateGuiData(GuiMessage& guiMessage) = 0;
 
     typedef struct Message{
       char id;
