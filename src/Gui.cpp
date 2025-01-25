@@ -67,7 +67,9 @@ void Gui::sendProgramWeekdays(const programTime& pt){
 }
 void Gui::sendProgramDelay(const programTime& pt){
   _bluetooth->print("*d");
-  _bluetooth->println(pt.delay / 60);
+  int delayMinutes = pt.delay/60;
+  if (delayMinutes < 10) _bluetooth->print("0");
+  _bluetooth->println(delayMinutes);
 }
 void Gui::sendProgramTime(const programTime& pt) {
   sendProgramEnabled(pt);
@@ -212,6 +214,11 @@ void Gui::handleCmdAutoDays(const IfaceGui::Message *msg){ //TESTED-kinda
   if(msg->payload[1]=='1') pt.programDays[weekday] = true;
   else if(msg->payload[1]=='0') pt.programDays[weekday] = false;
   _riego->setProgramTime(pt);
+
+  _bluetooth->print("*ACK");
+  _bluetooth->print("*w");
+  _bluetooth->print(weekday+1);
+  _bluetooth->println(_riego->getProgramTime().programDays[weekday]);
 }
 void Gui::handleCmdAutoDuration(const IfaceGui::Message *msg){ //TESTED
   _bluetooth->readBytes(msg->payload, msg->payloadSize);
@@ -224,9 +231,10 @@ void Gui::handleCmdAutoDuration(const IfaceGui::Message *msg){ //TESTED
   _riego->setProgramTime(pt);
 
   _bluetooth->print("*ACK");
-  _bluetooth->print(msg->id);
-  _bluetooth->print(msg->payload[0]);
-  _bluetooth->println(msg->payload[1]);
+  sendProgramDelay(_riego->getProgramTime());
+  //_bluetooth->print(msg->id);
+  //_bluetooth->print(msg->payload[0]);
+  //_bluetooth->println(msg->payload[1]);
 }
 
 void Gui::handleCmdManualValve(const IfaceGui::Message *msg){ //TESTED
