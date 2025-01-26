@@ -23,13 +23,19 @@ Gui::GuiMessage& Gui::updateGuiData(GuiMessage& guiMessage){
   return guiMessage;
 }
 
+void Gui::sendTimestamp(){
+  _bluetooth->print(";");
+  _bluetooth->println(millis());
+}
 void Gui::sendSystemHour(const systemTime& st){
   _bluetooth->print("*T");
   if (st.hour < 10) _bluetooth->print("0");
   _bluetooth->print(st.hour);
   _bluetooth->print(":");
   if (st.minute < 10) _bluetooth->print("0");
-  _bluetooth->println(st.minute);
+  _bluetooth->print(st.minute);
+
+  sendTimestamp();
 }
 void Gui::sendSystemDate(const systemTime& st){
   _bluetooth->print("*D");
@@ -39,7 +45,9 @@ void Gui::sendSystemDate(const systemTime& st){
   if (st.month < 10) _bluetooth->print("0");
   _bluetooth->print(st.month);
   _bluetooth->print("/");
-  _bluetooth->println(st.year);
+  _bluetooth->print(st.year);
+
+  sendTimestamp();
 }
 void Gui::sendSystemTime(const systemTime& st) {
   sendSystemHour(st);
@@ -47,7 +55,9 @@ void Gui::sendSystemTime(const systemTime& st) {
 }
 void Gui::sendProgramEnabled(const programTime& pt) {
   _bluetooth->print("*e");
-  _bluetooth->println(pt.programEnabled);
+  _bluetooth->print(pt.programEnabled);
+
+  sendTimestamp();
 }
 void Gui::sendProgramHour(const programTime& pt) {
   _bluetooth->print("*h");
@@ -55,7 +65,9 @@ void Gui::sendProgramHour(const programTime& pt) {
   _bluetooth->print(pt.hour);
   _bluetooth->print(":");
   if (pt.minute < 10) _bluetooth->print("0");
-  _bluetooth->println(pt.minute);
+  _bluetooth->print(pt.minute);
+
+  sendTimestamp();
 }
 void Gui::sendProgramWeekdays(const programTime& pt){
   _bluetooth->print("*w");
@@ -63,13 +75,16 @@ void Gui::sendProgramWeekdays(const programTime& pt){
       _bluetooth->print(pt.programDays[i]);
       if (i < 6) _bluetooth->print(",");
   }
-  _bluetooth->println();
+  //_bluetooth->println();
+  sendTimestamp();
 }
 void Gui::sendProgramDelay(const programTime& pt){
   _bluetooth->print("*d");
   int delayMinutes = pt.delay/60;
   if (delayMinutes < 10) _bluetooth->print("0");
-  _bluetooth->println(delayMinutes);
+  _bluetooth->print(delayMinutes);
+
+  sendTimestamp();
 }
 void Gui::sendProgramTime(const programTime& pt) {
   sendProgramEnabled(pt);
@@ -79,12 +94,16 @@ void Gui::sendProgramTime(const programTime& pt) {
 }
 void Gui::sendRunningState(bool running) {
   _bluetooth->print("*r");
-  _bluetooth->println(running ? "1" : "0");
+  _bluetooth->print(running ? "1" : "0");
+
+  sendTimestamp();
 }
 void Gui::sendValveState(int index, bool state) {
   _bluetooth->print("*v");
   _bluetooth->print(index);
-  _bluetooth->println(state ? "1" : "0");
+  _bluetooth->print(state ? "1" : "0");
+
+  sendTimestamp();
 }
 void Gui::sendGuiMessage(const GuiMessage& guiMessage){
   sendSystemTime(guiMessage.st);
@@ -218,7 +237,8 @@ void Gui::handleCmdAutoDays(const IfaceGui::Message *msg){ //TESTED-kinda
   _bluetooth->print("*ACK");
   _bluetooth->print("*w");
   _bluetooth->print(weekday+1);
-  _bluetooth->println(_riego->getProgramTime().programDays[weekday]);
+  _bluetooth->print(_riego->getProgramTime().programDays[weekday]);
+  sendTimestamp();
 }
 void Gui::handleCmdAutoDuration(const IfaceGui::Message *msg){ //TESTED
   _bluetooth->readBytes(msg->payload, msg->payloadSize);
@@ -232,6 +252,7 @@ void Gui::handleCmdAutoDuration(const IfaceGui::Message *msg){ //TESTED
 
   _bluetooth->print("*ACK");
   sendProgramDelay(_riego->getProgramTime());
+  sendTimestamp();
   //_bluetooth->print(msg->id);
   //_bluetooth->print(msg->payload[0]);
   //_bluetooth->println(msg->payload[1]);
@@ -241,6 +262,14 @@ void Gui::handleCmdManualValve(const IfaceGui::Message *msg){ //TESTED
   _bluetooth->readBytes(msg->payload, msg->payloadSize);
   int valve = msg->payload[0]-'0';
   _riego->toggleValve(valve); // if (int)msg->payload[0]-'0' is provided it doesnt work (memory pointer thing?)
+
+  /*
+  _bluetooth->print("*ACK");
+  _bluetooth->print("*v");
+  _bluetooth->print(valve);
+  _bluetooth->print(_riego->getValve(valve));
+  sendTimestamp();
+  */
 }
 void Gui::handleCmdManualDuration(const IfaceGui::Message *msg){  //NOT IMPLEMENTED
 

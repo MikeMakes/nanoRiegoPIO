@@ -20,6 +20,8 @@ class Gui:public IfaceGui{
 
     GuiMessage& updateGuiData(GuiMessage& guiMessage) override;
 
+    void sendTimestamp();
+
     void sendSystemHour(const systemTime& st);
     void sendSystemDate(const systemTime& st);
     void sendSystemTime(const systemTime& st);
