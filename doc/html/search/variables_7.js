@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['id_277',['id',['../structIfaceGui_1_1Message.html#aedbefbc10bcc7682f09b7ad9cb5c5c90',1,'IfaceGui::Message']]],
-  ['indexes_278',['indexes',['../classPanel.html#ab10da5f4e23b18c2074d302c81563127',1,'Panel']]]
+  ['longpress_253',['longPress',['../nanoRiego_8cpp.html#aa3d8759f11d64a3e06a9d9c80237d8ac',1,'nanoRiego.cpp']]]
 ];

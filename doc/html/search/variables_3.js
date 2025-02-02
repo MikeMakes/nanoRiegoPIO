@@ -1,13 +1,5 @@
 var searchData=
 [
-  ['cmdautodays_261',['cmdAutoDays',['../classIfaceGui.html#ab76d778d5c8cb1e82cf8d14f6c4d57ee',1,'IfaceGui']]],
-  ['cmdautoduration_262',['cmdAutoDuration',['../classIfaceGui.html#a528292d0792f7381afe4baf74db78950',1,'IfaceGui']]],
-  ['cmdautoenable_263',['cmdAutoEnable',['../classIfaceGui.html#ac88885ac271b4db27645fd949cca9cba',1,'IfaceGui']]],
-  ['cmdautorun_264',['cmdAutoRun',['../classIfaceGui.html#af2b0242cb440df0f31710c23f75397f8',1,'IfaceGui']]],
-  ['cmdautotime_265',['cmdAutoTime',['../classIfaceGui.html#a7302c76a5e14c7ca1afdee76d114f265',1,'IfaceGui']]],
-  ['cmdmanualvalve_266',['cmdManualValve',['../classIfaceGui.html#a5712174a0db81e185b6d928e4a7beeb2',1,'IfaceGui']]],
-  ['cmdmessages_267',['cmdMessages',['../classIfaceGui.html#af1a2b0c3f3789bf96ef432146f642c31',1,'IfaceGui']]],
-  ['cmdsystemdate_268',['cmdSystemDate',['../classIfaceGui.html#abfbcc2e75c008a42a2a1c72a917aca7d',1,'IfaceGui']]],
-  ['cmdsystemtime_269',['cmdSystemTime',['../classIfaceGui.html#af222efd64cd88746f08c6daf5c056e82',1,'IfaceGui']]],
-  ['cmdunknown_270',['cmdUnknown',['../classIfaceGui.html#a44af925315eb8010c3c372dc98871646',1,'IfaceGui']]]
+  ['day_247',['day',['../structsystemTime.html#a7ece5ec385fb7d7015b118a79ef60123',1,'systemTime']]],
+  ['delay_248',['delay',['../structprogramTime.html#acaa181714ef5f4572e3bfc4c4ed7a8e3',1,'programTime']]]
 ];

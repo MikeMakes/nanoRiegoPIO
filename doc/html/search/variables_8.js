@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['last_5ftime_279',['last_time',['../classPanel.html#a19e82e8ad0bf447830e7eae336b084d8',1,'Panel']]],
-  ['longpress_280',['longPress',['../nanoRiego_8cpp.html#aa3d8759f11d64a3e06a9d9c80237d8ac',1,'nanoRiego.cpp']]]
+  ['minute_254',['minute',['../structsystemTime.html#a34114bacdf0409ebc87ed90a67cb10b8',1,'systemTime::minute()'],['../structprogramTime.html#ab67a8409aa00f361221b56682c5e5179',1,'programTime::minute()']]],
+  ['month_255',['month',['../structsystemTime.html#aafe844b704da930f26b247af1fc54d18',1,'systemTime']]],
+  ['msg_256',['msg',['../classGui.html#aa8888265f7ed0e087349974a52373536',1,'Gui']]]
 ];
