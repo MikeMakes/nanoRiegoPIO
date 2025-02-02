@@ -1,0 +1,5 @@
+<map id="IfaceGui::GuiMessage" name="IfaceGui::GuiMessage">
+<area shape="rect" id="node1" title=" " alt="" coords="44,95,208,121"/>
+<area shape="rect" id="node2" href="$structprogramTime.html" title=" " alt="" coords="5,5,116,32"/>
+<area shape="rect" id="node3" href="$structsystemTime.html" title=" " alt="" coords="140,5,243,32"/>
+</map>

@@ -1,9 +1,24 @@
 var searchData=
 [
-  ['testvalves_224',['testValves',['../classRiego.html#a465a3dd7eb5803ba3c0e63d6c62dadbd',1,'Riego']]],
-  ['timepanel_225',['TimePanel',['../classTimePanel.html#aef2edc704b65ad85f7880d4884860cdb',1,'TimePanel']]],
-  ['toggleprogramdays_226',['toggleProgramDays',['../classIfaceRiego.html#a3ae3ec318fa7cfaf4267c2759cf458a0',1,'IfaceRiego::toggleProgramDays()'],['../classRiego.html#a860214d1d0c24b623b3209d3caf21d7c',1,'Riego::toggleProgramDays()']]],
-  ['toggleprogramenabled_227',['toggleProgramEnabled',['../classIfaceRiego.html#a6a37d999dcf6203ed277feb916813f35',1,'IfaceRiego::toggleProgramEnabled()'],['../classRiego.html#afb8f53fa609ec831e3677193bf717eed',1,'Riego::toggleProgramEnabled()']]],
-  ['togglevalve_228',['toggleValve',['../classIfaceRiego.html#a3b780a24dcedddf6fcf3024f8e06c6ac',1,'IfaceRiego::toggleValve()'],['../classRiego.html#a12c5b58f0ff399cb99e89460bae95fe6',1,'Riego::toggleValve()']]],
-  ['turnoff_229',['turnOff',['../classIfaceRiego.html#aefe340a6ee3820ba96794489a926881a',1,'IfaceRiego::turnOff()'],['../classRiego.html#a5b7dcfe1560c6da25062340801fcc5e4',1,'Riego::turnOff()']]]
+  ['saveeeprom_228',['saveEEPROM',['../nanoRiego_8cpp.html#a7df3f08a2cfc5fffa95813104f762750',1,'nanoRiego.cpp']]],
+  ['sendguimessage_229',['sendGuiMessage',['../classGui.html#a0c94ec1797930b3ab7783390dbda1873',1,'Gui']]],
+  ['sendprogramdelay_230',['sendProgramDelay',['../classGui.html#a4ce25c543a73825d9568723b5ae520a6',1,'Gui']]],
+  ['sendprogramenabled_231',['sendProgramEnabled',['../classGui.html#a8ff3ec694f3dd357da06d3425b016afc',1,'Gui']]],
+  ['sendprogramhour_232',['sendProgramHour',['../classGui.html#a8629b15ebb20d1002514673ccb37c944',1,'Gui']]],
+  ['sendprogramtime_233',['sendProgramTime',['../classGui.html#aaa0eed6cdf4ed2cca5b7e49f6a6548f2',1,'Gui']]],
+  ['sendprogramweekdays_234',['sendProgramWeekdays',['../classGui.html#ad19f08e56e7b8a7b573fa4976cb00c9e',1,'Gui']]],
+  ['sendrunningstate_235',['sendRunningState',['../classGui.html#ae3ac2495bfd37f993266b83a8460800d',1,'Gui']]],
+  ['sendsystemdate_236',['sendSystemDate',['../classGui.html#a657a3db3c2cd4dc04a9a2c94b9df2def',1,'Gui']]],
+  ['sendsystemhour_237',['sendSystemHour',['../classGui.html#ac877beba0476434d88a454e92a75a9cc',1,'Gui']]],
+  ['sendsystemtime_238',['sendSystemTime',['../classGui.html#ac2139baaa11bcbe2a0f1037877b0d62a',1,'Gui']]],
+  ['sendtimestamp_239',['sendTimestamp',['../classGui.html#a34e0bba3b26c495336a9465350d4d19b',1,'Gui']]],
+  ['sendvalvestate_240',['sendValveState',['../classGui.html#a8ab934fe537a059156049d9ce24fab2d',1,'Gui']]],
+  ['seteeprom_241',['setEEPROM',['../nanoRiego_8cpp.html#ae98f1a9b42e982f7751de75f3da4176b',1,'nanoRiego.cpp']]],
+  ['setprogramtime_242',['setProgramTime',['../classIfaceRiego.html#a1c55690f6336dde8f83465ae8d4cdb48',1,'IfaceRiego::setProgramTime()'],['../classRiego.html#a7ca1f6b50e75d95db9338b8062b44368',1,'Riego::setProgramTime()']]],
+  ['setserial_243',['setSerial',['../classPanel.html#aa1d87d9e5f8e23bdfc7d65eab9efef9c',1,'Panel']]],
+  ['setstate_244',['setState',['../classGui.html#a9ce8b924e0eba38b5bd55ab927f7f38f',1,'Gui::setState()'],['../classIfaceGui.html#ad69c0bb5e44dd23b2abfcaf9dc5b80cb',1,'IfaceGui::setState()'],['../classRelay.html#a3f230bc6bf83e0c9aeaa68185c944209',1,'Relay::setState()']]],
+  ['setsystemtime_245',['setSystemTime',['../classIfaceRiego.html#ae067e6c00dc4d27fea5f12ae5ced1cfd',1,'IfaceRiego::setSystemTime()'],['../classRiego.html#ae6e7a8dbda39231a738b8212c0f07b51',1,'Riego::setSystemTime()']]],
+  ['setup_246',['setup',['../classPanel.html#aa907633451931acaf5702b0e8e8f9b72',1,'Panel::setup()'],['../nanoRiego_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;nanoRiego.cpp']]],
+  ['setvalve_247',['setValve',['../classIfaceRiego.html#a97df6c145f898fad3120d15bea1e6fde',1,'IfaceRiego::setValve()'],['../classRiego.html#a83410e274e6eac4a2dd6614962d0fc2b',1,'Riego::setValve()']]],
+  ['shiftfield_248',['shiftField',['../classPanel.html#ab1c94221f06e33c2ce350df6cec8eec3',1,'Panel']]]
 ];

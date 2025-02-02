@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gui_137',['Gui',['../classGui.html',1,'']]]
+  ['ifacegui_156',['IfaceGui',['../classIfaceGui.html',1,'']]],
+  ['ifaceriego_157',['IfaceRiego',['../classIfaceRiego.html',1,'']]]
 ];

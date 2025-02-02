@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['_7efrontpanel_231',['~FrontPanel',['../classFrontPanel.html#addc65900aacf9784de241e4e88727634',1,'FrontPanel']]],
-  ['_7eprogrampanel_232',['~ProgramPanel',['../classProgramPanel.html#a1917883b48d1d530d948439ef03e3b43',1,'ProgramPanel']]],
-  ['_7etimepanel_233',['~TimePanel',['../classTimePanel.html#a10fbcfa2fe870c52e21142fe8c75beaf',1,'TimePanel']]]
+  ['update_252',['update',['../classGui.html#af057adcdd96ee8b8021519d68ed9042e',1,'Gui::update()'],['../classPanel.html#ad87ba0eab51701434676bad652c78382',1,'Panel::update()']]],
+  ['updateguidata_253',['updateGuiData',['../classGui.html#aa989850a6116c1c924fa7f8dda4254b5',1,'Gui::updateGuiData()'],['../classIfaceGui.html#aff1b023f0a7e09aed06039fbae626b4a',1,'IfaceGui::updateGuiData()']]]
 ];

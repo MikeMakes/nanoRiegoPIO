@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['panel_198',['Panel',['../classPanel.html#ae294a1c48def6805a36a8ea1799c4129',1,'Panel']]],
-  ['press_199',['press',['../classRiego.html#a7212dff3eddca49880807c822535458a',1,'Riego']]],
-  ['previousday_200',['previousDay',['../classProgramPanel.html#a1184b486e01761d98d4afe873ac1ed52',1,'ProgramPanel']]],
-  ['programpanel_201',['ProgramPanel',['../classProgramPanel.html#a517a169aaff3ae1a3b475743e9962184',1,'ProgramPanel']]]
+  ['operator_21_3d_219',['operator!=',['../structIfaceGui_1_1GuiMessage.html#a9d5d04dfda171911569e02adf7589480',1,'IfaceGui::GuiMessage::operator!=()'],['../structsystemTime.html#a4cec544e4ed9b735fc86b157ebd64dd7',1,'systemTime::operator!=()'],['../structprogramTime.html#ac54bc83916ad71b4f875dec31a41c5d2',1,'programTime::operator!=()']]],
+  ['operator_3d_3d_220',['operator==',['../structIfaceGui_1_1GuiMessage.html#a96c54ff3e0e158cc8a959604e8920972',1,'IfaceGui::GuiMessage::operator==()'],['../structsystemTime.html#a3d2c3a28f706bff0e119ffe10f19dea8',1,'systemTime::operator==()'],['../structprogramTime.html#a72e8e076150811e6e473467333f57566',1,'programTime::operator==()']]]
 ];

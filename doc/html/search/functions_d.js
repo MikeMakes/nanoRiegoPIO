@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['update_230',['update',['../classFrontPanel.html#a35df33c7cf405602bff9c7ac71836003',1,'FrontPanel::update()'],['../classPanel.html#ad87ba0eab51701434676bad652c78382',1,'Panel::update()'],['../classProgramPanel.html#aa7fe7bbcbd5c9f0703db0c3d281e5307',1,'ProgramPanel::update()'],['../classTimePanel.html#af7fb90dfeacee2e910665efcd2215f4e',1,'TimePanel::update()']]]
+  ['testvalves_249',['testValves',['../classRiego.html#a465a3dd7eb5803ba3c0e63d6c62dadbd',1,'Riego']]],
+  ['togglevalve_250',['toggleValve',['../classIfaceRiego.html#a3b780a24dcedddf6fcf3024f8e06c6ac',1,'IfaceRiego::toggleValve()'],['../classRiego.html#a12c5b58f0ff399cb99e89460bae95fe6',1,'Riego::toggleValve()']]],
+  ['turnoff_251',['turnOff',['../classIfaceRiego.html#aefe340a6ee3820ba96794489a926881a',1,'IfaceRiego::turnOff()'],['../classRiego.html#a5b7dcfe1560c6da25062340801fcc5e4',1,'Riego::turnOff()']]]
 ];

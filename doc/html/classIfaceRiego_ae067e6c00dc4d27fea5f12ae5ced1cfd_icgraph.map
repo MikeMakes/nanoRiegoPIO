@@ -1,4 +1,5 @@
 <map id="IfaceRiego::setSystemTime" name="IfaceRiego::setSystemTime">
-<area shape="rect" id="node1" title=" " alt="" coords="196,5,397,32"/>
-<area shape="rect" id="node2" href="$classTimePanel.html#af7fb90dfeacee2e910665efcd2215f4e" title=" " alt="" coords="5,5,148,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="261,31,463,57"/>
+<area shape="rect" id="node2" href="$classGui.html#a453f9b164ee0b2da7aaa3c1b3b2b51ab" title=" " alt="" coords="6,5,213,32"/>
+<area shape="rect" id="node3" href="$classGui.html#a228e024017ca0bf851e7eb73398b34e9" title=" " alt="" coords="5,56,213,83"/>
 </map>

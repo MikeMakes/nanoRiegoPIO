@@ -1,17 +1,12 @@
-<map id="/media/user/raid1/home/user/Documents/PlatformIO/Projects/nanoRiegoPIO/src/Constants.h" name="/media/user/raid1/home/user/Documents/PlatformIO/Projects/nanoRiegoPIO/src/Constants.h">
-<area shape="rect" id="node1" title=" " alt="" coords="584,5,791,76"/>
-<area shape="rect" id="node2" href="$Panel_8h.html" title=" " alt="" coords="321,480,528,551"/>
-<area shape="rect" id="node7" href="$nanoRiego_8cpp.html" title=" " alt="" coords="868,836,1075,907"/>
-<area shape="rect" id="node12" href="$IfaceRiego_8h.html" title=" " alt="" coords="604,243,811,313"/>
-<area shape="rect" id="node13" href="$IfaceGui_8h.html" title=" " alt="" coords="463,361,669,432"/>
-<area shape="rect" id="node14" href="$Riego_8h.html" title=" " alt="" coords="796,361,1003,432"/>
-<area shape="rect" id="node15" href="$Relay_8h.html" title=" " alt="" coords="655,124,861,195"/>
-<area shape="rect" id="node3" href="$FrontPanel_8h.html" title=" " alt="" coords="604,599,811,669"/>
-<area shape="rect" id="node5" href="$Gui_8h.html" title=" " alt="" coords="467,725,702,781"/>
-<area shape="rect" id="node8" href="$TimePanel_8h.html" title=" " alt="" coords="271,599,477,669"/>
-<area shape="rect" id="node10" href="$ProgramPanel_8h.html" title=" " alt="" coords="40,599,247,669"/>
-<area shape="rect" id="node4" href="$FrontPanel_8cpp.html" title=" " alt="" coords="727,717,933,788"/>
-<area shape="rect" id="node6" href="$Gui_8cpp.html" title=" " alt="" coords="481,836,688,907"/>
-<area shape="rect" id="node9" href="$TimePanel_8cpp.html" title=" " alt="" coords="236,717,443,788"/>
-<area shape="rect" id="node11" href="$ProgramPanel_8cpp.html" title=" " alt="" coords="5,717,212,788"/>
+<map id="src/Constants.h" name="src/Constants.h">
+<area shape="rect" id="node1" title=" " alt="" coords="234,5,357,32"/>
+<area shape="rect" id="node2" href="$IfaceRiego_8h.html" title=" " alt="" coords="91,155,217,181"/>
+<area shape="rect" id="node5" href="$nanoRiego_8cpp.html" title=" " alt="" coords="351,379,493,405"/>
+<area shape="rect" id="node6" href="$IfaceGui_8h.html" title=" " alt="" coords="5,229,116,256"/>
+<area shape="rect" id="node7" href="$Panel_8h.html" title=" " alt="" coords="159,304,251,331"/>
+<area shape="rect" id="node8" href="$Riego_8h.html" title=" " alt="" coords="293,229,388,256"/>
+<area shape="rect" id="node10" href="$Relay_8h.html" title=" " alt="" coords="292,80,384,107"/>
+<area shape="rect" id="node3" href="$Gui_8h.html" title=" " alt="" coords="56,304,135,331"/>
+<area shape="rect" id="node4" href="$Gui_8cpp.html" title=" " alt="" coords="48,379,143,405"/>
+<area shape="rect" id="node9" href="$Riego_8cpp.html" title=" " alt="" coords="275,304,385,331"/>
 </map>

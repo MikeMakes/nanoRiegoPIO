@@ -1,13 +1,9 @@
-<map id="/media/user/raid1/home/user/Documents/PlatformIO/Projects/nanoRiegoPIO/src/Gui.h" name="/media/user/raid1/home/user/Documents/PlatformIO/Projects/nanoRiegoPIO/src/Gui.h">
-<area shape="rect" id="node1" title=" " alt="" coords="38,5,273,61"/>
-<area shape="rect" id="node2" href="$IfaceRiego_8h.html" title=" " alt="" coords="89,333,192,360"/>
-<area shape="rect" id="node6" href="$IfaceGui_8h.html" title=" " alt="" coords="326,259,414,285"/>
-<area shape="rect" id="node7" href="$Panel_8h.html" title=" " alt="" coords="153,184,222,211"/>
-<area shape="rect" id="node9" href="$FrontPanel_8h.html" title=" " alt="" coords="41,109,144,136"/>
-<area shape="rect" id="node10" href="$TimePanel_8h.html" title=" " alt="" coords="168,109,271,136"/>
-<area shape="rect" id="node11" href="$ProgramPanel_8h.html" title=" " alt="" coords="295,109,419,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="47,483,131,509"/>
-<area shape="rect" id="node4" href="$Constants_8h.html" title=" " alt="" coords="213,483,311,509"/>
-<area shape="rect" id="node5" href="$Relay_8h.html" title=" " alt="" coords="126,408,195,435"/>
-<area shape="rect" id="node8" title=" " alt="" coords="123,259,251,285"/>
+<map id="src/Gui.h" name="src/Gui.h">
+<area shape="rect" id="node1" title=" " alt="" coords="131,5,210,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,133,107"/>
+<area shape="rect" id="node3" href="$IfaceRiego_8h.html" title=" " alt="" coords="119,155,222,181"/>
+<area shape="rect" id="node7" href="$IfaceGui_8h.html" title=" " alt="" coords="208,80,296,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="54,304,138,331"/>
+<area shape="rect" id="node5" href="$Constants_8h.html" title=" " alt="" coords="176,304,275,331"/>
+<area shape="rect" id="node6" href="$Relay_8h.html" title=" " alt="" coords="119,229,188,256"/>
 </map>

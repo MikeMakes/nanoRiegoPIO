@@ -1,6 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classPanel.html" title=" " alt="" coords="5,56,63,83"/>
-<area shape="rect" id="node2" href="$classFrontPanel.html" title=" " alt="" coords="121,5,212,32"/>
-<area shape="rect" id="node3" href="$classProgramPanel.html" title=" " alt="" coords="111,56,223,83"/>
-<area shape="rect" id="node4" href="$classTimePanel.html" title=" " alt="" coords="121,107,212,133"/>
+<area shape="rect" id="node1" href="$classIfaceRiego.html" title=" " alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node2" href="$classRiego.html" title=" " alt="" coords="144,5,203,32"/>
 </map>

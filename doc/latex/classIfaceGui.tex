@@ -6,7 +6,8 @@
 
 
 
-Inheritance diagram for Iface\+Gui\+:\nopagebreak
+Inheritance diagram for Iface\+Gui\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,13 +16,21 @@ Inheritance diagram for Iface\+Gui\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Iface\+Gui\+:\nopagebreak
+Collaboration diagram for Iface\+Gui\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=150pt]{classIfaceGui__coll__graph}
+\includegraphics[width=350pt]{classIfaceGui__coll__graph}
 \end{center}
 \end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structIfaceGui_1_1GuiMessage}{Gui\+Message}}
+\item 
+struct \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,27 +38,99 @@ enum \mbox{\hyperlink{classIfaceGui_ae151731d6ecb0e26a9f5ff9af9275055}{S\+T\+A\+
 \mbox{\hyperlink{classIfaceGui_ae151731d6ecb0e26a9f5ff9af9275055a9566f7554bfcfc4b39347b12dd201bb0}{T\+I\+M\+E\+P\+A\+N\+EL}}, 
 \mbox{\hyperlink{classIfaceGui_ae151731d6ecb0e26a9f5ff9af9275055a5be57fcc1ba6a16350a43bd01f366b6d}{P\+R\+O\+G\+R\+A\+M\+P\+A\+N\+EL}}
  \}
+\item 
+typedef struct \mbox{\hyperlink{structIfaceGui_1_1GuiMessage}{Iface\+Gui\+::\+Gui\+Message}} \mbox{\hyperlink{classIfaceGui_a0c78298a688172bcb84e5b0adeef222f}{Gui\+Message}}
+\item 
+typedef struct \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} \mbox{\hyperlink{classIfaceGui_a5329aa677b6ce2e09ed2da90ae04409a}{Message}}
+\item 
+typedef void(Iface\+Gui\+::$\ast$ \mbox{\hyperlink{classIfaceGui_a815f0005e329c8198abca5c89cc87a56}{Message\+Cmd\+Handler}}) (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classIfaceGui_a4b500223da79a6b77bc8e46229dc3b9c}{Iface\+Gui}} (\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const riego)
 \item 
-virtual void \mbox{\hyperlink{classIfaceGui_a4982d6dd772b6196dfc7110e7c92b5bf}{run}} ()
+virtual \mbox{\hyperlink{classIfaceGui_a6f436efcdb37f215f4259094bff1f086}{$\sim$\+Iface\+Gui}} ()
 \item 
-virtual void \mbox{\hyperlink{classIfaceGui_ae6479ad72284d11f43fd7172f36c42a3}{set\+State}} (\mbox{\hyperlink{classIfaceGui_ae151731d6ecb0e26a9f5ff9af9275055}{S\+T\+A\+T\+ES}} state)
+virtual void \mbox{\hyperlink{classIfaceGui_a05300c00c98f4b9f8c80ac91ee3ac4e4}{next\+State}} (bool next)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_a45ddd55c4bd7e96be8fc1a6a6b831563}{run}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_ad69c0bb5e44dd23b2abfcaf9dc5b80cb}{set\+State}} (\mbox{\hyperlink{classIfaceGui_ae151731d6ecb0e26a9f5ff9af9275055}{S\+T\+A\+T\+ES}} state)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_afc1cbe5e67249d6251eb1ebc93c2243f}{loop}} ()=0
+\item 
+virtual \mbox{\hyperlink{structIfaceGui_1_1GuiMessage}{Gui\+Message}} \& \mbox{\hyperlink{classIfaceGui_aff1b023f0a7e09aed06039fbae626b4a}{update\+Gui\+Data}} (\mbox{\hyperlink{structIfaceGui_1_1GuiMessage}{Gui\+Message}} \&gui\+Message)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_ac21472ff14121f439af23caa724e9676}{handle\+Cmd\+System\+Time}} (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_a9a499a1430fab3aa302916e117d6dc78}{handle\+Cmd\+System\+Date}} (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_adc87755f6ff006ecc6705d3f37169c2b}{handle\+Cmd\+Auto\+Enable}} (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_a7bab964c497159035c5471df6415408b}{handle\+Cmd\+Auto\+Run}} (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_a95390439871cc67a18d28f43b8723304}{handle\+Cmd\+Auto\+Time}} (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_a28be153696eb4e4ed4cdd67a4bb9baf3}{handle\+Cmd\+Auto\+Days}} (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_a0e9bfca8fc96b216728e12cce9146c91}{handle\+Cmd\+Auto\+Duration}} (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_ab255dfb0a8cab0d38db5b51acf25e224}{handle\+Cmd\+Manual\+Valve}} (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_ad29149bd0a94b6f8aceee2473cffba43}{handle\+Cmd\+Manual\+Duration}} (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_a59ddcae0d0893220cc55209e97e032da}{handle\+Cmd\+Unknown}} (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)=0
+\item 
+virtual void \mbox{\hyperlink{classIfaceGui_aa14711a146b194979cfe1dcd71a2561f}{handle\+Cmds}} ()=0
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1GuiMessage}{Gui\+Message}} \mbox{\hyperlink{classIfaceGui_a918d239362dbc10cd12a22095e5e92e5}{previous\+Gui\+Data}} = \{\}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} \mbox{\hyperlink{classIfaceGui_af222efd64cd88746f08c6daf5c056e82}{cmd\+System\+Time}} \{.id=\textquotesingle{}T\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_ac21472ff14121f439af23caa724e9676}{Iface\+Gui\+::handle\+Cmd\+System\+Time}}, .payload\+Size=sizeof(char)$\ast$4, .payload=(char$\ast$)malloc(sizeof(char)$\ast$4)\}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} \mbox{\hyperlink{classIfaceGui_abfbcc2e75c008a42a2a1c72a917aca7d}{cmd\+System\+Date}} \{.id=\textquotesingle{}D\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a9a499a1430fab3aa302916e117d6dc78}{Iface\+Gui\+::handle\+Cmd\+System\+Date}}, .payload\+Size=sizeof(char)$\ast$8, .payload=(char$\ast$)malloc(sizeof(char)$\ast$8)\}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} \mbox{\hyperlink{classIfaceGui_ac88885ac271b4db27645fd949cca9cba}{cmd\+Auto\+Enable}} \{.id=\textquotesingle{}e\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_adc87755f6ff006ecc6705d3f37169c2b}{Iface\+Gui\+::handle\+Cmd\+Auto\+Enable}}, .payload\+Size=sizeof(char), .payload=(char$\ast$)malloc(sizeof(char))\}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} \mbox{\hyperlink{classIfaceGui_af2b0242cb440df0f31710c23f75397f8}{cmd\+Auto\+Run}} \{.id=\textquotesingle{}r\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a7bab964c497159035c5471df6415408b}{Iface\+Gui\+::handle\+Cmd\+Auto\+Run}}, .payload\+Size=0\}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} \mbox{\hyperlink{classIfaceGui_a7302c76a5e14c7ca1afdee76d114f265}{cmd\+Auto\+Time}} \{.id=\textquotesingle{}h\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a95390439871cc67a18d28f43b8723304}{Iface\+Gui\+::handle\+Cmd\+Auto\+Time}}, .payload\+Size=sizeof(char)$\ast$4, .payload=(char$\ast$)malloc(sizeof(char)$\ast$4)\}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} \mbox{\hyperlink{classIfaceGui_ab76d778d5c8cb1e82cf8d14f6c4d57ee}{cmd\+Auto\+Days}} \{.id=\textquotesingle{}w\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a28be153696eb4e4ed4cdd67a4bb9baf3}{Iface\+Gui\+::handle\+Cmd\+Auto\+Days}}, .payload\+Size=sizeof(char)$\ast$2, .payload=(char$\ast$)malloc(sizeof(char)$\ast$2)\}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} \mbox{\hyperlink{classIfaceGui_a528292d0792f7381afe4baf74db78950}{cmd\+Auto\+Duration}} \{.id=\textquotesingle{}d\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a0e9bfca8fc96b216728e12cce9146c91}{Iface\+Gui\+::handle\+Cmd\+Auto\+Duration}}, .payload\+Size=sizeof(char)$\ast$2, .payload=(char$\ast$)malloc(sizeof(char)$\ast$2)\}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} \mbox{\hyperlink{classIfaceGui_a5712174a0db81e185b6d928e4a7beeb2}{cmd\+Manual\+Valve}} \{.id=\textquotesingle{}v\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_ab255dfb0a8cab0d38db5b51acf25e224}{Iface\+Gui\+::handle\+Cmd\+Manual\+Valve}}, .payload\+Size=sizeof(char)\}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} \mbox{\hyperlink{classIfaceGui_a44af925315eb8010c3c372dc98871646}{cmd\+Unknown}} \{.id=\textquotesingle{}\textbackslash{}0\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a59ddcae0d0893220cc55209e97e032da}{Iface\+Gui\+::handle\+Cmd\+Unknown}}, .payload\+Size=0\}
+\item 
+\mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} \mbox{\hyperlink{classIfaceGui_af1a2b0c3f3789bf96ef432146f642c31}{cmd\+Messages}} \mbox{[}9\mbox{]}
 \item 
 \mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$ \mbox{\hyperlink{classIfaceGui_a1b68c586e2c579ea73dd3ed519440f19}{\+\_\+riego}}
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classIfaceGui_a0c78298a688172bcb84e5b0adeef222f}\label{classIfaceGui_a0c78298a688172bcb84e5b0adeef222f}} 
+\index{IfaceGui@{IfaceGui}!GuiMessage@{GuiMessage}}
+\index{GuiMessage@{GuiMessage}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{GuiMessage}{GuiMessage}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structIfaceGui_1_1GuiMessage}{Iface\+Gui\+::\+Gui\+Message}} \mbox{\hyperlink{structIfaceGui_1_1GuiMessage}{Iface\+Gui\+::\+Gui\+Message}}}
 
+\mbox{\Hypertarget{classIfaceGui_a5329aa677b6ce2e09ed2da90ae04409a}\label{classIfaceGui_a5329aa677b6ce2e09ed2da90ae04409a}} 
+\index{IfaceGui@{IfaceGui}!Message@{Message}}
+\index{Message@{Message}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{Message}{Message}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}}}
 
-Definition at line 7 of file Iface\+Gui.\+h.
+\mbox{\Hypertarget{classIfaceGui_a815f0005e329c8198abca5c89cc87a56}\label{classIfaceGui_a815f0005e329c8198abca5c89cc87a56}} 
+\index{IfaceGui@{IfaceGui}!MessageCmdHandler@{MessageCmdHandler}}
+\index{MessageCmdHandler@{MessageCmdHandler}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{MessageCmdHandler}{MessageCmdHandler}}
+{\footnotesize\ttfamily typedef void(Iface\+Gui\+::$\ast$ Iface\+Gui\+::\+Message\+Cmd\+Handler) (const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$msg)}
 
 
 
@@ -76,10 +157,6 @@ P\+R\+O\+G\+R\+A\+M\+P\+A\+N\+EL&\\
 \end{DoxyEnumFields}
 
 
-Definition at line 9 of file Iface\+Gui.\+h.
-
-
-
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classIfaceGui_a4b500223da79a6b77bc8e46229dc3b9c}\label{classIfaceGui_a4b500223da79a6b77bc8e46229dc3b9c}} 
 \index{IfaceGui@{IfaceGui}!IfaceGui@{IfaceGui}}
@@ -87,32 +164,174 @@ Definition at line 9 of file Iface\+Gui.\+h.
 \doxysubsubsection{\texorpdfstring{IfaceGui()}{IfaceGui()}}
 {\footnotesize\ttfamily Iface\+Gui\+::\+Iface\+Gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const}]{riego }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line 11 of file Iface\+Gui.\+h.
+\mbox{\Hypertarget{classIfaceGui_a6f436efcdb37f215f4259094bff1f086}\label{classIfaceGui_a6f436efcdb37f215f4259094bff1f086}} 
+\index{IfaceGui@{IfaceGui}!````~IfaceGui@{$\sim$IfaceGui}}
+\index{````~IfaceGui@{$\sim$IfaceGui}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{$\sim$IfaceGui()}{~IfaceGui()}}
+{\footnotesize\ttfamily virtual Iface\+Gui\+::$\sim$\+Iface\+Gui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classIfaceGui_a4982d6dd772b6196dfc7110e7c92b5bf}\label{classIfaceGui_a4982d6dd772b6196dfc7110e7c92b5bf}} 
+\mbox{\Hypertarget{classIfaceGui_a28be153696eb4e4ed4cdd67a4bb9baf3}\label{classIfaceGui_a28be153696eb4e4ed4cdd67a4bb9baf3}} 
+\index{IfaceGui@{IfaceGui}!handleCmdAutoDays@{handleCmdAutoDays}}
+\index{handleCmdAutoDays@{handleCmdAutoDays}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmdAutoDays()}{handleCmdAutoDays()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmd\+Auto\+Days (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_ab199c6b48f7d71bdcdaab46abbcc2266}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_a0e9bfca8fc96b216728e12cce9146c91}\label{classIfaceGui_a0e9bfca8fc96b216728e12cce9146c91}} 
+\index{IfaceGui@{IfaceGui}!handleCmdAutoDuration@{handleCmdAutoDuration}}
+\index{handleCmdAutoDuration@{handleCmdAutoDuration}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmdAutoDuration()}{handleCmdAutoDuration()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmd\+Auto\+Duration (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a7310fbde0d89035b4baca66de0d9f344}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_adc87755f6ff006ecc6705d3f37169c2b}\label{classIfaceGui_adc87755f6ff006ecc6705d3f37169c2b}} 
+\index{IfaceGui@{IfaceGui}!handleCmdAutoEnable@{handleCmdAutoEnable}}
+\index{handleCmdAutoEnable@{handleCmdAutoEnable}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmdAutoEnable()}{handleCmdAutoEnable()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmd\+Auto\+Enable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a2846b9506d683e44a253212596b6c1ba}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_a7bab964c497159035c5471df6415408b}\label{classIfaceGui_a7bab964c497159035c5471df6415408b}} 
+\index{IfaceGui@{IfaceGui}!handleCmdAutoRun@{handleCmdAutoRun}}
+\index{handleCmdAutoRun@{handleCmdAutoRun}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmdAutoRun()}{handleCmdAutoRun()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmd\+Auto\+Run (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_abc8296f4ba373044b66ebe264a6c04de}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_a95390439871cc67a18d28f43b8723304}\label{classIfaceGui_a95390439871cc67a18d28f43b8723304}} 
+\index{IfaceGui@{IfaceGui}!handleCmdAutoTime@{handleCmdAutoTime}}
+\index{handleCmdAutoTime@{handleCmdAutoTime}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmdAutoTime()}{handleCmdAutoTime()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmd\+Auto\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a7a38d76d42b5b3cb56c486dec7900bb8}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_ad29149bd0a94b6f8aceee2473cffba43}\label{classIfaceGui_ad29149bd0a94b6f8aceee2473cffba43}} 
+\index{IfaceGui@{IfaceGui}!handleCmdManualDuration@{handleCmdManualDuration}}
+\index{handleCmdManualDuration@{handleCmdManualDuration}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmdManualDuration()}{handleCmdManualDuration()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmd\+Manual\+Duration (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a2ab64de05689612ed79c731a02e88091}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_ab255dfb0a8cab0d38db5b51acf25e224}\label{classIfaceGui_ab255dfb0a8cab0d38db5b51acf25e224}} 
+\index{IfaceGui@{IfaceGui}!handleCmdManualValve@{handleCmdManualValve}}
+\index{handleCmdManualValve@{handleCmdManualValve}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmdManualValve()}{handleCmdManualValve()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmd\+Manual\+Valve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a79564677f66673b683b309b13ba3b5d5}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_aa14711a146b194979cfe1dcd71a2561f}\label{classIfaceGui_aa14711a146b194979cfe1dcd71a2561f}} 
+\index{IfaceGui@{IfaceGui}!handleCmds@{handleCmds}}
+\index{handleCmds@{handleCmds}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmds()}{handleCmds()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a94b47b0072e6ce8ae9cfff642c349267}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_a9a499a1430fab3aa302916e117d6dc78}\label{classIfaceGui_a9a499a1430fab3aa302916e117d6dc78}} 
+\index{IfaceGui@{IfaceGui}!handleCmdSystemDate@{handleCmdSystemDate}}
+\index{handleCmdSystemDate@{handleCmdSystemDate}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmdSystemDate()}{handleCmdSystemDate()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmd\+System\+Date (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a453f9b164ee0b2da7aaa3c1b3b2b51ab}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_ac21472ff14121f439af23caa724e9676}\label{classIfaceGui_ac21472ff14121f439af23caa724e9676}} 
+\index{IfaceGui@{IfaceGui}!handleCmdSystemTime@{handleCmdSystemTime}}
+\index{handleCmdSystemTime@{handleCmdSystemTime}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmdSystemTime()}{handleCmdSystemTime()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmd\+System\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a228e024017ca0bf851e7eb73398b34e9}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_a59ddcae0d0893220cc55209e97e032da}\label{classIfaceGui_a59ddcae0d0893220cc55209e97e032da}} 
+\index{IfaceGui@{IfaceGui}!handleCmdUnknown@{handleCmdUnknown}}
+\index{handleCmdUnknown@{handleCmdUnknown}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{handleCmdUnknown()}{handleCmdUnknown()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::handle\+Cmd\+Unknown (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structIfaceGui_1_1Message}{Iface\+Gui\+::\+Message}} $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a4857ab68ce0c0c90e38a7d6143780ac9}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_afc1cbe5e67249d6251eb1ebc93c2243f}\label{classIfaceGui_afc1cbe5e67249d6251eb1ebc93c2243f}} 
+\index{IfaceGui@{IfaceGui}!loop@{loop}}
+\index{loop@{loop}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a60fe6192ab40c211433852197b0b0ec1}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_a05300c00c98f4b9f8c80ac91ee3ac4e4}\label{classIfaceGui_a05300c00c98f4b9f8c80ac91ee3ac4e4}} 
+\index{IfaceGui@{IfaceGui}!nextState@{nextState}}
+\index{nextState@{nextState}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{nextState()}{nextState()}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::next\+State (\begin{DoxyParamCaption}\item[{bool}]{next }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_a9d0354d4b5d8cfd9a6223f7ef17ef503}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_a45ddd55c4bd7e96be8fc1a6a6b831563}\label{classIfaceGui_a45ddd55c4bd7e96be8fc1a6a6b831563}} 
 \index{IfaceGui@{IfaceGui}!run@{run}}
 \index{run@{run}!IfaceGui@{IfaceGui}}
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily virtual void Iface\+Gui\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Reimplemented in \mbox{\hyperlink{classGui_a225eb7edaace31eb6cc4ec3173b2a703}{Gui}}.
+Implemented in \mbox{\hyperlink{classGui_afa384df85b9fdfe801c0ed73200baf31}{Gui}}.
 
-\mbox{\Hypertarget{classIfaceGui_ae6479ad72284d11f43fd7172f36c42a3}\label{classIfaceGui_ae6479ad72284d11f43fd7172f36c42a3}} 
+\mbox{\Hypertarget{classIfaceGui_ad69c0bb5e44dd23b2abfcaf9dc5b80cb}\label{classIfaceGui_ad69c0bb5e44dd23b2abfcaf9dc5b80cb}} 
 \index{IfaceGui@{IfaceGui}!setState@{setState}}
 \index{setState@{setState}!IfaceGui@{IfaceGui}}
 \doxysubsubsection{\texorpdfstring{setState()}{setState()}}
-{\footnotesize\ttfamily virtual void Iface\+Gui\+::set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceGui_ae151731d6ecb0e26a9f5ff9af9275055}{S\+T\+A\+T\+ES}}}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual void Iface\+Gui\+::set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceGui_ae151731d6ecb0e26a9f5ff9af9275055}{S\+T\+A\+T\+ES}}}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Reimplemented in \mbox{\hyperlink{classGui_acb8488a460e5890859d1f8c741a5f2fc}{Gui}}.
+Implemented in \mbox{\hyperlink{classGui_a9ce8b924e0eba38b5bd55ab927f7f38f}{Gui}}.
+
+\mbox{\Hypertarget{classIfaceGui_aff1b023f0a7e09aed06039fbae626b4a}\label{classIfaceGui_aff1b023f0a7e09aed06039fbae626b4a}} 
+\index{IfaceGui@{IfaceGui}!updateGuiData@{updateGuiData}}
+\index{updateGuiData@{updateGuiData}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{updateGuiData()}{updateGuiData()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structIfaceGui_1_1GuiMessage}{Gui\+Message}}\& Iface\+Gui\+::update\+Gui\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structIfaceGui_1_1GuiMessage}{Gui\+Message}} \&}]{gui\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classGui_aa989850a6116c1c924fa7f8dda4254b5}{Gui}}.
 
 
 
@@ -123,12 +342,89 @@ Reimplemented in \mbox{\hyperlink{classGui_acb8488a460e5890859d1f8c741a5f2fc}{Gu
 \doxysubsubsection{\texorpdfstring{\_riego}{\_riego}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}}$\ast$ Iface\+Gui\+::\+\_\+riego}
 
+\mbox{\Hypertarget{classIfaceGui_ab76d778d5c8cb1e82cf8d14f6c4d57ee}\label{classIfaceGui_ab76d778d5c8cb1e82cf8d14f6c4d57ee}} 
+\index{IfaceGui@{IfaceGui}!cmdAutoDays@{cmdAutoDays}}
+\index{cmdAutoDays@{cmdAutoDays}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{cmdAutoDays}{cmdAutoDays}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} Iface\+Gui\+::cmd\+Auto\+Days \{.id=\textquotesingle{}w\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a28be153696eb4e4ed4cdd67a4bb9baf3}{Iface\+Gui\+::handle\+Cmd\+Auto\+Days}}, .payload\+Size=sizeof(char)$\ast$2, .payload=(char$\ast$)malloc(sizeof(char)$\ast$2)\}}
 
+\mbox{\Hypertarget{classIfaceGui_a528292d0792f7381afe4baf74db78950}\label{classIfaceGui_a528292d0792f7381afe4baf74db78950}} 
+\index{IfaceGui@{IfaceGui}!cmdAutoDuration@{cmdAutoDuration}}
+\index{cmdAutoDuration@{cmdAutoDuration}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{cmdAutoDuration}{cmdAutoDuration}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} Iface\+Gui\+::cmd\+Auto\+Duration \{.id=\textquotesingle{}d\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a0e9bfca8fc96b216728e12cce9146c91}{Iface\+Gui\+::handle\+Cmd\+Auto\+Duration}}, .payload\+Size=sizeof(char)$\ast$2, .payload=(char$\ast$)malloc(sizeof(char)$\ast$2)\}}
 
-Definition at line 19 of file Iface\+Gui.\+h.
+\mbox{\Hypertarget{classIfaceGui_ac88885ac271b4db27645fd949cca9cba}\label{classIfaceGui_ac88885ac271b4db27645fd949cca9cba}} 
+\index{IfaceGui@{IfaceGui}!cmdAutoEnable@{cmdAutoEnable}}
+\index{cmdAutoEnable@{cmdAutoEnable}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{cmdAutoEnable}{cmdAutoEnable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} Iface\+Gui\+::cmd\+Auto\+Enable \{.id=\textquotesingle{}e\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_adc87755f6ff006ecc6705d3f37169c2b}{Iface\+Gui\+::handle\+Cmd\+Auto\+Enable}}, .payload\+Size=sizeof(char), .payload=(char$\ast$)malloc(sizeof(char))\}}
+
+\mbox{\Hypertarget{classIfaceGui_af2b0242cb440df0f31710c23f75397f8}\label{classIfaceGui_af2b0242cb440df0f31710c23f75397f8}} 
+\index{IfaceGui@{IfaceGui}!cmdAutoRun@{cmdAutoRun}}
+\index{cmdAutoRun@{cmdAutoRun}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{cmdAutoRun}{cmdAutoRun}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} Iface\+Gui\+::cmd\+Auto\+Run \{.id=\textquotesingle{}r\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a7bab964c497159035c5471df6415408b}{Iface\+Gui\+::handle\+Cmd\+Auto\+Run}}, .payload\+Size=0\}}
+
+\mbox{\Hypertarget{classIfaceGui_a7302c76a5e14c7ca1afdee76d114f265}\label{classIfaceGui_a7302c76a5e14c7ca1afdee76d114f265}} 
+\index{IfaceGui@{IfaceGui}!cmdAutoTime@{cmdAutoTime}}
+\index{cmdAutoTime@{cmdAutoTime}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{cmdAutoTime}{cmdAutoTime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} Iface\+Gui\+::cmd\+Auto\+Time \{.id=\textquotesingle{}h\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a95390439871cc67a18d28f43b8723304}{Iface\+Gui\+::handle\+Cmd\+Auto\+Time}}, .payload\+Size=sizeof(char)$\ast$4, .payload=(char$\ast$)malloc(sizeof(char)$\ast$4)\}}
+
+\mbox{\Hypertarget{classIfaceGui_a5712174a0db81e185b6d928e4a7beeb2}\label{classIfaceGui_a5712174a0db81e185b6d928e4a7beeb2}} 
+\index{IfaceGui@{IfaceGui}!cmdManualValve@{cmdManualValve}}
+\index{cmdManualValve@{cmdManualValve}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{cmdManualValve}{cmdManualValve}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} Iface\+Gui\+::cmd\+Manual\+Valve \{.id=\textquotesingle{}v\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_ab255dfb0a8cab0d38db5b51acf25e224}{Iface\+Gui\+::handle\+Cmd\+Manual\+Valve}}, .payload\+Size=sizeof(char)\}}
+
+\mbox{\Hypertarget{classIfaceGui_af1a2b0c3f3789bf96ef432146f642c31}\label{classIfaceGui_af1a2b0c3f3789bf96ef432146f642c31}} 
+\index{IfaceGui@{IfaceGui}!cmdMessages@{cmdMessages}}
+\index{cmdMessages@{cmdMessages}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{cmdMessages}{cmdMessages}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} Iface\+Gui\+::cmd\+Messages\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\{}
+\DoxyCodeLine{      \mbox{\hyperlink{classIfaceGui_af222efd64cd88746f08c6daf5c056e82}{cmdSystemTime}},}
+\DoxyCodeLine{      \mbox{\hyperlink{classIfaceGui_abfbcc2e75c008a42a2a1c72a917aca7d}{cmdSystemDate}},}
+\DoxyCodeLine{      \mbox{\hyperlink{classIfaceGui_ac88885ac271b4db27645fd949cca9cba}{cmdAutoEnable}},}
+\DoxyCodeLine{      \mbox{\hyperlink{classIfaceGui_af2b0242cb440df0f31710c23f75397f8}{cmdAutoRun}},}
+\DoxyCodeLine{      \mbox{\hyperlink{classIfaceGui_a7302c76a5e14c7ca1afdee76d114f265}{cmdAutoTime}},}
+\DoxyCodeLine{      \mbox{\hyperlink{classIfaceGui_ab76d778d5c8cb1e82cf8d14f6c4d57ee}{cmdAutoDays}},}
+\DoxyCodeLine{      \mbox{\hyperlink{classIfaceGui_a528292d0792f7381afe4baf74db78950}{cmdAutoDuration}},}
+\DoxyCodeLine{      \mbox{\hyperlink{classIfaceGui_a5712174a0db81e185b6d928e4a7beeb2}{cmdManualValve}},}
+\DoxyCodeLine{      \mbox{\hyperlink{classIfaceGui_a44af925315eb8010c3c372dc98871646}{cmdUnknown}}}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classIfaceGui_abfbcc2e75c008a42a2a1c72a917aca7d}\label{classIfaceGui_abfbcc2e75c008a42a2a1c72a917aca7d}} 
+\index{IfaceGui@{IfaceGui}!cmdSystemDate@{cmdSystemDate}}
+\index{cmdSystemDate@{cmdSystemDate}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{cmdSystemDate}{cmdSystemDate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} Iface\+Gui\+::cmd\+System\+Date \{.id=\textquotesingle{}D\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a9a499a1430fab3aa302916e117d6dc78}{Iface\+Gui\+::handle\+Cmd\+System\+Date}}, .payload\+Size=sizeof(char)$\ast$8, .payload=(char$\ast$)malloc(sizeof(char)$\ast$8)\}}
+
+\mbox{\Hypertarget{classIfaceGui_af222efd64cd88746f08c6daf5c056e82}\label{classIfaceGui_af222efd64cd88746f08c6daf5c056e82}} 
+\index{IfaceGui@{IfaceGui}!cmdSystemTime@{cmdSystemTime}}
+\index{cmdSystemTime@{cmdSystemTime}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{cmdSystemTime}{cmdSystemTime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} Iface\+Gui\+::cmd\+System\+Time \{.id=\textquotesingle{}T\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_ac21472ff14121f439af23caa724e9676}{Iface\+Gui\+::handle\+Cmd\+System\+Time}}, .payload\+Size=sizeof(char)$\ast$4, .payload=(char$\ast$)malloc(sizeof(char)$\ast$4)\}}
+
+\mbox{\Hypertarget{classIfaceGui_a44af925315eb8010c3c372dc98871646}\label{classIfaceGui_a44af925315eb8010c3c372dc98871646}} 
+\index{IfaceGui@{IfaceGui}!cmdUnknown@{cmdUnknown}}
+\index{cmdUnknown@{cmdUnknown}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{cmdUnknown}{cmdUnknown}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1Message}{Message}} Iface\+Gui\+::cmd\+Unknown \{.id=\textquotesingle{}\textbackslash{}0\textquotesingle{}, .handler=\&\mbox{\hyperlink{classIfaceGui_a59ddcae0d0893220cc55209e97e032da}{Iface\+Gui\+::handle\+Cmd\+Unknown}}, .payload\+Size=0\}}
+
+\mbox{\Hypertarget{classIfaceGui_a918d239362dbc10cd12a22095e5e92e5}\label{classIfaceGui_a918d239362dbc10cd12a22095e5e92e5}} 
+\index{IfaceGui@{IfaceGui}!previousGuiData@{previousGuiData}}
+\index{previousGuiData@{previousGuiData}!IfaceGui@{IfaceGui}}
+\doxysubsubsection{\texorpdfstring{previousGuiData}{previousGuiData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structIfaceGui_1_1GuiMessage}{Gui\+Message}} Iface\+Gui\+::previous\+Gui\+Data = \{\}}
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/media/user/raid1/home/user/\+Documents/\+Platform\+I\+O/\+Projects/nano\+Riego\+P\+I\+O/src/\mbox{\hyperlink{IfaceGui_8h}{Iface\+Gui.\+h}}\end{DoxyCompactItemize}
+src/\mbox{\hyperlink{IfaceGui_8h}{Iface\+Gui.\+h}}\end{DoxyCompactItemize}

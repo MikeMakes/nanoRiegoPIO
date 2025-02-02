@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['actualtime_237',['actualTime',['../classTimePanel.html#a4513ed1dc34c5d46212374c0a2c95614',1,'TimePanel']]]
+  ['alarmid_258',['alarmID',['../nanoRiego_8cpp.html#ad87af55534c0e923bc6cf86790aaa40b',1,'nanoRiego.cpp']]],
+  ['alarmprogramid_259',['alarmProgramID',['../nanoRiego_8cpp.html#a7b093810bf80c4a20049a0f41c007de8',1,'nanoRiego.cpp']]]
 ];

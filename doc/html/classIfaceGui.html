@@ -62,12 +62,13 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classIfaceGui-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">IfaceGui Class Reference</div>  </div>
+<div class="title">IfaceGui Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -86,11 +87,22 @@ Collaboration diagram for IfaceGui:</div>
 <div class="dyncontent">
 <div class="center"><img src="classIfaceGui__coll__graph.png" border="0" usemap="#IfaceGui_coll__map" alt="Collaboration graph"/></div>
 <map name="IfaceGui_coll__map" id="IfaceGui_coll__map">
-<area shape="rect" title=" " alt="" coords="13,5,89,32"/>
-<area shape="rect" href="classIfaceRiego.html" title=" " alt="" coords="5,95,96,121"/>
+<area shape="rect" title=" " alt="" coords="192,331,268,357"/>
+<area shape="rect" href="classIfaceRiego.html" title=" " alt="" coords="185,420,275,447"/>
+<area shape="rect" href="structIfaceGui_1_1GuiMessage.html" title=" " alt="" coords="44,95,208,121"/>
+<area shape="rect" href="structprogramTime.html" title=" " alt="" coords="5,5,116,32"/>
+<area shape="rect" href="structsystemTime.html" title=" " alt="" coords="140,5,243,32"/>
+<area shape="rect" href="structIfaceGui_1_1Message.html" title=" " alt="" coords="232,95,375,121"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structIfaceGui_1_1GuiMessage.html">GuiMessage</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structIfaceGui_1_1Message.html">Message</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ae151731d6ecb0e26a9f5ff9af9275055"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#ae151731d6ecb0e26a9f5ff9af9275055">STATES</a> { <a class="el" href="classIfaceGui.html#ae151731d6ecb0e26a9f5ff9af9275055afed1bf9d0f4ae88a2137e881bfd5ff4e">FRONTPANEL</a>, 
@@ -98,25 +110,123 @@ Public Types</h2></td></tr>
 <a class="el" href="classIfaceGui.html#ae151731d6ecb0e26a9f5ff9af9275055a5be57fcc1ba6a16350a43bd01f366b6d">PROGRAMPANEL</a>
  }</td></tr>
 <tr class="separator:ae151731d6ecb0e26a9f5ff9af9275055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c78298a688172bcb84e5b0adeef222f"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structIfaceGui_1_1GuiMessage.html">IfaceGui::GuiMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a0c78298a688172bcb84e5b0adeef222f">GuiMessage</a></td></tr>
+<tr class="separator:a0c78298a688172bcb84e5b0adeef222f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5329aa677b6ce2e09ed2da90ae04409a"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a5329aa677b6ce2e09ed2da90ae04409a">Message</a></td></tr>
+<tr class="separator:a5329aa677b6ce2e09ed2da90ae04409a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a815f0005e329c8198abca5c89cc87a56"><td class="memItemLeft" align="right" valign="top">typedef void(IfaceGui::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a815f0005e329c8198abca5c89cc87a56">MessageCmdHandler</a>) (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)</td></tr>
+<tr class="separator:a815f0005e329c8198abca5c89cc87a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4b500223da79a6b77bc8e46229dc3b9c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a4b500223da79a6b77bc8e46229dc3b9c">IfaceGui</a> (<a class="el" href="classIfaceRiego.html">IfaceRiego</a> *const riego)</td></tr>
 <tr class="separator:a4b500223da79a6b77bc8e46229dc3b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4982d6dd772b6196dfc7110e7c92b5bf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a4982d6dd772b6196dfc7110e7c92b5bf">run</a> ()</td></tr>
-<tr class="separator:a4982d6dd772b6196dfc7110e7c92b5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6479ad72284d11f43fd7172f36c42a3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#ae6479ad72284d11f43fd7172f36c42a3">setState</a> (<a class="el" href="classIfaceGui.html#ae151731d6ecb0e26a9f5ff9af9275055">STATES</a> state)</td></tr>
-<tr class="separator:ae6479ad72284d11f43fd7172f36c42a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f436efcdb37f215f4259094bff1f086"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a6f436efcdb37f215f4259094bff1f086">~IfaceGui</a> ()</td></tr>
+<tr class="separator:a6f436efcdb37f215f4259094bff1f086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05300c00c98f4b9f8c80ac91ee3ac4e4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a05300c00c98f4b9f8c80ac91ee3ac4e4">nextState</a> (bool next)=0</td></tr>
+<tr class="separator:a05300c00c98f4b9f8c80ac91ee3ac4e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45ddd55c4bd7e96be8fc1a6a6b831563"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a45ddd55c4bd7e96be8fc1a6a6b831563">run</a> ()=0</td></tr>
+<tr class="separator:a45ddd55c4bd7e96be8fc1a6a6b831563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad69c0bb5e44dd23b2abfcaf9dc5b80cb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#ad69c0bb5e44dd23b2abfcaf9dc5b80cb">setState</a> (<a class="el" href="classIfaceGui.html#ae151731d6ecb0e26a9f5ff9af9275055">STATES</a> state)=0</td></tr>
+<tr class="separator:ad69c0bb5e44dd23b2abfcaf9dc5b80cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc1cbe5e67249d6251eb1ebc93c2243f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#afc1cbe5e67249d6251eb1ebc93c2243f">loop</a> ()=0</td></tr>
+<tr class="separator:afc1cbe5e67249d6251eb1ebc93c2243f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff1b023f0a7e09aed06039fbae626b4a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structIfaceGui_1_1GuiMessage.html">GuiMessage</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#aff1b023f0a7e09aed06039fbae626b4a">updateGuiData</a> (<a class="el" href="structIfaceGui_1_1GuiMessage.html">GuiMessage</a> &amp;guiMessage)=0</td></tr>
+<tr class="separator:aff1b023f0a7e09aed06039fbae626b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21472ff14121f439af23caa724e9676"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#ac21472ff14121f439af23caa724e9676">handleCmdSystemTime</a> (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)=0</td></tr>
+<tr class="separator:ac21472ff14121f439af23caa724e9676"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a499a1430fab3aa302916e117d6dc78"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a9a499a1430fab3aa302916e117d6dc78">handleCmdSystemDate</a> (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)=0</td></tr>
+<tr class="separator:a9a499a1430fab3aa302916e117d6dc78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc87755f6ff006ecc6705d3f37169c2b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#adc87755f6ff006ecc6705d3f37169c2b">handleCmdAutoEnable</a> (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)=0</td></tr>
+<tr class="separator:adc87755f6ff006ecc6705d3f37169c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bab964c497159035c5471df6415408b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a7bab964c497159035c5471df6415408b">handleCmdAutoRun</a> (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)=0</td></tr>
+<tr class="separator:a7bab964c497159035c5471df6415408b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95390439871cc67a18d28f43b8723304"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a95390439871cc67a18d28f43b8723304">handleCmdAutoTime</a> (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)=0</td></tr>
+<tr class="separator:a95390439871cc67a18d28f43b8723304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28be153696eb4e4ed4cdd67a4bb9baf3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a28be153696eb4e4ed4cdd67a4bb9baf3">handleCmdAutoDays</a> (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)=0</td></tr>
+<tr class="separator:a28be153696eb4e4ed4cdd67a4bb9baf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e9bfca8fc96b216728e12cce9146c91"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a0e9bfca8fc96b216728e12cce9146c91">handleCmdAutoDuration</a> (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)=0</td></tr>
+<tr class="separator:a0e9bfca8fc96b216728e12cce9146c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab255dfb0a8cab0d38db5b51acf25e224"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#ab255dfb0a8cab0d38db5b51acf25e224">handleCmdManualValve</a> (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)=0</td></tr>
+<tr class="separator:ab255dfb0a8cab0d38db5b51acf25e224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad29149bd0a94b6f8aceee2473cffba43"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#ad29149bd0a94b6f8aceee2473cffba43">handleCmdManualDuration</a> (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)=0</td></tr>
+<tr class="separator:ad29149bd0a94b6f8aceee2473cffba43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ddcae0d0893220cc55209e97e032da"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a59ddcae0d0893220cc55209e97e032da">handleCmdUnknown</a> (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)=0</td></tr>
+<tr class="separator:a59ddcae0d0893220cc55209e97e032da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa14711a146b194979cfe1dcd71a2561f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#aa14711a146b194979cfe1dcd71a2561f">handleCmds</a> ()=0</td></tr>
+<tr class="separator:aa14711a146b194979cfe1dcd71a2561f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a918d239362dbc10cd12a22095e5e92e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1GuiMessage.html">GuiMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a918d239362dbc10cd12a22095e5e92e5">previousGuiData</a> = {}</td></tr>
+<tr class="separator:a918d239362dbc10cd12a22095e5e92e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af222efd64cd88746f08c6daf5c056e82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1Message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#af222efd64cd88746f08c6daf5c056e82">cmdSystemTime</a> {.id='T', .handler=&amp;<a class="el" href="classIfaceGui.html#ac21472ff14121f439af23caa724e9676">IfaceGui::handleCmdSystemTime</a>, .payloadSize=sizeof(char)*4, .payload=(char*)malloc(sizeof(char)*4)}</td></tr>
+<tr class="separator:af222efd64cd88746f08c6daf5c056e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfbcc2e75c008a42a2a1c72a917aca7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1Message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#abfbcc2e75c008a42a2a1c72a917aca7d">cmdSystemDate</a> {.id='D', .handler=&amp;<a class="el" href="classIfaceGui.html#a9a499a1430fab3aa302916e117d6dc78">IfaceGui::handleCmdSystemDate</a>, .payloadSize=sizeof(char)*8, .payload=(char*)malloc(sizeof(char)*8)}</td></tr>
+<tr class="separator:abfbcc2e75c008a42a2a1c72a917aca7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac88885ac271b4db27645fd949cca9cba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1Message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#ac88885ac271b4db27645fd949cca9cba">cmdAutoEnable</a> {.id='e', .handler=&amp;<a class="el" href="classIfaceGui.html#adc87755f6ff006ecc6705d3f37169c2b">IfaceGui::handleCmdAutoEnable</a>, .payloadSize=sizeof(char), .payload=(char*)malloc(sizeof(char))}</td></tr>
+<tr class="separator:ac88885ac271b4db27645fd949cca9cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b0242cb440df0f31710c23f75397f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1Message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#af2b0242cb440df0f31710c23f75397f8">cmdAutoRun</a> {.id='r', .handler=&amp;<a class="el" href="classIfaceGui.html#a7bab964c497159035c5471df6415408b">IfaceGui::handleCmdAutoRun</a>, .payloadSize=0}</td></tr>
+<tr class="separator:af2b0242cb440df0f31710c23f75397f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7302c76a5e14c7ca1afdee76d114f265"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1Message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a7302c76a5e14c7ca1afdee76d114f265">cmdAutoTime</a> {.id='h', .handler=&amp;<a class="el" href="classIfaceGui.html#a95390439871cc67a18d28f43b8723304">IfaceGui::handleCmdAutoTime</a>, .payloadSize=sizeof(char)*4, .payload=(char*)malloc(sizeof(char)*4)}</td></tr>
+<tr class="separator:a7302c76a5e14c7ca1afdee76d114f265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab76d778d5c8cb1e82cf8d14f6c4d57ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1Message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#ab76d778d5c8cb1e82cf8d14f6c4d57ee">cmdAutoDays</a> {.id='w', .handler=&amp;<a class="el" href="classIfaceGui.html#a28be153696eb4e4ed4cdd67a4bb9baf3">IfaceGui::handleCmdAutoDays</a>, .payloadSize=sizeof(char)*2, .payload=(char*)malloc(sizeof(char)*2)}</td></tr>
+<tr class="separator:ab76d778d5c8cb1e82cf8d14f6c4d57ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a528292d0792f7381afe4baf74db78950"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1Message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a528292d0792f7381afe4baf74db78950">cmdAutoDuration</a> {.id='d', .handler=&amp;<a class="el" href="classIfaceGui.html#a0e9bfca8fc96b216728e12cce9146c91">IfaceGui::handleCmdAutoDuration</a>, .payloadSize=sizeof(char)*2, .payload=(char*)malloc(sizeof(char)*2)}</td></tr>
+<tr class="separator:a528292d0792f7381afe4baf74db78950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5712174a0db81e185b6d928e4a7beeb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1Message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a5712174a0db81e185b6d928e4a7beeb2">cmdManualValve</a> {.id='v', .handler=&amp;<a class="el" href="classIfaceGui.html#ab255dfb0a8cab0d38db5b51acf25e224">IfaceGui::handleCmdManualValve</a>, .payloadSize=sizeof(char)}</td></tr>
+<tr class="separator:a5712174a0db81e185b6d928e4a7beeb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44af925315eb8010c3c372dc98871646"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1Message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a44af925315eb8010c3c372dc98871646">cmdUnknown</a> {.id='\0', .handler=&amp;<a class="el" href="classIfaceGui.html#a59ddcae0d0893220cc55209e97e032da">IfaceGui::handleCmdUnknown</a>, .payloadSize=0}</td></tr>
+<tr class="separator:a44af925315eb8010c3c372dc98871646"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1a2b0c3f3789bf96ef432146f642c31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structIfaceGui_1_1Message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#af1a2b0c3f3789bf96ef432146f642c31">cmdMessages</a> [9]</td></tr>
+<tr class="separator:af1a2b0c3f3789bf96ef432146f642c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b68c586e2c579ea73dd3ed519440f19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIfaceRiego.html">IfaceRiego</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIfaceGui.html#a1b68c586e2c579ea73dd3ed519440f19">_riego</a></td></tr>
 <tr class="separator:a1b68c586e2c579ea73dd3ed519440f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="IfaceGui_8h_source.html#l00007">7</a> of file <a class="el" href="IfaceGui_8h_source.html">IfaceGui.h</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a0c78298a688172bcb84e5b0adeef222f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c78298a688172bcb84e5b0adeef222f">&#9670;&nbsp;</a></span>GuiMessage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structIfaceGui_1_1GuiMessage.html">IfaceGui::GuiMessage</a> <a class="el" href="structIfaceGui_1_1GuiMessage.html">IfaceGui::GuiMessage</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5329aa677b6ce2e09ed2da90ae04409a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5329aa677b6ce2e09ed2da90ae04409a">&#9670;&nbsp;</a></span>Message</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a815f0005e329c8198abca5c89cc87a56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a815f0005e329c8198abca5c89cc87a56">&#9670;&nbsp;</a></span>MessageCmdHandler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(IfaceGui::* IfaceGui::MessageCmdHandler) (const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *msg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ae151731d6ecb0e26a9f5ff9af9275055"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae151731d6ecb0e26a9f5ff9af9275055">&#9670;&nbsp;</a></span>STATES</h2>
 
@@ -133,8 +243,6 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="ae151731d6ecb0e26a9f5ff9af9275055a9566f7554bfcfc4b39347b12dd201bb0"></a>TIMEPANEL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae151731d6ecb0e26a9f5ff9af9275055a5be57fcc1ba6a16350a43bd01f366b6d"></a>PROGRAMPANEL&#160;</td><td class="fielddoc"></td></tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="IfaceGui_8h_source.html#l00009">9</a> of file <a class="el" href="IfaceGui_8h_source.html">IfaceGui.h</a>.</p>
 
 </div>
 </div>
@@ -163,13 +271,398 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="IfaceGui_8h_source.html#l00011">11</a> of file <a class="el" href="IfaceGui_8h_source.html">IfaceGui.h</a>.</p>
+</div>
+</div>
+<a id="a6f436efcdb37f215f4259094bff1f086"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f436efcdb37f215f4259094bff1f086">&#9670;&nbsp;</a></span>~IfaceGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual IfaceGui::~IfaceGui </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4982d6dd772b6196dfc7110e7c92b5bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4982d6dd772b6196dfc7110e7c92b5bf">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a28be153696eb4e4ed4cdd67a4bb9baf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28be153696eb4e4ed4cdd67a4bb9baf3">&#9670;&nbsp;</a></span>handleCmdAutoDays()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmdAutoDays </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#ab199c6b48f7d71bdcdaab46abbcc2266">Gui</a>.</p>
+
+</div>
+</div>
+<a id="a0e9bfca8fc96b216728e12cce9146c91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e9bfca8fc96b216728e12cce9146c91">&#9670;&nbsp;</a></span>handleCmdAutoDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmdAutoDuration </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a7310fbde0d89035b4baca66de0d9f344">Gui</a>.</p>
+
+</div>
+</div>
+<a id="adc87755f6ff006ecc6705d3f37169c2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc87755f6ff006ecc6705d3f37169c2b">&#9670;&nbsp;</a></span>handleCmdAutoEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmdAutoEnable </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a2846b9506d683e44a253212596b6c1ba">Gui</a>.</p>
+
+</div>
+</div>
+<a id="a7bab964c497159035c5471df6415408b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bab964c497159035c5471df6415408b">&#9670;&nbsp;</a></span>handleCmdAutoRun()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmdAutoRun </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#abc8296f4ba373044b66ebe264a6c04de">Gui</a>.</p>
+
+</div>
+</div>
+<a id="a95390439871cc67a18d28f43b8723304"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95390439871cc67a18d28f43b8723304">&#9670;&nbsp;</a></span>handleCmdAutoTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmdAutoTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a7a38d76d42b5b3cb56c486dec7900bb8">Gui</a>.</p>
+
+</div>
+</div>
+<a id="ad29149bd0a94b6f8aceee2473cffba43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad29149bd0a94b6f8aceee2473cffba43">&#9670;&nbsp;</a></span>handleCmdManualDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmdManualDuration </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a2ab64de05689612ed79c731a02e88091">Gui</a>.</p>
+
+</div>
+</div>
+<a id="ab255dfb0a8cab0d38db5b51acf25e224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab255dfb0a8cab0d38db5b51acf25e224">&#9670;&nbsp;</a></span>handleCmdManualValve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmdManualValve </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a79564677f66673b683b309b13ba3b5d5">Gui</a>.</p>
+
+</div>
+</div>
+<a id="aa14711a146b194979cfe1dcd71a2561f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa14711a146b194979cfe1dcd71a2561f">&#9670;&nbsp;</a></span>handleCmds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a94b47b0072e6ce8ae9cfff642c349267">Gui</a>.</p>
+
+</div>
+</div>
+<a id="a9a499a1430fab3aa302916e117d6dc78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a499a1430fab3aa302916e117d6dc78">&#9670;&nbsp;</a></span>handleCmdSystemDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmdSystemDate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a453f9b164ee0b2da7aaa3c1b3b2b51ab">Gui</a>.</p>
+
+</div>
+</div>
+<a id="ac21472ff14121f439af23caa724e9676"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac21472ff14121f439af23caa724e9676">&#9670;&nbsp;</a></span>handleCmdSystemTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmdSystemTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a228e024017ca0bf851e7eb73398b34e9">Gui</a>.</p>
+
+</div>
+</div>
+<a id="a59ddcae0d0893220cc55209e97e032da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59ddcae0d0893220cc55209e97e032da">&#9670;&nbsp;</a></span>handleCmdUnknown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::handleCmdUnknown </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structIfaceGui_1_1Message.html">IfaceGui::Message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a4857ab68ce0c0c90e38a7d6143780ac9">Gui</a>.</p>
+
+</div>
+</div>
+<a id="afc1cbe5e67249d6251eb1ebc93c2243f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc1cbe5e67249d6251eb1ebc93c2243f">&#9670;&nbsp;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::loop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a60fe6192ab40c211433852197b0b0ec1">Gui</a>.</p>
+
+</div>
+</div>
+<a id="a05300c00c98f4b9f8c80ac91ee3ac4e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05300c00c98f4b9f8c80ac91ee3ac4e4">&#9670;&nbsp;</a></span>nextState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void IfaceGui::nextState </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>next</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#a9d0354d4b5d8cfd9a6223f7ef17ef503">Gui</a>.</p>
+
+</div>
+</div>
+<a id="a45ddd55c4bd7e96be8fc1a6a6b831563"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45ddd55c4bd7e96be8fc1a6a6b831563">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,17 +679,17 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classGui.html#a225eb7edaace31eb6cc4ec3173b2a703">Gui</a>.</p>
+<p>Implemented in <a class="el" href="classGui.html#afa384df85b9fdfe801c0ed73200baf31">Gui</a>.</p>
 
 </div>
 </div>
-<a id="ae6479ad72284d11f43fd7172f36c42a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6479ad72284d11f43fd7172f36c42a3">&#9670;&nbsp;</a></span>setState()</h2>
+<a id="ad69c0bb5e44dd23b2abfcaf9dc5b80cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad69c0bb5e44dd23b2abfcaf9dc5b80cb">&#9670;&nbsp;</a></span>setState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,12 +707,40 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classGui.html#acb8488a460e5890859d1f8c741a5f2fc">Gui</a>.</p>
+<p>Implemented in <a class="el" href="classGui.html#a9ce8b924e0eba38b5bd55ab927f7f38f">Gui</a>.</p>
+
+</div>
+</div>
+<a id="aff1b023f0a7e09aed06039fbae626b4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff1b023f0a7e09aed06039fbae626b4a">&#9670;&nbsp;</a></span>updateGuiData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structIfaceGui_1_1GuiMessage.html">GuiMessage</a>&amp; IfaceGui::updateGuiData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structIfaceGui_1_1GuiMessage.html">GuiMessage</a> &amp;&#160;</td>
+          <td class="paramname"><em>guiMessage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classGui.html#aa989850a6116c1c924fa7f8dda4254b5">Gui</a>.</p>
 
 </div>
 </div>
@@ -236,14 +757,186 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="IfaceGui_8h_source.html#l00019">19</a> of file <a class="el" href="IfaceGui_8h_source.html">IfaceGui.h</a>.</p>
+</div>
+</div>
+<a id="ab76d778d5c8cb1e82cf8d14f6c4d57ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab76d778d5c8cb1e82cf8d14f6c4d57ee">&#9670;&nbsp;</a></span>cmdAutoDays</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1Message.html">Message</a> IfaceGui::cmdAutoDays {.id='w', .handler=&amp;<a class="el" href="classIfaceGui.html#a28be153696eb4e4ed4cdd67a4bb9baf3">IfaceGui::handleCmdAutoDays</a>, .payloadSize=sizeof(char)*2, .payload=(char*)malloc(sizeof(char)*2)}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a528292d0792f7381afe4baf74db78950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a528292d0792f7381afe4baf74db78950">&#9670;&nbsp;</a></span>cmdAutoDuration</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1Message.html">Message</a> IfaceGui::cmdAutoDuration {.id='d', .handler=&amp;<a class="el" href="classIfaceGui.html#a0e9bfca8fc96b216728e12cce9146c91">IfaceGui::handleCmdAutoDuration</a>, .payloadSize=sizeof(char)*2, .payload=(char*)malloc(sizeof(char)*2)}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac88885ac271b4db27645fd949cca9cba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88885ac271b4db27645fd949cca9cba">&#9670;&nbsp;</a></span>cmdAutoEnable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1Message.html">Message</a> IfaceGui::cmdAutoEnable {.id='e', .handler=&amp;<a class="el" href="classIfaceGui.html#adc87755f6ff006ecc6705d3f37169c2b">IfaceGui::handleCmdAutoEnable</a>, .payloadSize=sizeof(char), .payload=(char*)malloc(sizeof(char))}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2b0242cb440df0f31710c23f75397f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2b0242cb440df0f31710c23f75397f8">&#9670;&nbsp;</a></span>cmdAutoRun</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1Message.html">Message</a> IfaceGui::cmdAutoRun {.id='r', .handler=&amp;<a class="el" href="classIfaceGui.html#a7bab964c497159035c5471df6415408b">IfaceGui::handleCmdAutoRun</a>, .payloadSize=0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7302c76a5e14c7ca1afdee76d114f265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7302c76a5e14c7ca1afdee76d114f265">&#9670;&nbsp;</a></span>cmdAutoTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1Message.html">Message</a> IfaceGui::cmdAutoTime {.id='h', .handler=&amp;<a class="el" href="classIfaceGui.html#a95390439871cc67a18d28f43b8723304">IfaceGui::handleCmdAutoTime</a>, .payloadSize=sizeof(char)*4, .payload=(char*)malloc(sizeof(char)*4)}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5712174a0db81e185b6d928e4a7beeb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5712174a0db81e185b6d928e4a7beeb2">&#9670;&nbsp;</a></span>cmdManualValve</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1Message.html">Message</a> IfaceGui::cmdManualValve {.id='v', .handler=&amp;<a class="el" href="classIfaceGui.html#ab255dfb0a8cab0d38db5b51acf25e224">IfaceGui::handleCmdManualValve</a>, .payloadSize=sizeof(char)}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af1a2b0c3f3789bf96ef432146f642c31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1a2b0c3f3789bf96ef432146f642c31">&#9670;&nbsp;</a></span>cmdMessages</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1Message.html">Message</a> IfaceGui::cmdMessages[9]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">={</div>
+<div class="line">      <a class="code" href="classIfaceGui.html#af222efd64cd88746f08c6daf5c056e82">cmdSystemTime</a>,</div>
+<div class="line">      <a class="code" href="classIfaceGui.html#abfbcc2e75c008a42a2a1c72a917aca7d">cmdSystemDate</a>,</div>
+<div class="line">      <a class="code" href="classIfaceGui.html#ac88885ac271b4db27645fd949cca9cba">cmdAutoEnable</a>,</div>
+<div class="line">      <a class="code" href="classIfaceGui.html#af2b0242cb440df0f31710c23f75397f8">cmdAutoRun</a>,</div>
+<div class="line">      <a class="code" href="classIfaceGui.html#a7302c76a5e14c7ca1afdee76d114f265">cmdAutoTime</a>,</div>
+<div class="line">      <a class="code" href="classIfaceGui.html#ab76d778d5c8cb1e82cf8d14f6c4d57ee">cmdAutoDays</a>,</div>
+<div class="line">      <a class="code" href="classIfaceGui.html#a528292d0792f7381afe4baf74db78950">cmdAutoDuration</a>,</div>
+<div class="line">      <a class="code" href="classIfaceGui.html#a5712174a0db81e185b6d928e4a7beeb2">cmdManualValve</a>,</div>
+<div class="line">      <a class="code" href="classIfaceGui.html#a44af925315eb8010c3c372dc98871646">cmdUnknown</a></div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abfbcc2e75c008a42a2a1c72a917aca7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfbcc2e75c008a42a2a1c72a917aca7d">&#9670;&nbsp;</a></span>cmdSystemDate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1Message.html">Message</a> IfaceGui::cmdSystemDate {.id='D', .handler=&amp;<a class="el" href="classIfaceGui.html#a9a499a1430fab3aa302916e117d6dc78">IfaceGui::handleCmdSystemDate</a>, .payloadSize=sizeof(char)*8, .payload=(char*)malloc(sizeof(char)*8)}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af222efd64cd88746f08c6daf5c056e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af222efd64cd88746f08c6daf5c056e82">&#9670;&nbsp;</a></span>cmdSystemTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1Message.html">Message</a> IfaceGui::cmdSystemTime {.id='T', .handler=&amp;<a class="el" href="classIfaceGui.html#ac21472ff14121f439af23caa724e9676">IfaceGui::handleCmdSystemTime</a>, .payloadSize=sizeof(char)*4, .payload=(char*)malloc(sizeof(char)*4)}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44af925315eb8010c3c372dc98871646"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44af925315eb8010c3c372dc98871646">&#9670;&nbsp;</a></span>cmdUnknown</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1Message.html">Message</a> IfaceGui::cmdUnknown {.id='\0', .handler=&amp;<a class="el" href="classIfaceGui.html#a59ddcae0d0893220cc55209e97e032da">IfaceGui::handleCmdUnknown</a>, .payloadSize=0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a918d239362dbc10cd12a22095e5e92e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a918d239362dbc10cd12a22095e5e92e5">&#9670;&nbsp;</a></span>previousGuiData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structIfaceGui_1_1GuiMessage.html">GuiMessage</a> IfaceGui::previousGuiData = {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/media/user/raid1/home/user/Documents/PlatformIO/Projects/nanoRiegoPIO/src/<a class="el" href="IfaceGui_8h_source.html">IfaceGui.h</a></li>
+<li>src/<a class="el" href="IfaceGui_8h_source.html">IfaceGui.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="aclassIfaceGui_html_a528292d0792f7381afe4baf74db78950"><div class="ttname"><a href="classIfaceGui.html#a528292d0792f7381afe4baf74db78950">IfaceGui::cmdAutoDuration</a></div><div class="ttdeci">Message cmdAutoDuration</div><div class="ttdef"><b>Definition:</b> IfaceGui.h:87</div></div>
+<div class="ttc" id="aclassIfaceGui_html_a44af925315eb8010c3c372dc98871646"><div class="ttname"><a href="classIfaceGui.html#a44af925315eb8010c3c372dc98871646">IfaceGui::cmdUnknown</a></div><div class="ttdeci">Message cmdUnknown</div><div class="ttdef"><b>Definition:</b> IfaceGui.h:92</div></div>
+<div class="ttc" id="aclassIfaceGui_html_a7302c76a5e14c7ca1afdee76d114f265"><div class="ttname"><a href="classIfaceGui.html#a7302c76a5e14c7ca1afdee76d114f265">IfaceGui::cmdAutoTime</a></div><div class="ttdeci">Message cmdAutoTime</div><div class="ttdef"><b>Definition:</b> IfaceGui.h:84</div></div>
+<div class="ttc" id="aclassIfaceGui_html_abfbcc2e75c008a42a2a1c72a917aca7d"><div class="ttname"><a href="classIfaceGui.html#abfbcc2e75c008a42a2a1c72a917aca7d">IfaceGui::cmdSystemDate</a></div><div class="ttdeci">Message cmdSystemDate</div><div class="ttdef"><b>Definition:</b> IfaceGui.h:80</div></div>
+<div class="ttc" id="aclassIfaceGui_html_ab76d778d5c8cb1e82cf8d14f6c4d57ee"><div class="ttname"><a href="classIfaceGui.html#ab76d778d5c8cb1e82cf8d14f6c4d57ee">IfaceGui::cmdAutoDays</a></div><div class="ttdeci">Message cmdAutoDays</div><div class="ttdef"><b>Definition:</b> IfaceGui.h:86</div></div>
+<div class="ttc" id="aclassIfaceGui_html_af2b0242cb440df0f31710c23f75397f8"><div class="ttname"><a href="classIfaceGui.html#af2b0242cb440df0f31710c23f75397f8">IfaceGui::cmdAutoRun</a></div><div class="ttdeci">Message cmdAutoRun</div><div class="ttdef"><b>Definition:</b> IfaceGui.h:83</div></div>
+<div class="ttc" id="aclassIfaceGui_html_ac88885ac271b4db27645fd949cca9cba"><div class="ttname"><a href="classIfaceGui.html#ac88885ac271b4db27645fd949cca9cba">IfaceGui::cmdAutoEnable</a></div><div class="ttdeci">Message cmdAutoEnable</div><div class="ttdef"><b>Definition:</b> IfaceGui.h:82</div></div>
+<div class="ttc" id="aclassIfaceGui_html_a5712174a0db81e185b6d928e4a7beeb2"><div class="ttname"><a href="classIfaceGui.html#a5712174a0db81e185b6d928e4a7beeb2">IfaceGui::cmdManualValve</a></div><div class="ttdeci">Message cmdManualValve</div><div class="ttdef"><b>Definition:</b> IfaceGui.h:89</div></div>
+<div class="ttc" id="aclassIfaceGui_html_af222efd64cd88746f08c6daf5c056e82"><div class="ttname"><a href="classIfaceGui.html#af222efd64cd88746f08c6daf5c056e82">IfaceGui::cmdSystemTime</a></div><div class="ttdeci">Message cmdSystemTime</div><div class="ttdef"><b>Definition:</b> IfaceGui.h:79</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

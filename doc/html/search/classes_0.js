@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['frontpanel_135',['FrontPanel',['../classFrontPanel.html',1,'']]],
-  ['frontpanelstate_136',['FrontPanelState',['../structFrontPanelState.html',1,'']]]
+  ['gui_154',['Gui',['../classGui.html',1,'']]],
+  ['guimessage_155',['GuiMessage',['../structIfaceGui_1_1GuiMessage.html',1,'IfaceGui']]]
 ];
