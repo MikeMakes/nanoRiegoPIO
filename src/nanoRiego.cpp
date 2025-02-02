@@ -10,69 +10,89 @@
 #include <TimeAlarms.h>
 #include <DS1307RTC.h>  // a basic DS1307 library that returns time as a time_t
 #include <SoftwareSerial.h>
+#include <Versatile_RotaryEncoder.h>
 
 #include "Constants.h"
 
-//#include "Relay.h"
-//#include "IfaceRiego.h"
 #include "Riego.h"
 #include "Gui.h"
 
 void setEEPROM(){
-  EEPROM.put(EEPROM_timeAddress, DEFAULT_TIME);
+  EEPROM.put(EEPROM_timeAddress, (time_t) DEFAULT_TIME);
 }
 
 SoftwareSerial bluetooth(PIN_BLUETOOTH_RX, PIN_BLUETOOTH_TX); //RX,TX
 Relay pump(pinPump, true);
 Relay valves[]={Relay(pinValve1, true), Relay(pinValve2, true), Relay(pinValve3, true)};
-Riego* riego = new Riego(&pump, valves);
+Riego riego(&pump, valves, PROGRAM_DELAY);
 Gui* gui;
 
-#include <Versatile_RotaryEncoder.h>
+void saveEEPROM(){
+  //EEPROM.put(EEPROM_timeAddress, (time_t) DEFAULT_TIME);
+  //EEPROM.put(sizeof(EEPROM_timeAddress), (unsigned int) riego.getProgramTime().hour);
+  //EEPROM.put(sizeof(EEPROM_timeAddress)+sizeof(unsigned int), (unsigned int) riego.getProgramTime().delay);
+  EEPROM.put(30, (unsigned int) riego.getProgramTime().hour);
+  EEPROM.put(40, (unsigned int) riego.getProgramTime().minute);
+  EEPROM.put(60, (unsigned int) riego.getProgramTime().delay);
+}
+
+void loadEEPROM(){
+  //EEPROM.put(EEPROM_timeAddress, (time_t) DEFAULT_TIME);
+  unsigned int hour,minute,delay;
+  EEPROM.get(30, hour);
+  EEPROM.get(40, minute);
+  EEPROM.get(60, delay);
+  programTime pt = riego.getProgramTime();
+  pt.hour = hour;
+  pt.delay = delay;
+  riego.setProgramTime(pt);
+}
+
+AlarmID_t alarmID;
+void alarmRiego(){
+  riego.check();
+}
+
+void alarmProgram(){
+  riego.runProgram();
+}
+
 Versatile_RotaryEncoder versatile_encoder[3]={Versatile_RotaryEncoder(PIN_SELECTOR_B1, PIN_SELECTOR_A1, PIN_BUTTON_1), Versatile_RotaryEncoder(PIN_SELECTOR_B2, PIN_SELECTOR_A2, PIN_BUTTON_2), Versatile_RotaryEncoder(PIN_SELECTOR_B3, PIN_SELECTOR_A3, PIN_BUTTON_3)};
 
 // Functions prototyping to be handled on each Encoder Event
-void handleRotate1(int8_t rotation);
+void handleRotate1(int8_t rotationDirection);
 void handlePress1();
 void handleLongPress1();
-void handleRotate2(int8_t rotation);
+void handleRotate2(int8_t rotationDirection);
 void handlePress2();
 void handleLongPress2();
-void handleRotate3(int8_t rotation);
+void handleRotate3(int8_t rotationDirection);
 void handlePress3();
 void handleLongPress3();
 
-void alarmRiego(){
-  Serial.println("void alarmRiego()");
-  riego->checkAlarm();
-}
-
 void setup() {
-  #ifdef DEBUG_BUILD
+  #ifdef DEBUG_BUILD 
   debug_init(); //debug only
+  debug_message("void setup()");
   #endif
-  
-  Serial.println("setup()");
-  //debug_init();
 
-  // put your setup code here, to run once:
+  SERIAL_BEGIN(115200);
+  //SERIAL_PRINTLN("setup()");
   bluetooth.begin(9600);
-  Serial.begin(115200);
 
   setEEPROM();
   time_t startTime;
   EEPROM.get(EEPROM_timeAddress,startTime);
 
+  //RTC.set(startTime);
+  //setTime(startTime);
+
   setSyncProvider(RTC.get);   // the function to get the time from the RTC
-  //RTC.set((time_t)DEFAULT_TIME);
-  if(timeStatus()!= timeSet){ //tbd: || RTC.get()>startTime; 
-     Serial.println("Unable to sync with the RTC");
+
+  if(timeStatus()!= timeSet){ //tbd: || RTC.get()>startTime;  ??
+     //SERIAL_PRINTLN("RTC'nt");      //Unable to sync with the RTC
      RTC.set(startTime);
      setTime(startTime);
-  }
-  else{
-     Serial.println("RTC has set the system time");   
-     Serial.println(now()); 
   }
 
   // Load to the encoder all nedded handle functions here (up to 9 functions)
@@ -86,124 +106,131 @@ void setup() {
   versatile_encoder[2].setHandlePress(handlePress3);  
   versatile_encoder[2].setHandleLongPress(handleLongPress3);
 
-  Serial.flush();
-  gui = new Gui(riego, &bluetooth);
+  //SERIAL_FLUSH();
+  gui = new Gui(&riego, &bluetooth);
+  riego.gui(gui);
 
-  riego->setProgramTime(ALARM_HOUR-1, ALARM_MINUTE, ALARM_SECOND);
-  Alarm.alarmRepeat(ALARM_HOUR-1, ALARM_MINUTE, ALARM_SECOND, alarmRiego);
+  loadEEPROM();
+  alarmID = Alarm.alarmRepeat(riego.getProgramTime().hour, riego.getProgramTime().minute, riego.getProgramTime().second, alarmRiego);
+  Alarm.delay(10);
 }
 
-bool changeState = false;
-bool directionState = true;
-bool press = false;
+bool rotation[3] = {false,false,false};
+bool rotationDir[3] = {false,false,false};
+bool press[3] = {false,false,false};
 bool longPress[3] = {false,false,false};
+bool triggerButtonAction = false;
 
-bool changeField = false;
-bool directionField = true;
-bool toggleField, toggleValue;
-//bool changeValue = false;
-//bool directionValue = true;
 
-void loop(){
-  Serial.println("void loop()");
-  bluetooth.println("void loop()");
-  //debug_message("loop");
+bool wasRunning=false;
+AlarmID_t alarmProgramID;
+//bool connected = false;
+//auto tick = millis();
+void loop(){  //SERIAL_PRINTLN("void loop()");
 
+  /*
+  if (bluetooth.available() && !connected){
+    connected = true;
+    gui->run();
+  } else if(!bluetooth.available() && 
+  */
+ /*
+  if((millis()-tick)>500){
+    tick = millis();
+    gui->run();
+  }*/
+
+  /*
   for(int i=0; i<3; i++){
-    if (versatile_encoder[i].ReadEncoder()) {    // Do the encoder reading and processing
-        //Serial.println("ReadEncoder");
-        // Do something here whenever an encoder action is read
-        if(press){
-          press=false;
-          gui->setup();
-        }
+    if (versatile_encoder[i].ReadEncoder()){// Do the encoder reading and processing
+      //if(press[0]) gui->setup();
+      if(rotation[0]) gui->nextState(rotationDir[0]);
 
-        if(changeState){
-          changeState = false;
-          gui->nextState(directionState);
-        }
+      //if(press[1]) riego.selections[1] = gui->selection();
+      //if(rotation[1]) gui->shiftField(rotationDir[1]);
 
-        if(longPress[i]){
-          longPress[i] = false;
-          riego->toggleValve(i);
-        }
+      if(longPress[i]) riego.longPress(i);
+      if(press[i]) riego.press(i);
+      if(rotation[i]) riego.rotation(i,rotationDir[i]);
 
-        if(changeField){
-          changeField=false;
-          gui->shiftField(directionField);
-        }
-
-        if(toggleField){
-          toggleField=false;
-          unsigned int selection = gui->selection();
-          if(selection==7) riego->toggleProgramEnabled();
-          else riego->toggleProgramDays(selection);
-        }
-        
-        /*
-        if(changeValue){ // Mostrar cambio de time
-          changeValue=false;
-          gui->shiftValue(directionValue);
-        }
-        */
-        if(toggleValue){ // Guardar cambio de time mostrado
-          toggleValue=false;
-          systemTime t = riego->getSystemTime();
-          t.hour = t.hour + gui->selection();
-          riego->setSystemTime(t);
-        }
+      longPress[i]=false;
+      press[i]=false;
+      rotation[i]=false;
     }
   }
-  
+  */
   gui->run();
-  Alarm.delay(1);
+
+  if(riego.changedProgramTime()){
+    Alarm.free(alarmID);
+    alarmID = Alarm.alarmRepeat(riego.getProgramTime().hour, riego.getProgramTime().minute, riego.getProgramTime().second, alarmRiego);
+  }
+
+  if(riego._running && !wasRunning){
+    wasRunning=true;
+    alarmProgramID = Alarm.timerRepeat(riego.getProgramTime().delay,alarmProgram);
+  }
+
+  if(!riego._running && wasRunning){
+    wasRunning=false;
+    Alarm.free(alarmProgramID);
+  }
+
+  Alarm.delay(5);
+  saveEEPROM();
+}
+
+void handleRotate(int handleNumber, int8_t rotationDirection){
+  rotation[handleNumber] = true;
+  if (rotation[handleNumber] > 0)
+    rotationDir[handleNumber]=false;
+  else
+    rotationDir[handleNumber]=false;
+  //riego.rotation(handleNumber, rotationDir[handleNumber]);
+}
+void handlePress(int handleNumber){
+  //riego.press(handleNumber);
+  press[handleNumber]=true;
+}
+void handleLongPress(int handleNumber){
+  //riego.longPress(handleNumber);
+  longPress[handleNumber]=true;
 }
 
 // Implement your functions here accordingly to your needs
-void handleRotate1(int8_t rotation) {
-  changeState = true;
-  if (rotation > 0)
-    directionState=false;
-  else
-    directionState=true;
+void handleRotate1(int8_t rotationDirection) {
+  //SERIAL_PRINTLN("handleRotate3()");
+  handleRotate(0, rotationDirection);
 }
 void handlePress1() {
-  press=true;
+  //SERIAL_PRINTLN("handlePress2()");
+  handlePress(0);
 }
 void handleLongPress1() {
-  longPress[0]=true;
+  //SERIAL_PRINTLN("handleLongPress2()");
+  handleLongPress(0);
 }
-
-void handleRotate2(int8_t rotation) {
-  changeField = true;
-  if (rotation > 0)
-    directionField=true;
-  else
-    directionField=false;
+void handleRotate2(int8_t rotationDirection) {
+  //SERIAL_PRINTLN("handleRotate3()");
+  handleRotate(1, rotationDirection);
 }
 void handlePress2() {
-  toggleField = true;
+  //SERIAL_PRINTLN("handlePress2()");
+  handlePress(1);
 }
 void handleLongPress2() {
-  longPress[1]=true;
+  //SERIAL_PRINTLN("handleLongPress2()");
+  handleLongPress(1);
 }
-
-void handleRotate3(int8_t rotation) {
-  /*
-    changeValue = true;
-    if (rotation > 0)
-      directionValue=true;
-    else
-      directionValue=false;
-      */
+void handleRotate3(int8_t rotationDirection) {
+  //SERIAL_PRINTLN("handleRotate3()");
+  handleRotate(2, rotationDirection);
 }
 void handlePress3() {
-  Serial.println("handlePress3()");
-  bluetooth.println("handlePress3");
-  toggleValue = true;
+  //SERIAL_PRINTLN("handlePress3()");
+  handlePress(2);  
 }
 void handleLongPress3() {
-  //Serial.println("handlePress()");
-  //bluetooth.println("handlePress");
-  longPress[2]=true;
+  //SERIAL_PRINTLN("handleLongPress()");
+  handleLongPress(2);
 }

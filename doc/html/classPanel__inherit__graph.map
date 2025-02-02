@@ -1,0 +1,6 @@
+<map id="Panel" name="Panel">
+<area shape="rect" id="node1" title=" " alt="" coords="147,5,205,32"/>
+<area shape="rect" id="node2" href="$classFrontPanel.html" title=" " alt="" coords="5,80,96,107"/>
+<area shape="rect" id="node3" href="$classProgramPanel.html" title=" " alt="" coords="120,80,232,107"/>
+<area shape="rect" id="node4" href="$classTimePanel.html" title=" " alt="" coords="256,80,347,107"/>
+</map>

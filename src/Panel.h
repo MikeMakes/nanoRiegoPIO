@@ -10,18 +10,17 @@
 
 class Panel{
   public:
-    Panel(IfaceGui* const gui = nullptr,IfaceRiego* const riego = nullptr, SoftwareSerial* const serial = nullptr):
-    _gui(gui),
-    _riego(riego),
+    Panel(SoftwareSerial* const serial = nullptr):
     bluetooth(serial){
-
     }
 
     //char serialID[2];
     //char commandIn;
-    char data_in;
+    char data_in='0';
+    const char previousStateChar='q';
+    const char nextStateChar='w';
 
-    int update_interval=1000; // time interval in ms for updating panel indicators 
+    unsigned long update_interval=200; // time interval in ms for updating panel indicators 
     unsigned long last_time=0; // time of last update
 
     /*Panel(char commandID, char panelID, SoftwareSerial* serial):bluetooth(serial){
@@ -39,13 +38,15 @@ class Panel{
       bluetooth->println(F("*.kwl"));
       bluetooth->println(F("clear_panel()"));
       bluetooth->println(F("set_grid_size(16,8)"));
-      bluetooth->println(F("add_text_box(4,1,8,C,Riego,245,240,245,S)"));
+      bluetooth->println(F("add_button(0,0,4,q,)"));
+      bluetooth->println(F("add_button(15,0,5,w,)"));
+      //bluetooth->println(F("add_text_box(4,1,8,C,Riego,245,240,245,)"));
     }
 
     virtual void body();
 
     void foot(){
-      bluetooth->println(F("set_panel_notes(,,,)"));
+      //bluetooth->println(F("set_panel_notes(,,,)"));
       bluetooth->println(F("run()"));
       bluetooth->println(F("*"));
     }
@@ -56,14 +57,13 @@ class Panel{
       foot();
     }
 
-    virtual void loop(IfaceRiego* const riego, IfaceGui* const gui);
+    virtual void loop();
+    virtual void update(IfaceRiego* const riego, IfaceGui* const gui);
 
     virtual void shiftField(bool next);
     virtual unsigned int getField();
 
-  private:
-    IfaceGui* _gui;
-    IfaceRiego* _riego;
+    unsigned int indexes[2];
 };
 
 #endif

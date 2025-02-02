@@ -14,169 +14,49 @@
 
 class Riego:public IfaceRiego{
   public:
-    Riego(Relay* pump, Relay valves[numValves], unsigned long programDelayMinutes = 15){
-      _actualTimeMillis = millis();
-      _programDelay = programDelayMinutes * 60000; //ms
-      _pump = pump;
-      for(int i=0; i<numValves; i++){
-        _valves[i]=valves[i];
-      }
-    }
+    int valveRunning = -1;
+    Riego(Relay* pump, Relay valves[numValves], unsigned long programDelaySeconds);
 
-    void setValve(int valve, bool state){
-      if(valve>numValves || valve<0) return;
-      for(int i=0; i<numValves; i++){
-        if(i==valve) continue;
-        _valves[i].setState(false);
-      }
-      _pump->setState(state);
-      _valves[valve].setState(state);
-    }
-    bool getValve(int valve){
-      return _valves[valve].getState();
-    }
-    void toggleValve(int valve){
-      setValve(valve, !_valves[valve].getState());
-    }
+    void setValve(int valve, bool state);
+    bool getValve(int valve);
+    void toggleValve(int valve);
+    void turnOff();
 
-    void setProgramEnabled(bool programEnabled){
-      _programEnabled=programEnabled;
-    }
-    bool getProgramEnabled(){
-      return _programEnabled;
-    }
-    void toggleProgramEnabled(){
-      _programEnabled=!_programEnabled;
-    }
-    
-    void turnOff(){
-      for(int i=0; i<numValves; i++){
-        setValve(i,false);
-      }
-    }
-        
-    void runProgram(unsigned long programDelay){
-      _running = true;
-      _lastRunTimeMillis = millis();
-      _lastRunTime = now();
-      for(int i=0; i<numValves; i++){
-        setValve(i,true);
-        Alarm.delay(programDelay);
-      }
-      turnOff();
-      _running = false; //todo
-    }
-    void testValves(){
-      runProgram(1500);
-    }
+    void runProgram();
+    void check();
 
-    void check(){
-      //checkMillis();
-      checkAlarm();
-    }
-    void checkMillis(){
-      if(!_programEnabled) return;
-      _actualTimeMillis = millis();
-      //if( (_actualTime - _lastRunTimeMillis) > oneDay) ){
-      if((_actualTimeMillis - _lastRunTimeMillis) > oneMin){
-        runProgram(_programDelay);
-      }
-    }
-    void checkAlarm(){    //Alarm.alarmRepeat(dowMonday, 9,15,0, check);
-      if(!_programEnabled) return;
-      _actualTime = now();
-      if(_programedDays[weekday()-1]){
-        runProgram(_programDelay);
-      }
-    }
+    void checkAlarm();
 
-    void setProgramDays(unsigned int day, bool enabled){
-        if(day<0 || day>6) return;
-        _programedDays[day] = enabled;
-    }
-    void toggleProgramDays(unsigned int day){
-        if(day<0 || day>6) return;
-        _programedDays[day] = !_programedDays[day];
-    }
-    void setProgramTime(int hour, int min, int sec){
-      _programTime[0] = hour;
-      _programTime[1] = min;
-      _programTime[2] = sec;
-    }
-    void addProgramTime(unsigned int field){
-      if(field<0 || field>2) return;
-      if (field != 0) {
-        _programTime[field] = _programTime[field] - 10;
-        if (_programTime[field] > 59 ) _programTime[field] = 59;
-      }
-      else {
-        _programTime[field]--;
-        if (_programTime[field] > 23 ) _programTime[field] = 23;
-      }
-    }
-    void substractProgramTime(unsigned int field){
-      if(field<0 || field>2) return;
-      if (field != 0) {
-        _programTime[field] = _programTime[field] - 10;
-        if (_programTime[field] > 59 ) _programTime[field] = 59;
-      }
-      else {
-        _programTime[field]--;
-        if (_programTime[field] > 23 ) _programTime[field] = 23;
-      }
-    }
+    void testValves();
 
-    programTime getProgramTime(){
-      programTime actualTime;
-      actualTime.hour=_programTime[0];
-      actualTime.minute=_programTime[1];
-      actualTime.second=_programTime[2];
-      for(int i=0; i<7; i++) actualTime.programDays[i]=_programedDays[i];
-      actualTime.programEnabled=_programEnabled;
-      return actualTime;
-    }
-    unsigned int getProgramTime(unsigned int field){
-      if(field>2) field = 2;
-      return _programTime[field];
-    }
-    systemTime getSystemTime(){
-      systemTime actualTime = {hour(),minute(),second(),day(),month(),year()};
-      return actualTime;
-    }
-    unsigned int getSystemTime(unsigned int field){
-      if(field>5) field = 5;
-      unsigned int systemTime[6]={hour(),minute(),second(),day(),month(),year()};
-      return systemTime[field];
-    }
-    void setSystemTime(systemTime time){
-      //struct systemTime unsigned int hour, minute, second, day, month, year;
-      time_t unixTime=0;
-      unixTime += time.hour * 3600;
-      unixTime += time.minute * 60;
-      unixTime += time.second; //* 1;
-      unixTime += time.day * 86400;
-      unixTime += time.month * 2629743;
-      unixTime += (time.year-1970) * 2629743;
-      RTC.set(unixTime);
-      setTime(unixTime);
-    }
+    //programTime getProgramTime();
+    //unsigned int getProgramTime(unsigned int field);
+    systemTime getSystemTime();
+    void setSystemTime(systemTime time);
 
+    const programTime& getProgramTime(); //const (non modifiable) ref (make impossible to change without passing by serProgramTime)
+    void setProgramTime(const programTime& newProgramTime);
+    bool changedProgramTime();
+
+    void press(int button);
+    void longPress(int button);
+    void rotation(int button, bool rotationDir);
 
   private:
     Relay* _pump;
     Relay _valves[numValves];
     int _numValves = numValves;
 
-    bool _running = false;
-    bool _programEnabled = true;
-    unsigned long _programDelay = 5;
-    unsigned long _actualTimeMillis;
+    //unsigned long _actualTimeMillis;
     unsigned long _lastRunTimeMillis;
     const static time_t _defaultTime = DEFAULT_TIME;
     time_t _actualTime = DEFAULT_TIME;
-    //time_t _programTime = DEFAULT_TIME;
     time_t _lastRunTime;
-    bool _programedDays[7] = {true,true,true,true,true,true,true};
-    unsigned int _programTime[3]={9,00,00};
+
+    programTime _programTime{ .hour = ALARM_HOUR, .minute = ALARM_MINUTE, .second = ALARM_SECOND, .programDays = {true,false,true,false,true,false,true}, .programEnabled = true, .delay = PROGRAM_DELAY };
+    bool _changedProgramTime = false;
+
+  public:
+    unsigned int selections[3]={0,0,0};
 };
 #endif

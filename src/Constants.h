@@ -2,14 +2,17 @@
 #define CONSTANTS_H
 
 #ifdef DEBUG_BUILD
-  #define SERIAL_BEGIN(x) do {} while (0)
-  #define SERIAL_PRINTLN(x) do {} while (0)
-  #define SERIAL_FLUSH(x) do {} while (0)
+    #define SERIAL_BEGIN(x) do {} while (0)
+    #define SERIAL_PRINT(x) do {} while (0)
+    #define SERIAL_PRINTLN(x) do {} while (0)
+    #define SERIAL_FLUSH(x) do {} while(0)
 #else
-  #define SERIAL_BEGIN(x) Serial.begin(x)
-  #define SERIAL_PRINTLN(x) Serial.println(x)
-  #define SERIAL_FLUSH(x) Serial.flush(x)
+    #define SERIAL_BEGIN(x) Serial.begin(x)
+    #define SERIAL_PRINT(x) Serial.print(x)
+    #define SERIAL_PRINTLN(x) Serial.println(x)
+    #define SERIAL_FLUSH(x)  Serial.flush(x)
 #endif
+
 
 #define numPumps 1
 #define pinPump 17//A3
@@ -37,14 +40,17 @@ const static unsigned int PIN_I2C_SCK = 19;
 const static unsigned int PIN_BLUETOOTH_RX = 2;
 const static unsigned int PIN_BLUETOOTH_TX = 3;
 
-#define oneDay 86400000
-#define oneDaySeconds 86400
-#define oneMin 6000
-
 #define EEPROM_timeAddress 0
-const static unsigned int DEFAULT_TIME = (unsigned int)1701709190;
-const static unsigned int ALARM_HOUR = (unsigned int)10;
-const static unsigned int ALARM_MINUTE = (unsigned int)00;
-const static unsigned int ALARM_SECOND = (unsigned int)00;
+const static unsigned long DEFAULT_TIME = (unsigned long)1716991560+(2*3600);//GMT+2
+const static unsigned int ALARM_HOUR = (unsigned int)8;
+const static unsigned int ALARM_MINUTE = (unsigned int)0;
+const static unsigned int ALARM_SECOND = (unsigned int)0;
+const static unsigned int PROGRAM_DELAY = (unsigned int)15*60; //seconds
+
+const static unsigned int GUI_UPDATE_INTERVAL = (unsigned int) 400; //ms
+const static unsigned int GUI_UPDATE_INTERVAL_FORCED = (unsigned int) 5000; //ms
+
+const static unsigned char MESSAGE_PRELIMITER = '*';
+const static unsigned int MAX_MESSAGE_CMD = 10;
 
 #endif

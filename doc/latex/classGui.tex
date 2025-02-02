@@ -1,0 +1,210 @@
+\hypertarget{classGui}{}\doxysection{Gui Class Reference}
+\label{classGui}\index{Gui@{Gui}}
+
+
+{\ttfamily \#include $<$Gui.\+h$>$}
+
+
+
+Inheritance diagram for Gui\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=137pt]{classGui__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Gui\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classGui__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGui_aa3b8faedf7150eda981c37beb41d4247}{Gui}} (\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const riego, Software\+Serial $\ast$const serial)
+\item 
+void \mbox{\hyperlink{classGui_a225eb7edaace31eb6cc4ec3173b2a703}{run}} ()
+\item 
+void \mbox{\hyperlink{classGui_acb8488a460e5890859d1f8c741a5f2fc}{set\+State}} (\mbox{\hyperlink{classIfaceGui_ae151731d6ecb0e26a9f5ff9af9275055}{S\+T\+A\+T\+ES}} state)
+\item 
+void \mbox{\hyperlink{classGui_a3fdeba53a9b821e73855921f1eeb684c}{next\+State}} (bool right=true)
+\item 
+void \mbox{\hyperlink{classGui_af08f8def5ff06799c05c0276d01bc336}{setup}} ()
+\item 
+void \mbox{\hyperlink{classGui_afb0548c90ead1a4e501f1c6a2b48f285}{shift\+Field}} (bool direction\+Field=true)
+\item 
+unsigned int \mbox{\hyperlink{classGui_a2e227772f401812f692df79f855cfdbf}{selection}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 13 of file Gui.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGui_aa3b8faedf7150eda981c37beb41d4247}\label{classGui_aa3b8faedf7150eda981c37beb41d4247}} 
+\index{Gui@{Gui}!Gui@{Gui}}
+\index{Gui@{Gui}!Gui@{Gui}}
+\doxysubsubsection{\texorpdfstring{Gui()}{Gui()}}
+{\footnotesize\ttfamily Gui\+::\+Gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceRiego}{Iface\+Riego}} $\ast$const}]{riego,  }\item[{Software\+Serial $\ast$const}]{serial }\end{DoxyParamCaption})}
+
+
+
+Definition at line 3 of file Gui.\+cpp.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGui_aa3b8faedf7150eda981c37beb41d4247_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGui_a3fdeba53a9b821e73855921f1eeb684c}\label{classGui_a3fdeba53a9b821e73855921f1eeb684c}} 
+\index{Gui@{Gui}!nextState@{nextState}}
+\index{nextState@{nextState}!Gui@{Gui}}
+\doxysubsubsection{\texorpdfstring{nextState()}{nextState()}}
+{\footnotesize\ttfamily void Gui\+::next\+State (\begin{DoxyParamCaption}\item[{bool}]{right = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 48 of file Gui.\+cpp.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{classGui_a3fdeba53a9b821e73855921f1eeb684c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGui_a225eb7edaace31eb6cc4ec3173b2a703}\label{classGui_a225eb7edaace31eb6cc4ec3173b2a703}} 
+\index{Gui@{Gui}!run@{run}}
+\index{run@{run}!Gui@{Gui}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Gui\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceGui_a4982d6dd772b6196dfc7110e7c92b5bf}{Iface\+Gui}}.
+
+
+
+Definition at line 23 of file Gui.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGui_a225eb7edaace31eb6cc4ec3173b2a703_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classGui_a225eb7edaace31eb6cc4ec3173b2a703_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGui_a2e227772f401812f692df79f855cfdbf}\label{classGui_a2e227772f401812f692df79f855cfdbf}} 
+\index{Gui@{Gui}!selection@{selection}}
+\index{selection@{selection}!Gui@{Gui}}
+\doxysubsubsection{\texorpdfstring{selection()}{selection()}}
+{\footnotesize\ttfamily unsigned int Gui\+::selection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 72 of file Gui.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{classGui_a2e227772f401812f692df79f855cfdbf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{classGui_a2e227772f401812f692df79f855cfdbf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGui_acb8488a460e5890859d1f8c741a5f2fc}\label{classGui_acb8488a460e5890859d1f8c741a5f2fc}} 
+\index{Gui@{Gui}!setState@{setState}}
+\index{setState@{setState}!Gui@{Gui}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Gui\+::set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceGui_ae151731d6ecb0e26a9f5ff9af9275055}{S\+T\+A\+T\+ES}}}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classIfaceGui_ae6479ad72284d11f43fd7172f36c42a3}{Iface\+Gui}}.
+
+
+
+Definition at line 33 of file Gui.\+cpp.
+
+\mbox{\Hypertarget{classGui_af08f8def5ff06799c05c0276d01bc336}\label{classGui_af08f8def5ff06799c05c0276d01bc336}} 
+\index{Gui@{Gui}!setup@{setup}}
+\index{setup@{setup}!Gui@{Gui}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Gui\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 43 of file Gui.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGui_af08f8def5ff06799c05c0276d01bc336_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classGui_af08f8def5ff06799c05c0276d01bc336_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classGui_afb0548c90ead1a4e501f1c6a2b48f285}\label{classGui_afb0548c90ead1a4e501f1c6a2b48f285}} 
+\index{Gui@{Gui}!shiftField@{shiftField}}
+\index{shiftField@{shiftField}!Gui@{Gui}}
+\doxysubsubsection{\texorpdfstring{shiftField()}{shiftField()}}
+{\footnotesize\ttfamily void Gui\+::shift\+Field (\begin{DoxyParamCaption}\item[{bool}]{direction\+Field = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 66 of file Gui.\+cpp.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{classGui_afb0548c90ead1a4e501f1c6a2b48f285_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{classGui_afb0548c90ead1a4e501f1c6a2b48f285_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/media/user/raid1/home/user/\+Documents/\+Platform\+I\+O/\+Projects/nano\+Riego\+P\+I\+O/src/\mbox{\hyperlink{Gui_8h}{Gui.\+h}}\item 
+/media/user/raid1/home/user/\+Documents/\+Platform\+I\+O/\+Projects/nano\+Riego\+P\+I\+O/src/\mbox{\hyperlink{Gui_8cpp}{Gui.\+cpp}}\end{DoxyCompactItemize}

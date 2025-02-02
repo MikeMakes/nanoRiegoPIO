@@ -1,0 +1,339 @@
+\hypertarget{classIfaceRiego}{}\doxysection{Iface\+Riego Class Reference}
+\label{classIfaceRiego}\index{IfaceRiego@{IfaceRiego}}
+
+
+{\ttfamily \#include $<$Iface\+Riego.\+h$>$}
+
+
+
+Inheritance diagram for Iface\+Riego\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{classIfaceRiego__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Iface\+Riego\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{classIfaceRiego__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIfaceRiego_aab721205a7de77c02f4b3f65d412bcd2}{Iface\+Riego}} ()
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_acb41370ef08cc53add9940776d133d5b}{gui}} (\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const gui)
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_a97df6c145f898fad3120d15bea1e6fde}{set\+Valve}} (int valve, bool state)
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_a3b780a24dcedddf6fcf3024f8e06c6ac}{toggle\+Valve}} (int valve)
+\item 
+virtual bool \mbox{\hyperlink{classIfaceRiego_a9a1707b77778f260944ffa329d9437fd}{get\+Valve}} (int valve)
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_ac3257c0f52f8accf855bbf0ca425dac4}{set\+Program\+Enabled}} (bool program\+Enabled)
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_aefe340a6ee3820ba96794489a926881a}{turn\+Off}} ()
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_a0113e31de695b99d4add7a9c92ec03b7}{run\+Program}} (unsigned long program\+Delay)
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_a345cbcf809123144b906634fb26d8984}{check}} ()
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_a6a37d999dcf6203ed277feb916813f35}{toggle\+Program\+Enabled}} ()
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_a3ae3ec318fa7cfaf4267c2759cf458a0}{toggle\+Program\+Days}} (unsigned int day)
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_ad7807f6641e48c373c7baf33547e2102}{add\+Program\+Time}} (unsigned int field)
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_a6549b383749d836efc6931520b3638a3}{substract\+Program\+Time}} (unsigned int field)
+\item 
+virtual \mbox{\hyperlink{structprogramTime}{program\+Time}} \mbox{\hyperlink{classIfaceRiego_a1bf3c459c8ba9a56b144ba20f62618c8}{get\+Program\+Time}} ()
+\item 
+virtual unsigned int \mbox{\hyperlink{classIfaceRiego_a915eb50cfff5b1b90962e7212565b036}{get\+Program\+Time}} (unsigned int field)
+\item 
+virtual \mbox{\hyperlink{structsystemTime}{system\+Time}} \mbox{\hyperlink{classIfaceRiego_a01a239dcfe68454d0d27e6a08a04204f}{get\+System\+Time}} ()
+\item 
+virtual unsigned int \mbox{\hyperlink{classIfaceRiego_ab58cd570d8986681975baab4e17b5f4c}{get\+System\+Time}} (unsigned int field)
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_ae067e6c00dc4d27fea5f12ae5ced1cfd}{set\+System\+Time}} (\mbox{\hyperlink{structsystemTime}{system\+Time}} time)
+\item 
+virtual void \mbox{\hyperlink{classIfaceRiego_aee9d4dbb3667478499237e2eea53b228}{set\+Program\+Time}} (\mbox{\hyperlink{structprogramTime}{program\+Time}} time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$ \mbox{\hyperlink{classIfaceRiego_ab8c7adb16691e7db89a773e32cb71058}{\+\_\+gui}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 21 of file Iface\+Riego.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIfaceRiego_aab721205a7de77c02f4b3f65d412bcd2}\label{classIfaceRiego_aab721205a7de77c02f4b3f65d412bcd2}} 
+\index{IfaceRiego@{IfaceRiego}!IfaceRiego@{IfaceRiego}}
+\index{IfaceRiego@{IfaceRiego}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{IfaceRiego()}{IfaceRiego()}}
+{\footnotesize\ttfamily Iface\+Riego\+::\+Iface\+Riego (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 23 of file Iface\+Riego.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIfaceRiego_ad7807f6641e48c373c7baf33547e2102}\label{classIfaceRiego_ad7807f6641e48c373c7baf33547e2102}} 
+\index{IfaceRiego@{IfaceRiego}!addProgramTime@{addProgramTime}}
+\index{addProgramTime@{addProgramTime}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{addProgramTime()}{addProgramTime()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::add\+Program\+Time (\begin{DoxyParamCaption}\item[{unsigned int}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a59cfb941e686264cce81b4827fb62bcd}{Riego}}.
+
+\mbox{\Hypertarget{classIfaceRiego_a345cbcf809123144b906634fb26d8984}\label{classIfaceRiego_a345cbcf809123144b906634fb26d8984}} 
+\index{IfaceRiego@{IfaceRiego}!check@{check}}
+\index{check@{check}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a6a7d435f7b4b75b5f02e90e8660f1c6d}{Riego}}.
+
+\mbox{\Hypertarget{classIfaceRiego_a1bf3c459c8ba9a56b144ba20f62618c8}\label{classIfaceRiego_a1bf3c459c8ba9a56b144ba20f62618c8}} 
+\index{IfaceRiego@{IfaceRiego}!getProgramTime@{getProgramTime}}
+\index{getProgramTime@{getProgramTime}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{getProgramTime()}{getProgramTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structprogramTime}{program\+Time}} Iface\+Riego\+::get\+Program\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_aaba7276e472c666d55b668faae7fc4ca}{Riego}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIfaceRiego_a1bf3c459c8ba9a56b144ba20f62618c8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classIfaceRiego_a915eb50cfff5b1b90962e7212565b036}\label{classIfaceRiego_a915eb50cfff5b1b90962e7212565b036}} 
+\index{IfaceRiego@{IfaceRiego}!getProgramTime@{getProgramTime}}
+\index{getProgramTime@{getProgramTime}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{getProgramTime()}{getProgramTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual unsigned int Iface\+Riego\+::get\+Program\+Time (\begin{DoxyParamCaption}\item[{unsigned int}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a856d96420789af5948b89cb6039218e6}{Riego}}.
+
+\mbox{\Hypertarget{classIfaceRiego_a01a239dcfe68454d0d27e6a08a04204f}\label{classIfaceRiego_a01a239dcfe68454d0d27e6a08a04204f}} 
+\index{IfaceRiego@{IfaceRiego}!getSystemTime@{getSystemTime}}
+\index{getSystemTime@{getSystemTime}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{getSystemTime()}{getSystemTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structsystemTime}{system\+Time}} Iface\+Riego\+::get\+System\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a65cc32d0717274d9c513764b1357a1bc}{Riego}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIfaceRiego_a01a239dcfe68454d0d27e6a08a04204f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classIfaceRiego_ab58cd570d8986681975baab4e17b5f4c}\label{classIfaceRiego_ab58cd570d8986681975baab4e17b5f4c}} 
+\index{IfaceRiego@{IfaceRiego}!getSystemTime@{getSystemTime}}
+\index{getSystemTime@{getSystemTime}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{getSystemTime()}{getSystemTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual unsigned int Iface\+Riego\+::get\+System\+Time (\begin{DoxyParamCaption}\item[{unsigned int}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_af57cd351416170236038b22d6d471241}{Riego}}.
+
+\mbox{\Hypertarget{classIfaceRiego_a9a1707b77778f260944ffa329d9437fd}\label{classIfaceRiego_a9a1707b77778f260944ffa329d9437fd}} 
+\index{IfaceRiego@{IfaceRiego}!getValve@{getValve}}
+\index{getValve@{getValve}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{getValve()}{getValve()}}
+{\footnotesize\ttfamily virtual bool Iface\+Riego\+::get\+Valve (\begin{DoxyParamCaption}\item[{int}]{valve }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a792bf34dd69bde1d49dce2f3f996d720}{Riego}}.
+
+\mbox{\Hypertarget{classIfaceRiego_acb41370ef08cc53add9940776d133d5b}\label{classIfaceRiego_acb41370ef08cc53add9940776d133d5b}} 
+\index{IfaceRiego@{IfaceRiego}!gui@{gui}}
+\index{gui@{gui}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{gui()}{gui()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::gui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIfaceGui}{Iface\+Gui}} $\ast$const}]{gui }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 26 of file Iface\+Riego.\+h.
+
+\mbox{\Hypertarget{classIfaceRiego_a0113e31de695b99d4add7a9c92ec03b7}\label{classIfaceRiego_a0113e31de695b99d4add7a9c92ec03b7}} 
+\index{IfaceRiego@{IfaceRiego}!runProgram@{runProgram}}
+\index{runProgram@{runProgram}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{runProgram()}{runProgram()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::run\+Program (\begin{DoxyParamCaption}\item[{unsigned long}]{program\+Delay }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_adfce34662b16840eff354fa78b1345e7}{Riego}}.
+
+\mbox{\Hypertarget{classIfaceRiego_ac3257c0f52f8accf855bbf0ca425dac4}\label{classIfaceRiego_ac3257c0f52f8accf855bbf0ca425dac4}} 
+\index{IfaceRiego@{IfaceRiego}!setProgramEnabled@{setProgramEnabled}}
+\index{setProgramEnabled@{setProgramEnabled}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{setProgramEnabled()}{setProgramEnabled()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::set\+Program\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{program\+Enabled }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_ae2993a71b165a6cbedf97c20f0c6d874}{Riego}}.
+
+\mbox{\Hypertarget{classIfaceRiego_aee9d4dbb3667478499237e2eea53b228}\label{classIfaceRiego_aee9d4dbb3667478499237e2eea53b228}} 
+\index{IfaceRiego@{IfaceRiego}!setProgramTime@{setProgramTime}}
+\index{setProgramTime@{setProgramTime}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{setProgramTime()}{setProgramTime()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::set\+Program\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structprogramTime}{program\+Time}}}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a433234f22f0a325e358b1c7d8def08b6}{Riego}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIfaceRiego_aee9d4dbb3667478499237e2eea53b228_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classIfaceRiego_ae067e6c00dc4d27fea5f12ae5ced1cfd}\label{classIfaceRiego_ae067e6c00dc4d27fea5f12ae5ced1cfd}} 
+\index{IfaceRiego@{IfaceRiego}!setSystemTime@{setSystemTime}}
+\index{setSystemTime@{setSystemTime}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{setSystemTime()}{setSystemTime()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::set\+System\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsystemTime}{system\+Time}}}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_ae6e7a8dbda39231a738b8212c0f07b51}{Riego}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIfaceRiego_ae067e6c00dc4d27fea5f12ae5ced1cfd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classIfaceRiego_a97df6c145f898fad3120d15bea1e6fde}\label{classIfaceRiego_a97df6c145f898fad3120d15bea1e6fde}} 
+\index{IfaceRiego@{IfaceRiego}!setValve@{setValve}}
+\index{setValve@{setValve}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{setValve()}{setValve()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::set\+Valve (\begin{DoxyParamCaption}\item[{int}]{valve,  }\item[{bool}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a83410e274e6eac4a2dd6614962d0fc2b}{Riego}}.
+
+\mbox{\Hypertarget{classIfaceRiego_a6549b383749d836efc6931520b3638a3}\label{classIfaceRiego_a6549b383749d836efc6931520b3638a3}} 
+\index{IfaceRiego@{IfaceRiego}!substractProgramTime@{substractProgramTime}}
+\index{substractProgramTime@{substractProgramTime}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{substractProgramTime()}{substractProgramTime()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::substract\+Program\+Time (\begin{DoxyParamCaption}\item[{unsigned int}]{field }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a5fffb4278de31c1b44747162d96d29a7}{Riego}}.
+
+\mbox{\Hypertarget{classIfaceRiego_a3ae3ec318fa7cfaf4267c2759cf458a0}\label{classIfaceRiego_a3ae3ec318fa7cfaf4267c2759cf458a0}} 
+\index{IfaceRiego@{IfaceRiego}!toggleProgramDays@{toggleProgramDays}}
+\index{toggleProgramDays@{toggleProgramDays}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{toggleProgramDays()}{toggleProgramDays()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::toggle\+Program\+Days (\begin{DoxyParamCaption}\item[{unsigned int}]{day }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a860214d1d0c24b623b3209d3caf21d7c}{Riego}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIfaceRiego_a3ae3ec318fa7cfaf4267c2759cf458a0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classIfaceRiego_a6a37d999dcf6203ed277feb916813f35}\label{classIfaceRiego_a6a37d999dcf6203ed277feb916813f35}} 
+\index{IfaceRiego@{IfaceRiego}!toggleProgramEnabled@{toggleProgramEnabled}}
+\index{toggleProgramEnabled@{toggleProgramEnabled}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{toggleProgramEnabled()}{toggleProgramEnabled()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::toggle\+Program\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_afb8f53fa609ec831e3677193bf717eed}{Riego}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classIfaceRiego_a6a37d999dcf6203ed277feb916813f35_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classIfaceRiego_a3b780a24dcedddf6fcf3024f8e06c6ac}\label{classIfaceRiego_a3b780a24dcedddf6fcf3024f8e06c6ac}} 
+\index{IfaceRiego@{IfaceRiego}!toggleValve@{toggleValve}}
+\index{toggleValve@{toggleValve}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{toggleValve()}{toggleValve()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::toggle\+Valve (\begin{DoxyParamCaption}\item[{int}]{valve }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a12c5b58f0ff399cb99e89460bae95fe6}{Riego}}.
+
+\mbox{\Hypertarget{classIfaceRiego_aefe340a6ee3820ba96794489a926881a}\label{classIfaceRiego_aefe340a6ee3820ba96794489a926881a}} 
+\index{IfaceRiego@{IfaceRiego}!turnOff@{turnOff}}
+\index{turnOff@{turnOff}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{turnOff()}{turnOff()}}
+{\footnotesize\ttfamily virtual void Iface\+Riego\+::turn\+Off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classRiego_a5b7dcfe1560c6da25062340801fcc5e4}{Riego}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classIfaceRiego_ab8c7adb16691e7db89a773e32cb71058}\label{classIfaceRiego_ab8c7adb16691e7db89a773e32cb71058}} 
+\index{IfaceRiego@{IfaceRiego}!\_gui@{\_gui}}
+\index{\_gui@{\_gui}!IfaceRiego@{IfaceRiego}}
+\doxysubsubsection{\texorpdfstring{\_gui}{\_gui}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIfaceGui}{Iface\+Gui}}$\ast$ Iface\+Riego\+::\+\_\+gui}
+
+
+
+Definition at line 53 of file Iface\+Riego.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/media/user/raid1/home/user/\+Documents/\+Platform\+I\+O/\+Projects/nano\+Riego\+P\+I\+O/src/\mbox{\hyperlink{IfaceRiego_8h}{Iface\+Riego.\+h}}\end{DoxyCompactItemize}
