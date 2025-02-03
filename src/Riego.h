@@ -29,18 +29,12 @@ class Riego:public IfaceRiego{
 
     void testValves();
 
-    //programTime getProgramTime();
-    //unsigned int getProgramTime(unsigned int field);
     systemTime getSystemTime();
     void setSystemTime(systemTime time);
 
     const programTime& getProgramTime(); //const (non modifiable) ref (make impossible to change without passing by serProgramTime)
     void setProgramTime(const programTime& newProgramTime);
     bool changedProgramTime();
-
-    void press(int button);
-    void longPress(int button);
-    void rotation(int button, bool rotationDir);
 
   private:
     Relay* _pump;
@@ -55,8 +49,5 @@ class Riego:public IfaceRiego{
 
     programTime _programTime{ .hour = ALARM_HOUR, .minute = ALARM_MINUTE, .second = ALARM_SECOND, .programDays = {true,false,true,false,true,false,true}, .programEnabled = true, .delay = PROGRAM_DELAY };
     bool _changedProgramTime = false;
-
-  public:
-    unsigned int selections[3]={0,0,0};
 };
 #endif
