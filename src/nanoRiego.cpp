@@ -64,6 +64,8 @@ void setup() {
 
   SERIAL_BEGIN(115200);
   //SERIAL_PRINTLN("setup()");
+
+  //pinMode(PIN_BLUETOOTH_ST, INPUT);
   bluetooth.begin(9600);
 
   setEEPROM();

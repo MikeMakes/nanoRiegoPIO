@@ -27,6 +27,7 @@ const static unsigned int PIN_I2C_SCK = 19;
 
 const static unsigned int PIN_BLUETOOTH_RX = 2;
 const static unsigned int PIN_BLUETOOTH_TX = 3;
+const static unsigned int PIN_BLUETOOTH_ST = 9;
 
 const static unsigned int EEPROM_timeAddress = 0;
 

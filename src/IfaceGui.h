@@ -17,6 +17,8 @@ class IfaceGui{
     virtual void run() = 0;
     virtual void setState(STATES state) = 0;
 
+    bool _connected = false;
+    virtual void checkConnection() = 0;
     virtual void loop() = 0;
 
     typedef struct GuiMessage{

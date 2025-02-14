@@ -11,12 +11,13 @@ class Gui:public IfaceGui{
     Gui(IfaceRiego* const riego, SoftwareSerial* const serial);
 
     //void setup();
-    void update();
-    
     void run() override;
+    void update();
+    void checkConnection() override;
+    void loop() override;
+    
     void setState(STATES state) override;
     void nextState(bool right = true) override;
-    void loop() override;
 
     GuiMessage& updateGuiData(GuiMessage& guiMessage) override;
 

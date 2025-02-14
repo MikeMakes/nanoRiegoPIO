@@ -13,6 +13,15 @@ _bluetooth(serial)
   _update = true;
 }
 
+void Gui::checkConnection(){
+  bool bluetoothState = digitalRead(PIN_BLUETOOTH_ST);
+  if(bluetoothState != _connected){
+    _connected = bluetoothState;
+    //if(_connected) newConnection(); //update(forced = true);
+    //else disconnection(); //nothing? flush serial?
+  }
+}
+
 Gui::GuiMessage& Gui::updateGuiData(GuiMessage& guiMessage){
   guiMessage.st = _riego->getSystemTime();
   guiMessage.pt = _riego->getProgramTime();
