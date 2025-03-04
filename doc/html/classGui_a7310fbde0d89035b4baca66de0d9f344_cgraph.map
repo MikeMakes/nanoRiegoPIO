@@ -1,7 +1,0 @@
-<map id="Gui::handleCmdAutoDuration" name="Gui::handleCmdAutoDuration">
-<area shape="rect" id="node1" title=" " alt="" coords="5,81,217,108"/>
-<area shape="rect" id="node2" href="$classIfaceRiego.html#a8828ebe7148d9d3697b0e12484cd233b" title=" " alt="" coords="265,5,473,32"/>
-<area shape="rect" id="node3" href="$classGui.html#a4ce25c543a73825d9568723b5ae520a6" title=" " alt="" coords="281,56,457,83"/>
-<area shape="rect" id="node4" href="$classGui.html#a34e0bba3b26c495336a9465350d4d19b" title=" " alt="" coords="521,81,679,108"/>
-<area shape="rect" id="node5" href="$classIfaceRiego.html#a1c55690f6336dde8f83465ae8d4cdb48" title=" " alt="" coords="266,157,473,184"/>
-</map>
