@@ -21,6 +21,7 @@ Made for fun and to be cheap, a DIY resource wasteful watering control system. B
 # Notes
 For some reason I did not bother to spend too much time into ([more info here](https://community.platformio.org/t/project-inspection-error-register-r24-r26-r28-or-r30-required/18648/2)), if headers files are placed in the include folder compiling in debug mode returns:
 * Error: register r24, r26, r28 or r30 required  
+
 To evade it, either place all files in src folder or modify SoftwareSerial library for debug enviroments as follows.
 * In files ".pio/libdeps/nanoatmega328/SoftwareSerial/SoftwareSerial.cpp" and ".pio/libdeps/nanoatmega328new/SoftwareSerial/SoftwareSerial.cpp"
 * Change the following (line 329):
