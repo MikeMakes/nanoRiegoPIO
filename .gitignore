@@ -5,3 +5,6 @@
 .vscode/launch.json
 .vscode/ipch
 .vscode/tasks.json
+.doc
+.lib
+.test
