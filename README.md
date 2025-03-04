@@ -24,33 +24,33 @@ For some reason I did not bother to spend too much time into ([more info here](h
 To evade it, either place all files in src folder or modify SoftwareSerial library for debug enviroments as follows.
 * In files ".pio/libdeps/nanoatmega328/SoftwareSerial/SoftwareSerial.cpp" and ".pio/libdeps/nanoatmega328new/SoftwareSerial/SoftwareSerial.cpp"
 * Change the following (line 329):
-> /* static */
-> inline void SoftwareSerial::tunedDelay(uint16_t delay) {
->   uint8_t tmp=0;
-> 
->   asm volatile("sbiw    %0, 0x01 \n\t"
->     "ldi %1, 0xFF \n\t"
->     "cpi %A0, 0xFF \n\t"
->     "cpc %B0, %1 \n\t"
->     "brne .-10 \n\t"
->     : "+r" (delay), "+a" (tmp)
->     : "0" (delay)
->     );
-> }
+> /* static */  
+> inline void SoftwareSerial::tunedDelay(uint16_t delay) {  
+>   uint8_t tmp=0;  
+>   
+>   asm volatile("sbiw    %0, 0x01 \n\t"  
+>     "ldi %1, 0xFF \n\t"  
+>     "cpi %A0, 0xFF \n\t"  
+>     "cpc %B0, %1 \n\t"  
+>     "brne .-10 \n\t"  
+>     : "+r" (delay), "+a" (tmp)  
+>     : "0" (delay)  
+>     );  
+> }  
 * For this:
-> /* static */ 
-> inline void SoftwareSerial::tunedDelay(uint16_t delay) { 
->   uint8_t tmp=0;
-> 
->   asm volatile("sbiw    %0, 0x01 \n\t"
->     "ldi %1, 0xFF \n\t"
->     "cpi %A0, 0xFF \n\t"
->     "cpc %B0, %1 \n\t"
->     "brne .-10 \n\t"
->     : "+w" (delay), "+a" (tmp)
->     : "0" (delay)
->     );
-> }
+> /* static */   
+> inline void SoftwareSerial::tunedDelay(uint16_t delay) {   
+>   uint8_t tmp=0;  
+>   
+>   asm volatile("sbiw    %0, 0x01 \n\t"  
+>     "ldi %1, 0xFF \n\t"  
+>     "cpi %A0, 0xFF \n\t"  
+>     "cpc %B0, %1 \n\t"  
+>     "brne .-10 \n\t"  
+>     : "+w" (delay), "+a" (tmp)  
+>     : "0" (delay)  
+>     );  
+> }  
 
 # License
 NanoRiegoPIO is released under the MIT License.
